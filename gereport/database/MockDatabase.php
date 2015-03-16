@@ -144,7 +144,13 @@ class MockDatabase implements Database
 
 	public function updateMemberPassword($id, $newPassword)
 	{
-		// TODO: Implement updateMemberPassword() method.
+		foreach ($this->members as $i => $member)
+		{
+			if ($member['id'] == $id)
+			{
+				$this->members[$i]['password'] = $newPassword;
+			}
+		}
 	}
 
 	public function insertMember($username, $password, $group)

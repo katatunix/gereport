@@ -37,6 +37,8 @@ class MySqlDatabaseTest extends \PHPUnit_Framework_TestCase
 		return $database;
 	}
 
+	//==========================================================================================
+
 	public function testHasMember()
 	{
 		$database = $this->init();
@@ -184,6 +186,8 @@ class MySqlDatabaseTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue($database->isMemberWorkingForProject($thanhId, $a8Id));
 	}
 
+	//==========================================================================================
+
 	public function testHasReport()
 	{
 		$database = $this->init();
@@ -257,5 +261,10 @@ class MySqlDatabaseTest extends \PHPUnit_Framework_TestCase
 		$ids = $database->findReportsByProjectAndDate(1, '2015-02-12');
 
 		$this->assertEquals(3, count($ids));
+	}
+
+	public function testUpdateReport()
+	{
+		// TODO
 	}
 }
