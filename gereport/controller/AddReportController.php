@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 3/16/2015
- * Time: 2:02 PM
- */
 
 namespace gereport\controller;
 

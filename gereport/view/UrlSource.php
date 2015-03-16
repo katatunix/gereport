@@ -13,6 +13,7 @@ interface UrlSource
 
 	public function getReportUrl();
 	public function getAddReportUrl();
+	public function getDelReportUrl();
 
 	public function getOptionsUrl();
 	public function getChangePasswordUrl();

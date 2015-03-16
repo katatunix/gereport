@@ -8,15 +8,16 @@
 			closeText: 'Close'
 		});
 
-		$('#formAddReport').submit(function() {
+		$('#formAddReport, #formDelReport').submit(function() {
 			$(this).find('[name=nextUrl]').val(window.location);
 		});
 	});
 
 	function deleteReport(reportId) {
 		if (confirm('ARE YOU SURE TO DELETE THIS REPORT?')) {
-			$('[name=reportIdToDelete]').val(reportId);
-			$('#deleteForm').submit();
+			var theForm = $('#formDelReport');
+			theForm.find('[name=reportId]').val(reportId);
+			theForm.submit();
 		}
 	}
 </script>
@@ -24,8 +25,8 @@
 <h2><?= $this->title ?></h2>
 
 <form method="get" action="" class="datePicker">
-	<input type="hidden" name="<?= self::PROJECT_ID ?>" value="<?= $this->projectId ?>" />
-	<input type="text" id="d" name="<?= self::DATE_FOR ?>" size="15" readonly value="<?= $this->date ?>" />
+	<input type="hidden" name="p" value="<?= $this->projectId ?>" />
+	<input type="text" id="d" name="d" size="15" readonly value="<?= $this->date ?>" />
 	<input type="submit" value="GO!" />
 </form>
 
@@ -37,16 +38,10 @@
 	<input type="hidden" name="nextUrl" />
 	Compose a report for this day<br /><br />
 	<p><textarea name="content" id="reportContent" class="submitReportTextArea"></textarea></p>
-	<?php if ($this->addReportResultMessage) { ?>
+	<?php if ($this->resultMessage) { ?>
 		<br />
-		<p class="<?= $this->isAddReportSuccess ? 'infoMessage' : 'errorMessage' ?>">
-			<?= $this->addReportResultMessage ?>
-		</p>
-	<?php } ?>
-	<?php if ($this->deleteReportResultMessage) { ?>
-		<br />
-		<p class="<?= $this->isDeleteReportSuccess ? 'infoMessage' : 'errorMessage' ?>">
-			<?= $this->deleteReportResultMessage ?>
+		<p class="<?= $this->isActionSuccess ? 'infoMessage' : 'errorMessage' ?>">
+			<?= $this->resultMessage ?>
 		</p>
 	<?php } ?>
 	<br />
@@ -80,8 +75,7 @@
 
 <br />
 
-<form id="deleteForm" method="post" action="">
-	<input type="hidden" name="p" value="<?= $this->projectId ?>" />
-	<input type="hidden" name="d" value="<?= $this->date ?>" />
-	<input type="hidden" name="reportIdToDelete" />
+<form id="formDelReport" method="post" action="<?= $this->urlSource->getDelReportUrl() ?>">
+	<input type="hidden" name="reportId" />
+	<input type="hidden" name="nextUrl" />
 </form>

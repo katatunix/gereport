@@ -9,30 +9,23 @@ class ReportView extends View
 	private $projectId;
 	private $date;
 
-	private $isAddReportSuccess;
-	private $addReportResultMessage;
+	private $isActionSuccess;
+	private $resultMessage;
 
 	private $isAllowAddReport;
 
-	private $reportIdToDelete;
-	private $isDeleteReportSuccess;
-	private $deleteReportResultMessage;
-
 	private $reports;
 	private $notReportedMembers;
-
-	const PROJECT_ID = 'p';
-	const DATE_FOR = 'd';
 
 	public function __construct($request, $urlSource, $htmlDir)
 	{
 		parent::__construct($request, $urlSource, $htmlDir);
 
-		$this->projectId = $this->request->getData(self::PROJECT_ID);
-		$this->date = $this->request->getData(self::DATE_FOR);
+		$this->projectId = $this->request->getData('p');
+		$this->date = $this->request->getData('d');
 
-		$this->isAddReportSuccess = false;
-		$this->addReportResultMessage = '';
+		$this->isActionSuccess = false;
+		$this->resultMessage = '';
 
 		$this->isAllowAddReport = false;
 		$this->reportIdToDelete = $this->isPostMethod() ? $this->request->getDataPost('reportIdToDelete') : 0;
@@ -73,38 +66,18 @@ class ReportView extends View
 		$this->notReportedMembers[] = $username;
 	}
 
-	public function setIsAddReportSuccess($success)
+	public function setIsActionSuccess($success)
 	{
-		$this->isAddReportSuccess = $success;
+		$this->isActionSuccess = $success;
 	}
 
-	public function setAddReportResultMessage($msg)
+	public function setResultMessage($msg)
 	{
-		$this->addReportResultMessage = $msg;
-	}
-
-	public function isAllowAddReport()
-	{
-		return $this->isAllowAddReport;
+		$this->resultMessage = $msg;
 	}
 
 	public function setAllowAddReport($allow)
 	{
 		$this->isAllowAddReport = $allow;
-	}
-
-	public function getReportIdToDelete()
-	{
-		return $this->reportIdToDelete;
-	}
-
-	public function setDeleteReportResultMessage($msg)
-	{
-		$this->deleteReportResultMessage = $msg;
-	}
-
-	public function setIsDeleteReportSuccess($success)
-	{
-		$this->isDeleteReportSuccess = $success;
 	}
 }

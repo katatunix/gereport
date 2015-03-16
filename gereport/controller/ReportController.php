@@ -26,18 +26,6 @@ class ReportController extends Controller
 
 	public function process()
 	{
-//		if ($this->reportView->isPostMethod() && $this->toolbox->session->isLogged())
-//		{
-//			if ($this->reportView->getReportIdToDelete())
-//			{
-//				$this->processDeleteReport();
-//			}
-//			else
-//			{
-//				$this->processAddReport();
-//			}
-//		}
-
 		$this->processGetReports();
 		$this->processCheckAllowAddReport();
 
@@ -47,33 +35,13 @@ class ReportController extends Controller
 		$resultMessage = $this->toolbox->session->getResultMessage();
 		if ($resultMessage)
 		{
-			$this->reportView->setAddReportResultMessage($resultMessage->content);
-			$this->reportView->setIsAddReportSuccess(!$resultMessage->isError);
+			$this->reportView->setResultMessage($resultMessage->content);
+			$this->reportView->setIsActionSuccess(!$resultMessage->isError);
 			$this->toolbox->session->clearResultMessage();
 		}
 
 		return $this->reportView;
 	}
-
-//	private function processDeleteReport()
-//	{
-//		$tx = new DeleteReportTransaction($this->reportView->getReportIdToDelete(), $this->toolbox->database);
-//		$success = true;
-//		try
-//		{
-//			$tx->execute();
-//		}
-//		catch (\Exception $ex)
-//		{
-//			$this->reportView->setDeleteReportResultMessage($ex->getMessage());
-//			$success = false;
-//		}
-//		if ($success)
-//		{
-//			$this->reportView->setDeleteReportResultMessage('Report was deleted OK');
-//		}
-//		$this->reportView->setIsDeleteReportSuccess($success);
-//	}
 
 	private function processGetReports()
 	{
