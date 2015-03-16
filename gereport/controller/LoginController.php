@@ -43,7 +43,6 @@ class LoginController extends Controller
 			}
 			else
 			{
-				$this->loginView->setUsername($username);
 				$this->loginView->setMessage('Login failed!');
 			}
 		}

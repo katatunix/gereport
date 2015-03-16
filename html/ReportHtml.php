@@ -33,7 +33,7 @@
 	<input type="hidden" name="dateFor" value="<?= $this->date ?>" />
 	<input type="hidden" name="nextUrl" value="<?= $this->currentUri ?>" />
 	Compose a report for this day<br /><br />
-	<p><textarea name="content" id="reportContent" class="submitReportTextArea"></textarea></p>
+	<p><textarea name="content" id="reportContent" class="reportTextArea"></textarea></p>
 	<?php if ($this->resultMessage) { ?>
 		<br />
 		<p class="<?= $this->isActionSuccess ? 'infoMessage' : 'errorMessage' ?>">
