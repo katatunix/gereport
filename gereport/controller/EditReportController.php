@@ -52,7 +52,7 @@ class EditReportController extends Controller
 				$this->view->setIsActionSuccess(!$err);
 				$this->view->setResultMessage($msg);
 			}
-			else
+			else // EDIT SUCCESS
 			{
 				$this->toolbox->redirector->to($this->view->getNextUrl());
 			}

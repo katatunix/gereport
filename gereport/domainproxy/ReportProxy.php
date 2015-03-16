@@ -49,4 +49,9 @@ class ReportProxy extends Proxy implements Report
 			$data['datetimeAdd'],
 			$data['content']);
 	}
+
+	public function update($content, $datetime)
+	{
+		$this->database->updateReport($this->id, $content, $datetime);
+	}
 }

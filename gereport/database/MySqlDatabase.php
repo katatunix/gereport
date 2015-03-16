@@ -247,4 +247,15 @@ class MySqlDatabase implements Database
 		$statement->close();
 		if (!$ok) throw new \Exception('deleteReport: database error');
 	}
+
+	public function updateReport($reportId, $content, $datetime)
+	{
+		$statement = $this->link->prepare('
+			UPDATE `report` SET `content` = ?, `datetimeAdd` = ? WHERE `id` = ?
+		');
+		$statement->bind_param('ssi', $content, $datetime, $reportId);
+		$ok = $statement->execute();
+		$statement->close();
+		if (!$ok) throw new \Exception('updateReport: database error');
+	}
 }

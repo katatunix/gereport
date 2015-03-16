@@ -52,4 +52,10 @@ class ReportImpl implements Report
 	{
 		return !$this->member->isWorkingForProject($this->project->getId());
 	}
+
+	public function update($content, $datetime)
+	{
+		$this->content = $content;
+		$this->datetimeAdd = $datetime;
+	}
 }

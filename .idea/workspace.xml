@@ -40,8 +40,8 @@
       <file leaf-file-name="EditReportController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/controller/EditReportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923" vertical-offset="918" max-vertical-offset="1547">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state vertical-scroll-proportion="14.692307" vertical-offset="926" max-vertical-offset="1547">
+              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
               <folding>
                 <element signature="e#208#255#0#PHP" expanded="true" />
               </folding>
@@ -49,12 +49,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetReportContentTransaction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gereport/transaction/GetReportContentTransaction.php">
+      <file leaf-file-name="MySqlDatabase.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gereport/database/MySqlDatabase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="765">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.8357488" vertical-offset="1708" max-vertical-offset="2329">
+              <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+              <folding>
+                <element signature="e#129#351#0#PHP" expanded="false" />
+                <element signature="e#354#441#0#PHP" expanded="false" />
+                <element signature="e#444#539#0#PHP" expanded="false" />
+                <element signature="e#542#616#0#PHP" expanded="false" />
+                <element signature="e#725#800#0#PHP" expanded="false" />
+                <element signature="e#803#1031#0#PHP" expanded="false" />
+                <element signature="e#1034#1095#0#PHP" expanded="false" />
+                <element signature="e#1303#1380#0#PHP" expanded="false" />
+                <element signature="e#1596#1887#0#PHP" expanded="false" />
+                <element signature="e#1890#2382#0#PHP" expanded="false" />
+                <element signature="e#2385#2446#0#PHP" expanded="false" />
+                <element signature="e#2448#2650#0#PHP" expanded="false" />
+                <element signature="e#2653#2713#0#PHP" expanded="false" />
+                <element signature="e#2715#2896#0#PHP" expanded="false" />
+                <element signature="e#2899#3169#0#PHP" expanded="false" />
+                <element signature="e#3505#3866#0#PHP" expanded="false" />
+                <element signature="e#3975#4052#0#PHP" expanded="false" />
+                <element signature="e#4137#4220#0#PHP" expanded="false" />
+                <element signature="e#4223#4431#0#PHP" expanded="false" />
+                <element signature="e#4434#4715#0#PHP" expanded="false" />
+                <element signature="e#4824#5129#0#PHP" expanded="false" />
+                <element signature="e#5132#5482#0#PHP" expanded="false" />
+                <element signature="e#5591#5666#0#PHP" expanded="false" />
+                <element signature="e#5749#6060#0#PHP" expanded="false" />
+                <marker date="1426526582814" expanded="true" signature="884:936" placeholder="SELECT `id` ..." />
+                <marker date="1426526582814" expanded="true" signature="1464:1513" placeholder="SELECT * FRO..." />
+                <marker date="1426526582814" expanded="true" signature="1692:1757" placeholder="SELECT `id` ..." />
+                <marker date="1426526582814" expanded="true" signature="1992:2258" placeholder="SELECT M.`id..." />
+                <marker date="1426526582814" expanded="true" signature="2997:3056" placeholder="SELECT `id` ..." />
+                <marker date="1426526582814" expanded="true" signature="3608:3677" placeholder="INSERT INTO ..." />
+                <marker date="1426526582814" expanded="true" signature="4315:4380" placeholder="SELECT `id` ..." />
+                <marker date="1426526582814" expanded="true" signature="4511:4550" placeholder="INSERT INTO ..." />
+                <marker date="1426526582814" expanded="true" signature="4933:5012" placeholder="SELECT `memb..." />
+                <marker date="1426526582814" expanded="true" signature="5230:5295" placeholder="INSERT INTO ..." />
+                <marker date="1426526582814" expanded="true" signature="5856:5949" placeholder="SELECT `id` ..." />
+                <marker date="1426526582814" expanded="true" signature="6193:6300" placeholder="INSERT INTO ..." />
+                <marker date="1426526582814" expanded="true" signature="6604:6639" placeholder="DELETE FROM ..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,17 +100,27 @@
       <file leaf-file-name="EditReportTransaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-28.76923" vertical-offset="0" max-vertical-offset="850">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.538462" vertical-offset="109" max-vertical-offset="731">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditReportView.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetReportContentTransaction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gereport/transaction/GetReportContentTransaction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.961538" vertical-offset="144" max-vertical-offset="765">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditReportView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/view/EditReportView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8357488" vertical-offset="552" max-vertical-offset="1173">
+            <state vertical-scroll-proportion="-34.346153" vertical-offset="178" max-vertical-offset="1173">
               <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
@@ -109,9 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/html/ChangePasswordHtml.php" />
-        <option value="$PROJECT_DIR$/gereport/view/ChangePasswordView.php" />
-        <option value="$PROJECT_DIR$/gereport/controller/Toolbox.php" />
         <option value="$PROJECT_DIR$/gereport/handler/Handler.php" />
         <option value="$PROJECT_DIR$/gereport/handler/ChangePasswordHandler.php" />
         <option value="$PROJECT_DIR$/gereport/controller/Controller.php" />
@@ -130,11 +175,8 @@
         <option value="$PROJECT_DIR$/gereport/handler/OptionsHandler.php" />
         <option value="$PROJECT_DIR$/gereport/handler/ReportHandler.php" />
         <option value="$PROJECT_DIR$/html/BannerHtml.php" />
-        <option value="$PROJECT_DIR$/gereport/database/Database.php" />
-        <option value="$PROJECT_DIR$/gereport/database/MockDatabase.php" />
         <option value="$PROJECT_DIR$/gereport/tests/MySqlDatabaseTest.php" />
         <option value="$PROJECT_DIR$/gereport/domainimpl/MemberImpl.php" />
-        <option value="$PROJECT_DIR$/gereport/database/MySqlDatabase.php" />
         <option value="$PROJECT_DIR$/gereport/session/Message.php" />
         <option value="$PROJECT_DIR$/gereport/session/ResultMessage.php" />
         <option value="$PROJECT_DIR$/gereport/controller/Redirector.php" />
@@ -152,14 +194,20 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/gereport/request/Request.php" />
         <option value="$PROJECT_DIR$/gereport/view/ReportView.php" />
-        <option value="$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php" />
         <option value="$PROJECT_DIR$/gereport/handler/EditReportHandler.php" />
         <option value="$PROJECT_DIR$/gereport/controller/LoginController.php" />
         <option value="$PROJECT_DIR$/html/ReportHtml.php" />
-        <option value="$PROJECT_DIR$/gereport/transaction/GetReportContentTransaction.php" />
         <option value="$PROJECT_DIR$/html/EditReportHtml.php" />
         <option value="$PROJECT_DIR$/gereport/controller/EditReportController.php" />
+        <option value="$PROJECT_DIR$/gereport/transaction/GetReportContentTransaction.php" />
+        <option value="$PROJECT_DIR$/gereport/database/Database.php" />
+        <option value="$PROJECT_DIR$/gereport/database/MockDatabase.php" />
+        <option value="$PROJECT_DIR$/gereport/domain/Report.php" />
+        <option value="$PROJECT_DIR$/gereport/domainimpl/ReportImpl.php" />
+        <option value="$PROJECT_DIR$/gereport/domainproxy/ReportProxy.php" />
+        <option value="$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php" />
         <option value="$PROJECT_DIR$/gereport/view/EditReportView.php" />
+        <option value="$PROJECT_DIR$/gereport/database/MySqlDatabase.php" />
       </list>
     </option>
   </component>
@@ -259,57 +307,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transaction" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,6 +326,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domainproxy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domainimpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,7 +520,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5422222" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2711111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -524,52 +576,32 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="31" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/gereport/controller/EditReportController.php</url>
+          <line>31</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php</url>
+          <line>23</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php</url>
+          <line>15</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gereport/domain/Member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.961538" vertical-offset="42" max-vertical-offset="663">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/domainimpl/ProjectImpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="595">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gereport/domainimpl/MemberImpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1003" max-vertical-offset="1105">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/domainimpl/ReportImpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1003">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/database/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="714">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/database/MockDatabase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4050" max-vertical-offset="4658">
-          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,6 +637,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.961538" vertical-offset="152" max-vertical-offset="799">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -858,55 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/database/MySqlDatabase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.9615383" vertical-offset="218" max-vertical-offset="1734">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#129#351#0#PHP" expanded="false" />
-            <element signature="e#354#441#0#PHP" expanded="false" />
-            <element signature="e#444#539#0#PHP" expanded="false" />
-            <element signature="e#542#616#0#PHP" expanded="false" />
-            <element signature="e#725#800#0#PHP" expanded="false" />
-            <element signature="e#803#1031#0#PHP" expanded="false" />
-            <element signature="e#1034#1095#0#PHP" expanded="false" />
-            <element signature="e#1303#1380#0#PHP" expanded="false" />
-            <element signature="e#1596#1887#0#PHP" expanded="false" />
-            <element signature="e#1890#2382#0#PHP" expanded="false" />
-            <element signature="e#2385#2446#0#PHP" expanded="false" />
-            <element signature="e#2448#2650#0#PHP" expanded="false" />
-            <element signature="e#2653#2713#0#PHP" expanded="false" />
-            <element signature="e#2715#2896#0#PHP" expanded="false" />
-            <element signature="e#2899#3169#0#PHP" expanded="false" />
-            <element signature="e#3172#3502#0#PHP" expanded="false" />
-            <element signature="e#3505#3866#0#PHP" expanded="false" />
-            <element signature="e#3975#4052#0#PHP" expanded="false" />
-            <element signature="e#4137#4220#0#PHP" expanded="false" />
-            <element signature="e#4223#4431#0#PHP" expanded="false" />
-            <element signature="e#4434#4715#0#PHP" expanded="false" />
-            <element signature="e#4824#5129#0#PHP" expanded="false" />
-            <element signature="e#5132#5482#0#PHP" expanded="false" />
-            <element signature="e#5591#5666#0#PHP" expanded="false" />
-            <element signature="e#5749#6060#0#PHP" expanded="false" />
-            <element signature="e#6063#6521#0#PHP" expanded="false" />
-            <element signature="e#6524#6807#0#PHP" expanded="false" />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT M.`id..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT `memb..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1423836257762" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/ReportHtml.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5152979" vertical-offset="462" max-vertical-offset="1377">
@@ -952,37 +936,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php">
+    <entry file="file://$PROJECT_DIR$/gereport/database/MockDatabase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.76923" vertical-offset="0" max-vertical-offset="850">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8322368" vertical-offset="4135" max-vertical-offset="4743">
+          <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gereport/database/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8357488" vertical-offset="110" max-vertical-offset="731">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gereport/domainproxy/ReportProxy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8357488" vertical-offset="433" max-vertical-offset="1054">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gereport/domainimpl/ReportImpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9178744" vertical-offset="433" max-vertical-offset="1105">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gereport/domain/Report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30112723" vertical-offset="0" max-vertical-offset="621">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/transaction/GetReportContentTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="765">
+        <state vertical-scroll-proportion="-19.961538" vertical-offset="144" max-vertical-offset="765">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.538462" vertical-offset="109" max-vertical-offset="731">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gereport/view/EditReportView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.346153" vertical-offset="178" max-vertical-offset="1173">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/controller/EditReportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923" vertical-offset="918" max-vertical-offset="1547">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state vertical-scroll-proportion="14.692307" vertical-offset="926" max-vertical-offset="1547">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding>
             <element signature="e#208#255#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gereport/view/EditReportView.php">
+    <entry file="file://$PROJECT_DIR$/gereport/database/MySqlDatabase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8357488" vertical-offset="552" max-vertical-offset="1173">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.8357488" vertical-offset="1708" max-vertical-offset="2329">
+          <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+          <folding>
+            <element signature="e#129#351#0#PHP" expanded="false" />
+            <element signature="e#354#441#0#PHP" expanded="false" />
+            <element signature="e#444#539#0#PHP" expanded="false" />
+            <element signature="e#542#616#0#PHP" expanded="false" />
+            <element signature="e#725#800#0#PHP" expanded="false" />
+            <element signature="e#803#1031#0#PHP" expanded="false" />
+            <element signature="e#1034#1095#0#PHP" expanded="false" />
+            <element signature="e#1303#1380#0#PHP" expanded="false" />
+            <element signature="e#1596#1887#0#PHP" expanded="false" />
+            <element signature="e#1890#2382#0#PHP" expanded="false" />
+            <element signature="e#2385#2446#0#PHP" expanded="false" />
+            <element signature="e#2448#2650#0#PHP" expanded="false" />
+            <element signature="e#2653#2713#0#PHP" expanded="false" />
+            <element signature="e#2715#2896#0#PHP" expanded="false" />
+            <element signature="e#2899#3169#0#PHP" expanded="false" />
+            <element signature="e#3505#3866#0#PHP" expanded="false" />
+            <element signature="e#3975#4052#0#PHP" expanded="false" />
+            <element signature="e#4137#4220#0#PHP" expanded="false" />
+            <element signature="e#4223#4431#0#PHP" expanded="false" />
+            <element signature="e#4434#4715#0#PHP" expanded="false" />
+            <element signature="e#4824#5129#0#PHP" expanded="false" />
+            <element signature="e#5132#5482#0#PHP" expanded="false" />
+            <element signature="e#5591#5666#0#PHP" expanded="false" />
+            <element signature="e#5749#6060#0#PHP" expanded="false" />
+            <marker date="1426526582814" expanded="true" signature="884:936" placeholder="SELECT `id` ..." />
+            <marker date="1426526582814" expanded="true" signature="1464:1513" placeholder="SELECT * FRO..." />
+            <marker date="1426526582814" expanded="true" signature="1692:1757" placeholder="SELECT `id` ..." />
+            <marker date="1426526582814" expanded="true" signature="1992:2258" placeholder="SELECT M.`id..." />
+            <marker date="1426526582814" expanded="true" signature="2997:3056" placeholder="SELECT `id` ..." />
+            <marker date="1426526582814" expanded="true" signature="3608:3677" placeholder="INSERT INTO ..." />
+            <marker date="1426526582814" expanded="true" signature="4315:4380" placeholder="SELECT `id` ..." />
+            <marker date="1426526582814" expanded="true" signature="4511:4550" placeholder="INSERT INTO ..." />
+            <marker date="1426526582814" expanded="true" signature="4933:5012" placeholder="SELECT `memb..." />
+            <marker date="1426526582814" expanded="true" signature="5230:5295" placeholder="INSERT INTO ..." />
+            <marker date="1426526582814" expanded="true" signature="5856:5949" placeholder="SELECT `id` ..." />
+            <marker date="1426526582814" expanded="true" signature="6193:6300" placeholder="INSERT INTO ..." />
+            <marker date="1426526582814" expanded="true" signature="6604:6639" placeholder="DELETE FROM ..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -33,4 +33,5 @@ interface Database
 	public function findReportsByProjectAndDate($projectId, $date);
 	public function insertReport($memberId, $projectId, $dateFor, $datetimeAdd, $content);
 	public function deleteReport($reportId);
+	public function updateReport($reportId, $content, $datetime);
 }

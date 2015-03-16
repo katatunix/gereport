@@ -3,6 +3,9 @@
 namespace gereport\transaction;
 
 __import('transaction/Transaction');
+__import('domainproxy/ReportProxy');
+
+use gereport\domainproxy\ReportProxy;
 
 class EditReportTransaction extends Transaction
 {
@@ -18,27 +21,17 @@ class EditReportTransaction extends Transaction
 
 	public function execute()
 	{
-//		if ( !$this->database->hasMember($this->memberId) )
-//		{
-//			throw new \Exception('The member is not existed!');
-//		}
-//
-//		if ( !$this->database->hasProject($this->projectId) )
-//		{
-//			throw new \Exception('The project is not existed!');
-//		}
-//
-//		if ( !$this->database->isMemberWorkingForProject($this->memberId, $this->projectId) )
-//		{
-//			throw new \Exception('The member is not working for the project!');
-//		}
-//
-//		if (!$this->content || !trim($this->content))
-//		{
-//			throw new \Exception('The report content must not be empty!');
-//		}
-//
-//		$this->database->insertReport($this->memberId, $this->projectId,
-//			$this->dateFor, $this->datetimeAdd, $this->content);
+		if ( !$this->database->hasReport($this->reportId) )
+		{
+			throw new \Exception('The report is not existed!');
+		}
+
+		if (!$this->content || !trim($this->content))
+		{
+			throw new \Exception('The report content must not be empty!');
+		}
+
+		$report = new ReportProxy($this->reportId, $this->database);
+		$report->update($this->content, $this->datetimeEdit);
 	}
 }

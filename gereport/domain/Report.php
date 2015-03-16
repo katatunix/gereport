@@ -8,4 +8,6 @@ interface Report
 	public function getDatetimeAdd();
 	public function getMemberUsername();
 	public function isPast();
+
+	public function update($content, $datetime);
 }

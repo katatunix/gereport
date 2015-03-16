@@ -265,4 +265,9 @@ class MockDatabase implements Database
 			}
 		}
 	}
+
+	public function updateReport($reportId, $content, $datetime)
+	{
+		// TODO
+	}
 }

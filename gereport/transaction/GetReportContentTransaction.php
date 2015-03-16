@@ -28,7 +28,7 @@ class GetReportContentTransaction extends Transaction
 		}
 		else
 		{
-			throw new \Exception('The report is not found!');
+			throw new \Exception('The report is not existed!');
 		}
 	}
 

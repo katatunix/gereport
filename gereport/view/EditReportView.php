@@ -17,8 +17,8 @@ class EditReportView extends View
 	{
 		parent::__construct($request, $urlSource, $htmlDir);
 
-		$this->reportId = $this->request->getData('id');
-		$this->nextUrl = $this->request->getData('next');
+		$this->reportId = $this->request->getDataGet('id');
+		$this->nextUrl = $this->request->getDataGet('next');
 
 		$this->content = $this->request->isPostMethod() ? $this->request->getDataPost('content') : '';
 
