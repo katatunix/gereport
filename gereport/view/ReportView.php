@@ -17,6 +17,8 @@ class ReportView extends View
 	private $reports;
 	private $notReportedMembers;
 
+	private $currentUri;
+
 	public function __construct($request, $urlSource, $htmlDir)
 	{
 		parent::__construct($request, $urlSource, $htmlDir);
@@ -32,6 +34,8 @@ class ReportView extends View
 
 		$this->reports = array();
 		$this->notReportedMembers = array();
+
+		$this->currentUri = $this->request->getUri();
 	}
 
 	public function show()

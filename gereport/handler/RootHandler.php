@@ -18,6 +18,7 @@ class RootHandler extends Handler implements Redirector, UrlSource
 	const REPORT = 'report';
 	const ADD_REPORT = 'report/add';
 	const DEL_REPORT = 'report/del';
+	const EDIT_REPORT = 'report/edit';
 
 	const OPTIONS = 'options';
 	const CHANGE_PASSWORD = 'cpass';
@@ -30,6 +31,7 @@ class RootHandler extends Handler implements Redirector, UrlSource
 		self::REPORT => 'ReportHandler',
 		self::ADD_REPORT => 'AddReportHandler',
 		self::DEL_REPORT => 'DelReportHandler',
+		self::EDIT_REPORT => 'EditReportHandler',
 		self::OPTIONS => 'OptionsHandler',
 		self::CHANGE_PASSWORD => 'ChangePasswordHandler'
 	);
@@ -120,6 +122,11 @@ class RootHandler extends Handler implements Redirector, UrlSource
 	public function getDelReportUrl()
 	{
 		return $this->rootUrl . self::DEL_REPORT;
+	}
+
+	public function getEditReportUrl()
+	{
+		return $this->rootUrl . self::EDIT_REPORT;
 	}
 
 	public function getOptionsUrl()

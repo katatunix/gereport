@@ -7,10 +7,6 @@
 			showButtonPanel: true,
 			closeText: 'Close'
 		});
-
-		$('#formAddReport, #formDelReport').submit(function() {
-			$(this).find('[name=nextUrl]').val(window.location);
-		});
 	});
 
 	function deleteReport(reportId) {
@@ -32,10 +28,10 @@
 
 <?php if ($this->isAllowAddReport) { ?>
 <br />
-<form id="formAddReport" method="post" action="<?= $this->urlSource->getAddReportUrl() ?>">
+<form method="post" action="<?= $this->urlSource->getAddReportUrl() ?>">
 	<input type="hidden" name="projectId" value="<?= $this->projectId ?>" />
 	<input type="hidden" name="dateFor" value="<?= $this->date ?>" />
-	<input type="hidden" name="nextUrl" />
+	<input type="hidden" name="nextUrl" value="<?= $this->currentUri ?>" />
 	Compose a report for this day<br /><br />
 	<p><textarea name="content" id="reportContent" class="submitReportTextArea"></textarea></p>
 	<?php if ($this->resultMessage) { ?>
@@ -51,19 +47,22 @@
 
 <?php foreach ($this->reports as $report) { ?>
 	<br />
-	<p class="reportHeaderReported">
+	<div class="reportHeaderReported">
+
 		<?= htmlspecialchars($report['memberUsername']) ?>
 		<i><?= $report['isPast'] ? '[past member]' : '' ?>
 		at <?= $report['datetimeAdd'] ?></i>
-	</p>
+
+		<?php if ($report['canDelete']) { ?>
+			<div style="float: right">
+				<a href="<?= $this->urlSource->getEditReportUrl() ?>?id=<?= $report['id'] ?>&next=<?=
+						urlencode($this->currentUri) ?>">Edit</a> |
+				<a href="javascript:deleteReport(<?= $report['id'] ?>)">Delete</a>
+			</div>
+		<?php } ?>
+	</div>
 	<br />
 	<p class="reportContent"><?= nl2br(htmlspecialchars($report['content'])) ?></p>
-	<?php if ($report['canDelete']) { ?>
-		<br />
-		<div class="reportDeleteButton">
-			<input type="button" value="Delete" onclick="deleteReport(<?= $report['id'] ?>)" />
-		</div>
-	<?php } ?>
 <?php } ?>
 
 <?php foreach ($this->notReportedMembers as $username) { ?>
@@ -77,5 +76,5 @@
 
 <form id="formDelReport" method="post" action="<?= $this->urlSource->getDelReportUrl() ?>">
 	<input type="hidden" name="reportId" />
-	<input type="hidden" name="nextUrl" />
+	<input type="hidden" name="nextUrl" value="<?= $this->currentUri ?>" />
 </form>
