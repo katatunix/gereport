@@ -2,7 +2,7 @@
 
 <form method="post" action="">
 	Compose a new content of the report<br /><br />
-	<p><textarea name="content" id="content" class="reportTextArea"><?= $this->content ?></textarea></p>
+	<p><textarea name="content" id="content" class="reportTextArea"><?= htmlspecialchars($this->content) ?></textarea></p>
 	<?php if ($this->resultMessage) { ?>
 		<br />
 		<p class="<?= $this->isActionSuccess ? 'infoMessage' : 'errorMessage' ?>">
@@ -10,5 +10,8 @@
 		</p>
 	<?php } ?>
 	<br />
-	<p><input type="submit" value="Save report" /> <input type="button" value="Cancel" /></p>
+	<p>
+		<input type="submit" value="Save report" />
+		<input type="button" value="Cancel" onclick="window.open('<?= $this->nextUrl ?>', '_self')" />
+	</p>
 </form>

@@ -45,4 +45,19 @@ class EditReportView extends View
 	{
 		return $this->nextUrl;
 	}
+
+	public function setContent($content)
+	{
+		$this->content = $content;
+	}
+
+	public function setIsActionSuccess($success)
+	{
+		$this->isActionSuccess = $success;
+	}
+
+	public function setResultMessage($msg)
+	{
+		$this->resultMessage = $msg;
+	}
 }
