@@ -3,17 +3,12 @@
 namespace gereport\controller;
 
 __import('controller/controller');
-__import('transaction/AddReportTransaction');
-__import('transaction/DeleteReportTransaction');
 __import('transaction/GetReportsTransaction');
 __import('transaction/CheckMemberInProjectTransaction');
-__import('utils/DatetimeUtils');
 
-use gereport\transaction\AddReportTransaction;
+use gereport\session\ResultMessage;
 use gereport\transaction\CheckMemberInProjectTransaction;
-use gereport\transaction\DeleteReportTransaction;
 use gereport\transaction\GetReportsTransaction;
-use gereport\utils\DatetimeUtils;
 use gereport\view\ReportView;
 
 class ReportController extends Controller
@@ -31,69 +26,54 @@ class ReportController extends Controller
 
 	public function process()
 	{
-		if ($this->reportView->isPostMethod() && $this->toolbox->session->isLogged())
-		{
-			if ($this->reportView->getReportIdToDelete())
-			{
-				$this->processDeleteReport();
-			}
-			else
-			{
-				$this->processAddReport();
-			}
-		}
+//		if ($this->reportView->isPostMethod() && $this->toolbox->session->isLogged())
+//		{
+//			if ($this->reportView->getReportIdToDelete())
+//			{
+//				$this->processDeleteReport();
+//			}
+//			else
+//			{
+//				$this->processAddReport();
+//			}
+//		}
 
 		$this->processGetReports();
 		$this->processCheckAllowAddReport();
 
+		/**
+		 * @var $resultMessage ResultMessage
+		 */
+		$resultMessage = $this->toolbox->session->getResultMessage();
+		if ($resultMessage)
+		{
+			$this->reportView->setAddReportResultMessage($resultMessage->content);
+			$this->reportView->setIsAddReportSuccess(!$resultMessage->isError);
+			$this->toolbox->session->clearResultMessage();
+		}
+
 		return $this->reportView;
 	}
 
-	private function processAddReport()
-	{
-		$tx = new AddReportTransaction(
-			$this->toolbox->session->getLoggedMemberId(),
-			$this->reportView->getProjectId(),
-			$this->reportView->getDate(),
-			DatetimeUtils::getCurDatetime(),
-			$this->reportView->getAddReportContent(),
-			$this->toolbox->database);
-		$success = true;
-		try
-		{
-			$tx->execute();
-		}
-		catch (\Exception $ex)
-		{
-			$this->reportView->setAddReportResultMessage($ex->getMessage());
-			$success = false;
-		}
-		if ($success)
-		{
-			$this->reportView->setAddReportResultMessage('Report was submited OK');
-		}
-		$this->reportView->setIsAddReportSuccess($success);
-	}
-
-	private function processDeleteReport()
-	{
-		$tx = new DeleteReportTransaction($this->reportView->getReportIdToDelete(), $this->toolbox->database);
-		$success = true;
-		try
-		{
-			$tx->execute();
-		}
-		catch (\Exception $ex)
-		{
-			$this->reportView->setDeleteReportResultMessage($ex->getMessage());
-			$success = false;
-		}
-		if ($success)
-		{
-			$this->reportView->setDeleteReportResultMessage('Report was deleted OK');
-		}
-		$this->reportView->setIsDeleteReportSuccess($success);
-	}
+//	private function processDeleteReport()
+//	{
+//		$tx = new DeleteReportTransaction($this->reportView->getReportIdToDelete(), $this->toolbox->database);
+//		$success = true;
+//		try
+//		{
+//			$tx->execute();
+//		}
+//		catch (\Exception $ex)
+//		{
+//			$this->reportView->setDeleteReportResultMessage($ex->getMessage());
+//			$success = false;
+//		}
+//		if ($success)
+//		{
+//			$this->reportView->setDeleteReportResultMessage('Report was deleted OK');
+//		}
+//		$this->reportView->setIsDeleteReportSuccess($success);
+//	}
 
 	private function processGetReports()
 	{

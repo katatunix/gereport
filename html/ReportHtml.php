@@ -7,6 +7,10 @@
 			showButtonPanel: true,
 			closeText: 'Close'
 		});
+
+		$('#formAddReport').submit(function() {
+			$(this).find('[name=nextUrl]').val(window.location);
+		});
 	});
 
 	function deleteReport(reportId) {
@@ -20,19 +24,19 @@
 <h2><?= $this->title ?></h2>
 
 <form method="get" action="" class="datePicker">
-	<input type="hidden" name="p" value="<?= $this->projectId ?>" />
-	<input type="text" id="d" name="d" size="15" readonly value="<?= $this->date ?>" />
+	<input type="hidden" name="<?= self::PROJECT_ID ?>" value="<?= $this->projectId ?>" />
+	<input type="text" id="d" name="<?= self::DATE_FOR ?>" size="15" readonly value="<?= $this->date ?>" />
 	<input type="submit" value="GO!" />
 </form>
 
 <?php if ($this->isAllowAddReport) { ?>
 <br />
-<form method="post" action="">
-	<input type="hidden" name="p" value="<?= $this->projectId ?>" />
-	<input type="hidden" name="d" value="<?= $this->date ?>" />
+<form id="formAddReport" method="post" action="<?= $this->urlSource->getAddReportUrl() ?>">
+	<input type="hidden" name="projectId" value="<?= $this->projectId ?>" />
+	<input type="hidden" name="dateFor" value="<?= $this->date ?>" />
+	<input type="hidden" name="nextUrl" />
 	Compose a report for this day<br /><br />
-	<p><textarea name="reportContent" id="reportContent"
-				 class="submitReportTextArea"></textarea></p>
+	<p><textarea name="content" id="reportContent" class="submitReportTextArea"></textarea></p>
 	<?php if ($this->addReportResultMessage) { ?>
 		<br />
 		<p class="<?= $this->isAddReportSuccess ? 'infoMessage' : 'errorMessage' ?>">

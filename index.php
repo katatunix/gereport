@@ -22,7 +22,7 @@ session_start();
 $toolbox = new Toolbox();
 
 $toolbox->database = new MySqlDatabase('localhost', 'root', '', 'gereport');
-$toolbox->session = new Session('gereport_session_key');
+$toolbox->session = new Session('gereport_session_key_logged_id', 'gereport_session_key_result_message');
 $toolbox->request = new Request($_SERVER['REQUEST_METHOD'] == 'POST', $_POST, $_GET);
 $toolbox->htmlDir = __ROOT_DIR . '../html/';
 

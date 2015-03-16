@@ -11,21 +11,23 @@ use gereport\view\UrlSource;
 
 class RootHandler extends Handler implements Redirector, UrlSource
 {
-	const INDEX_RT = '';
-	const LOGIN_RT = 'login';
-	const LOGOUT_RT = 'logout';
-	const REPORT_RT = 'report';
-	const OPTIONS_RT = 'options';
-	const CHANGE_PASSWORD_RT = 'cpass';
+	const INDEX = '';
+	const LOGIN = 'login';
+	const LOGOUT = 'logout';
+	const REPORT = 'report';
+	const ADD_REPORT = 'report/add';
+	const OPTIONS = 'options';
+	const CHANGE_PASSWORD = 'cpass';
 
 	private $map = array
 	(
-		self::INDEX_RT => 'IndexHandler',
-		self::LOGIN_RT => 'LoginHandler',
-		self::LOGOUT_RT => 'LogoutHandler',
-		self::REPORT_RT => 'ReportHandler',
-		self::OPTIONS_RT => 'OptionsHandler',
-		self::CHANGE_PASSWORD_RT => 'ChangePasswordHandler'
+		self::INDEX => 'IndexHandler',
+		self::LOGIN => 'LoginHandler',
+		self::LOGOUT => 'LogoutHandler',
+		self::REPORT => 'ReportHandler',
+		self::ADD_REPORT => 'AddReportHandler',
+		self::OPTIONS => 'OptionsHandler',
+		self::CHANGE_PASSWORD => 'ChangePasswordHandler'
 	);
 
 	private $rootUrl;
@@ -70,6 +72,11 @@ class RootHandler extends Handler implements Redirector, UrlSource
 		$this->redirect($this->getLogoutUrl());
 	}
 
+	public function to($url)
+	{
+		$this->redirect($url);
+	}
+
 	private function redirect($url)
 	{
 		header('LOCATION: ' . $url);
@@ -88,26 +95,31 @@ class RootHandler extends Handler implements Redirector, UrlSource
 
 	public function getLoginUrl()
 	{
-		return $this->rootUrl . self::LOGIN_RT;
+		return $this->rootUrl . self::LOGIN;
 	}
 
 	public function getLogoutUrl()
 	{
-		return $this->rootUrl . self::LOGOUT_RT;
+		return $this->rootUrl . self::LOGOUT;
 	}
 
 	public function getReportUrl()
 	{
-		return $this->rootUrl . self::REPORT_RT;
+		return $this->rootUrl . self::REPORT;
+	}
+
+	public function getAddReportUrl()
+	{
+		return $this->rootUrl . self::ADD_REPORT;
 	}
 
 	public function getOptionsUrl()
 	{
-		return $this->rootUrl . self::OPTIONS_RT;
+		return $this->rootUrl . self::OPTIONS;
 	}
 
 	public function getChangePasswordUrl()
 	{
-		return $this->rootUrl . self::CHANGE_PASSWORD_RT;
+		return $this->rootUrl . self::CHANGE_PASSWORD;
 	}
 }

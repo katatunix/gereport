@@ -9,7 +9,6 @@ class ReportView extends View
 	private $projectId;
 	private $date;
 
-	private $addReportContent;
 	private $isAddReportSuccess;
 	private $addReportResultMessage;
 
@@ -22,16 +21,19 @@ class ReportView extends View
 	private $reports;
 	private $notReportedMembers;
 
+	const PROJECT_ID = 'p';
+	const DATE_FOR = 'd';
+
 	public function __construct($request, $urlSource, $htmlDir)
 	{
 		parent::__construct($request, $urlSource, $htmlDir);
 
-		$this->projectId = $this->request->getData('p');
-		$this->date = $this->request->getData('d');
+		$this->projectId = $this->request->getData(self::PROJECT_ID);
+		$this->date = $this->request->getData(self::DATE_FOR);
 
-		$this->addReportContent = $this->isPostMethod() ? $this->request->getDataPost('reportContent') : '';
 		$this->isAddReportSuccess = false;
 		$this->addReportResultMessage = '';
+
 		$this->isAllowAddReport = false;
 		$this->reportIdToDelete = $this->isPostMethod() ? $this->request->getDataPost('reportIdToDelete') : 0;
 
@@ -54,11 +56,6 @@ class ReportView extends View
 	public function getDate()
 	{
 		return $this->date;
-	}
-
-	public function getAddReportContent()
-	{
-		return $this->addReportContent;
 	}
 
 	public function setDate($date)
