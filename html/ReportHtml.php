@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?= $this->urlSource->getHtmlUrl() ?>js/tinymce/tinymce.min.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#d').datepicker({
@@ -7,6 +9,13 @@
 			showButtonPanel: true,
 			closeText: 'Close'
 		});
+		
+		tinymce.init({
+			selector: "#reportContent",
+			height: 250
+		});
+		
+		setTimeout(function(){ $('#resultMessage').hide(1500); }, 3000);
 	});
 
 	function deleteReport(reportId) {
@@ -32,13 +41,15 @@
 	<input type="hidden" name="projectId" value="<?= $this->projectId ?>" />
 	<input type="hidden" name="dateFor" value="<?= $this->date ?>" />
 	<input type="hidden" name="nextUrl" value="<?= $this->currentUri ?>" />
-	Compose a report for this day<br /><br />
+	<b>Compose a report for this day</b><br /><br />
 	<p><textarea name="content" id="reportContent" class="reportTextArea"></textarea></p>
 	<?php if ($this->resultMessage) { ?>
-		<br />
-		<p class="<?= $this->isActionSuccess ? 'infoMessage' : 'errorMessage' ?>">
-			<?= $this->resultMessage ?>
-		</p>
+		<div id="resultMessage">
+			<br />
+			<p class="<?= $this->isActionSuccess ? 'infoMessage' : 'errorMessage' ?>">
+				<?= $this->resultMessage ?>
+			</p>
+		</div>
 	<?php } ?>
 	<br />
 	<p><input type="submit" value="Submit report" /></p>
@@ -48,7 +59,6 @@
 <?php foreach ($this->reports as $report) { ?>
 	<br />
 	<div class="reportHeaderReported">
-
 		<?= htmlspecialchars($report['memberUsername']) ?>
 		<i><?= $report['isPast'] ? '[past member]' : '' ?>
 		at <?= $report['datetimeAdd'] ?></i>
@@ -61,14 +71,14 @@
 			</div>
 		<?php } ?>
 	</div>
-	<br />
-	<p class="reportContent"><?= nl2br(htmlspecialchars($report['content'])) ?></p>
+	
+	<div class="reportContent"><?= $report['content'] ?></div>
 <?php } ?>
 
 <?php foreach ($this->notReportedMembers as $username) { ?>
 	<br />
 	<p class="reportHeaderNotReported"><?= htmlspecialchars($username) ?></p>
-	<br />
+	
 	<p class="reportContent">No report</p>
 <?php } ?>
 

@@ -1,7 +1,17 @@
 <h2><?= $this->title ?></h2>
 
+<script type="text/javascript" src="<?= $this->urlSource->getHtmlUrl() ?>js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		tinymce.init({
+			selector: "#content",
+			height: 250
+		});
+	});
+</script>
+
 <form method="post" action="">
-	Compose a new content of the report<br /><br />
+	<b>Compose a new content for the report</b><br /><br />
 	<p><textarea name="content" id="content" class="reportTextArea"><?= htmlspecialchars($this->content) ?></textarea></p>
 	<?php if ($this->resultMessage) { ?>
 		<br />

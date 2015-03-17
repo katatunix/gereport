@@ -149,7 +149,17 @@ textarea {
 }
 
 .reportContent {
-	margin-left: 20px;
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+.reportContent p {
+	margin-top: 10px;
+}
+
+.reportContent ul, .reportContent ol, blockquote {
+	padding-left: 30px;
+	margin-top: 10px;
 }
 
 .reportDeleteButton {
