@@ -16,7 +16,7 @@ class EditReportTransaction extends Transaction
 		parent::__construct($database);
 		$this->reportId		= $reportId;
 		$this->datetimeEdit	= $datetimeEdit;
-		$this->content		= $content;
+		$this->content		= trim($content);
 	}
 
 	public function execute()
@@ -26,7 +26,7 @@ class EditReportTransaction extends Transaction
 			throw new \Exception('The report is not existed!');
 		}
 
-		if (!$this->content || !trim($this->content))
+		if (!$this->content)
 		{
 			throw new \Exception('The report content must not be empty!');
 		}

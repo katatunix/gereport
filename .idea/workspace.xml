@@ -25,21 +25,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MySqlDatabaseTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MySqlDatabaseTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/tests/MySqlDatabaseTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8357488" vertical-offset="3986" max-vertical-offset="4607">
+            <state vertical-scroll-proportion="-19.961538" vertical-offset="3986" max-vertical-offset="4607">
               <caret line="270" column="0" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetProjectsTransaction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gereport/transaction/GetProjectsTransaction.php">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.961538" vertical-offset="42" max-vertical-offset="663">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2481" max-vertical-offset="3162">
+              <caret line="153" column="19" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportHtml.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/ReportHtml.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.273752" vertical-offset="918" max-vertical-offset="1717">
+              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -48,7 +58,7 @@
       <file leaf-file-name="GetReportsTransaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/transaction/GetReportsTransaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="35.615383" vertical-offset="926" max-vertical-offset="1547">
+            <state vertical-scroll-proportion="0.0" vertical-offset="926" max-vertical-offset="1547">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -58,7 +68,7 @@
       <file leaf-file-name="MockDatabase.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/database/MockDatabase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.269231" vertical-offset="2256" max-vertical-offset="4845">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2256" max-vertical-offset="4845">
               <caret line="153" column="5" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
               <folding />
             </state>
@@ -68,7 +78,7 @@
       <file leaf-file-name="ChangePasswordTransactionTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/tests/ChangePasswordTransactionTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.23077" vertical-offset="408" max-vertical-offset="1088">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1088">
               <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="e#158#193#0#PHP" expanded="true" />
@@ -80,7 +90,7 @@
       <file leaf-file-name="AddReportTransactionTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/tests/AddReportTransactionTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537" vertical-offset="357" max-vertical-offset="1292">
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1292">
               <caret line="33" column="7" selection-start-line="31" selection-start-column="4" selection-end-line="33" selection-end-column="7" />
               <folding>
                 <element signature="e#153#188#0#PHP" expanded="true" />
@@ -92,7 +102,7 @@
       <file leaf-file-name="CheckMemberInProjectTransaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/transaction/CheckMemberInProjectTransaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.192307" vertical-offset="115" max-vertical-offset="612">
+            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="612">
               <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
@@ -102,7 +112,7 @@
       <file leaf-file-name="MemberProxy.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/domainproxy/MemberProxy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.6153846" vertical-offset="347" max-vertical-offset="1139">
+            <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="1139">
               <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
@@ -112,7 +122,7 @@
       <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gereport/database/Database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.9615383" vertical-offset="125" max-vertical-offset="731">
+            <state vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="731">
               <caret line="18" column="39" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="39" />
               <folding />
             </state>
@@ -162,7 +172,6 @@
         <option value="$PROJECT_DIR$/gereport/view/ReportView.php" />
         <option value="$PROJECT_DIR$/gereport/handler/EditReportHandler.php" />
         <option value="$PROJECT_DIR$/gereport/controller/LoginController.php" />
-        <option value="$PROJECT_DIR$/html/ReportHtml.php" />
         <option value="$PROJECT_DIR$/html/EditReportHtml.php" />
         <option value="$PROJECT_DIR$/gereport/controller/EditReportController.php" />
         <option value="$PROJECT_DIR$/gereport/transaction/GetReportContentTransaction.php" />
@@ -173,13 +182,14 @@
         <option value="$PROJECT_DIR$/gereport/transaction/EditReportTransaction.php" />
         <option value="$PROJECT_DIR$/gereport/view/EditReportView.php" />
         <option value="$PROJECT_DIR$/gereport/database/MySqlDatabase.php" />
-        <option value="$PROJECT_DIR$/html/css/style.css" />
         <option value="$PROJECT_DIR$/gereport/tests/MySqlDatabaseTest.php" />
         <option value="$PROJECT_DIR$/gereport/tests/Test.php" />
         <option value="$PROJECT_DIR$/gereport/tests/GetUsernameTransactionTest.php" />
         <option value="$PROJECT_DIR$/gereport/tests/GetReportContentTransactionTest.php" />
         <option value="$PROJECT_DIR$/gereport/database/MockDatabase.php" />
         <option value="$PROJECT_DIR$/gereport/tests/ChangePasswordTransactionTest.php" />
+        <option value="$PROJECT_DIR$/html/css/style.css" />
+        <option value="$PROJECT_DIR$/html/ReportHtml.php" />
       </list>
     </option>
   </component>
@@ -251,6 +261,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -279,7 +290,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
+              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -293,35 +304,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
+              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="transaction" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gereport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -366,15 +358,15 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <configuration default="false" name="gereport" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" server_name="Unnamed" start_url="/gereport">
@@ -398,7 +390,7 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SpellCheckerSettings" BundledDictionaries="6" BundledDictionary0="jetbrains.dic" BundledDictionary1="twig.dic" BundledDictionary2="english.dic" BundledDictionary3="less.dic" BundledDictionary4="php.dic" BundledDictionary5="css.dic" Folders="0" Dictionaries="0" />
+  <component name="SpellCheckerSettings" BundledDictionaries="6" BundledDictionary0="jetbrains.dic" BundledDictionary1="twig.dic" BundledDictionary2="english.dic" BundledDictionary3="php.dic" BundledDictionary4="less.dic" BundledDictionary5="css.dic" Folders="0" Dictionaries="0" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -422,19 +414,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25153375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2711111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1837037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2711111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1837037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -453,9 +445,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25153375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28444445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -646,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/ReportHtml.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5152979" vertical-offset="462" max-vertical-offset="1377">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gereport/view/OptionsView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49275362" vertical-offset="0" max-vertical-offset="621">
@@ -664,7 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1581">
           <caret line="80" column="5" selection-start-line="72" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,7 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="1173">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -701,9 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="510">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#154#187#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,19 +726,6 @@
             <element signature="e#5132#5482#0#PHP" expanded="false" />
             <element signature="e#5591#5666#0#PHP" expanded="false" />
             <element signature="e#5749#6060#0#PHP" expanded="false" />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT M.`id..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT `memb..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1426526582814" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -775,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="765">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,15 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="391">
           <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="730" max-vertical-offset="2958">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -799,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="527">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,13 +763,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.961538" vertical-offset="93" max-vertical-offset="714">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/transaction/GetProjectsTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.961538" vertical-offset="42" max-vertical-offset="663">
+        <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="663">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
@@ -823,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2692308" vertical-offset="59" max-vertical-offset="680">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80657643" vertical-offset="212" max-vertical-offset="1292">
           <caret line="39" column="77" selection-start-line="39" selection-start-column="77" selection-end-line="39" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -839,9 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13152805" vertical-offset="0" max-vertical-offset="578">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="8" selection-end-column="48" />
-          <folding>
-            <element signature="e#118#153#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,15 +799,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.0" vertical-offset="255" max-vertical-offset="799">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#169#204#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/database/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.9615383" vertical-offset="125" max-vertical-offset="731">
+        <state vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="731">
           <caret line="18" column="39" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="39" />
           <folding />
         </state>
@@ -865,7 +812,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/domainproxy/MemberProxy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6153846" vertical-offset="347" max-vertical-offset="1139">
+        <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="1139">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
@@ -875,13 +822,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.0958905" vertical-offset="0" max-vertical-offset="1020">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/transaction/GetReportsTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="35.615383" vertical-offset="926" max-vertical-offset="1547">
+        <state vertical-scroll-proportion="0.0" vertical-offset="926" max-vertical-offset="1547">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -889,7 +835,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/database/MockDatabase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.269231" vertical-offset="2256" max-vertical-offset="4845">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2256" max-vertical-offset="4845">
           <caret line="153" column="5" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
           <folding />
         </state>
@@ -897,7 +843,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/transaction/CheckMemberInProjectTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.192307" vertical-offset="115" max-vertical-offset="612">
+        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="612">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
@@ -905,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/tests/AddReportTransactionTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537" vertical-offset="357" max-vertical-offset="1292">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1292">
           <caret line="33" column="7" selection-start-line="31" selection-start-column="4" selection-end-line="33" selection-end-column="7" />
           <folding>
             <element signature="e#153#188#0#PHP" expanded="true" />
@@ -915,7 +861,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/tests/ChangePasswordTransactionTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.23077" vertical-offset="408" max-vertical-offset="1088">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1088">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="e#158#193#0#PHP" expanded="true" />
@@ -925,8 +871,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gereport/tests/MySqlDatabaseTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8357488" vertical-offset="3986" max-vertical-offset="4607">
+        <state vertical-scroll-proportion="-19.961538" vertical-offset="3986" max-vertical-offset="4607">
           <caret line="270" column="0" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2481" max-vertical-offset="3162">
+          <caret line="153" column="19" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ReportHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.273752" vertical-offset="918" max-vertical-offset="1717">
+          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="10" />
           <folding />
         </state>
       </provider>

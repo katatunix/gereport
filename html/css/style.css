@@ -151,10 +151,12 @@ textarea {
 .reportContent {
 	margin-left: 30px;
 	margin-top: 15px;
+	margin-right: 30px;
 }
 
 .reportContent p {
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .reportContent ul, .reportContent ol, blockquote {

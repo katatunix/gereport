@@ -15,7 +15,7 @@ class AddReportTransaction extends Transaction
 		$this->projectId	= $projectId;
 		$this->dateFor		= $dateFor;
 		$this->datetimeAdd	= $datetimeAdd;
-		$this->content		= $content;
+		$this->content		= trim($content);
 	}
 
 	public function execute()
@@ -35,7 +35,7 @@ class AddReportTransaction extends Transaction
 			throw new \Exception('The member is not working for the project!');
 		}
 
-		if (!$this->content || !trim($this->content))
+		if (!$this->content)
 		{
 			throw new \Exception('The report content must not be empty!');
 		}
