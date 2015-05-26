@@ -2,11 +2,9 @@
 
 namespace gereport\handler;
 
-__import('view/DelReportView');
 __import('controller/DelReportController');
 
 use gereport\controller\DelReportController;
-use gereport\view\DelReportView;
 
 class DelReportHandler extends Handler
 {
@@ -15,8 +13,6 @@ class DelReportHandler extends Handler
 	 */
 	public function handle()
 	{
-		$view = new DelReportView($this->toolbox->request, $this->toolbox->urlSource, $this->toolbox->htmlDir);
-		$controller = new DelReportController($view, $this->toolbox);
-		$controller->process();
+		(new DelReportController($this->toolbox))->process();
 	}
 }

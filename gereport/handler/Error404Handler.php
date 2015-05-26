@@ -11,6 +11,6 @@ class Error404Handler extends MainLayoutHandler
 {
 	public function getContentView()
 	{
-		return new Error404View($this->toolbox->request, $this->toolbox->urlSource, $this->toolbox->htmlDir);
+		return new Error404View($this->toolbox->urlSource, $this->toolbox->htmlDir);
 	}
 }

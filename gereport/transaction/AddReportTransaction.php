@@ -35,7 +35,7 @@ class AddReportTransaction extends Transaction
 			throw new \Exception('The member is not working for the project!');
 		}
 
-		if (!$this->content)
+		if ( !$this->content )
 		{
 			throw new \Exception('The report content must not be empty!');
 		}

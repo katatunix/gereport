@@ -13,23 +13,21 @@ use gereport\view\LoginView;
 
 class LoginController extends Controller
 {
-	/**
-	 * @var LoginView
-	 */
-	private $loginView;
 
-	public function __construct($loginView, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->loginView = $loginView;
 	}
 
 	public function process()
 	{
-		if ($this->loginView->isPostMethod())
+		$request = $this->toolbox->request;
+		$loginView = new LoginView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+
+		if ($request->isPostMethod())
 		{
-			$username = $this->loginView->getUsername();
-			$password = $this->loginView->getPassword();
+			$username = $request->getDataPost('username');
+			$password = $request->getDataPost('password');
 
 			$transaction = new LoginTransaction($username, $password, $this->toolbox->database);
 			$transaction->execute();
@@ -43,10 +41,12 @@ class LoginController extends Controller
 			}
 			else
 			{
-				$this->loginView->setMessage('Login failed!');
+				$loginView->setMessage('Login failed!')->setUsername($username);
 			}
 		}
-		$this->loginView->setTitle('Login to the Hell');
-		return $this->loginView;
+
+		$loginView->setTitle('Login to the Hell');
+		return $loginView;
 	}
+
 }

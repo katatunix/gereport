@@ -6,36 +6,48 @@ __import('controller/Controller');
 __import('transaction/EditReportTransaction');
 __import('transaction/GetReportContentTransaction');
 __import('utils/DatetimeUtils');
+__import('view/EditReportView');
+__import('view/Error403View');
 
 use gereport\transaction\EditReportTransaction;
 use gereport\transaction\GetReportContentTransaction;
 use gereport\utils\DatetimeUtils;
 use gereport\view\EditReportView;
+use gereport\view\Error403View;
 
 class EditReportController extends Controller
 {
-	/**
-	 * @var EditReportView
-	 */
-	private $view;
-
-	public function __construct($view, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->view = $view;
 	}
 
 	public function process()
 	{
-		if ($this->toolbox->request->isPostMethod())
+		if (!$this->toolbox->session->isLogged())
 		{
+			return new Error403View($this->toolbox->urlSource, $this->toolbox->htmlDir);
+		}
+
+		$request = $this->toolbox->request;
+		$view = new EditReportView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+
+		$reportId = $request->getDataGet('id');
+		$nextUrl = $request->getDataGet('next');
+
+		$view->setNextUrl($nextUrl);
+
+		if ($request->isPostMethod())
+		{
+			$content = $request->getDataPost('content');
+
 			$tx = new EditReportTransaction(
-				$this->view->getReportId(),
+				$reportId,
 				DatetimeUtils::getCurDatetime(),
-				$this->view->getContent(),
+				$content,
 				$this->toolbox->database);
 
-			$msg = 'Report was edited OK';
+			$msg = 'Report was saved OK';
 			$err = false;
 			try
 			{
@@ -49,22 +61,25 @@ class EditReportController extends Controller
 
 			if ($err)
 			{
-				$this->view->setIsActionSuccess(!$err);
-				$this->view->setResultMessage($msg);
+				$view->setIsActionSuccess(!$err);
+				$view->setResultMessage($msg);
+				$view->setContent( $content );
 			}
 			else // EDIT SUCCESS
 			{
-				$this->toolbox->redirector->to($this->view->getNextUrl());
+				$this->toolbox->session->setResultMessage($msg, $err);
+				$this->toolbox->redirector->to( $nextUrl );
 			}
 		}
 		else // GET method
 		{
-			$tx = new GetReportContentTransaction($this->view->getReportId(), $this->toolbox->database);
+			$tx = new GetReportContentTransaction( $reportId, $this->toolbox->database );
 			$msg = '';
 			$err = false;
 			try
 			{
 				$tx->execute();
+				$view->setContent( $tx->getContent() );
 			}
 			catch (\Exception $ex)
 			{
@@ -72,14 +87,13 @@ class EditReportController extends Controller
 				$err = true;
 			}
 
-			$this->view->setIsActionSuccess(!$err);
-			$this->view->setResultMessage($msg);
-
-			$this->view->setContent($tx->getContent());
+			$view->setIsActionSuccess(!$err);
+			$view->setResultMessage($msg);
 		}
 
-		$this->view->setTitle('Edit report');
+		$view->setTitle('Edit report');
 
-		return $this->view;
+		return $view;
 	}
+
 }

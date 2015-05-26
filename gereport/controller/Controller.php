@@ -3,12 +3,9 @@
 namespace gereport\controller;
 
 /**
- * A controller gets inputs from a view, executes transactions,
- * and then return either the same view or another view stored outputs.
- * In some cases, a controller might redirect to another URL by using the $redirector.
+ * A controller gets inputs from a request, executes transactions, and then return a view.
+ * In some cases, a controller might redirect to another URL by using the $toolbox->redirector.
  */
-
-use gereport\view\View;
 
 abstract class Controller
 {

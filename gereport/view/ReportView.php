@@ -19,23 +19,18 @@ class ReportView extends View
 
 	private $currentUri;
 
-	public function __construct($request, $urlSource, $htmlDir)
+	public function __construct($urlSource, $htmlDir, $currentUri)
 	{
-		parent::__construct($request, $urlSource, $htmlDir);
+		parent::__construct($urlSource, $htmlDir);
 
-		$this->projectId = $this->request->getData('p');
-		$this->date = $this->request->getData('d');
 
 		$this->isActionSuccess = false;
-		$this->resultMessage = '';
-
 		$this->isAllowAddReport = false;
-		$this->reportIdToDelete = $this->isPostMethod() ? $this->request->getDataPost('reportIdToDelete') : 0;
 
 		$this->reports = array();
 		$this->notReportedMembers = array();
 
-		$this->currentUri = $this->request->getUri();
+		$this->currentUri = $currentUri;
 	}
 
 	public function show()
@@ -45,14 +40,9 @@ class ReportView extends View
 
 	//============================================================================
 
-	public function getProjectId()
+	public function setProjectId($pid)
 	{
-		return $this->projectId;
-	}
-
-	public function getDate()
-	{
-		return $this->date;
+		$this->projectId = $pid;
 	}
 
 	public function setDate($date)

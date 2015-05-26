@@ -2,17 +2,8 @@
 
 namespace gereport\view;
 
-__import('request/Request');
-
-use gereport\request\Request;
-
 abstract class View
 {
-	/**
-	 * @var Request
-	 */
-	protected $request;
-
 	/**
 	 * @var UrlSource
 	 */
@@ -22,16 +13,10 @@ abstract class View
 
 	protected $title;
 
-	public function __construct($request, $urlSource, $htmlDir)
+	public function __construct($urlSource, $htmlDir)
 	{
-		$this->request = $request;
 		$this->urlSource = $urlSource;
 		$this->htmlDir = $htmlDir;
-	}
-
-	public function isPostMethod()
-	{
-		return $this->request->isPostMethod();
 	}
 
 	public function setTitle($val)

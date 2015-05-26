@@ -3,19 +3,19 @@
 namespace gereport\controller;
 
 __import('controller/controller');
+__import('view/FooterView');
+
+use gereport\view\FooterView;
 
 class FooterController extends Controller
 {
-	private $footerView;
-
-	public function __construct($footerView, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->footerView = $footerView;
 	}
 
 	public function process()
 	{
-		return $this->footerView;
+		return new FooterView($this->toolbox->urlSource, $this->toolbox->htmlDir);
 	}
 }

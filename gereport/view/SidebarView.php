@@ -8,6 +8,11 @@ class SidebarView extends View
 {
 	private $projects = array();
 
+	public function __construct($urlSource, $htmlDir)
+	{
+		parent::__construct($urlSource, $htmlDir);
+	}
+
 	public function show()
 	{
 		require $this->htmlDir . 'SidebarHtml.php';

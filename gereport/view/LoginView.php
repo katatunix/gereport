@@ -7,35 +7,23 @@ __import('view/View');
 class LoginView extends View
 {
 	private $username;
-	private $password;
 	private $message;
 
-	public function __construct($request, $urlSource, $htmlDir)
+	public function __construct($urlSource, $htmlDir)
 	{
-		parent::__construct($request, $urlSource, $htmlDir);
-		$this->username = $this->isPostMethod() ? $this->request->getDataPost('username') : '';
-		$this->password = $this->isPostMethod() ? $this->request->getDataPost('password') : '';
-		$this->message = '';
-	}
-
-	public function getUsername()
-	{
-		return $this->username;
-	}
-
-	public function getPassword()
-	{
-		return $this->password;
+		parent::__construct($urlSource, $htmlDir);
 	}
 
 	public function setUsername($val)
 	{
 		$this->username = $val;
+		return $this;
 	}
 
 	public function setMessage($val)
 	{
 		$this->message = $val;
+		return $this;
 	}
 
 	public function show()

@@ -8,44 +8,49 @@ __import('utils/DatetimeUtils');
 
 use gereport\transaction\AddReportTransaction;
 use gereport\utils\DatetimeUtils;
-use gereport\view\AddReportView;
 
 class AddReportController extends Controller
 {
-	/**
-	 * @var AddReportView
-	 */
-	private $view;
-
-	public function __construct($view, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->view = $view;
 	}
 
 	public function process()
 	{
-		$tx = new AddReportTransaction(
-			$this->toolbox->session->getLoggedMemberId(),
-			$this->view->getProjectId(),
-			$this->view->getDateFor(),
-			DatetimeUtils::getCurDatetime(),
-			$this->view->getContent(),
-			$this->toolbox->database);
+		$request = $this->toolbox->request;
 
-		$msg = 'Report was submited OK';
-		$err = false;
-		try
+		if (!$this->toolbox->session->isLogged())
 		{
-			$tx->execute();
-		}
-		catch (\Exception $ex)
-		{
-			$msg = $ex->getMessage();
+			$msg = 'Access denied';
 			$err = true;
+		}
+		else
+		{
+			$tx = new AddReportTransaction(
+				$this->toolbox->session->getLoggedMemberId(),
+				$request->getData('projectId'),
+				$request->getData('dateFor'),
+				DatetimeUtils::getCurDatetime(),
+				$request->getData('content'),
+				$this->toolbox->database);
+
+			$msg = 'Report was submited OK';
+			$err = false;
+			try
+			{
+				$tx->execute();
+			}
+			catch (\Exception $ex)
+			{
+				$msg = $ex->getMessage();
+				$err = true;
+			}
 		}
 
 		$this->toolbox->session->setResultMessage($msg, $err);
-		$this->toolbox->redirector->to($this->view->getNextUrl());
+		$this->toolbox->redirector->to( $request->getData('nextUrl') );
+
+		// No view to return
 	}
 }

@@ -6,9 +6,9 @@ __import('view/View');
 
 class IndexView extends View
 {
-	public function __construct($request, $urlSource, $htmlDir)
+	public function __construct($urlSource, $htmlDir)
 	{
-		parent::__construct($request, $urlSource, $htmlDir);
+		parent::__construct($urlSource, $htmlDir);
 	}
 
 	public function show()

@@ -2,26 +2,22 @@
 
 namespace gereport\controller;
 
-use gereport\view\IndexView;
-
 __import('controller/controller');
+__import('view/IndexView');
+
+use gereport\view\IndexView;
 
 class IndexController extends Controller
 {
-	/**
-	 * @var IndexView
-	 */
-	private $indexView;
-
-	public function __construct($indexView, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->indexView = $indexView;
 	}
 
 	public function process()
 	{
-		$this->indexView->setTitle('Welcome');
-		return $this->indexView;
+		$view = new IndexView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+		$view->setTitle('Welcome');
+		return $view;
 	}
 }

@@ -11,15 +11,10 @@ use gereport\view\SidebarView;
 
 class SidebarController extends Controller
 {
-	/**
-	 * @var SidebarView
-	 */
-	private $sidebarView;
 
-	public function __construct($sidebarView, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->sidebarView = $sidebarView;
 	}
 
 	public function process()
@@ -27,11 +22,14 @@ class SidebarController extends Controller
 		$tx = new GetProjectsTransaction($this->toolbox->database);
 		$tx->execute();
 
+		$sidebarView = new SidebarView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+
 		foreach ($tx->getProjects() as $project)
 		{
-			$this->sidebarView->addProject($project);
+			$sidebarView->addProject($project);
 		}
 
-		return $this->sidebarView;
+		return $sidebarView;
 	}
+
 }

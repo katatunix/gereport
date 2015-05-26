@@ -4,25 +4,23 @@ namespace gereport\controller;
 
 __import('controller/controller');
 __import('transaction/GetUsernameTransaction');
+__import('view/BannerView');
 
-use gereport\view\BannerView;
 use gereport\transaction\GetUsernameTransaction;
+use gereport\view\BannerView;
 
 class BannerController extends Controller
 {
-	/**
-	 * @var BannerView
-	 */
-	private $bannerView;
 
-	public function __construct($bannerView, $toolbox)
+	public function __construct($toolbox)
 	{
 		parent::__construct($toolbox);
-		$this->bannerView = $bannerView;
 	}
 
 	public function process()
 	{
+		$bannerView = new BannerView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+
 		if ($this->toolbox->session->isLogged())
 		{
 			$tx = new GetUsernameTransaction($this->toolbox->session->getLoggedMemberId(), $this->toolbox->database);
@@ -35,8 +33,9 @@ class BannerController extends Controller
 				// WTF: logged, but the member id is not found in database??? ===> Logout
 				$this->toolbox->redirector->toLogout();
 			}
-			$this->bannerView->setUsername($tx->getMemberUsername());
+			$bannerView->setUsername( $tx->getMemberUsername() );
 		}
-		return $this->bannerView;
+		return $bannerView;
 	}
+
 }

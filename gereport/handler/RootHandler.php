@@ -138,4 +138,5 @@ class RootHandler extends Handler implements Redirector, UrlSource
 	{
 		return $this->rootUrl . self::CHANGE_PASSWORD;
 	}
+
 }
