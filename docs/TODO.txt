@@ -1,0 +1,1 @@
+* UrlSource: public function getEditReportUrl($id, $next);
