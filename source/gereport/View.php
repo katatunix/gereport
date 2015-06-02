@@ -4,22 +4,20 @@ namespace gereport;
 
 abstract class View
 {
-	/**
-	 * @var Config
-	 */
-	protected $config;
+	protected $htmlDirPath, $htmlDirUrl;
 
 	protected $title;
 
-	public function __construct($config, $title = null)
+	public function __construct($htmlDirPath, $htmlDirUrl, $title = null)
 	{
-		$this->config = $config;
+		$this->htmlDirPath = $htmlDirPath;
+		$this->htmlDirUrl = $htmlDirUrl;
 		$this->title = $title;
 	}
 
 	public function show()
 	{
-		require $this->config->htmlDirPath() . $this->htmlFileName();
+		require $this->htmlDirPath . $this->htmlFileName();
 	}
 
 	public function title()

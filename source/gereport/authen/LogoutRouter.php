@@ -2,7 +2,9 @@
 
 namespace gereport\authen;
 
-class LogoutRouter
+use gereport\Router;
+
+class LogoutRouter extends Router
 {
 	const ROUTER = 'logout';
 }

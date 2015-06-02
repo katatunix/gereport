@@ -10,31 +10,36 @@ namespace gereport\options;
 
 use gereport\Request;
 
-class ChangePasswordRequest extends Request
+class ChangePasswordRequest
 {
 	/**
 	 * @var ChangePasswordRouter
 	 */
 	private $router;
 
-	public function __construct($router)
+	/**
+	 * @var Request
+	 */
+	private $request;
+
+	public function __construct($request, $router)
 	{
-		parent::__construct();
+		$this->request = $request;
 		$this->router = $router;
 	}
 
 	public function oldPassword()
 	{
-		return $this->valuePost($this->router->oldPasswordKey());
+		return $this->request->valuePost($this->router->oldPasswordKey());
 	}
 
 	public function newPassword()
 	{
-		return $this->valuePost($this->router->newPasswordKey());
+		return $this->request->valuePost($this->router->newPasswordKey());
 	}
 
 	public function confirmPassword()
 	{
-		return $this->valuePost($this->router->confirmPasswordKey());
+		return $this->request->valuePost($this->router->confirmPasswordKey());
 	}
 }

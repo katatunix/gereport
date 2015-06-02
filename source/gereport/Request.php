@@ -9,12 +9,20 @@ class Request
 	private $isPostMethod;
 	private $url;
 
-	public function __construct()
+//	public function __construct()
+//	{
+//		$this->get = $_GET;
+//		$this->post = $_POST;
+//		$this->isPostMethod = $_SERVER['REQUEST_METHOD'] == 'POST';
+//		$this->url = $_SERVER['REQUEST_URI'];
+//	}
+
+	public function __construct($dataGet, $dataPost, $isPostMethod, $url)
 	{
-		$this->get = $_GET;
-		$this->post = $_POST;
-		$this->isPostMethod = $_SERVER['REQUEST_METHOD'] == 'POST';
-		$this->url = $_SERVER['REQUEST_URI'];
+		$this->get = $dataGet;
+		$this->post = $dataPost;
+		$this->isPostMethod = $isPostMethod;
+		$this->url = $url;
 	}
 
 	public function url()

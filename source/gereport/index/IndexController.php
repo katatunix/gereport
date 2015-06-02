@@ -12,6 +12,6 @@ class IndexController extends MainLayoutController
 	 */
 	protected function createContentView()
 	{
-		return new IndexView($this->config);
+		return $this->factory->view()->index();
 	}
 }

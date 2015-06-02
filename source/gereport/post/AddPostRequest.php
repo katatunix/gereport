@@ -4,31 +4,36 @@ namespace gereport\post;
 
 use gereport\Request;
 
-class AddPostRequest extends Request
+class AddPostRequest
 {
 	/**
 	 * @var AddPostRouter
 	 */
 	private $router;
 
-	public function __construct($router)
+	/**
+	 * @var Request
+	 */
+	private $request;
+
+	public function __construct($request, $router)
 	{
-		parent::__construct();
+		$this->request = $request;
 		$this->router = $router;
 	}
 
 	public function title()
 	{
-		return $this->valuePost($this->router->titleKey());
+		return $this->request->valuePost($this->router->titleKey());
 	}
 
 	public function content()
 	{
-		return $this->valuePost($this->router->contentKey());
+		return $this->request->valuePost($this->router->contentKey());
 	}
 
 	public function projectId()
 	{
-		return $this->valuePost($this->router->projectIdKey());
+		return $this->request->valuePost($this->router->projectIdKey());
 	}
 }

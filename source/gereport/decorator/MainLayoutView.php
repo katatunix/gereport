@@ -16,7 +16,7 @@ class MainLayoutView extends View
 	protected $footerView;
 	protected $sidebarView;
 
-	public function __construct($config, $contentView, $bannerView, $footerView, $sidebarView)
+	public function __construct($config, $bannerView, $footerView, $sidebarView, $contentView)
 	{
 		parent::__construct($config);
 

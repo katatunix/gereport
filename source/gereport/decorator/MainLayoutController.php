@@ -3,19 +3,8 @@
 namespace gereport\decorator;
 
 __import('gereport/Controller');
-__import('gereport/index/IndexRouter');
-__import('gereport/mysqldomain/MySqlMemberDao');
-__import('gereport/mysqldomain/MySqlProjectDao');
-__import('gereport/Controller');
-__import('gereport/decorator/BannerView');
-__import('gereport/decorator/FooterView');
-__import('gereport/decorator/SidebarView');
-__import('gereport/decorator/MainLayoutView');
 
 use gereport\Controller;
-use gereport\index\IndexRouter;
-use gereport\mysqldomain\MySqlMemberDao;
-use gereport\mysqldomain\MySqlProjectDao;
 use gereport\View;
 
 abstract class MainLayoutController extends Controller
@@ -27,14 +16,12 @@ abstract class MainLayoutController extends Controller
 
 	public function process()
 	{
-		$this->init();
+		$content = $this->createContentView();
+		$banner = $this->createBannerView();
+		$footer = $this->createFooterView();
+		$sidebar = $this->createSidebarView();
 
-		$contentView = $this->createContentView();
-		$bannerView = $this->createBannerView();
-		$footerView = $this->createFooterView();
-		$sidebarView = $this->createSidebarView();
-
-		(new MainLayoutView($this->config, $contentView, $bannerView, $footerView, $sidebarView))->show();
+		$this->factory->view()->mainLayout($banner, $footer, $sidebar, $content)->show();
 	}
 
 	private function createBannerView()
@@ -43,34 +30,27 @@ abstract class MainLayoutController extends Controller
 
 		if ($this->session->hasLogged())
 		{
-			$memberDao = new MySqlMemberDao();
-			$member = $memberDao->findById( $this->session->loggedMemberId() );
+			$member = $this->factory->dao()->member()->findById( $this->session->loggedMemberId() );
 			$username = $member->username();
 		}
 
-		return new BannerView($this->config, $username);
+		return $this->factory->view()->banner($username);
 	}
 
 	private function createFooterView()
 	{
-		return new FooterView($this->config);
+		return $this->factory->view()->footer();
 	}
 
 	private function createSidebarView()
 	{
-		$projectDao = new MySqlProjectDao();
-		$projects = $projectDao->findByAll();
+		$projects = $this->factory->dao()->project()->findByAll();
 		$arr = array();
 		foreach ($projects as $project)
 		{
 			$arr[] = array('id' => $project->id(), 'name' => $project->name());
 		}
 
-		return new SidebarView($this->config, $arr);
-	}
-
-	protected function goIndex()
-	{
-		$this->redirector->go($this->config->rootUrl() . IndexRouter::ROUTER);
+		return $this->factory->view()->sidebar($arr);
 	}
 }

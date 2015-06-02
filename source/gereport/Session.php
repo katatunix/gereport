@@ -6,25 +6,22 @@ __import('gereport/Message');
 
 class Session
 {
-	private $data;
-	private $keyLoggedMemberId;
-	private $keyMessage;
-
+	const KEY_LOGGED = 'gereport_member';
+	const KEY_MSG = 'gereport_message';
 	const NON_MEMBER_ID = 0;
 
-	public function __construct()
+	private $data;
+
+	public function __construct($data)
 	{
 		session_start();
 
-		$this->data = $_SESSION;
-
-		$this->keyLoggedMemberId = 'gereport_member';
-		$this->keyMessage = 'gereport_message';
+		$this->data = $data;
 	}
 
 	public function saveLogin($memberId)
 	{
-		$this->data[$this->keyLoggedMemberId] = $memberId;
+		$this->data[self::KEY_LOGGED] = $memberId;
 	}
 
 	public function hasLogged()
@@ -34,7 +31,7 @@ class Session
 
 	public function loggedMemberId()
 	{
-		$key = $this->keyLoggedMemberId;
+		$key = self::KEY_LOGGED;
 
 		if ( !isset($this->data[$key]) ) return self::NON_MEMBER_ID;
 		return $this->data[$key];
@@ -42,26 +39,26 @@ class Session
 
 	public function clearLogin()
 	{
-		unset($this->data[$this->keyLoggedMemberId]);
+		unset($this->data[self::KEY_LOGGED]);
 	}
 
 	public function saveMessage($content, $isError)
 	{
-		$this->data[$this->keyMessage] = new Message($content, $isError);
+		$this->data[self::KEY_MSG] = new Message($content, $isError);
 	}
 
 	public function hasMessage()
 	{
-		return isset($this->data[$this->keyMessage]);
+		return isset($this->data[self::KEY_MSG]);
 	}
 
 	public function message()
 	{
-		return $this->data[$this->keyMessage];
+		return $this->data[self::KEY_MSG];
 	}
 
 	public function clearMessage()
 	{
-		unset($this->data[$this->keyMessage]);
+		unset($this->data[self::KEY_MSG]);
 	}
 }

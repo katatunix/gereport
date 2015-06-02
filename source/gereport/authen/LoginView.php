@@ -10,19 +10,18 @@ class LoginView extends View
 {
 	private $username;
 	private $message;
+	private $usernameKey;
+	private $passwordKey;
 
-	/**
-	 * @var LoginRouter
-	 */
-	private $router;
-
-	public function __construct($config, $username, $message, $router)
+	public function __construct($htmlDirPath, $htmlDirUrl, $username, $message, $usernameKey, $passwordKey)
 	{
-		parent::__construct($config, 'Login');
+		parent::__construct($htmlDirPath, $htmlDirUrl, 'Login');
 
 		$this->username = $username;
 		$this->message = $message;
-		$this->router = $router;
+
+		$this->usernameKey = $usernameKey;
+		$this->passwordKey = $passwordKey;
 	}
 
 	protected function htmlFileName()

@@ -4,17 +4,24 @@ namespace gereport\authen;
 
 __import('gereport/Controller');
 __import('gereport/decorator/MainLayoutController');
-__import('gereport/authen/LoginRouter');
-__import('gereport/authen/LoginRequest');
-__import('gereport/authen/LoginView');
 
 use gereport\Controller;
 use gereport\decorator\MainLayoutController;
-use gereport\mysqldomain\MySqlMemberDao;
 use gereport\View;
 
 class LoginController extends MainLayoutController
 {
+	/**
+	 * @var LoginRequest
+	 */
+	private $request;
+
+	public function __construct($request, $session, $factory)
+	{
+		parent::__construct($session, $factory);
+		$this->request = $request;
+	}
+
 	/**
 	 * @return View
 	 */
@@ -22,33 +29,32 @@ class LoginController extends MainLayoutController
 	{
 		if ($this->session->hasLogged())
 		{
-			$this->goIndex();
+			$this->factory->router()->index()->redirect();
 		}
 
-		$router = new LoginRouter();
-		$request = new LoginRequest($router);
-
+		$router = $this->factory->router()->login();
 		$username = null;
 		$message = null;
 
-		if ($request->isPostMethod())
+		if ($this->request->isPostMethod())
 		{
-			$username = $request->username();
-			$password = $request->password();
+			$username = $this->request->username();
+			$password = $this->request->password();
 
-			$member = ( new MySqlMemberDao() )->findByAuthen($username, $password);
+			$member = $this->factory->dao()->member()->findByAuthen($username, $password);
 			if ($member)
 			{
 				$this->session->saveLogin($member->id());
-				$this->goIndex();
+				$this->factory->router()->index()->redirect();
 			}
 			else
 			{
 				$message = 'Login failed';
 			}
-
 		}
 
-		return new LoginView($this->config, $username, $message, $router);
+		$router = $this->factory->router()->login();
+
+		return $this->factory->view()->login($username, $message, $router->usernameKey(), $router->passwordKey());
 	}
 }

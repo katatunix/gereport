@@ -2,7 +2,9 @@
 
 namespace gereport\post;
 
-class AddPostRouter
+use gereport\Router;
+
+class AddPostRouter extends Router
 {
 	const ROUTER = 'post/add';
 

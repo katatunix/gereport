@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#<?= $this->router->usernameKey() ?>').focus();
+		$('#<?= $this->usernameKey ?>').focus();
 	});
 </script>
 
@@ -20,12 +20,12 @@
 <table cellspacing="10">
 	<tr>
 		<td align="right">Username</td>
-		<td><input type="text" class="memberInfoTextBox" name="<?= $this->router->usernameKey() ?>" id="username"
+		<td><input type="text" class="memberInfoTextBox" name="<?= $this->usernameKey ?>" id="username"
 				   value="<?= htmlspecialchars($this->username) ?>" /></td>
 	</tr>
 	<tr>
 		<td align="right">Password</td>
-		<td><input type="password" class="memberInfoTextBox" name="<?= $this->router->passwordKey() ?>" /></td>
+		<td><input type="password" class="memberInfoTextBox" name="<?= $this->passwordKey ?>" /></td>
 	</tr>
 	<tr>
 		<td></td>

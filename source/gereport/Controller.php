@@ -2,33 +2,26 @@
 
 namespace gereport;
 
-__import('gereport/Config');
-__import('gereport/Session');
-__import('gereport/Redirector');
-
 abstract class Controller
 {
-	/**
-	 * @var Config
-	 */
-	protected $config;
-
 	/**
 	 * @var Session
 	 */
 	protected $session;
 
 	/**
-	 * @var Redirector
+	 * @var Factory
 	 */
-	protected $redirector;
+	protected $factory;
 
-	protected function init()
+	public function __construct($session, $factory)
 	{
-		$this->config = new Config();
-		$this->session = new Session();
-		$this->redirector = new Redirector();
+		$this->session = $session;
+		$this->factory = $factory;
 	}
 
+	/**
+	 * @return void
+	 */
 	public abstract function process();
 }

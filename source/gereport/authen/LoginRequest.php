@@ -2,30 +2,28 @@
 
 namespace gereport\authen;
 
-__import('gereport/Request');
+use gereport\BaseRequest;
 
-use gereport\Request;
-
-class LoginRequest extends Request
+class LoginRequest extends BaseRequest
 {
 	/**
 	 * @var LoginRouter
 	 */
-	private $loginRouter;
+	private $router;
 
-	public function __construct($loginRouter)
+	public function __construct($request, $router)
 	{
-		parent::__construct();
-		$this->loginRouter = $loginRouter;
+		parent::__construct($request);
+		$this->router = $router;
 	}
 
 	public function username()
 	{
-		return $this->valuePost($this->loginRouter->usernameKey());
+		return $this->request->valuePost($this->router->usernameKey());
 	}
 
 	public function password()
 	{
-		return $this->valuePost($this->loginRouter->passwordKey());
+		return $this->request->valuePost($this->router->passwordKey());
 	}
 }
