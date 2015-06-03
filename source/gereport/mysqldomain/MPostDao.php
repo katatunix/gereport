@@ -11,7 +11,7 @@ namespace gereport\mysqldomain;
 
 use gereport\domain\PostDao;
 
-class MySqlPostDao implements PostDao
+class MPostDao extends MySqlDao implements PostDao
 {
 
 	public function insert($title, $content, $projectId, $authorId, $time, $authorId, $time)

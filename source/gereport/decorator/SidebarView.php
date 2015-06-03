@@ -6,11 +6,11 @@ use gereport\View;
 
 class SidebarView extends View
 {
-	private $projects;
+	protected $projects;
 
-	public function __construct($config, $projects)
+	public function __construct($htmlDirPath, $htmlDirUrl, $projects)
 	{
-		parent::__construct($config);
+		parent::__construct($htmlDirPath, $htmlDirUrl);
 		$this->projects = $projects;
 	}
 

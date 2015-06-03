@@ -2,8 +2,6 @@
 
 namespace gereport\view;
 
-__import('view/View');
-
 class EditReportView extends View
 {
 	private $content;

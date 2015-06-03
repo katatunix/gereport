@@ -2,8 +2,6 @@
 
 namespace gereport\decorator;
 
-__import('gereport/View');
-
 use gereport\View;
 
 class FooterView extends View

@@ -9,7 +9,9 @@
 namespace gereport\options;
 
 
-class ChangePasswordRouter
+use gereport\Router;
+
+class ChangePasswordRouter extends Router
 {
 	const ROUTER = 'cpass';
 
@@ -26,5 +28,10 @@ class ChangePasswordRouter
 	public function confirmPasswordKey()
 	{
 		return 'confirmPassword';
+	}
+
+	public function url()
+	{
+		return $this->rootUrl . self::ROUTER;
 	}
 }

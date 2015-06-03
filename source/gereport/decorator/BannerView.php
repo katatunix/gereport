@@ -2,18 +2,20 @@
 
 namespace gereport\decorator;
 
-__import('gereport/View');
-
 use gereport\View;
 
 class BannerView extends View
 {
-	private $username;
+	protected $username, $indexUrl, $optionsUrl, $loginUrl, $logoutUrl;
 
-	public function __construct($config, $username)
+	public function __construct($htmlDirPath, $htmlDirUrl, $username, $indexUrl, $optionsUrl, $loginUrl, $logoutUrl)
 	{
-		parent::__construct($config);
+		parent::__construct($htmlDirPath, $htmlDirUrl);
 		$this->username = $username;
+		$this->indexUrl = $indexUrl;
+		$this->optionsUrl = $optionsUrl;
+		$this->loginUrl = $loginUrl;
+		$this->logoutUrl = $logoutUrl;
 	}
 
 	protected function htmlFileName()

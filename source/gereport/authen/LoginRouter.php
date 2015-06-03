@@ -17,4 +17,9 @@ class LoginRouter extends Router
 	{
 		return 'password';
 	}
+
+	public function url()
+	{
+		return $this->rootUrl . self::ROUTER;
+	}
 }

@@ -6,16 +6,14 @@ use gereport\View;
 
 class ChangePasswordView extends View
 {
-	private $success;
-	private $message;
-	private $router;
+	protected $success;
+	protected $message;
 
-	public function __construct($config, $success, $message, $router)
+	public function __construct($htmlDirPath, $htmlDirUrl, $success, $message)
 	{
-		parent::__construct($config, 'Change password');
+		parent::__construct($htmlDirPath, $htmlDirUrl, 'Change password');
 		$this->success = $success;
 		$this->message = $message;
-		$this->router = $router;
 	}
 
 	protected function htmlFileName()

@@ -8,23 +8,18 @@
 
 namespace gereport\options;
 
-use gereport\Request;
+use gereport\BaseRequest;
 
-class ChangePasswordRequest
+class ChangePasswordRequest extends BaseRequest
 {
 	/**
 	 * @var ChangePasswordRouter
 	 */
 	private $router;
 
-	/**
-	 * @var Request
-	 */
-	private $request;
-
 	public function __construct($request, $router)
 	{
-		$this->request = $request;
+		parent::__construct($request);
 		$this->router = $router;
 	}
 

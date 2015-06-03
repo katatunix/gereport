@@ -2,8 +2,6 @@
 
 namespace gereport\view;
 
-__import('view/View');
-
 class ReportView extends View
 {
 	private $projectId;

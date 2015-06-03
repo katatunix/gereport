@@ -2,11 +2,6 @@
 
 namespace gereport\controller;
 
-__import('controller/controller');
-__import('transaction/GetReportsTransaction');
-__import('transaction/CheckMemberInProjectTransaction');
-__import('view/ReportView');
-
 use gereport\session\ResultMessage;
 use gereport\transaction\CheckMemberInProjectTransaction;
 use gereport\transaction\GetReportsTransaction;

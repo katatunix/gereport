@@ -6,9 +6,12 @@ use gereport\View;
 
 class OptionsView extends View
 {
-	public function __construct($config)
+	protected $cpassUrl;
+
+	public function __construct($htmlDirPath, $htmlDirUrl, $cpassUrl)
 	{
-		parent::__construct($config, 'Change password');
+		parent::__construct($htmlDirPath, $htmlDirUrl, 'Options');
+		$this->cpassUrl = $cpassUrl;
 	}
 
 	protected function htmlFileName()

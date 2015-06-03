@@ -2,16 +2,14 @@
 
 namespace gereport\authen;
 
-__import('gereport/View');
-
 use gereport\View;
 
 class LoginView extends View
 {
-	private $username;
-	private $message;
-	private $usernameKey;
-	private $passwordKey;
+	protected $username;
+	protected $message;
+	protected $usernameKey;
+	protected $passwordKey;
 
 	public function __construct($htmlDirPath, $htmlDirUrl, $username, $message, $usernameKey, $passwordKey)
 	{

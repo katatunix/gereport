@@ -6,9 +6,9 @@ use gereport\View;
 
 class IndexView extends View
 {
-	public function __construct($config)
+	public function __construct($htmlDirPath, $htmlDirUrl)
 	{
-		parent::__construct($config, 'Welcome');
+		parent::__construct($htmlDirPath, $htmlDirUrl, 'Welcome');
 	}
 
 	protected function htmlFileName()

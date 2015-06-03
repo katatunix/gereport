@@ -13,9 +13,15 @@ interface MemberDao {
 	/**
 	 * @param $username
 	 * @param $password
-	 * @return Member
+	 * @return int
 	 */
-	public function findByAuthen($username, $password);
+	public function findIdByAuthen($username, $password);
+
+	/**
+	 * @param $memberId
+	 * @return bool
+	 */
+	public function exists($memberId);
 
 	/**
 	 * @param $memberId

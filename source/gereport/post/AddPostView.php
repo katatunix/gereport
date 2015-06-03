@@ -10,9 +10,9 @@ class AddPostView extends View
 	private $message;
 	private $router;
 
-	public function __construct($config, $success, $message, $router)
+	public function __construct($htmlDirPath, $htmlDirUrl, $success, $message, $router)
 	{
-		parent::__construct($config, 'Add a new post');
+		parent::__construct($htmlDirPath, $htmlDirUrl, 'Add a new post');
 		$this->success = $success;
 		$this->message = $message;
 		$this->router = $router;

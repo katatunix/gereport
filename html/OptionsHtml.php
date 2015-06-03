@@ -1,3 +1,3 @@
 <h2><?= $this->title ?></h2>
 
-<a href="<?= $this->urlSource->getChangePasswordUrl() ?>">Change password</a>
+<a href="<?= $this->cpassUrl ?>">Change password</a>

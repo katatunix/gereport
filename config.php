@@ -21,12 +21,7 @@ error_reporting(E_ALL);
 define('__SOURCE_DIR_PATH', __ROOT_DIR . 'source/');
 define('__PHP_EXT', '.php');
 
-function __import($class)
+function __autoload($class)
 {
 	require_once __SOURCE_DIR_PATH . $class . __PHP_EXT;
-}
-
-function __class_exists($class)
-{
-	return file_exists( __SOURCE_DIR_PATH . $class . __PHP_EXT );
 }

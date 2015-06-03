@@ -12,6 +12,6 @@ class Error404Controller extends MainLayoutController
 	 */
 	protected function createContentView()
 	{
-		return new Error404View($this->config);
+		return $this->factory->view()->error404();
 	}
 }

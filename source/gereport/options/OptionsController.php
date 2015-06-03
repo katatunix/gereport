@@ -2,7 +2,6 @@
 
 namespace gereport\options;
 
-use gereport\decorator\Error403View;
 use gereport\decorator\MainLayoutController;
 use gereport\View;
 
@@ -15,8 +14,8 @@ class OptionsController extends MainLayoutController
 	{
 		if (!$this->session->hasLogged())
 		{
-			return new Error403View($this->config);
+			return $this->factory->view()->error403();
 		}
-		return new OptionsView($this->config);
+		return $this->factory->view()->options( $this->factory->router()->cpass()->url() );
 	}
 }

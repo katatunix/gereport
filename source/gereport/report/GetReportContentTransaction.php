@@ -2,9 +2,6 @@
 
 namespace gereport\transaction;
 
-__import('p8p/Transaction');
-__import('gereport/domainproxy/ReportProxy');
-
 use gereport\database\GrDatabase;
 use gereport\domainproxy\ReportProxy;
 use p8p\Transaction;

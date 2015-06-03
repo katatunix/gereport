@@ -8,19 +8,40 @@
 
 namespace gereport;
 
-
 use gereport\domain\MemberDao;
 use gereport\domain\PostDao;
 use gereport\domain\ProjectDao;
+use gereport\mysqldomain\MMemberDao;
+use gereport\mysqldomain\MProjectDao;
 
 class DaoFactory
 {
+	/**
+	 * @var \mysqli
+	 */
+	private $link;
+
+	public function __construct($host, $username, $password, $dbname)
+	{
+		$this->link = new \mysqli($host, $username, $password, $dbname);
+		if ($this->link->connect_errno)
+		{
+			throw new \Exception("Could not connect to database server");
+		}
+		$this->link->query("SET NAMES 'utf8'");
+	}
+
+	public function __destruct()
+	{
+		$this->link->close();
+	}
+
 	/**
 	 * @return MemberDao
 	 */
 	public function member()
 	{
-
+		return new MMemberDao($this->link);
 	}
 
 	/**
@@ -28,6 +49,7 @@ class DaoFactory
 	 */
 	public function project()
 	{
+		return new MProjectDao($this->link);
 	}
 
 	/**

@@ -10,6 +10,11 @@ class IndexRouter extends Router
 
 	public function redirect()
 	{
-		$this->redirect($this->rootUrl . self::ROUTER);
+		$this->redirectTo($this->url());
+	}
+
+	public function url()
+	{
+		return $this->rootUrl . self::ROUTER;
 	}
 }

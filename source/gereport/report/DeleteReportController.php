@@ -2,9 +2,6 @@
 
 namespace gereport\controller;
 
-__import('controller/Controller');
-__import('transaction/DeleteReportTransaction');
-
 use gereport\transaction\DeleteReportTransaction;
 
 class DeleteReportController extends Controller

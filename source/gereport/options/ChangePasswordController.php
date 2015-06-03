@@ -2,13 +2,22 @@
 
 namespace gereport\options;
 
-use gereport\decorator\Error403View;
 use gereport\decorator\MainLayoutController;
-use gereport\mysqldomain\MySqlMemberDao;
 use gereport\View;
 
 class ChangePasswordController extends MainLayoutController
 {
+	/**
+	 * @var ChangePasswordRequest
+	 */
+	private $request;
+
+	public function __construct($cpassRequest, $session, $factory)
+	{
+		parent::__construct($session, $factory);
+		$this->request = $cpassRequest;
+	}
+
 	/**
 	 * @return View
 	 */
@@ -16,37 +25,35 @@ class ChangePasswordController extends MainLayoutController
 	{
 		if (!$this->session->hasLogged())
 		{
-			return new Error403View($this->config);
+			return $this->factory->view()->error403();
 		}
 
-		$error = false;
+		$success = true;
 		$message = null;
-		$router = new ChangePasswordRouter();
-		$request = new ChangePasswordRequest($router);
 
 		$old = null;
 		$new = null;
 		$confirm = null;
 
-		if ($request->isPostMethod())
+		if ($this->request->isPostMethod())
 		{
-			$old = $request->oldPassword();
-			$new = $request->newPassword();
-			$confirm = $request->confirmPassword();
+			$old = $this->request->oldPassword();
+			$new = $this->request->newPassword();
+			$confirm = $this->request->confirmPassword();
 			try
 			{
 				$this->handle($old, $new, $confirm);
-				$error = false;
+				$success = true;
 				$message = 'Password was changed OK';
 			}
 			catch (\Exception $ex)
 			{
-				$error = true;
+				$success = false;
 				$message = $ex->getMessage();
 			}
 		}
 
-		return new ChangePasswordView($this->config, $error, $message, $router);
+		return $this->factory->view()->changePassword($success, $message);
 	}
 
 	private function handle($old, $new, $confirm)
@@ -68,13 +75,10 @@ class ChangePasswordController extends MainLayoutController
 			throw new \Exception('The current and confirm password are not matched!');
 		}
 
-		$memberDao = new MySqlMemberDao();
-		$member = $memberDao->findById( $this->session->loggedMemberId() );
+		$memberId = $this->session->loggedMemberId();
+		$memberDao = $this->factory->dao()->member();
 
-		if (!$member)
-		{
-			throw new \Exception('The member is not existed!');
-		}
+		$member = $memberDao->findById($memberId);
 
 		if (!$member->hasPassword($old))
 		{

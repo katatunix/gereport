@@ -2,8 +2,6 @@
 
 namespace gereport;
 
-__import('gereport/StringUtils');
-
 class DatetimeUtils
 {
 	// TODO: refactor

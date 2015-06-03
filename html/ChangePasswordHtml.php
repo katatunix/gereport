@@ -7,7 +7,7 @@
 <h2><?= $this->title ?></h2>
 
 <?php if ($this->message) { ?>
-	<p class="<?= $this->isSuccess ? 'infoMessage' : 'errorMessage' ?>">
+	<p class="<?= $this->success ? 'infoMessage' : 'errorMessage' ?>">
 		<?= $this->message ?>
 	</p>
 <?php } ?>

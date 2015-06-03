@@ -2,15 +2,13 @@
 
 namespace gereport\decorator;
 
-__import('gereport/View');
-
 use gereport\View;
 
 class Error404View extends View
 {
-	public function __construct($config)
+	public function __construct($htmlDirPath, $htmlDirUrl)
 	{
-		parent::__construct($config, 'Error 404');
+		parent::__construct($htmlDirPath, $htmlDirUrl, 'Error 404');
 	}
 
 	protected function htmlFileName()

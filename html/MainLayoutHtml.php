@@ -5,11 +5,11 @@
 	<meta http-equiv="Content-Language" content="English" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<link href="<?= $this->config->htmlDirUrl() ?>css/style.css" rel="stylesheet" type="text/css" />
-	<link href="<?= $this->config->htmlDirUrl() ?>jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<link href="<?= $this->htmlDirUrl ?>css/style.css" rel="stylesheet" type="text/css" />
+	<link href="<?= $this->htmlDirUrl ?>jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-	<script type="text/javascript" src="<?= $this->config->htmlDirUrl() ?>js/jquery.js"></script>
-	<script type="text/javascript" src="<?= $this->config->htmlDirUrl() ?>jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="<?= $this->htmlDirUrl ?>js/jquery.js"></script>
+	<script type="text/javascript" src="<?= $this->htmlDirUrl ?>jquery-ui/jquery-ui.min.js"></script>
 </head>
 <body>
 <div id="wrap">

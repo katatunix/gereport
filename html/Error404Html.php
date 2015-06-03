@@ -1,1 +1,1 @@
-<p align="center"><img src="<?= $this->urlSource->getHtmlUrl() ?>images/error404.jpg" /></p>
+<p align="center"><img src="<?= $this->htmlDirUrl ?>images/error404.jpg" /></p>

@@ -4,7 +4,6 @@ namespace gereport\domain;
 
 interface Post
 {
-	public function id();
 	public function title();
 	public function content();
 

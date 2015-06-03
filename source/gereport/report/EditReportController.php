@@ -2,13 +2,6 @@
 
 namespace gereport\controller;
 
-__import('controller/Controller');
-__import('transaction/EditReportTransaction');
-__import('transaction/GetReportContentTransaction');
-__import('utils/DatetimeUtils');
-__import('view/EditReportView');
-__import('view/Error403View');
-
 use gereport\transaction\EditReportTransaction;
 use gereport\transaction\GetReportContentTransaction;
 use gereport\utils\DatetimeUtils;

@@ -11,6 +11,8 @@ namespace gereport;
 use gereport\authen\LoginRouter;
 use gereport\authen\LogoutRouter;
 use gereport\index\IndexRouter;
+use gereport\options\ChangePasswordRouter;
+use gereport\options\OptionsRouter;
 
 class RouterFactory
 {
@@ -34,5 +36,15 @@ class RouterFactory
 	public function logout()
 	{
 		return new LogoutRouter($this->rootUrl);
+	}
+
+	public function options()
+	{
+		return new OptionsRouter($this->rootUrl);
+	}
+
+	public function cpass()
+	{
+		return new ChangePasswordRouter($this->rootUrl);
 	}
 }

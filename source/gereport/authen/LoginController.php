@@ -2,9 +2,6 @@
 
 namespace gereport\authen;
 
-__import('gereport/Controller');
-__import('gereport/decorator/MainLayoutController');
-
 use gereport\Controller;
 use gereport\decorator\MainLayoutController;
 use gereport\View;
@@ -32,7 +29,6 @@ class LoginController extends MainLayoutController
 			$this->factory->router()->index()->redirect();
 		}
 
-		$router = $this->factory->router()->login();
 		$username = null;
 		$message = null;
 
@@ -41,10 +37,10 @@ class LoginController extends MainLayoutController
 			$username = $this->request->username();
 			$password = $this->request->password();
 
-			$member = $this->factory->dao()->member()->findByAuthen($username, $password);
-			if ($member)
+			$memberId = $this->factory->dao()->member()->findIdByAuthen($username, $password);
+			if ($memberId)
 			{
-				$this->session->saveLogin($member->id());
+				$this->session->saveLogin($memberId);
 				$this->factory->router()->index()->redirect();
 			}
 			else

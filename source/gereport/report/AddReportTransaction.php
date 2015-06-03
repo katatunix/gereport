@@ -2,8 +2,6 @@
 
 namespace gereport\transaction;
 
-__import('p8p/Transaction');
-
 use gereport\database\GrDatabase;
 use p8p\Transaction;
 

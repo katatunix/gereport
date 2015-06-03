@@ -2,8 +2,6 @@
 
 namespace gereport\decorator;
 
-__import('gereport/View');
-
 use gereport\View;
 
 class MainLayoutView extends View
@@ -16,9 +14,9 @@ class MainLayoutView extends View
 	protected $footerView;
 	protected $sidebarView;
 
-	public function __construct($config, $bannerView, $footerView, $sidebarView, $contentView)
+	public function __construct($htmlDirPath, $htmlDirUrl, $bannerView, $footerView, $sidebarView, $contentView)
 	{
-		parent::__construct($config);
+		parent::__construct($htmlDirPath, $htmlDirUrl);
 
 		$this->contentView = $contentView;
 		$this->bannerView = $bannerView;

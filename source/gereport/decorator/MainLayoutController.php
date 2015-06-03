@@ -2,8 +2,6 @@
 
 namespace gereport\decorator;
 
-__import('gereport/Controller');
-
 use gereport\Controller;
 use gereport\View;
 
@@ -34,7 +32,13 @@ abstract class MainLayoutController extends Controller
 			$username = $member->username();
 		}
 
-		return $this->factory->view()->banner($username);
+		return $this->factory->view()->banner(
+			$username,
+			$this->factory->router()->index()->url(),
+			$this->factory->router()->options()->url(),
+			$this->factory->router()->login()->url(),
+			$this->factory->router()->logout()->url()
+		);
 	}
 
 	private function createFooterView()
@@ -46,9 +50,9 @@ abstract class MainLayoutController extends Controller
 	{
 		$projects = $this->factory->dao()->project()->findByAll();
 		$arr = array();
-		foreach ($projects as $project)
+		foreach ($projects as $pid => $project)
 		{
-			$arr[] = array('id' => $project->id(), 'name' => $project->name());
+			$arr[] = array('id' => $pid, 'name' => $project->name());
 		}
 
 		return $this->factory->view()->sidebar($arr);

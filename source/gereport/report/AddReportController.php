@@ -2,10 +2,6 @@
 
 namespace gereport\controller;
 
-__import('gereport/controller/Controller');
-__import('gereport/transaction/AddReportTransaction');
-__import('p8p/DatetimeUtils');
-
 use gereport\transaction\AddReportTransaction;
 use p8p\DatetimeUtils;
 use p8p\Redirector;
