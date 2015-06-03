@@ -9,6 +9,17 @@
 namespace gereport\domain;
 
 
-interface ReportDao {
+interface ReportDao
+{
+	public function add($content, $projectId, $dateFor, $datetimeAdd, $memberId);
 
-} 
+	public function delete($reportId);
+
+	//public function edit($reportId, $content, $datetime);
+
+	/**
+	 * @param $reportId
+	 * @return Report
+	 */
+	public function findById($reportId);
+}

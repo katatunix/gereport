@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#oldPassword').focus();
+		$('#<?= $this->oldPasswordKey ?>').focus();
 	});
 </script>
 
@@ -16,15 +16,15 @@
 	<table cellspacing="10">
 		<tr>
 			<td align="right">Current password</td>
-			<td><input type="password" name="oldPassword" id="oldPassword" class="memberInfoTextBox" /></td>
+			<td><input type="password" name="<?= $this->oldPasswordKey ?>" id="oldPassword" class="memberInfoTextBox" /></td>
 		</tr>
 		<tr>
 			<td align="right">New password</td>
-			<td><input type="password" name="newPassword" class="memberInfoTextBox" /></td>
+			<td><input type="password" name="<?= $this->newPasswordKey ?>" class="memberInfoTextBox" /></td>
 		</tr>
 		<tr>
 			<td align="right">Confirm password</td>
-			<td><input type="password" name="confirmPassword" class="memberInfoTextBox" /></td>
+			<td><input type="password" name="<?= $this->confirmPasswordKey ?>" class="memberInfoTextBox" /></td>
 		</tr>
 		<tr>
 			<td></td>

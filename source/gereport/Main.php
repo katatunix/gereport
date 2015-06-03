@@ -14,6 +14,7 @@ use gereport\options\ChangePasswordRequest;
 use gereport\options\ChangePasswordRouter;
 use gereport\options\OptionsController;
 use gereport\options\OptionsRouter;
+use gereport\report\AddReportRouter;
 
 class Main
 {
@@ -52,6 +53,11 @@ class Main
 		{
 			$cpassRequest = new ChangePasswordRequest($request, $routerFactory->cpass());
 			$controller = new ChangePasswordController($cpassRequest, $session, $factory);
+		}
+		else if ($rt == AddReportRouter::ROUTER)
+		{
+			$addReportRequest = new AddReportRequest($request, $routerFactory->addReport());
+			$controller = new AddReportController($addReportRequest, $session, $factory);
 		}
 		else
 		{

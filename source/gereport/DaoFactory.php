@@ -13,6 +13,7 @@ use gereport\domain\PostDao;
 use gereport\domain\ProjectDao;
 use gereport\mysqldomain\MMemberDao;
 use gereport\mysqldomain\MProjectDao;
+use gereport\mysqldomain\MReportDao;
 
 class DaoFactory
 {
@@ -57,5 +58,13 @@ class DaoFactory
 	 */
 	public function post()
 	{
+	}
+
+	/**
+	 * @return MReportDao
+	 */
+	public function report()
+	{
+		return new MReportDao($this->link);
 	}
 }

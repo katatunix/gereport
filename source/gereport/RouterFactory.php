@@ -17,34 +17,44 @@ use gereport\options\OptionsRouter;
 class RouterFactory
 {
 	private $rootUrl;
+	/**
+	 * @var Redirector
+	 */
+	private $redirector;
 
 	public function __construct($rootUrl)
 	{
 		$this->rootUrl = $rootUrl;
+		$this->redirector = new Redirector();
+	}
+
+	public function redirectTo($url)
+	{
+		$this->redirector->redirect($url);
 	}
 
 	public function index()
 	{
-		return new IndexRouter($this->rootUrl);
+		return new IndexRouter($this->rootUrl, $this->redirector);
 	}
 
 	public function login()
 	{
-		return new LoginRouter($this->rootUrl);
+		return new LoginRouter($this->rootUrl, $this->redirector);
 	}
 
 	public function logout()
 	{
-		return new LogoutRouter($this->rootUrl);
+		return new LogoutRouter($this->rootUrl, $this->redirector);
 	}
 
 	public function options()
 	{
-		return new OptionsRouter($this->rootUrl);
+		return new OptionsRouter($this->rootUrl, $this->redirector);
 	}
 
 	public function cpass()
 	{
-		return new ChangePasswordRouter($this->rootUrl);
+		return new ChangePasswordRouter($this->rootUrl, $this->redirector);
 	}
 }

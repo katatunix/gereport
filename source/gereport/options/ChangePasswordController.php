@@ -53,7 +53,13 @@ class ChangePasswordController extends MainLayoutController
 			}
 		}
 
-		return $this->factory->view()->changePassword($success, $message);
+		$cpassRt = $this->factory->router()->cpass();
+
+		return $this->factory->view()->changePassword($success, $message,
+			$cpassRt->oldPasswordKey(),
+			$cpassRt->newPasswordKey(),
+			$cpassRt->confirmPasswordKey()
+		);
 	}
 
 	private function handle($old, $new, $confirm)

@@ -9,9 +9,56 @@
 namespace gereport\mysqldomain;
 
 
+use gereport\domain\Report;
 use gereport\domain\ReportDao;
 
 class MReportDao implements ReportDao
 {
+	/**
+	 * @var \mysqli
+	 */
+	private $link;
 
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
+
+	public function add($content, $projectId, $dateFor, $datetimeAdd, $memberId)
+	{
+		$statement = $this->link->prepare('
+			INSERT INTO `report`(`memberId`, `projectId`, `dateFor`, `datetimeAdd`, `content`)
+			VALUES(?, ?, ?, ?, ?)
+		');
+		$statement->bind_param('iisss', $memberId, $projectId, $dateFor, $datetimeAdd, $content);
+		$statement->execute();
+		$statement->close();
+	}
+
+	public function delete($reportId)
+	{
+		$statement = $this->link->prepare('DELETE FROM `report` WHERE `id` = ?');
+		$statement->bind_param('i', $reportId);
+		$statement->execute();
+		$statement->close();
+	}
+
+//	public function edit($reportId, $content, $datetime)
+//	{
+//		$statement = $this->link->prepare('
+//			UPDATE `report` SET `content` = ?, `datetimeAdd` = ? WHERE `id` = ?
+//		');
+//		$statement->bind_param('ssi', $content, $datetime, $reportId);
+//		$statement->execute();
+//		$statement->close();
+//	}
+
+	/**
+	 * @param $reportId
+	 * @return Report
+	 */
+	public function findById($reportId)
+	{
+		return new MReport($this->link, $reportId);
+	}
 }

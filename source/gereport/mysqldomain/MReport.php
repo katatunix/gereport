@@ -13,10 +13,16 @@ use gereport\domain\Report;
 
 class MReport implements Report
 {
+	/**
+	 * @var \mysqli
+	 */
+	private $link;
+	private $id;
 
-	public function id()
+	public function __construct($link, $id)
 	{
-		// TODO: Implement id() method.
+		$this->link = $link;
+		$this->id = $id;
 	}
 
 	public function content()

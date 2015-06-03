@@ -67,11 +67,15 @@ class ViewFactory
 	/**
 	 * @param $success
 	 * @param $message
+	 * @param $oldPasswordKey
+	 * @param $newPasswordKey
+	 * @param $confirmPasswordKey
 	 * @return ChangePasswordView
 	 */
-	public function changePassword($success, $message)
+	public function changePassword($success, $message, $oldPasswordKey, $newPasswordKey, $confirmPasswordKey)
 	{
-		return new ChangePasswordView($this->htmlDirPath, $this->htmlDirUrl, $success, $message);
+		return new ChangePasswordView($this->htmlDirPath, $this->htmlDirUrl, $success, $message,
+			$oldPasswordKey, $newPasswordKey, $confirmPasswordKey);
 	}
 
 	/**

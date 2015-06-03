@@ -2,54 +2,60 @@
 
 namespace gereport\controller;
 
-use gereport\transaction\AddReportTransaction;
-use p8p\DatetimeUtils;
-use p8p\Redirector;
+use gereport\Controller;
+use gereport\DatetimeUtils;
+use gereport\report\AddReportRequest;
+use gereport\View;
 
-class AddReportController extends GrController
+class AddReportController extends Controller
 {
-	public function __construct($toolbox)
+	/**
+	 * @var AddReportRequest
+	 */
+	private $request;
+
+	public function __construct($request, $session, $factory)
 	{
-		parent::__construct($toolbox);
+		parent::__construct($session, $factory);
+		$this->request = $request;
 	}
 
+	/**
+	 * @return void
+	 */
 	public function process()
 	{
-		$request = $this->toolbox->httpRequest;
-
-		if (!$this->toolbox->session->isLogged())
+		if (!$this->session->hasLogged())
 		{
-			$msg = 'Access denied';
-			$err = true;
+			$this->factory->router()->index()->redirect();
 		}
-		else
-		{
-			$tx = new AddReportTransaction(
-				$this->toolbox->session->getLoggedMemberId(),
-				$request->getData('projectId'),
-				$request->getData('dateFor'),
-				DatetimeUtils::getCurDatetime(),
-				$request->getData('content'),
-				$this->toolbox->database);
 
-			$msg = 'Report was submited OK';
-			$err = false;
+		$error = false;
+		$message = null;
+
+		$content = $this->request->content();
+		if (!$content)
+		{
+			$error = true;
+			$message = 'Report content must not be empty';
+		}
+
+		if (!$error)
+		{
 			try
 			{
-				$tx->execute();
+				$this->factory->dao()->report()->add($content, $this->request->projectId(), $this->request->dateFor(),
+					DatetimeUtils::getCurDatetime(), $this->session->loggedMemberId());
+				$message = 'Report was submitted OK';
 			}
 			catch (\Exception $ex)
 			{
-				$msg = $ex->getMessage();
-				$err = true;
+				$error = true;
+				$message = $ex->getMessage();
 			}
 		}
 
-		$this->toolbox->session->setMessage($msg, $err);
-		( new Redirector( $request->getData('nextUrl') ) )->go();
-
-		// TODO
-
-		return null;
+		$this->session->saveMessage($message, $error);
+		$this->factory->router()->redirectTo($this->request->nextUrl());
 	}
 }

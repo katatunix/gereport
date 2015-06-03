@@ -2,43 +2,43 @@
 
 namespace gereport\controller;
 
-use gereport\transaction\DeleteReportTransaction;
+use gereport\Controller;
+use gereport\report\DeleteReportRequest;
 
 class DeleteReportController extends Controller
 {
+	/**
+	 * @var DeleteReportRequest
+	 */
+	private $request;
 
-	public function __construct($toolbox)
+	public function __construct($request, $session, $factory)
 	{
-		parent::__construct($toolbox);
+		parent::__construct($session, $factory);
+		$this->request = $request;
 	}
 
 	public function process()
 	{
-		$request = $this->toolbox->request;
-
-		if (!$this->toolbox->session->isLogged())
+		if (!$this->session->hasLogged())
 		{
-			$msg = 'Access denied';
-			$err = true;
-		}
-		else
-		{
-			$tx = new DeleteReportTransaction( $request->getData('reportId'), $this->toolbox->database );
-			$msg = 'Report was deleted OK';
-			$err = false;
-			try
-			{
-				$tx->execute();
-			}
-			catch (\Exception $ex)
-			{
-				$msg = $ex->getMessage();
-				$err = true;
-			}
+			$this->factory->router()->index()->redirect();
 		}
 
-		$this->toolbox->session->setResultMessage($msg, $err);
-		$this->toolbox->redirector->to( $request->getData('nextUrl') );
+		$error = false;
+		$message = null;
+		try
+		{
+			$this->factory->dao()->report()->delete($this->request->reportId());
+			$message = 'Report was deleted OK';
+		}
+		catch (\Exception $ex)
+		{
+			$error = true;
+			$message = $ex->getMessage();
+		}
+
+		$this->session->saveMessage($message, $error);
+		$this->factory->router()->redirectTo($this->request->nextUrl());
 	}
-
 }

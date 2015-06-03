@@ -2,91 +2,165 @@
 
 namespace gereport\controller;
 
-use gereport\transaction\EditReportTransaction;
-use gereport\transaction\GetReportContentTransaction;
-use gereport\utils\DatetimeUtils;
-use gereport\view\EditReportView;
-use gereport\view\Error403View;
+use gereport\Controller;
+use gereport\DatetimeUtils;
+use gereport\decorator\MainLayoutController;
+use gereport\report\EditReportRequest;
+use gereport\View;
 
-class EditReportController extends Controller
+class EditReportController extends MainLayoutController
 {
-	public function __construct($toolbox)
+	/**
+	 * @var EditReportRequest
+	 */
+	private $request;
+
+	public function __construct($request, $session, $factory)
 	{
-		parent::__construct($toolbox);
+		parent::__construct($session, $factory);
+		$this->request = $request;
 	}
 
-	public function process()
+	/**
+	 * @return View
+	 */
+	protected function createContentView()
 	{
-		if (!$this->toolbox->session->isLogged())
+		if (!$this->session->hasLogged())
 		{
-			return new Error403View($this->toolbox->urlSource, $this->toolbox->htmlDir);
+			return $this->factory->view()->error403();
 		}
 
-		$request = $this->toolbox->request;
-		$view = new EditReportView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+		$nextUrl = $this->request->nextUrl();
+		$message = null;
+		$content = null;
 
-		$reportId = $request->getDataGet('id');
-		$nextUrl = $request->getDataGet('next');
-
-		$view->setNextUrl($nextUrl);
-
-		if ($request->isPostMethod())
+		if ($this->request->isPostMethod())
 		{
-			$content = $request->getDataPost('content');
+			$error = false;
 
-			$tx = new EditReportTransaction(
-				$reportId,
-				DatetimeUtils::getCurDatetime(),
-				$content,
-				$this->toolbox->database);
+			$content = $this->request->content();
+			if (!$content)
+			{
+				$error = true;
+				$message = 'Report content must not be empty';
+			}
 
-			$msg = 'Report was saved OK';
-			$err = false;
+			if (!$error)
+			{
+				try
+				{
+					// TODO
+					//$this->factory->dao()->report()->edit( $this->request->reportId(), $content, DatetimeUtils::getCurDatetime() );
+
+					$message = 'Report was saved OK';
+				}
+				catch (\Exception $ex)
+				{
+					$error = true;
+					$message = $ex->getMessage();
+				}
+			}
+
+			if ($error)
+			{
+				return $this->factory->view()->editReport($content, $message, $nextUrl);
+			}
+
+			$this->session->saveMessage($message, $error);
+			$this->factory->router()->redirectTo($nextUrl);
+		}
+		else
+		{
+			$reportId = $this->request->reportId();
 			try
 			{
-				$tx->execute();
+				$content = $this->factory->dao()->report()->findById($reportId)->content();
 			}
 			catch (\Exception $ex)
 			{
-				$msg = $ex->getMessage();
-				$err = true;
+				$content = null;
+				$message = $ex->getMessage();
 			}
-
-			if ($err)
-			{
-				$view->setIsActionSuccess(!$err);
-				$view->setResultMessage($msg);
-				$view->setContent( $content );
-			}
-			else // EDIT SUCCESS
-			{
-				$this->toolbox->session->setResultMessage($msg, $err);
-				$this->toolbox->redirector->to( $nextUrl );
-			}
+			return $this->factory->view()->editReport($content, $message, $nextUrl);
 		}
-		else // GET method
-		{
-			$tx = new GetReportContentTransaction( $reportId, $this->toolbox->database );
-			$msg = '';
-			$err = false;
-			try
-			{
-				$tx->execute();
-				$view->setContent( $tx->getContent() );
-			}
-			catch (\Exception $ex)
-			{
-				$msg = $ex->getMessage();
-				$err = true;
-			}
-
-			$view->setIsActionSuccess(!$err);
-			$view->setResultMessage($msg);
-		}
-
-		$view->setTitle('Edit report');
-
-		return $view;
 	}
+
+	//public function process()
+	//{
+
+
+//		if (!$this->toolbox->session->isLogged())
+//		{
+//			return new Error403View($this->toolbox->urlSource, $this->toolbox->htmlDir);
+//		}
+//
+//		$request = $this->toolbox->request;
+//		$view = new EditReportView($this->toolbox->urlSource, $this->toolbox->htmlDir);
+//
+//		$reportId = $request->getDataGet('id');
+//		$nextUrl = $request->getDataGet('next');
+//
+//		$view->setNextUrl($nextUrl);
+//
+//		if ($request->isPostMethod())
+//		{
+//			$content = $request->getDataPost('content');
+//
+//			$tx = new EditReportTransaction(
+//				$reportId,
+//				DatetimeUtils::getCurDatetime(),
+//				$content,
+//				$this->toolbox->database);
+//
+//			$msg = 'Report was saved OK';
+//			$err = false;
+//			try
+//			{
+//				$tx->execute();
+//			}
+//			catch (\Exception $ex)
+//			{
+//				$msg = $ex->getMessage();
+//				$err = true;
+//			}
+//
+//			if ($err)
+//			{
+//				$view->setIsActionSuccess(!$err);
+//				$view->setResultMessage($msg);
+//				$view->setContent( $content );
+//			}
+//			else // EDIT SUCCESS
+//			{
+//				$this->toolbox->session->setResultMessage($msg, $err);
+//				$this->toolbox->redirector->to( $nextUrl );
+//			}
+//		}
+//		else // GET method
+//		{
+//			$tx = new GetReportContentTransaction( $reportId, $this->toolbox->database );
+//			$msg = '';
+//			$err = false;
+//			try
+//			{
+//				$tx->execute();
+//				$view->setContent( $tx->getContent() );
+//			}
+//			catch (\Exception $ex)
+//			{
+//				$msg = $ex->getMessage();
+//				$err = true;
+//			}
+//
+//			$view->setIsActionSuccess(!$err);
+//			$view->setResultMessage($msg);
+//		}
+//
+//		$view->setTitle('Edit report');
+//
+//		return $view;
+//	}
+
 
 }
