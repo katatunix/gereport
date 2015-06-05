@@ -15,14 +15,25 @@ class MainView extends View
 	 * @var View
 	 */
 	private $content;
-	private $banner, $sidebar, $footer;
+	/**
+	 * @var View
+	 */
+	private $banner;
+	/**
+	 * @var View
+	 */
+	private $sidebar;
+	/**
+	 * @var View
+	 */
+	private $footer;
 
 	/**
-	 * @param $config
+	 * @param Config $config
 	 * @param View $content
-	 * @param $banner
-	 * @param $sidebar
-	 * @param $footer
+	 * @param View $banner
+	 * @param View $sidebar
+	 * @param View $footer
 	 */
 	public function __construct($config, $content, $banner, $sidebar, $footer)
 	{

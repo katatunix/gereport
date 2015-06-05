@@ -16,6 +16,9 @@ abstract class View
 		$this->title = $title;
 	}
 
+	/**
+	 * @return void
+	 */
 	public abstract function render();
 
 	public function title()

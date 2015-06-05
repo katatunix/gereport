@@ -6,14 +6,14 @@
  * Time: 6:08 PM
  */
 
-namespace gereport\options;
+namespace gereport\cpass;
 
 use gereport\BaseRequest;
 
-class ChangePasswordRequest extends BaseRequest
+class CpassRequest extends BaseRequest
 {
 	/**
-	 * @var ChangePasswordRouter
+	 * @var CpassRouter
 	 */
 	private $router;
 

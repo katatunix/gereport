@@ -4,6 +4,9 @@ namespace gereport;
 
 use gereport\banner\BannerProcessor;
 use gereport\banner\BannerResponse;
+use gereport\cpass\CpassProcessor;
+use gereport\cpass\CpassRequest;
+use gereport\cpass\CpassResponse;
 use gereport\cpass\CpassRouter;
 use gereport\error\Error404View;
 use gereport\footer\FooterView;
@@ -15,8 +18,8 @@ use gereport\login\LoginResponse;
 use gereport\login\LoginRouter;
 use gereport\logout\LogoutResponse;
 use gereport\logout\LogoutRouter;
+use gereport\options\OptionsResponse;
 use gereport\options\OptionsRouter;
-use gereport\options\OptionsView;
 use gereport\sidebar\SidebarProcessor;
 use gereport\sidebar\SidebarResponse;
 
@@ -61,9 +64,13 @@ class Main
 		{
 			$this->handleOptions();
 		}
+		else if ($rt == CpassRouter::ROUTER)
+		{
+			$this->handleCpass($httpRequest);
+		}
 		else
 		{
-			$this->handle4NotFound();
+			$this->handleNotFound();
 		}
 	}
 
@@ -72,25 +79,25 @@ class Main
 		$this->renderMainView(new IndexView($this->config));
 	}
 
-	private function handle4NotFound()
+	private function handleNotFound()
 	{
 		$this->renderMainView(new Error404View($this->config));
 	}
 
 	private function handleLogin($httpRequest)
 	{
-		$loginRouter = new LoginRouter($this->config->rootUrl());
-		$loginRequest = new LoginRequest($httpRequest, $loginRouter);
-		$loginProcessor = new LoginProcessor($loginRequest, $this->session, $this->daoFactory->member());
+		$router = new LoginRouter($this->config->rootUrl());
+		$request = new LoginRequest($httpRequest, $router);
+		$processor = new LoginProcessor($request, $this->session, $this->daoFactory->member());
 		$indexRedirector = new Redirector(
 			(new IndexRouter(
 				$this->config->rootUrl()
 			))->url()
 		);
-		$loginResponse = new LoginResponse($loginProcessor, $this->session, $indexRedirector, $this->config, $loginRouter);
-		$loginView = $loginResponse->execute();
+		$response = new LoginResponse($processor, $this->session, $indexRedirector, $this->config, $router);
+		$view = $response->execute();
 
-		$this->renderMainView($loginView);
+		$this->renderMainView($view);
 	}
 
 	private function handleLogout()
@@ -108,11 +115,23 @@ class Main
 	{
 		$r = $this->config->rootUrl();
 		$this->renderMainView(
-			new OptionsView(
+			(new OptionsResponse(
+				$this->session,
 				$this->config,
 				(new CpassRouter($r))->url()
-			)
+			))->execute()
 		);
+	}
+
+	private function handleCpass($httpRequest)
+	{
+		$router = new CpassRouter($this->config->rootUrl());
+		$request = new CpassRequest($httpRequest, $router);
+		$processor = new CpassProcessor($request, $this->session, $this->daoFactory->member());
+		$response = new CpassResponse($processor, $this->config, $router);
+		$view = $response->execute();
+
+		$this->renderMainView($view);
 	}
 
 	private function renderMainView($contentView)

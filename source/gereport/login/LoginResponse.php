@@ -65,7 +65,7 @@ class LoginResponse implements LoginViewInfo
 
 		if ($this->loginProcessor->isShowingViewOnly())
 		{
-			$this->username = null;
+			$this->username = '';
 			$this->message = null;
 		}
 		else
