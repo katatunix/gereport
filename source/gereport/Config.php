@@ -14,13 +14,13 @@ class Config
 		return __ROOT_URL;
 	}
 
-	public function htmlDirPath()
+	public function resDirPath()
 	{
-		return __ROOT_DIR . 'html/';
+		return __ROOT_DIR . 'res/';
 	}
 
-	public function htmlDirUrl()
+	public function resDirUrl()
 	{
-		return __ROOT_URL . 'html/';
+		return __ROOT_URL . 'res/';
 	}
 }

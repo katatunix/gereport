@@ -2,68 +2,142 @@
 
 namespace gereport;
 
-use gereport\authen\LoginController;
-use gereport\authen\LoginRequest;
-use gereport\authen\LoginRouter;
-use gereport\authen\LogoutController;
-use gereport\authen\LogoutRouter;
-use gereport\decorator\Error404Controller;
-use gereport\index\IndexController;
-use gereport\options\ChangePasswordController;
-use gereport\options\ChangePasswordRequest;
-use gereport\options\ChangePasswordRouter;
-use gereport\options\OptionsController;
+use gereport\banner\BannerProcessor;
+use gereport\banner\BannerResponse;
+use gereport\cpass\CpassRouter;
+use gereport\error\Error404View;
+use gereport\footer\FooterView;
+use gereport\index\IndexRouter;
+use gereport\index\IndexView;
+use gereport\login\LoginProcessor;
+use gereport\login\LoginRequest;
+use gereport\login\LoginResponse;
+use gereport\login\LoginRouter;
+use gereport\logout\LogoutResponse;
+use gereport\logout\LogoutRouter;
 use gereport\options\OptionsRouter;
-use gereport\report\AddReportRouter;
+use gereport\options\OptionsView;
+use gereport\sidebar\SidebarProcessor;
+use gereport\sidebar\SidebarResponse;
 
 class Main
 {
+	/**
+	 * @var Session
+	 */
+	private $session;
+	/**
+	 * @var Config
+	 */
+	private $config;
+
+	/**
+	 * @var DaoFactory
+	 */
+	private $daoFactory;
+
 	public function main()
 	{
-		$session = new Session();
-		$config = new Config();
+		$this->session = new Session();
+		$this->config = new Config();
+		$this->daoFactory = new DaoFactory('localhost', 'root', '', 'gereport');
 
-		$daoFactory = new DaoFactory('localhost', 'root', '', 'gereport');
-		$viewFactory = new ViewFactory($config->htmlDirPath(), $config->htmlDirUrl());
-		$routerFactory = new RouterFactory($config->rootUrl());
-		$factory = new Factory($daoFactory, $viewFactory, $routerFactory);
-
-		$request = new Request($_GET, $_POST, $_SERVER['REQUEST_METHOD'] == 'POST', $_SERVER['REQUEST_URI']);
-		$rt = $request->valueGet('rt');
-		$controller = null;
+		$httpRequest = new HttpRequest($_GET, $_POST, $_SERVER['REQUEST_METHOD'] == 'POST', $_SERVER['REQUEST_URI']);
+		$rt = $httpRequest->valueGet('rt');
 
 		if (!$rt)
 		{
-			$controller = new IndexController($session, $factory);
+			$this->handleIndex();
 		}
 		else if ($rt == LoginRouter::ROUTER)
 		{
-			$loginRequest = new LoginRequest($request, $routerFactory->login());
-			$controller = new LoginController($loginRequest, $session, $factory);
+			$this->handleLogin($httpRequest);
 		}
 		else if ($rt == LogoutRouter::ROUTER)
 		{
-			$controller = new LogoutController($session, $factory);
+			$this->handleLogout();
 		}
 		else if ($rt == OptionsRouter::ROUTER)
 		{
-			$controller = new OptionsController($session, $factory);
-		}
-		else if ($rt == ChangePasswordRouter::ROUTER)
-		{
-			$cpassRequest = new ChangePasswordRequest($request, $routerFactory->cpass());
-			$controller = new ChangePasswordController($cpassRequest, $session, $factory);
-		}
-		else if ($rt == AddReportRouter::ROUTER)
-		{
-			$addReportRequest = new AddReportRequest($request, $routerFactory->addReport());
-			$controller = new AddReportController($addReportRequest, $session, $factory);
+			$this->handleOptions();
 		}
 		else
 		{
-			$controller = new Error404Controller($session, $factory);
+			$this->handle4NotFound();
 		}
+	}
 
-		$controller->process();
+	private function handleIndex()
+	{
+		$this->renderMainView(new IndexView($this->config));
+	}
+
+	private function handle4NotFound()
+	{
+		$this->renderMainView(new Error404View($this->config));
+	}
+
+	private function handleLogin($httpRequest)
+	{
+		$loginRouter = new LoginRouter($this->config->rootUrl());
+		$loginRequest = new LoginRequest($httpRequest, $loginRouter);
+		$loginProcessor = new LoginProcessor($loginRequest, $this->session, $this->daoFactory->member());
+		$indexRedirector = new Redirector(
+			(new IndexRouter(
+				$this->config->rootUrl()
+			))->url()
+		);
+		$loginResponse = new LoginResponse($loginProcessor, $this->session, $indexRedirector, $this->config, $loginRouter);
+		$loginView = $loginResponse->execute();
+
+		$this->renderMainView($loginView);
+	}
+
+	private function handleLogout()
+	{
+		$r = $this->config->rootUrl();
+		(new LogoutResponse(
+			$this->session,
+			new Redirector(
+				(new IndexRouter($r))->url()
+			)
+		))->execute();
+	}
+
+	private function handleOptions()
+	{
+		$r = $this->config->rootUrl();
+		$this->renderMainView(
+			new OptionsView(
+				$this->config,
+				(new CpassRouter($r))->url()
+			)
+		);
+	}
+
+	private function renderMainView($contentView)
+	{
+		//
+		$bannerProcessor = new BannerProcessor($this->session, $this->daoFactory->member());
+		$r = $this->config->rootUrl();
+		$bannerResponse = new BannerResponse($bannerProcessor, $this->config,
+			(new IndexRouter($r))->url(),
+			(new optionsRouter($r))->url(),
+			(new LoginRouter($r))->url(),
+			(new LogoutRouter($r))->url()
+		);
+		$bannerView = $bannerResponse->execute();
+
+		//
+		$sidebarProcessor = new SidebarProcessor($this->daoFactory->project());
+		$sidebarResponse = new SidebarResponse($sidebarProcessor, new ReportRouter($r), $this->config);
+		$sidebarView = $sidebarResponse->execute();
+
+		//
+		$footerView = new FooterView($this->config);
+
+		//
+		$mainView = new MainView($this->config, $contentView, $bannerView, $sidebarView, $footerView);
+		$mainView->render();
 	}
 }

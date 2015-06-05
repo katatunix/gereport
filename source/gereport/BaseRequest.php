@@ -12,17 +12,17 @@ namespace gereport;
 class BaseRequest
 {
 	/**
-	 * @var Request
+	 * @var HttpRequest
 	 */
-	protected $request;
+	protected $httpRequest;
 
-	public function __construct($request)
+	public function __construct($httpRequest)
 	{
-		$this->request = $request;
+		$this->httpRequest = $httpRequest;
 	}
 
 	public function isPostMethod()
 	{
-		return $this->request->isPostMethod();
+		return $this->httpRequest->isPostMethod();
 	}
 }

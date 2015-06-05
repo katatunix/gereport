@@ -12,19 +12,9 @@ namespace gereport;
 class Router
 {
 	protected $rootUrl;
-	/**
-	 * @var Redirector
-	 */
-	private $redirector;
 
-	public function __construct($rootUrl, $redirector)
+	public function __construct($rootUrl)
 	{
 		$this->rootUrl = $rootUrl;
-		$this->redirector = $redirector;
-	}
-
-	protected function redirectTo($url)
-	{
-		$this->redirector->redirect($url);
 	}
 }

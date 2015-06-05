@@ -1,12 +1,12 @@
 <?php
 
-namespace gereport\index;
+namespace gereport\logout;
 
 use gereport\Router;
 
-class IndexRouter extends Router
+class LogoutRouter extends Router
 {
-	const ROUTER = '';
+	const ROUTER = 'logout';
 
 	public function url()
 	{

@@ -11,8 +11,15 @@ namespace gereport;
 
 class Redirector
 {
-	public function redirect($url)
+	private $url;
+
+	public function __construct($url)
 	{
-		header('LOCATION: ' . $url);
+		$this->url = $url;
+	}
+
+	public function redirect()
+	{
+		header('LOCATION: ' . $this->url);
 	}
 }

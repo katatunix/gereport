@@ -6,13 +6,13 @@ use gereport\View;
 
 class IndexView extends View
 {
-	public function __construct($htmlDirPath, $htmlDirUrl)
+	public function __construct($config)
 	{
-		parent::__construct($htmlDirPath, $htmlDirUrl, 'Welcome');
+		parent::__construct($config, 'Welcome');
 	}
 
-	protected function htmlFileName()
+	public function render()
 	{
-		return 'IndexHtml.php';
+		require 'IndexHtml.php';
 	}
 }

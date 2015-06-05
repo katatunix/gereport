@@ -2,7 +2,7 @@
 
 namespace gereport\post;
 
-use gereport\Request;
+use gereport\HttpRequest;
 
 class AddPostRequest
 {

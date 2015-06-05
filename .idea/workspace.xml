@@ -25,67 +25,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EditReportController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportController.php">
+      <file leaf-file-name="Main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/Main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.875" vertical-offset="654" max-vertical-offset="2580">
-              <caret line="53" column="60" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="60" />
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="2533">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
-                <element signature="e#39#63#0#PHP" expanded="true" />
+                <element signature="e#28#64#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditReportView.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportView.php">
+      <file leaf-file-name="IndexView.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/gereport/index/IndexView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.25" vertical-offset="0" max-vertical-offset="840">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.18201284" vertical-offset="0" max-vertical-offset="934">
+              <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportDao.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/domain/ReportDao.php">
+      <file leaf-file-name="CpassRouter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/cpass/CpassRouter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="390">
-              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="646">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MReportDao.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php">
+      <file leaf-file-name="Error403View.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/error/Error403View.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.25" vertical-offset="39" max-vertical-offset="975">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="408">
+              <caret line="11" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Error404Html.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/error/Error404Html.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="119">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoFactory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/DaoFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-32.0" vertical-offset="375" max-vertical-offset="1309">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
-                <element signature="e#130#157#0#PHP" expanded="true" />
-                <marker date="1433335397827" expanded="true" signature="462:569" placeholder="INSERT INTO ..." />
-                <marker date="1433335397827" expanded="true" signature="795:830" placeholder="DELETE FROM ..." />
+                <element signature="e#115#145#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Report.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/gereport/domain/Report.php">
+      <file leaf-file-name="Error403Html.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/error/Error403Html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="936">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
+              <caret line="0" column="50" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MReport.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php">
+      <file leaf-file-name="OptionsRouter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/options/OptionsRouter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.375" vertical-offset="0" max-vertical-offset="795">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="391">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionsView.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/options/OptionsView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="459">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OptionsHtml.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/options/OptionsHtml.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -101,57 +139,57 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/gereport/options/ChangePasswordRouter.php" />
-        <option value="$PROJECT_DIR$/source/gereport/options/ChangePasswordRequest.php" />
-        <option value="$PROJECT_DIR$/source/gereport/authen/LoginController.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/source/gereport/DatetimeUtils.php" />
-        <option value="$PROJECT_DIR$/source/gereport/Session.php" />
-        <option value="$PROJECT_DIR$/source/gereport/authen/LoginRequest.php" />
-        <option value="$PROJECT_DIR$/source/gereport/authen/LoginRouter.php" />
-        <option value="$PROJECT_DIR$/source/gereport/authen/LoginView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/authen/LogoutController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/decorator/BannerView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/decorator/Error403View.php" />
-        <option value="$PROJECT_DIR$/source/gereport/decorator/Error404View.php" />
-        <option value="$PROJECT_DIR$/source/gereport/decorator/FooterView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/decorator/MainLayoutController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/decorator/MainLayoutView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/index/IndexController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/AddReportTransaction.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/DeleteReportTransaction.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/EditReportTransaction.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/EditReportView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/GetReportContentTransaction.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/GetReportsTransaction.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/ReportController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/ReportView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MMember.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MMemberDao.php" />
-        <option value="$PROJECT_DIR$/html/ChangePasswordHtml.php" />
-        <option value="$PROJECT_DIR$/source/gereport/options/ChangePasswordView.php" />
-        <option value="$PROJECT_DIR$/source/gereport/ViewFactory.php" />
-        <option value="$PROJECT_DIR$/source/gereport/options/ChangePasswordController.php" />
-        <option value="$PROJECT_DIR$/config.php" />
-        <option value="$PROJECT_DIR$/source/gereport/Main.php" />
-        <option value="$PROJECT_DIR$/source/gereport/DaoFactory.php" />
-        <option value="$PROJECT_DIR$/source/gereport/Redirector.php" />
-        <option value="$PROJECT_DIR$/source/gereport/Router.php" />
-        <option value="$PROJECT_DIR$/source/gereport/RouterFactory.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/AddReportRouter.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/AddReportRequest.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/DeleteReportRouter.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/DeleteReportController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/AddReportController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/DeleteReportRequest.php" />
-        <option value="$PROJECT_DIR$/source/gereport/report/EditReportRouter.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/EditReportRequest.php" />
         <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/EditReportController.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/ReportDao.php" />
         <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php" />
+        <option value="$PROJECT_DIR$/source/gereport/HttpHttpRequest.php" />
+        <option value="$PROJECT_DIR$/source/gereport/BaseRequest.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginRequest.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginController.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Controller.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Redirector.php" />
+        <option value="$PROJECT_DIR$/source/gereport/View.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginViewInfo.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginView.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Config.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Main2.php" />
+        <option value="$PROJECT_DIR$/source/gereport/banner/BannerProcessor.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Response.php" />
+        <option value="$PROJECT_DIR$/source/gereport/banner/BannerHtml.php" />
+        <option value="$PROJECT_DIR$/source/gereport/footer/FooterView.php" />
+        <option value="$PROJECT_DIR$/source/gereport/sidebar/SidebarHtml.php" />
+        <option value="$PROJECT_DIR$/source/gereport/sidebar/SidebarViewInfo.php" />
+        <option value="$PROJECT_DIR$/source/gereport/banner/BannerViewInfo.php" />
+        <option value="$PROJECT_DIR$/source/gereport/sidebar/SidebarView.php" />
+        <option value="$PROJECT_DIR$/source/gereport/domain/Project.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php" />
+        <option value="$PROJECT_DIR$/source/gereport/sidebar/SidebarProcessor.php" />
+        <option value="$PROJECT_DIR$/source/gereport/sidebar/SidebarResponse.php" />
+        <option value="$PROJECT_DIR$/source/gereport/MainHtml.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Router.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginRouter.php" />
+        <option value="$PROJECT_DIR$/source/gereport/IndexRouter.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginResponse.php" />
+        <option value="$PROJECT_DIR$/source/gereport/MainView.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginHtml.php" />
+        <option value="$PROJECT_DIR$/source/gereport/banner/BannerResponse.php" />
+        <option value="$PROJECT_DIR$/source/gereport/banner/BannerView.php" />
+        <option value="$PROJECT_DIR$/source/gereport/login/LoginProcessor.php" />
+        <option value="$PROJECT_DIR$/source/gereport/ReportRouter.php" />
+        <option value="$PROJECT_DIR$/source/gereport/index/IndexRouter.php" />
+        <option value="$PROJECT_DIR$/source/gereport/DaoFactory.php" />
+        <option value="$PROJECT_DIR$/source/gereport/logout/LogoutRouter.php" />
+        <option value="$PROJECT_DIR$/source/gereport/logout/LogoutResponse.php" />
+        <option value="$PROJECT_DIR$/source/gereport/error/Error403View.php" />
+        <option value="$PROJECT_DIR$/source/gereport/error/Error404View.php" />
+        <option value="$PROJECT_DIR$/source/gereport/error/Error403Html.php" />
+        <option value="$PROJECT_DIR$/source/gereport/error/Error404Html.php" />
+        <option value="$PROJECT_DIR$/source/gereport/options/OptionsView.php" />
+        <option value="$PROJECT_DIR$/source/gereport/cpass/CpassRouter.php" />
+        <option value="$PROJECT_DIR$/source/gereport/Main.php" />
+        <option value="$PROJECT_DIR$/source/gereport/index/IndexView.php" />
       </list>
     </option>
   </component>
@@ -229,7 +267,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,7 +321,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="report" />
+              <option name="myItemId" value="options" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,7 +343,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mysqldomain" />
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,16 +365,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
+              <option name="myItemId" value="error" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cpass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gereport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="Configurable.PHP.PHPUnit" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/config.php" />
@@ -350,16 +424,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\gereport\source\gereport\login" />
       <recent name="D:\xampp\htdocs\gereport\source\gereport" />
       <recent name="D:\xampp\htdocs\gereport\source\gereport\database" />
       <recent name="D:\xampp\htdocs\gereport" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\gereport\source\gereport\report" />
-      <recent name="D:\xampp\htdocs\gereport\source\gereport" />
-      <recent name="D:\xampp\htdocs\gereport\source\gereport\logging" />
       <recent name="D:\xampp\htdocs\gereport\source\gereport\options" />
-      <recent name="D:\xampp\htdocs\gereport\source\gereport\deco" />
+      <recent name="D:\xampp\htdocs\gereport\source\gereport\cpass" />
+      <recent name="D:\xampp\htdocs\gereport\source\gereport\error" />
+      <recent name="D:\xampp\htdocs\gereport\source\gereport\index" />
+      <recent name="D:\xampp\htdocs\gereport\source\gereport" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Application.gereport">
@@ -441,28 +516,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25080732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2074074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25080732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3360324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27024293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2074074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27024293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -525,228 +600,157 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/gereport/Session.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/domain/Report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="960">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="285">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/authen/LoginRouter.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/HttpRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="465">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/authen/LoginView.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/banner/BannerHtml.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="525">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.29122055" vertical-offset="0" max-vertical-offset="934">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/authen/LogoutController.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/sidebar/SidebarViewInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="300">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="323">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/decorator/BannerView.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/sidebar/SidebarView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="465">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="510">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/decorator/Error403View.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/domain/Project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="360">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="255">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/decorator/Error404View.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/domain/ProjectDao.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="360">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="527">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/decorator/FooterView.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="285">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/decorator/MainLayoutView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="585">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/index/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="345">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="765">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#34#78#0#PHP" expanded="false" />
+            <marker date="1433491245347" expanded="true" signature="-1:-1" placeholder="SELECT `name..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/GetReportContentTransaction.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/sidebar/SidebarProcessor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="705">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/GetReportsTransaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="1365">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/ReportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="1365">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/ReportView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="1215">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/database/MockDatabase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="4545">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMember.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="900">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="30" />
+        <state vertical-scroll-proportion="-28.115385" vertical-offset="0" max-vertical-offset="833">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
-            <marker date="1433326498777" expanded="true" signature="-1:-1" placeholder="SELECT `user..." />
-            <marker date="1433326498777" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
+            <element signature="e#126#157#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMemberDao.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/sidebar/SidebarHtml.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="1170">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#129#156#0#PHP" expanded="false" />
-            <marker date="1433326498771" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1433326498771" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
+            <marker date="1433489086769" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MPost.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginHtml.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.63704497" vertical-offset="0" max-vertical-offset="934">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MPostDao.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginViewInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="524">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2366167" vertical-offset="0" max-vertical-offset="934">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/ChangePasswordHtml.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/footer/FooterView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.032051284" vertical-offset="0" max-vertical-offset="936">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="37" />
+        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="323">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/options/ChangePasswordView.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/footer/FooterHtml.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="936">
-          <caret line="13" column="85" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.03640257" vertical-offset="0" max-vertical-offset="934">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/options/ChangePasswordRouter.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/BaseRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0" vertical-offset="0" max-vertical-offset="570">
+        <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="493">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/MainHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67344755" vertical-offset="0" max-vertical-offset="934">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/ViewFactory.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/MainView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.375" vertical-offset="495" max-vertical-offset="1995">
-          <caret line="74" column="34" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.65524626" vertical-offset="0" max-vertical-offset="934">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/options/ChangePasswordController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.875" vertical-offset="564" max-vertical-offset="1530">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <element signature="e#36#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/decorator/MainLayoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.25" vertical-offset="54" max-vertical-offset="990">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="e#38#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="495">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/tmp/ReportProxy.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/Message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -754,213 +758,272 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/Main.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/Processor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.375" vertical-offset="189" max-vertical-offset="1125">
-          <caret line="58" column="52" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="52" />
-          <folding>
-            <element signature="e#28#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/authen/LoginRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3525641" vertical-offset="0" max-vertical-offset="936">
-          <caret line="22" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/authen/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40064102" vertical-offset="0" max-vertical-offset="936">
-          <caret line="25" column="5" selection-start-line="10" selection-start-column="4" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="e#35#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/DaoFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-40.625" vertical-offset="0" max-vertical-offset="1065">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#115#145#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/Redirector.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="936">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="442">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/ReportRouter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="442">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/Router.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40064102" vertical-offset="0" max-vertical-offset="936">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/RouterFactory.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/View.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.875" vertical-offset="0" max-vertical-offset="855">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="527">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/DeleteReportRouter.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/DatetimeUtils.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3525641" vertical-offset="0" max-vertical-offset="936">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.65524626" vertical-offset="0" max-vertical-offset="934">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/DeleteReportController.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/StringUtils.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.5" vertical-offset="0" max-vertical-offset="750">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.34582442" vertical-offset="0" max-vertical-offset="934">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/banner/BannerViewInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.254818" vertical-offset="0" max-vertical-offset="934">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/banner/BannerView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43683085" vertical-offset="0" max-vertical-offset="934">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginProcessor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="34" max-vertical-offset="1343">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#39#63#0#PHP" expanded="true" />
+            <element signature="e#34#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/AddReportRouter.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="540">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="595">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/AddReportRequest.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginRouter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.625" vertical-offset="0" max-vertical-offset="705">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="527">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportRequest.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginResponse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5769231" vertical-offset="0" max-vertical-offset="936">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportRouter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43269232" vertical-offset="0" max-vertical-offset="936">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/AddReportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.375" vertical-offset="69" max-vertical-offset="1005">
-          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="72" />
+        <state vertical-scroll-proportion="-51.653847" vertical-offset="255" max-vertical-offset="1700">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
           <folding>
-            <element signature="e#39#63#0#PHP" expanded="true" />
+            <element signature="e#123#143#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportView.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/banner/BannerProcessor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.25" vertical-offset="0" max-vertical-offset="840">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8557692" vertical-offset="144" max-vertical-offset="1080">
-          <caret line="69" column="53" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="53" />
+        <state vertical-scroll-proportion="-28.76923" vertical-offset="0" max-vertical-offset="850">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <marker date="1433326417434" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
-            <marker date="1433326417434" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
+            <element signature="e#125#155#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/index/IndexHtml.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30448717" vertical-offset="0" max-vertical-offset="936">
-          <caret line="24" column="5" selection-start-line="14" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="136">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.375" vertical-offset="0" max-vertical-offset="795">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="510">
+          <caret line="17" column="5" selection-start-line="13" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportTransaction.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/banner/BannerResponse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625" vertical-offset="0" max-vertical-offset="936">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state vertical-scroll-proportion="-35.615383" vertical-offset="179" max-vertical-offset="1207">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/DeleteReportRequest.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/index/IndexRouter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3846154" vertical-offset="0" max-vertical-offset="936">
-          <caret line="29" column="5" selection-start-line="15" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/report/EditReportController.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/sidebar/SidebarResponse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.875" vertical-offset="654" max-vertical-offset="2580">
-          <caret line="53" column="60" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="60" />
+        <state vertical-scroll-proportion="-39.884617" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <element signature="e#39#63#0#PHP" expanded="true" />
+            <element signature="e#126#146#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/domain/ReportDao.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/logout/LogoutRouter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="390">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/logout/LogoutResponse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.25" vertical-offset="39" max-vertical-offset="975">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="663">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#130#157#0#PHP" expanded="true" />
-            <marker date="1433335397827" expanded="true" signature="462:569" placeholder="INSERT INTO ..." />
-            <marker date="1433335397827" expanded="true" signature="795:830" placeholder="DELETE FROM ..." />
+            <element signature="e#125#149#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/domain/Report.php">
+    <entry file="file://$PROJECT_DIR$/source/gereport/error/Error404View.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20833333" vertical-offset="0" max-vertical-offset="936">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="408">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/error/Error403Html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
+          <caret line="0" column="50" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/error/Error404Html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="119">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/DaoFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-32.0" vertical-offset="375" max-vertical-offset="1309">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="e#115#145#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/error/Error403View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="408">
+          <caret line="11" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/options/OptionsHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="153">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/options/OptionsRouter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="391">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/options/OptionsView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="459">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/cpass/CpassRouter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="646">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/Main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="2533">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#28#64#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/index/IndexView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18201284" vertical-offset="0" max-vertical-offset="934">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding />
         </state>
       </provider>

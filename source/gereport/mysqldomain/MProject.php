@@ -24,6 +24,11 @@ class MProject implements Project
 		$this->id = $id;
 	}
 
+	public function id()
+	{
+		return $this->id;
+	}
+
 	public function name()
 	{
 		$statement = $this->link->prepare('SELECT `name` FROM `project` WHERE `id` = ?');

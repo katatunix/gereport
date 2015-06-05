@@ -22,6 +22,11 @@ class DaoFactory
 	 */
 	private $link;
 
+	/**
+	 * @var MemberDao
+	 */
+	private $member;
+
 	public function __construct($host, $username, $password, $dbname)
 	{
 		$this->link = new \mysqli($host, $username, $password, $dbname);
@@ -42,7 +47,8 @@ class DaoFactory
 	 */
 	public function member()
 	{
-		return new MMemberDao($this->link);
+		if (!$this->member) $this->member = new MMemberDao($this->link);
+		return $this->member;
 	}
 
 	/**

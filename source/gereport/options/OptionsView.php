@@ -8,14 +8,14 @@ class OptionsView extends View
 {
 	protected $cpassUrl;
 
-	public function __construct($htmlDirPath, $htmlDirUrl, $cpassUrl)
+	public function __construct($config, $cpassUrl)
 	{
-		parent::__construct($htmlDirPath, $htmlDirUrl, 'Options');
+		parent::__construct($config, 'Options');
 		$this->cpassUrl = $cpassUrl;
 	}
 
-	protected function htmlFileName()
+	public function render()
 	{
-		return 'OptionsHtml.php';
+		require 'OptionsHtml.php';
 	}
 }
