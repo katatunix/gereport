@@ -8,12 +8,11 @@
 
 namespace gereport\banner;
 
-
 use gereport\domain\MemberDao;
-use gereport\Processor;
+use gereport\Validator;
 use gereport\Session;
 
-class BannerProcessor implements Processor
+class BannerValidator implements Validator
 {
 	/**
 	 * @var Session
@@ -35,10 +34,11 @@ class BannerProcessor implements Processor
 	/**
 	 * @return void
 	 */
-	public function process()
+	public function validate()
 	{
 		$memberId = $this->session->loggedMemberId();
 		if (!$memberId) return;
+
 		$this->loggedMemberUsername = $this->memberDao->findById($memberId)->username();
 	}
 

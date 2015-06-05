@@ -2,10 +2,10 @@
 
 namespace gereport;
 
-interface Processor
+interface Validator
 {
 	/**
 	 * @return void
 	 */
-	public function process();
+	public function validate();
 }

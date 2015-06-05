@@ -2,9 +2,9 @@
 
 namespace gereport;
 
-use gereport\banner\BannerProcessor;
+use gereport\banner\BannerValidator;
 use gereport\banner\BannerResponse;
-use gereport\cpass\CpassProcessor;
+use gereport\cpass\CpassValidator;
 use gereport\cpass\CpassRequest;
 use gereport\cpass\CpassResponse;
 use gereport\cpass\CpassRouter;
@@ -12,7 +12,7 @@ use gereport\error\Error404View;
 use gereport\footer\FooterView;
 use gereport\index\IndexRouter;
 use gereport\index\IndexView;
-use gereport\login\LoginProcessor;
+use gereport\login\LoginValidator;
 use gereport\login\LoginRequest;
 use gereport\login\LoginResponse;
 use gereport\login\LoginRouter;
@@ -20,7 +20,7 @@ use gereport\logout\LogoutResponse;
 use gereport\logout\LogoutRouter;
 use gereport\options\OptionsResponse;
 use gereport\options\OptionsRouter;
-use gereport\sidebar\SidebarProcessor;
+use gereport\sidebar\SidebarValidator;
 use gereport\sidebar\SidebarResponse;
 
 class Main
@@ -88,13 +88,13 @@ class Main
 	{
 		$router = new LoginRouter($this->config->rootUrl());
 		$request = new LoginRequest($httpRequest, $router);
-		$processor = new LoginProcessor($request, $this->session, $this->daoFactory->member());
+		$validator = new LoginValidator($request, $this->session, $this->daoFactory->member());
 		$indexRedirector = new Redirector(
 			(new IndexRouter(
 				$this->config->rootUrl()
 			))->url()
 		);
-		$response = new LoginResponse($processor, $this->session, $indexRedirector, $this->config, $router);
+		$response = new LoginResponse($validator, $this->session, $indexRedirector, $this->config, $router);
 		$view = $response->execute();
 
 		$this->renderMainView($view);
@@ -127,8 +127,9 @@ class Main
 	{
 		$router = new CpassRouter($this->config->rootUrl());
 		$request = new CpassRequest($httpRequest, $router);
-		$processor = new CpassProcessor($request, $this->session, $this->daoFactory->member());
-		$response = new CpassResponse($processor, $this->config, $router);
+		$memberDao = $this->daoFactory->member();
+		$validator = new CpassValidator($request, $this->session, $memberDao);
+		$response = new CpassResponse($validator, $memberDao, $this->config, $router);
 		$view = $response->execute();
 
 		$this->renderMainView($view);
@@ -136,10 +137,10 @@ class Main
 
 	private function renderMainView($contentView)
 	{
-		//
-		$bannerProcessor = new BannerProcessor($this->session, $this->daoFactory->member());
+		// Banner
+		$bannerValidator = new BannerValidator($this->session, $this->daoFactory->member());
 		$r = $this->config->rootUrl();
-		$bannerResponse = new BannerResponse($bannerProcessor, $this->config,
+		$bannerResponse = new BannerResponse($bannerValidator, $this->config,
 			(new IndexRouter($r))->url(),
 			(new optionsRouter($r))->url(),
 			(new LoginRouter($r))->url(),
@@ -147,15 +148,15 @@ class Main
 		);
 		$bannerView = $bannerResponse->execute();
 
-		//
-		$sidebarProcessor = new SidebarProcessor($this->daoFactory->project());
-		$sidebarResponse = new SidebarResponse($sidebarProcessor, new ReportRouter($r), $this->config);
+		// Sidebar
+		$sidebarValidator = new SidebarValidator($this->daoFactory->project());
+		$sidebarResponse = new SidebarResponse($sidebarValidator, new ReportRouter($r), $this->config);
 		$sidebarView = $sidebarResponse->execute();
 
-		//
+		// Footer
 		$footerView = new FooterView($this->config);
 
-		//
+		// Main
 		$mainView = new MainView($this->config, $contentView, $bannerView, $sidebarView, $footerView);
 		$mainView->render();
 	}

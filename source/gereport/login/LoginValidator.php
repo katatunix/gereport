@@ -3,10 +3,10 @@
 namespace gereport\login;
 
 use gereport\domain\MemberDao;
-use gereport\Processor;
+use gereport\Validator;
 use gereport\Session;
 
-class LoginProcessor implements Processor
+class LoginValidator implements Validator
 {
 	/**
 	 * @var LoginRequest
@@ -24,8 +24,6 @@ class LoginProcessor implements Processor
 	private $memberDao;
 
 	private $loggedMemberId;
-	private $isShowingViewOnly;
-	private $loggedMemberUsername;
 
 	public function __construct($request, $session, $memberDao)
 	{
@@ -37,21 +35,20 @@ class LoginProcessor implements Processor
 	/**
 	 * @return void
 	 */
-	public function process()
+	public function validate()
 	{
 		if ($this->session->hasLogged())
 		{
 			$this->loggedMemberId = $this->session->loggedMemberId();
 			return;
 		}
-		if ( ! $this->request->isPostMethod() )
+		if ($this->isShowingViewOnly())
 		{
-			$this->isShowingViewOnly = true;
 			return;
 		}
-		$this->loggedMemberUsername = $this->request->username();
+
 		$this->loggedMemberId = $this->memberDao->findIdByAuthen(
-			$this->loggedMemberUsername,
+			$this->loggedMemberUsername(),
 			$this->request->password()
 		);
 	}
@@ -63,11 +60,11 @@ class LoginProcessor implements Processor
 
 	public function isShowingViewOnly()
 	{
-		return $this->isShowingViewOnly;
+		return !$this->request->isPostMethod();
 	}
 
 	public function loggedMemberUsername()
 	{
-		return $this->loggedMemberUsername;
+		return $this->request->username();
 	}
 }

@@ -15,9 +15,9 @@ use gereport\Session;
 class LoginResponse implements LoginViewInfo
 {
 	/**
-	 * @var LoginProcessor
+	 * @var LoginValidator
 	 */
-	private $loginProcessor;
+	private $validator;
 	/**
 	 * @var Session
 	 */
@@ -33,18 +33,18 @@ class LoginResponse implements LoginViewInfo
 	/**
 	 * @var LoginRouter
 	 */
-	private $loginRouter;
+	private $router;
 
 	private $username;
 	private $message;
 
-	public function __construct($loginProcessor, $session, $indexRedirector, $config, $loginRouter)
+	public function __construct($loginValidator, $session, $indexRedirector, $config, $router)
 	{
-		$this->loginProcessor = $loginProcessor;
+		$this->validator = $loginValidator;
 		$this->session = $session;
 		$this->indexRedirector = $indexRedirector;
 		$this->config = $config;
-		$this->loginRouter = $loginRouter;
+		$this->router = $router;
 	}
 
 	/**
@@ -52,9 +52,10 @@ class LoginResponse implements LoginViewInfo
 	 */
 	public function execute()
 	{
-		$this->loginProcessor->process();
+		// TODO: catch an exception
+		$this->validator->validate();
 
-		$memberId = $this->loginProcessor->loggedMemberId();
+		$memberId = $this->validator->loggedMemberId();
 		if ($memberId)
 		{
 			// Login success or already logged
@@ -63,14 +64,14 @@ class LoginResponse implements LoginViewInfo
 			return null;
 		}
 
-		if ($this->loginProcessor->isShowingViewOnly())
+		if ($this->validator->isShowingViewOnly())
 		{
 			$this->username = '';
 			$this->message = null;
 		}
 		else
 		{
-			$this->username = $this->loginProcessor->loggedMemberUsername();
+			$this->username = $this->validator->loggedMemberUsername();
 			$this->message = 'Login failed';
 		}
 
@@ -89,11 +90,11 @@ class LoginResponse implements LoginViewInfo
 
 	public function usernameKey()
 	{
-		return $this->loginRouter->usernameKey();
+		return $this->router->usernameKey();
 	}
 
 	public function passwordKey()
 	{
-		return $this->loginRouter->passwordKey();
+		return $this->router->passwordKey();
 	}
 }

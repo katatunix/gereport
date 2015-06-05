@@ -10,9 +10,9 @@ namespace gereport\sidebar;
 
 
 use gereport\domain\ProjectDao;
-use gereport\Processor;
+use gereport\Validator;
 
-class SidebarProcessor implements Processor
+class SidebarValidator implements Validator
 {
 	/**
 	 * @var ProjectDao
@@ -32,7 +32,7 @@ class SidebarProcessor implements Processor
 	/**
 	 * @return void
 	 */
-	public function process()
+	public function validate()
 	{
 		$this->projects = array();
 		foreach ($this->projectDao->findByAll() as $project)

@@ -8,17 +8,17 @@
 
 namespace gereport\cpass;
 
-
 use gereport\Config;
+use gereport\domain\MemberDao;
 use gereport\error\Error403View;
 use gereport\View;
 
 class CpassResponse implements CpassViewInfo
 {
 	/**
-	 * @var CpassProcessor
+	 * @var CpassValidator
 	 */
-	private $processor;
+	private $validator;
 	/**
 	 * @var Config
 	 */
@@ -29,11 +29,20 @@ class CpassResponse implements CpassViewInfo
 	 */
 	private $router;
 
-	public function __construct($processor, $config, $router)
+	/**
+	 * @var MemberDao
+	 */
+	private $memberDao;
+
+	private $success;
+	private $message;
+
+	public function __construct($validator, $memberDao, $config, $router)
 	{
-		$this->processor = $processor;
+		$this->validator = $validator;
 		$this->config = $config;
 		$this->router = $router;
+		$this->memberDao = $memberDao;
 	}
 
 	/**
@@ -41,11 +50,36 @@ class CpassResponse implements CpassViewInfo
 	 */
 	public function execute()
 	{
-		$this->processor->process();
+		$errorMessage = null;
+		try
+		{
+			$this->validator->validate();
+		}
+		catch (\Exception $ex)
+		{
+			$errorMessage = $ex->getMessage();
+		}
 
-		if ($this->processor->accessDenied())
+		if ($this->validator->accessDenied())
 		{
 			return new Error403View($this->config);
+		}
+
+		if (!$this->validator->isShowingViewOnly())
+		{
+			if ($errorMessage)
+			{
+				$this->success = false;
+				$this->message = $errorMessage;
+			}
+			else
+			{
+				$this->memberDao->findById($this->validator->memberId())->changePassword(
+					$this->validator->newPassword()
+				);
+				$this->success = true;
+				$this->message = 'Password was changed OK';
+			}
 		}
 
 		return new CpassView($this->config, $this);
@@ -53,12 +87,12 @@ class CpassResponse implements CpassViewInfo
 
 	public function success()
 	{
-		return $this->processor->success();
+		return $this->success;
 	}
 
 	public function message()
 	{
-		return $this->processor->message();
+		return $this->message;
 	}
 
 	public function oldKey()

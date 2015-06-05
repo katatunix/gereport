@@ -15,9 +15,9 @@ use gereport\ReportRouter;
 class SidebarResponse implements SidebarViewInfo
 {
 	/**
-	 * @var SidebarProcessor
+	 * @var SidebarValidator
 	 */
-	private $processor;
+	private $validator;
 	/**
 	 * @var ReportRouter
 	 */
@@ -33,24 +33,35 @@ class SidebarResponse implements SidebarViewInfo
 	 */
 	private $config;
 	
-	public function __construct($processor, $reportRouter, $config)
+	public function __construct($validator, $reportRouter, $config)
 	{
-		$this->processor = $processor;
+		$this->validator = $validator;
 		$this->reportRouter = $reportRouter;
 		$this->config = $config;
 	}
 	
 	public function execute()
 	{
-		$this->processor->process();
-		
-		$this->projects = array();
-		foreach ($this->processor->projects() as $projectId => $name)
+		$success = true;
+		try
 		{
-			$this->projects[$projectId] = array(
-				'name' => $name,
-				'url' => $this->reportRouter->url($projectId)
-			);
+			$this->validator->validate();
+		}
+		catch (\Exception $ex)
+		{
+			$success = false;
+		}
+
+		$this->projects = array();
+		if ($success)
+		{
+			foreach ($this->validator->projects() as $projectId => $name)
+			{
+				$this->projects[$projectId] = array(
+					'name' => $name,
+					'url' => $this->reportRouter->url($projectId)
+				);
+			}
 		}
 		
 		return new SidebarView($this->config, $this);

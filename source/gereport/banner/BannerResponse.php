@@ -13,9 +13,9 @@ use gereport\Config;
 class BannerResponse implements BannerViewInfo
 {
 	/**
-	 * @var BannerProcessor
+	 * @var BannerValidator
 	 */
-	private $processor;
+	private $validator;
 	/**
 	 * @var Config
 	 */
@@ -24,9 +24,9 @@ class BannerResponse implements BannerViewInfo
 	private $loggedMemberUsername;
 	private $indexUrl, $optionsUrl, $loginUrl, $logoutUrl;
 
-	public function __construct($processor, $config, $indexUrl, $optionsUrl, $loginUrl, $logoutUrl)
+	public function __construct($validator, $config, $indexUrl, $optionsUrl, $loginUrl, $logoutUrl)
 	{
-		$this->processor = $processor;
+		$this->validator = $validator;
 		$this->config = $config;
 
 		$this->indexUrl = $indexUrl;
@@ -37,8 +37,15 @@ class BannerResponse implements BannerViewInfo
 
 	public function execute()
 	{
-		$this->processor->process();
-		$this->loggedMemberUsername = $this->processor->loggedMemberUsername();
+		try
+		{
+			$this->validator->validate();
+			$this->loggedMemberUsername = $this->validator->loggedMemberUsername();
+		}
+		catch (\Exception $ex)
+		{
+			$this->loggedMemberUsername = null;
+		}
 
 		return new BannerView($this->config, $this);
 	}
