@@ -2,22 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: katat_000
- * Date: 6/5/2015
- * Time: 10:29 PM
+ * Date: 6/6/2015
+ * Time: 11:55 AM
  */
 
-namespace gereport\report\add;
-
+namespace gereport\report\edit;
 
 use gereport\DatetimeUtils;
-use gereport\Validator;
-use gereport\report\AddReportRequest;
 use gereport\Session;
+use gereport\Controller;
 
-class AddReportValidator implements Validator
+class EditReportController implements Controller
 {
 	/**
-	 * @var AddReportRequest
+	 * @var EditReportRequest
 	 */
 	private $request;
 
@@ -36,7 +34,7 @@ class AddReportValidator implements Validator
 	 * @throws \Exception
 	 * @return void
 	 */
-	public function validate()
+	public function process()
 	{
 		if ($this->accessDenied())
 		{
@@ -54,19 +52,14 @@ class AddReportValidator implements Validator
 	}
 
 	/**
-	 * @return AddReportRequest
+	 * @return EditReportRequest
 	 */
 	public function request()
 	{
 		return $this->request;
 	}
 
-	public function memberId()
-	{
-		return $this->session->loggedMemberId();
-	}
-
-	public function datetimeAdd()
+	public function datetime()
 	{
 		return DatetimeUtils::getCurDatetime();
 	}

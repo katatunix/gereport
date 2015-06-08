@@ -11,7 +11,6 @@
 	{
 ?>
 		<p class="errorMessage"><?= htmlspecialchars($this->info->message()) ?></p>
-		<br />
 <?php
 	}
 ?>

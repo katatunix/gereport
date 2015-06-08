@@ -8,16 +8,10 @@
 
 namespace gereport\report\add;
 
-
 use gereport\BaseRequest;
-use gereport\HttpRequest;
 
 class AddReportRequest extends BaseRequest
 {
-	/**
-	 * @var HttpRequest
-	 */
-	private $httpRequest;
 	/**
 	 * @var AddReportRouter
 	 */
@@ -25,7 +19,7 @@ class AddReportRequest extends BaseRequest
 
 	public function __construct($httpRequest, $router)
 	{
-		$this->httpRequest = $httpRequest;
+		parent::__construct($httpRequest);
 		$this->router = $router;
 	}
 

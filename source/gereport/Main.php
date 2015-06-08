@@ -2,26 +2,24 @@
 
 namespace gereport;
 
-use gereport\banner\BannerValidator;
-use gereport\banner\BannerResponse;
-use gereport\cpass\CpassValidator;
+use gereport\banner\BannerController;
+use gereport\cpass\CpassController;
 use gereport\cpass\CpassRequest;
-use gereport\cpass\CpassResponse;
 use gereport\cpass\CpassRouter;
 use gereport\error\Error404View;
 use gereport\footer\FooterView;
-use gereport\index\IndexRouter;
 use gereport\index\IndexView;
-use gereport\login\LoginValidator;
+use gereport\login\LoginController;
 use gereport\login\LoginRequest;
-use gereport\login\LoginResponse;
 use gereport\login\LoginRouter;
-use gereport\logout\LogoutResponse;
+use gereport\logout\LogoutController;
 use gereport\logout\LogoutRouter;
 use gereport\options\OptionsResponse;
 use gereport\options\OptionsRouter;
-use gereport\sidebar\SidebarValidator;
-use gereport\sidebar\SidebarResponse;
+use gereport\report\add\AddReportRequest;
+use gereport\report\add\AddReportRouter;
+use gereport\report\add\AddReportController;
+use gereport\sidebar\SidebarController;
 
 class Main
 {
@@ -68,6 +66,10 @@ class Main
 		{
 			$this->handleCpass($httpRequest);
 		}
+		else if ($rt == AddReportRouter::ROUTER)
+		{
+			$this->handleAddReport($httpRequest);
+		}
 		else
 		{
 			$this->handleNotFound();
@@ -88,27 +90,16 @@ class Main
 	{
 		$router = new LoginRouter($this->config->rootUrl());
 		$request = new LoginRequest($httpRequest, $router);
-		$validator = new LoginValidator($request, $this->session, $this->daoFactory->member());
-		$indexRedirector = new Redirector(
-			(new IndexRouter(
-				$this->config->rootUrl()
-			))->url()
-		);
-		$response = new LoginResponse($validator, $this->session, $indexRedirector, $this->config, $router);
-		$view = $response->execute();
+		$controller = new LoginController($request, $this->session,
+			$this->daoFactory->member(), $this->config, $router);
 
+		$view = $controller->process();
 		$this->renderMainView($view);
 	}
 
 	private function handleLogout()
 	{
-		$r = $this->config->rootUrl();
-		(new LogoutResponse(
-			$this->session,
-			new Redirector(
-				(new IndexRouter($r))->url()
-			)
-		))->execute();
+		(new LogoutController($this->session, $this->config))->process();
 	}
 
 	private function handleOptions()
@@ -128,30 +119,30 @@ class Main
 		$router = new CpassRouter($this->config->rootUrl());
 		$request = new CpassRequest($httpRequest, $router);
 		$memberDao = $this->daoFactory->member();
-		$validator = new CpassValidator($request, $this->session, $memberDao);
-		$response = new CpassResponse($validator, $memberDao, $this->config, $router);
-		$view = $response->execute();
+		$controller = new CpassController($request, $this->session, $memberDao, $this->config, $router);
+		$view = $controller->process();
 
 		$this->renderMainView($view);
+	}
+
+	private function handleAddReport($httpRequest)
+	{
+		$router = new AddReportRouter($this->config->rootUrl());
+		$request = new AddReportRequest($httpRequest, $router);
+		$controller = new AddReportController($request, $this->session, $this->daoFactory->report(), $this->config);
+		$controller->process();
 	}
 
 	private function renderMainView($contentView)
 	{
 		// Banner
-		$bannerValidator = new BannerValidator($this->session, $this->daoFactory->member());
-		$r = $this->config->rootUrl();
-		$bannerResponse = new BannerResponse($bannerValidator, $this->config,
-			(new IndexRouter($r))->url(),
-			(new optionsRouter($r))->url(),
-			(new LoginRouter($r))->url(),
-			(new LogoutRouter($r))->url()
-		);
-		$bannerView = $bannerResponse->execute();
+		$bannerController = new BannerController($this->session, $this->daoFactory->member(), $this->config);
+
+		$bannerView = $bannerController->process();
 
 		// Sidebar
-		$sidebarValidator = new SidebarValidator($this->daoFactory->project());
-		$sidebarResponse = new SidebarResponse($sidebarValidator, new ReportRouter($r), $this->config);
-		$sidebarView = $sidebarResponse->execute();
+		$sidebarController = new SidebarController($this->daoFactory->project(), $this->config);
+		$sidebarView = $sidebarController->process();
 
 		// Footer
 		$footerView = new FooterView($this->config);

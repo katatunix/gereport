@@ -43,15 +43,23 @@ class MReportDao implements ReportDao
 		$statement->close();
 	}
 
-//	public function edit($reportId, $content, $datetime)
-//	{
-//		$statement = $this->link->prepare('
-//			UPDATE `report` SET `content` = ?, `datetimeAdd` = ? WHERE `id` = ?
-//		');
-//		$statement->bind_param('ssi', $content, $datetime, $reportId);
-//		$statement->execute();
-//		$statement->close();
-//	}
+	public function edit($reportId, $content, $datetime)
+	{
+		$statement = $this->link->prepare('
+			UPDATE `report` SET `content` = ?, `datetimeAdd` = ? WHERE `id` = ?
+		');
+		$statement->bind_param('ssi', $content, $datetime, $reportId);
+		if (!$statement->execute())
+		{
+			$statement->close();
+			throw new \Exception('Database error');
+		}
+		if ($this->link->affected_rows == 0)
+		{
+			$statement->close();
+			throw new \Exception('The report is not found');
+		}
+	}
 
 	/**
 	 * @param $reportId

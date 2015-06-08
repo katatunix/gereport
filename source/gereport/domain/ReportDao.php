@@ -15,7 +15,7 @@ interface ReportDao
 
 	public function delete($reportId);
 
-	//public function edit($reportId, $content, $datetime);
+	public function edit($reportId, $content, $datetime);
 
 	/**
 	 * @param $reportId
