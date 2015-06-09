@@ -9,10 +9,12 @@
 namespace gereport\options;
 
 use gereport\Config;
+use gereport\Controller;
 use gereport\error\Error403View;
 use gereport\Session;
+use gereport\View;
 
-class OptionsResponse
+class OptionsController implements Controller
 {
 	/**
 	 * @var Session
@@ -33,7 +35,10 @@ class OptionsResponse
 		$this->cpassUrl = $cpassUrl;
 	}
 
-	public function execute()
+	/**
+	 * @return View
+	 */
+	public function process()
 	{
 		if (!$this->session->hasLogged())
 		{
@@ -41,5 +46,4 @@ class OptionsResponse
 		}
 		return new OptionsView($this->config, $this->cpassUrl);
 	}
-
 }

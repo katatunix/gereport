@@ -14,7 +14,7 @@ use gereport\login\LoginRequest;
 use gereport\login\LoginRouter;
 use gereport\logout\LogoutController;
 use gereport\logout\LogoutRouter;
-use gereport\options\OptionsResponse;
+use gereport\options\OptionsController;
 use gereport\options\OptionsRouter;
 use gereport\report\add\AddReportRequest;
 use gereport\report\add\AddReportRouter;
@@ -113,11 +113,11 @@ class Main
 	{
 		$r = $this->config->rootUrl();
 		$this->renderMainView(
-			(new OptionsResponse(
+			(new OptionsController(
 				$this->session,
 				$this->config,
 				(new CpassRouter($r))->url()
-			))->execute()
+			))->process()
 		);
 	}
 

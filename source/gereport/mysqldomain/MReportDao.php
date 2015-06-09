@@ -24,7 +24,7 @@ class MReportDao implements ReportDao
 		$this->link = $link;
 	}
 
-	public function add($content, $projectId, $dateFor, $datetimeAdd, $memberId)
+	public function insert($content, $projectId, $dateFor, $datetimeAdd, $memberId)
 	{
 		$statement = $this->link->prepare('
 			INSERT INTO `report`(`memberId`, `projectId`, `dateFor`, `datetimeAdd`, `content`)

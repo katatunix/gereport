@@ -1,10 +1,10 @@
 <?php
 
-namespace gereport\post;
+namespace gereport\entry;
 
 use gereport\Router;
 
-class AddPostRouter extends Router
+class AddEntryRouter extends Router
 {
 	const ROUTER = 'post/add';
 

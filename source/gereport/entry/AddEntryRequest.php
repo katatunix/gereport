@@ -1,20 +1,21 @@
 <?php
 
-namespace gereport\post;
+namespace gereport\entry;
 
+use gereport\BaseRequest;
 use gereport\HttpRequest;
 
-class AddPostRequest
+class AddEntryRequest extends BaseRequest
 {
 	/**
-	 * @var AddPostRouter
-	 */
-	private $router;
-
-	/**
-	 * @var Request
+	 * @var HttpRequest
 	 */
 	private $request;
+
+	/**
+	 * @var AddEntryRouter
+	 */
+	private $router;
 
 	public function __construct($request, $router)
 	{
@@ -34,6 +35,6 @@ class AddPostRequest
 
 	public function projectId()
 	{
-		return $this->request->valuePost($this->router->projectIdKey());
+		return $this->request->valueGet($this->router->projectIdKey());
 	}
 }

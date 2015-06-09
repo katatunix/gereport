@@ -11,7 +11,7 @@ namespace gereport\domain;
 
 interface ReportDao
 {
-	public function add($content, $projectId, $dateFor, $datetimeAdd, $memberId);
+	public function insert($content, $projectId, $dateFor, $datetimeAdd, $memberId);
 
 	public function delete($reportId);
 

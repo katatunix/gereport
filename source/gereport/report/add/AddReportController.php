@@ -8,7 +8,6 @@ use gereport\Controller;
 use gereport\domain\ReportDao;
 use gereport\error\Error403View;
 use gereport\Redirector;
-use gereport\report\AddReportRequest;
 use gereport\Session;
 
 class AddReportController implements Controller
@@ -60,7 +59,7 @@ class AddReportController implements Controller
 
 		try
 		{
-			$this->reportDao->add($content, $this->request->projectId(), $this->request->dateFor(),
+			$this->reportDao->insert($content, $this->request->projectId(), $this->request->dateFor(),
 				DatetimeUtils::getCurDatetime(), $this->session->loggedMemberId());
 		}
 		catch (\Exception $ex)
