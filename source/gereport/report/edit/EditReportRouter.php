@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 6/6/2015
- * Time: 11:50 AM
- */
 
 namespace gereport\report\edit;
-
 
 use gereport\Router;
 
@@ -27,6 +20,6 @@ class EditReportRouter extends Router
 
 	public function nextUrlKey()
 	{
-		return 'nextUrl';
+		return 'next';
 	}
 }

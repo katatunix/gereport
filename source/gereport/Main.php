@@ -19,6 +19,9 @@ use gereport\options\OptionsRouter;
 use gereport\report\add\AddReportRequest;
 use gereport\report\add\AddReportRouter;
 use gereport\report\add\AddReportController;
+use gereport\report\edit\EditReportController;
+use gereport\report\edit\EditReportRequest;
+use gereport\report\edit\EditReportRouter;
 use gereport\sidebar\SidebarController;
 
 class Main
@@ -69,6 +72,10 @@ class Main
 		else if ($rt == AddReportRouter::ROUTER)
 		{
 			$this->handleAddReport($httpRequest);
+		}
+		else if ($rt == EditReportRouter::ROUTER)
+		{
+			$this->handleEditReport($httpRequest);
 		}
 		else
 		{
@@ -131,6 +138,16 @@ class Main
 		$request = new AddReportRequest($httpRequest, $router);
 		$controller = new AddReportController($request, $this->session, $this->daoFactory->report(), $this->config);
 		$controller->process();
+	}
+
+	private function handleEditReport($httpRequest)
+	{
+		$router = new EditReportRouter($this->config->rootUrl());
+		$request = new EditReportRequest($httpRequest, $router);
+		$controller = new EditReportController($request, $this->session, $this->daoFactory->report(), $this->config, $router);
+		$view = $controller->process();
+
+		$this->renderMainView($view);
 	}
 
 	private function renderMainView($contentView)
