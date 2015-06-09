@@ -46,6 +46,9 @@ class Session
 		return isset($_SESSION[self::KEY_MSG]);
 	}
 
+	/**
+	 * @return Message
+	 */
 	public function message()
 	{
 		return $_SESSION[self::KEY_MSG];

@@ -17,6 +17,10 @@ class HttpRequest
 		$this->url = $url;
 	}
 
+	/**
+	 * Current URL of the request
+	 * @return string
+	 */
 	public function url()
 	{
 		return $this->url;

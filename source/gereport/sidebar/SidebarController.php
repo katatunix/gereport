@@ -20,11 +20,6 @@ class SidebarController implements Controller, SidebarViewInfo
 	 */
 	private $config;
 
-	/**
-	 * @var array
-	 */
-	private $projects;
-
 	public function __construct($projectDao, $config)
 	{
 		$this->projectDao = $projectDao;
@@ -36,7 +31,15 @@ class SidebarController implements Controller, SidebarViewInfo
 	 */
 	public function process()
 	{
-		$this->projects = array();
+		return new SidebarView($this->config, $this);
+	}
+
+	/**
+	 * @return array
+	 */
+	public function projects()
+	{
+		$projects = array();
 		try
 		{
 			$objects = $this->projectDao->findByAll();
@@ -50,20 +53,12 @@ class SidebarController implements Controller, SidebarViewInfo
 			$reportRouter = new ReportRouter($this->config->rootUrl());
 			foreach ($objects as $obj)
 			{
-				$this->projects[ $obj->id() ] = array(
+				$projects[ $obj->id() ] = array(
 					'name' => $obj->name(),
 					'url' => $reportRouter->url($obj->id())
 				);
 			}
 		}
-		return new SidebarView($this->config, $this);
-	}
-
-	/**
-	 * @return array
-	 */
-	public function projects()
-	{
-		return $this->projects;
+		return $projects;
 	}
 }

@@ -2,12 +2,12 @@
 <h2>I love the way that you report</h2>
 
 <div id="menu">
-	<?php if ($this->info->loggedMemberUsername()) { ?>
-		<span id="hello">Hello, <?= htmlspecialchars($this->info->loggedMemberUsername()) ?></span>
+	<?php if ($username = $this->info->loggedMemberUsername()) { ?>
+		<span id="hello">Hello, <?= htmlspecialchars($username) ?></span>
 	<?php } ?>
 
 	<a href="<?= $this->info->indexUrl() ?>">Home</a> |
-	<?php if ($this->info->loggedMemberUsername()) { ?>
+	<?php if ($username) { ?>
 		<a href="<?= $this->info->optionsUrl() ?>">Options</a> |
 		<a href="<?= $this->info->logoutUrl() ?>">Logout</a>
 	<?php } else { ?>

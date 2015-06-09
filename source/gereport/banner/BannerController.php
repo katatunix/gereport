@@ -27,8 +27,6 @@ class BannerController implements Controller, BannerViewInfo
 	 */
 	private $config;
 
-	private $loggedMemberUsername;
-
 	public function __construct($session, $memberDao, $config)
 	{
 		$this->session = $session;
@@ -41,24 +39,24 @@ class BannerController implements Controller, BannerViewInfo
 	 */
 	public function process()
 	{
-		$memberId = $this->session->loggedMemberId();
-		if ($memberId)
-		{
-			try
-			{
-				$this->loggedMemberUsername = $this->memberDao->findById($memberId)->username();
-			}
-			catch (\Exception $ex)
-			{
-				$this->loggedMemberUsername = null;
-			}
-		}
 		return new BannerView($this->config, $this);
 	}
 
 	public function loggedMemberUsername()
 	{
-		return $this->loggedMemberUsername;
+		$memberId = $this->session->loggedMemberId();
+		$loggedMemberUsername = null;
+		if ($memberId)
+		{
+			try
+			{
+				$loggedMemberUsername = $this->memberDao->findById($memberId)->username();
+			}
+			catch (\Exception $ex)
+			{
+			}
+		}
+		return $loggedMemberUsername;
 	}
 
 	public function indexUrl()

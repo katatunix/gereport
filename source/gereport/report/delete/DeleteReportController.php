@@ -4,7 +4,6 @@ namespace gereport\report\delete;
 
 use gereport\Controller;
 use gereport\domain\ReportDao;
-use gereport\error\Error403View;
 use gereport\Redirector;
 use gereport\Session;
 use gereport\View;

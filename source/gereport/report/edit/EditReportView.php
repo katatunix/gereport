@@ -6,6 +6,9 @@ use gereport\View;
 
 class EditReportView extends View
 {
+	/**
+	 * @var EditReportViewInfo
+	 */
 	private $info;
 
 	public function __construct($config, $info)

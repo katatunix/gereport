@@ -17,4 +17,9 @@ class ReportRouter extends Router
 	{
 		return 'p';
 	}
+
+	public function dateKey()
+	{
+		return 'd';
+	}
 }
