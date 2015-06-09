@@ -1,1 +1,1 @@
-* UrlSource: public function getEditReportUrl($id, $next);
+checking an HTML source is blank (no text)

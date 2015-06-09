@@ -33,6 +33,8 @@ class AddPostController implements Controller, AddEntryViewInfo
 	 */
 	private $router;
 
+	private $message;
+
 	public function __construct($request, $session, $postDao, $config, $router)
 	{
 		$this->request = $request;
@@ -52,27 +54,29 @@ class AddPostController implements Controller, AddEntryViewInfo
 			return new Error403View($this->config);
 		}
 
-		$memberId = $this->session->loggedMemberId();
-		$datetime = DatetimeUtils::getCurDatetime();
-
-		$message = null;
-
-		try
+		$this->message = null;
+		if ($this->request->isPostMethod())
 		{
-			$this->postDao->insert(
-				$this->request->title(),
-				$this->request->content(),
-				$this->request->projectId(),
-				$memberId,
-				$datetime,
-				$memberId,
-				$datetime
-			);
+			$memberId = $this->session->loggedMemberId();
+			$datetime = DatetimeUtils::getCurDatetime();
+			try
+			{
+				$this->postDao->insert(
+					$this->request->title(),
+					$this->request->content(),
+					$this->request->projectId(),
+					$memberId,
+					$datetime,
+					$memberId,
+					$datetime
+				);
+			}
+			catch (\Exception $ex)
+			{
+				$this->message = $ex->getMessage();
+			}
 		}
-		catch (\Exception $ex)
-		{
-			$message = $ex->getMessage();
-		}
+		return new AddEntryView($this->config, $this);
 	}
 
 	public function title()
@@ -97,6 +101,6 @@ class AddPostController implements Controller, AddEntryViewInfo
 
 	public function message()
 	{
-		// TODO: Implement message() method.
+		return $this->message;
 	}
 }
