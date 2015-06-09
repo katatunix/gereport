@@ -2,8 +2,9 @@
 
 namespace gereport\domain;
 
-interface Post
+interface Entry
 {
+	public function id();
 	public function title();
 	public function content();
 

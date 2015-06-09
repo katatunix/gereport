@@ -8,7 +8,7 @@
 
 namespace gereport\domain;
 
-interface PostDao
+interface EntryDao
 {
 	public function insert($title, $content, $projectId, $authorId, $time, $authorId, $time);
 }

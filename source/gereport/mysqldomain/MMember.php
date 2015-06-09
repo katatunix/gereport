@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:32 PM
- */
 
 namespace gereport\mysqldomain;
 
@@ -22,6 +16,11 @@ class MMember implements Member
 	{
 		$this->link = $link;
 		$this->id = $id;
+	}
+
+	public function id()
+	{
+		return $this->id;
 	}
 
 	public function username()

@@ -18,20 +18,41 @@ class MReport implements Report
 		$this->id = $id;
 	}
 
+	public function id()
+	{
+		return $this->id;
+	}
+
 	public function content()
 	{
 		$statement = $this->link->prepare('SELECT `content` FROM `report` WHERE `id` = ?');
 		$statement->bind_param('i', $this->id);
-		$statement->execute();
 
-		$result = $statement->get_result();
-		$row = $result->fetch_array();
-		$content = $row ? $row['content'] : null;
+		$message = null;
+		$content = null;
 
-		$result->free_result();
+		if ($statement->execute())
+		{
+			$result = $statement->get_result();
+			$row = $result->fetch_array();
+			if ($row)
+			{
+				$content = $row['content'];
+			}
+			else
+			{
+				$message = 'The report is not found';
+			}
+			$result->free_result();
+		}
+		else
+		{
+			$message = 'Could not retrieve the report content';
+		}
+
 		$statement->close();
 
-		if (!$row) throw new \Exception('The report is not found');
+		if ($message) throw new \Exception($message);
 		return $content;
 	}
 
@@ -62,16 +83,20 @@ class MReport implements Report
 		');
 		$statement->bind_param('ssi', $content, $datetime, $this->id);
 
-		if (!$statement->execute())
+		$message = null;
+		if ($statement->execute())
 		{
-			$statement->close();
-			throw new \Exception('Database error');
+			if ($this->link->affected_rows == 0)
+			{
+				$message = 'Could not find the report';
+			}
+		}
+		else
+		{
+			$message = 'Could not update the report';
 		}
 
-		if ($this->link->affected_rows == 0)
-		{
-			$statement->close();
-			throw new \Exception('The report is not found');
-		}
+		$statement->close();
+		if ($message) throw new \Exception($message);
 	}
 }

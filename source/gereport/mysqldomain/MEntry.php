@@ -1,17 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:46 PM
- */
 
 namespace gereport\mysqldomain;
 
+use gereport\domain\Entry;
 
-use gereport\domain\Post;
-
-class MPost extends MySqlBusiness implements Post
+class MEntry implements Entry
 {
 
 	public function id()

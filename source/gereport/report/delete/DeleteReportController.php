@@ -1,17 +1,18 @@
 <?php
 
-namespace gereport\report\add;
+namespace gereport\report\delete;
 
-use gereport\DatetimeUtils;
 use gereport\Controller;
 use gereport\domain\ReportDao;
+use gereport\error\Error403View;
 use gereport\Redirector;
 use gereport\Session;
+use gereport\View;
 
-class AddReportController implements Controller
+class DeleteReportController implements Controller
 {
 	/**
-	 * @var AddReportRequest
+	 * @var DeleteReportRequest
 	 */
 	private $request;
 
@@ -32,6 +33,9 @@ class AddReportController implements Controller
 		$this->reportDao = $reportDao;
 	}
 
+	/**
+	 * @return View
+	 */
 	public function process()
 	{
 		if (!$this->session->hasLogged())
@@ -39,33 +43,21 @@ class AddReportController implements Controller
 			return null;
 		}
 
+		$error = false;
 		$message = null;
-		$isError = true;
-
-		$content = $this->request->content();
-		if (!$content)
-		{
-			$message = 'The report content is empty';
-			goto my_end;
-		}
-
 		try
 		{
-			$this->reportDao->insert($content, $this->request->projectId(), $this->request->dateFor(),
-				DatetimeUtils::getCurDatetime(), $this->session->loggedMemberId());
+			$this->reportDao->delete($this->request->reportId());
+			$message = 'The report has been deleted OK';
 		}
 		catch (\Exception $ex)
 		{
+			$error = true;
 			$message = $ex->getMessage();
-			goto my_end;
 		}
 
-		$isError = false;
-
-		my_end:
-
-		$this->session->saveMessage($message, $isError);
-		( new Redirector($this->request->nextUrl()) )->redirect();
+		$this->session->saveMessage($message, $error);
+		(new Redirector( $this->request->nextUrl() ))->redirect();
 		return null;
 	}
 }

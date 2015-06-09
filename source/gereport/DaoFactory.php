@@ -9,7 +9,7 @@
 namespace gereport;
 
 use gereport\domain\MemberDao;
-use gereport\domain\PostDao;
+use gereport\domain\EntryDao;
 use gereport\domain\ProjectDao;
 use gereport\mysqldomain\MMemberDao;
 use gereport\mysqldomain\MProjectDao;
@@ -60,7 +60,7 @@ class DaoFactory
 	}
 
 	/**
-	 * @return PostDao
+	 * @return EntryDao
 	 */
 	public function post()
 	{

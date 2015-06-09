@@ -5,7 +5,7 @@ namespace gereport\sidebar;
 use gereport\Config;
 use gereport\domain\ProjectDao;
 use gereport\Controller;
-use gereport\ReportRouter;
+use gereport\report\ReportRouter;
 use gereport\View;
 
 class SidebarController implements Controller, SidebarViewInfo

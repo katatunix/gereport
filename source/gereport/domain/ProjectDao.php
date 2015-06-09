@@ -18,12 +18,6 @@ interface ProjectDao
 
 	/**
 	 * @param $projectId
-	 * @return bool
-	 */
-	public function exists($projectId);
-
-	/**
-	 * @param $projectId
 	 * @return Project
 	 */
 	public function findById($projectId);

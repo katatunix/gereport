@@ -8,9 +8,8 @@ interface Member
 	const MOD	= 1;
 	const USER	= 2;
 
+	public function id();
 	public function username();
-
 	public function hasPassword($password);
-
 	public function changePassword($newPassword);
 }

@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:45 PM
- */
 
 namespace gereport\mysqldomain;
-
 
 use gereport\domain\Report;
 use gereport\domain\ReportDao;
@@ -31,16 +24,36 @@ class MReportDao implements ReportDao
 			VALUES(?, ?, ?, ?, ?)
 		');
 		$statement->bind_param('iisss', $memberId, $projectId, $dateFor, $datetimeAdd, $content);
-		$statement->execute();
+		$message = null;
+		if (!$statement->execute()) $message = 'Could not insert the report';
 		$statement->close();
+		if ($message) throw new \Exception($message);
 	}
 
+	/**
+	 * @param $reportId
+	 * @throws \Exception
+	 */
 	public function delete($reportId)
 	{
 		$statement = $this->link->prepare('DELETE FROM `report` WHERE `id` = ?');
 		$statement->bind_param('i', $reportId);
-		$statement->execute();
+
+		$message = null;
+		if ($statement->execute())
+		{
+			if ($this->link->affected_rows == 0)
+			{
+				$message = 'Could not find the report';
+			}
+		}
+		else
+		{
+			$message = 'Could not delete the report';
+		}
 		$statement->close();
+
+		if ($message) throw new \Exception($message);
 	}
 
 	/**

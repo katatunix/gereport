@@ -5,7 +5,7 @@ namespace gereport\entry;
 use gereport\Config;
 use gereport\Controller;
 use gereport\DatetimeUtils;
-use gereport\domain\PostDao;
+use gereport\domain\EntryDao;
 use gereport\error\Error403View;
 use gereport\Session;
 use gereport\View;
@@ -21,7 +21,7 @@ class AddPostController implements Controller, AddEntryViewInfo
 	 */
 	private $session;
 	/**
-	 * @var PostDao
+	 * @var EntryDao
 	 */
 	private $postDao;
 	/**

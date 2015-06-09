@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/5/2015
- * Time: 2:51 PM
- */
 
 namespace gereport;
-
 
 class MainView extends View
 {

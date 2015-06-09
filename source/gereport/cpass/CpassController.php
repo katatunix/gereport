@@ -79,6 +79,11 @@ class CpassController implements Controller, CpassViewInfo
 					goto my_end;
 				}
 				$new = $this->request->newPassword();
+				if (!$new)
+				{
+					$this->message = 'The new password is empty';
+					goto my_end;
+				}
 				$confirm = $this->request->confirmPassword();
 				if ($new != $confirm)
 				{

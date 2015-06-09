@@ -49,25 +49,6 @@ class MMemberDao implements MemberDao
 
 	/**
 	 * @param $memberId
-	 * @return bool
-	 */
-	public function exists($memberId)
-	{
-		$statement = $this->link->prepare('SELECT `id` FROM `member` WHERE `id` = ?');
-		$statement->bind_param('i', $memberId);
-		$statement->execute();
-		$result = $statement->get_result();
-
-		$exists = $result->fetch_array() ? true : false;
-
-		$result->free_result();
-		$statement->close();
-
-		return $exists;
-	}
-
-	/**
-	 * @param $memberId
 	 * @return Member
 	 */
 	public function findById($memberId)

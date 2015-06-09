@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:45 PM
- */
 
 namespace gereport\mysqldomain;
 
@@ -24,41 +18,33 @@ class MProjectDao implements ProjectDao
 	}
 
 	/**
+	 * @throws \Exception
 	 * @return Project[]
 	 */
 	public function findByAll()
 	{
 		$statement = $this->link->prepare('SELECT `id` FROM `project` ORDER BY `name`');
-		$statement->execute();
-		$result = $statement->get_result();
 		$projects = array();
-		while ($row = $result->fetch_array())
+		$message = null;
+
+		if ($statement->execute())
 		{
-			$pid = $row['id'];
-			$projects[$pid] = new MProject($this->link, $pid);
+			$result = $statement->get_result();
+			while ($row = $result->fetch_array())
+			{
+				$pid = $row['id'];
+				$projects[$pid] = new MProject($this->link, $pid);
+			}
+			$result->free_result();
 		}
-		$result->free_result();
+		else
+		{
+			$message = 'Could not retrieve the project list';
+		}
 		$statement->close();
+
+		if ($message) throw new \Exception($message);
 		return $projects;
-	}
-
-	/**
-	 * @param $projectId
-	 * @return bool
-	 */
-	public function exists($projectId)
-	{
-		$statement = $this->link->prepare('SELECT `id` FROM `project` WHERE `id` = ?');
-		$statement->bind_param('i', $projectId);
-		$statement->execute();
-		$result = $statement->get_result();
-
-		$exists = $result->fetch_array() ? true : false;
-
-		$result->free_result();
-		$statement->close();
-
-		return $exists;
 	}
 
 	/**

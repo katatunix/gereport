@@ -9,7 +9,8 @@
 namespace gereport\domain;
 
 
-interface MemberDao {
+interface MemberDao
+{
 	/**
 	 * @param $username
 	 * @param $password
@@ -19,14 +20,7 @@ interface MemberDao {
 
 	/**
 	 * @param $memberId
-	 * @return bool
-	 */
-	public function exists($memberId);
-
-	/**
-	 * @param $memberId
 	 * @return Member
 	 */
 	public function findById($memberId);
-
 }

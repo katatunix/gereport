@@ -1,18 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:48 PM
- */
 
 namespace gereport\domain;
-
 
 interface ReportDao
 {
 	public function insert($content, $projectId, $dateFor, $datetimeAdd, $memberId);
 
+	/**
+	 * @param $reportId
+	 * @return void
+	 */
 	public function delete($reportId);
 
 	/**

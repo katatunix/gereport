@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:46 PM
- */
 
 namespace gereport\mysqldomain;
 
@@ -33,12 +27,23 @@ class MProject implements Project
 	{
 		$statement = $this->link->prepare('SELECT `name` FROM `project` WHERE `id` = ?');
 		$statement->bind_param('i', $this->id);
-		$statement->execute();
-		$result = $statement->get_result();
-		$row = $result->fetch_array();
-		$name = $row['name'];
-		$result->free_result();
+		$name = null;
+		$message = null;
+
+		if ($statement->execute())
+		{
+			$result = $statement->get_result();
+			$row = $result->fetch_array();
+			$name = $row['name'];
+			$result->free_result();
+		}
+		else
+		{
+			$message = 'Could not retrieve the project name';
+		}
 		$statement->close();
+
+		if ($message) throw new \Exception($message);
 		return $name;
 	}
 }
