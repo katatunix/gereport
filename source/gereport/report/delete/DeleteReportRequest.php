@@ -19,11 +19,11 @@ class DeleteReportRequest extends BaseRequest
 
 	public function reportId()
 	{
-		return $this->httpRequest->valueGet($this->router->reportIdKey());
+		return $this->httpRequest->valuePost($this->router->reportIdKey());
 	}
 
 	public function nextUrl()
 	{
-		return $this->httpRequest->valueGet($this->router->nextUrlKey());
+		return $this->httpRequest->valuePost($this->router->nextUrlKey());
 	}
 }

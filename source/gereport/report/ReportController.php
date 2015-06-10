@@ -7,6 +7,7 @@ use gereport\Controller;
 use gereport\DaoFactory;
 use gereport\DatetimeUtils;
 use gereport\index\IndexRouter;
+use gereport\Message;
 use gereport\Redirector;
 use gereport\report\add\AddReportRouter;
 use gereport\report\delete\DeleteReportRouter;
@@ -48,6 +49,16 @@ class ReportController implements Controller, ReportViewInfo
 	 */
 	private $addReportRouter;
 
+	/**
+	 * @var DeleteReportRouter
+	 */
+	private $deleteReportRouter;
+
+	/**
+	 * @var Message
+	 */
+	private $messageObj;
+
 	public function __construct($request, $session, $daoFactory, $config, $reportRouter)
 	{
 		$this->request = $request;
@@ -55,6 +66,9 @@ class ReportController implements Controller, ReportViewInfo
 		$this->daoFactory = $daoFactory;
 		$this->config = $config;
 		$this->reportRouter = $reportRouter;
+
+		$this->addReportRouter = new AddReportRouter($this->config->rootUrl());
+		$this->deleteReportRouter = new DeleteReportRouter($this->config->rootUrl());
 	}
 
 	/**
@@ -79,7 +93,11 @@ class ReportController implements Controller, ReportViewInfo
 			$this->date = DatetimeUtils::getCurDate();
 		}
 
-		$this->addReportRouter = new AddReportRouter($this->config->rootUrl());
+		if ($this->session->hasMessage())
+		{
+			$this->messageObj = $this->session->message();
+			$this->session->clearMessage();
+		}
 
 		return new ReportView($this->config, $projectName, $this);
 	}
@@ -98,8 +116,8 @@ class ReportController implements Controller, ReportViewInfo
 	{
 		try
 		{
-			$this->daoFactory->project()->findById($this->projectId())->hasMember($this->session->loggedMemberId());
-			return true;
+			return $this->daoFactory->project()->findById($this->projectId())
+				->hasMember($this->session->loggedMemberId());
 		}
 		catch (\Exception $ex)
 		{
@@ -114,17 +132,17 @@ class ReportController implements Controller, ReportViewInfo
 
 	public function message()
 	{
-		return $this->session->hasMessage() ? $this->session->message()->content : null;
+		return $this->messageObj ? $this->messageObj->content : null;
 	}
 
 	public function success()
 	{
-		return $this->session->hasMessage() ? !$this->session->message()->isError : null;
+		return $this->messageObj ? !$this->messageObj->isError : null;
 	}
 
 	/**
 	 * @return array
-	 *        Keys: 'memberUsername', 'isPast', 'datetimeAdd', 'canDelete',
+	 *        Keys: 'id', 'memberUsername', 'isVisitor', 'datetimeAdd', 'canBeManuplated',
 	 *                'content', 'editUrl', 'deleteUrl'
 	 */
 	public function reports()
@@ -141,10 +159,11 @@ class ReportController implements Controller, ReportViewInfo
 				$rid = $report->id();
 				$cUrl = $this->request->currentUrl();
 				$arr[] = array(
+					'id' => $report->id(),
 					'memberUsername' => $report->memberUsername(),
-					'isPast' => $report->isPast(),
+					'isVisitor' => $report->isVisitor(),
 					'datetimeAdd' => $report->datetimeAdd(),
-					'canDelete' => $report->canBeManuplatedByMember($this->session->loggedMemberId()),
+					'canBeManuplated' => $report->canBeManuplatedByMember($this->session->loggedMemberId()),
 					'content' => $report->content(),
 					'editUrl' => $editRouter->url($rid, $cUrl),
 					'deleteUrl' => $deleteRouter->url($rid, $cUrl)
@@ -211,5 +230,20 @@ class ReportController implements Controller, ReportViewInfo
 	public function addReportContentKey()
 	{
 		return $this->addReportRouter->contentKey();
+	}
+
+	public function deleteReportUrl()
+	{
+		return $this->deleteReportRouter->url();
+	}
+
+	public function deleteReportReportIdKey()
+	{
+		return $this->deleteReportRouter->reportIdKey();
+	}
+
+	public function deleteReportNextUrlKey()
+	{
+		return $this->deleteReportRouter->nextUrlKey();
 	}
 }

@@ -19,9 +19,15 @@ use gereport\options\OptionsRouter;
 use gereport\report\add\AddReportRequest;
 use gereport\report\add\AddReportRouter;
 use gereport\report\add\AddReportController;
+use gereport\report\delete\DeleteReportController;
+use gereport\report\delete\DeleteReportRequest;
+use gereport\report\delete\DeleteReportRouter;
 use gereport\report\edit\EditReportController;
 use gereport\report\edit\EditReportRequest;
 use gereport\report\edit\EditReportRouter;
+use gereport\report\ReportController;
+use gereport\report\ReportRequest;
+use gereport\report\ReportRouter;
 use gereport\sidebar\SidebarController;
 
 class Main
@@ -69,6 +75,10 @@ class Main
 		{
 			$this->handleCpass($httpRequest);
 		}
+		else if ($rt == ReportRouter::ROUTER)
+		{
+			$this->handleReport($httpRequest);
+		}
 		else if ($rt == AddReportRouter::ROUTER)
 		{
 			$this->handleAddReport($httpRequest);
@@ -76,6 +86,10 @@ class Main
 		else if ($rt == EditReportRouter::ROUTER)
 		{
 			$this->handleEditReport($httpRequest);
+		}
+		else if ($rt == DeleteReportRouter::ROUTER)
+		{
+			$this->handleDeleteReport($httpRequest);
 		}
 		else
 		{
@@ -132,6 +146,16 @@ class Main
 		$this->renderMainView($view);
 	}
 
+	private function handleReport($httpRequest)
+	{
+		$router = new ReportRouter($this->config->rootUrl());
+		$request = new ReportRequest($httpRequest, $router);
+		$controller = new ReportController($request, $this->session, $this->daoFactory, $this->config, $router);
+		$view = $controller->process();
+
+		$this->renderMainView($view);
+	}
+
 	private function handleAddReport($httpRequest)
 	{
 		$router = new AddReportRouter($this->config->rootUrl());
@@ -148,6 +172,14 @@ class Main
 		$view = $controller->process();
 
 		$this->renderMainView($view);
+	}
+
+	private function handleDeleteReport($httpRequest)
+	{
+		$router = new DeleteReportRouter($this->config->rootUrl());
+		$request = new DeleteReportRequest($httpRequest, $router);
+		$controller = new DeleteReportController($request, $this->session, $this->daoFactory->report());
+		$controller->process();
 	}
 
 	private function renderMainView($contentView)

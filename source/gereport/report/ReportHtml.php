@@ -22,6 +22,14 @@
 		
 		setTimeout(function(){ $('#resultMessage').hide(1500); }, 3000);
 	});
+
+	function deleteReport(reportId) {
+		if (confirm('ARE YOU SURE TO DELETE THIS REPORT?')) {
+			var theForm = $('#formDelReport');
+			theForm.find('[name=<?= $this->info->deleteReportReportIdKey() ?>]').val(reportId);
+			theForm.submit();
+		}
+	}
 </script>
 
 <h2><?= $this->title ?></h2>
@@ -57,13 +65,13 @@
 	<br />
 	<div class="reportHeaderReported">
 		<?= htmlspecialchars($report['memberUsername']) ?>
-		<i><?= $report['isPast'] ? '[visitor]' : '' ?>
+		<i><?= $report['isVisitor'] ? '[visitor]' : '' ?>
 		at <?= $report['datetimeAdd'] ?></i>
 
-		<?php if ($report['canDelete']) { ?>
+		<?php if ($report['canBeManuplated']) { ?>
 			<div style="float: right">
 				<a href="<?= $report['editUrl'] ?>">Edit</a> |
-				<a href="<?= $report['deleteUrl'] ?>">Delete</a>
+				<a href="javascript:deleteReport(<?= $report['id'] ?>)">Delete</a>
 			</div>
 		<?php } ?>
 	</div>
@@ -77,3 +85,10 @@
 	
 	<p class="reportContent">No report</p>
 <?php } ?>
+
+<br />
+
+<form id="formDelReport" method="post" action="<?= $this->info->deleteReportUrl() ?>">
+	<input type="hidden" name="<?= $this->info->deleteReportReportIdKey() ?>" />
+	<input type="hidden" name="<?= $this->info->deleteReportNextUrlKey() ?>" value="<?= $this->info->currentUrl() ?>" />
+</form>

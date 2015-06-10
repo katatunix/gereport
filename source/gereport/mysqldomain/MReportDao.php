@@ -33,7 +33,7 @@ class MReportDao implements ReportDao
 		');
 		$statement->bind_param('iisss', $memberId, $projectId, $dateFor, $datetimeAdd, $content);
 
-		$ok = $statement->execute() && $this->link->affected_rows == 0;
+		$ok = $statement->execute() && $this->link->affected_rows > 0;
 		$statement->close();
 		if (!$ok) throw new \Exception('Could not insert the report');
 	}
@@ -80,6 +80,8 @@ class MReportDao implements ReportDao
 		$statement = $this->link->prepare('
 			SELECT `id` FROM `report` WHERE `projectId` = ? AND `dateFor` = ? ORDER BY `datetimeAdd` DESC
 		');
+		$statement->bind_param('is', $projectId, $date);
+
 		$reports = null;
 		$ok = $statement->execute();
 		if ($ok)

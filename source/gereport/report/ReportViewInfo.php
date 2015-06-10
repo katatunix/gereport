@@ -16,7 +16,7 @@ interface ReportViewInfo
 
 	/**
 	 * @return array
-	 * 		Keys: 'memberUsername', 'isPast', 'datetimeAdd', 'canDelete',
+	 * 		Keys: 'id', 'memberUsername', 'isVisitor', 'datetimeAdd', 'canBeManuplated',
 	 *				'content', 'editUrl', 'deleteUrl'
 	 */
 	public function reports();
@@ -31,4 +31,8 @@ interface ReportViewInfo
 	public function addReportDateForKey();
 	public function addReportNextUrlKey();
 	public function addReportContentKey();
+
+	public function deleteReportUrl();
+	public function deleteReportReportIdKey();
+	public function deleteReportNextUrlKey();
 }

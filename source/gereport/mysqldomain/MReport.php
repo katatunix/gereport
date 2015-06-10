@@ -44,10 +44,10 @@ class MReport implements Report
 		return (new MMember($this->link, $this->memberId()))->username();
 	}
 
-	public function isPast()
+	public function isVisitor()
 	{
 		$projectId = $this->retriever->retrieve($this->link, 'report', 'projectId', 'id', $this->id);
-		return (new MProject($this->link, $projectId))->hasMember($this->memberId());
+		return !(new MProject($this->link, $projectId))->hasMember($this->memberId());
 	}
 
 	private function memberId()
