@@ -21,11 +21,10 @@ class MReportDao implements ReportDao
 	{
 		if (!$content) throw new \Exception('The report content is empty');
 
-		// TODO: check the member is working for the project
 		$project = new MProject($this->link, $projectId);
 		if (!$project->hasMember($memberId))
 		{
-
+			throw new \Exception('The member is not working for the project');
 		}
 
 		$statement = $this->link->prepare('
@@ -33,10 +32,10 @@ class MReportDao implements ReportDao
 			VALUES(?, ?, ?, ?, ?)
 		');
 		$statement->bind_param('iisss', $memberId, $projectId, $dateFor, $datetimeAdd, $content);
-		$message = null;
-		if (!$statement->execute()) $message = 'Could not insert the report';
+
+		$ok = $statement->execute() && $this->link->affected_rows == 0;
 		$statement->close();
-		if ($message) throw new \Exception($message);
+		if (!$ok) throw new \Exception('Could not insert the report');
 	}
 
 	/**
