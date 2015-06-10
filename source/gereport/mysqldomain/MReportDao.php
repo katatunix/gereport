@@ -41,19 +41,15 @@ class MReportDao implements ReportDao
 		$statement->bind_param('i', $reportId);
 
 		$message = null;
-		if ($statement->execute())
-		{
-			if ($this->link->affected_rows == 0)
-			{
-				$message = 'Could not find the report';
-			}
-		}
-		else
+		if (!$statement->execute())
 		{
 			$message = 'Could not delete the report';
 		}
+		else if ($this->link->affected_rows == 0)
+		{
+			$message = 'Could not find the report';
+		}
 		$statement->close();
-
 		if ($message) throw new \Exception($message);
 	}
 

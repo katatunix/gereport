@@ -11,11 +11,18 @@ class MMember implements Member
 	 */
 	private $link;
 	private $id;
+	/**
+	 * @var FieldRetriever
+	 */
+	private $retriever;
+
+	const MEMBER_TABLE = 'member';
 
 	public function __construct($link, $id)
 	{
 		$this->link = $link;
 		$this->id = $id;
+		$this->retriever = new FieldRetriever();
 	}
 
 	public function id()
@@ -25,15 +32,7 @@ class MMember implements Member
 
 	public function username()
 	{
-		$statement = $this->link->prepare('SELECT `username` FROM `member` WHERE `id` = ?');
-		$statement->bind_param('i', $this->id);
-		$statement->execute();
-		$result = $statement->get_result();
-		$row = $result->fetch_array();
-		$username = $row['username'];
-		$result->free_result();
-		$statement->close();
-		return $username;
+		return $this->retriever->retrieve($this->link, self::MEMBER_TABLE, 'username', 'id', $this->id);
 	}
 
 	public function changePassword($old, $new, $confirm)
@@ -53,7 +52,7 @@ class MMember implements Member
 			throw new \Exception('The current password is wrong');
 		}
 
-		$statement = $this->link->prepare('UPDATE `member` SET `password` = ? WHERE `id` = ?');
+		$statement = $this->link->prepare('UPDATE `' . self::MEMBER_TABLE . '` SET `password` = ? WHERE `id` = ?');
 		$statement->bind_param('si', $new, $this->id);
 		$ok = $statement->execute();
 		$statement->close();
@@ -66,7 +65,8 @@ class MMember implements Member
 
 	private function hasPassword($password)
 	{
-		$statement = $this->link->prepare('SELECT `id` FROM `member` WHERE `id` = ? AND `password` = ?');
+		$statement = $this->link->prepare(
+			'SELECT `id` FROM `' . self::MEMBER_TABLE . '` WHERE `id` = ? AND `password` = ?');
 		$statement->bind_param('is', $this->id, $password);
 
 		$ok = false;

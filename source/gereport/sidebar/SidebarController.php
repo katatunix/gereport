@@ -42,7 +42,7 @@ class SidebarController implements Controller, SidebarViewInfo
 		$projects = array();
 		try
 		{
-			$objects = $this->projectDao->findByAll();
+			$objects = $this->projectDao->findByAllAndSortByName();
 			$reportRouter = new ReportRouter($this->config->rootUrl());
 			foreach ($objects as $obj)
 			{

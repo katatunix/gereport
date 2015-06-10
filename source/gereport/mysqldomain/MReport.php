@@ -12,10 +12,16 @@ class MReport implements Report
 	private $link;
 	private $id;
 
+	/**
+	 * @var FieldRetriever
+	 */
+	private $retriever;
+
 	public function __construct($link, $id)
 	{
 		$this->link = $link;
 		$this->id = $id;
+		$this->retriever = new FieldRetriever();
 	}
 
 	public function id()
@@ -25,41 +31,12 @@ class MReport implements Report
 
 	public function content()
 	{
-		return $this->retrieve('content');
+		return $this->retriever->retrieve($this->link, 'report', 'content', 'id', $this->id);
 	}
 
 	public function datetimeAdd()
 	{
-		return $this->retrieve('datatimeAdd');
-	}
-
-	private function retrieve($field)
-	{
-		$statement = $this->link->prepare('SELECT `' . $field . '` FROM `report` WHERE `id` = ?');
-		$statement->bind_param('i', $this->id);
-
-		$message = null;
-		$ret = null;
-		if ($statement->execute())
-		{
-			$result = $statement->get_result();
-			if ($row = $result->fetch_array())
-			{
-				$ret = $row[$field];
-			}
-			else
-			{
-				$message = 'The report is not found';
-			}
-			$result->free_result();
-		}
-		else
-		{
-			$message = 'Could not retrieve the report ' . $field;
-		}
-		$statement->close();
-		if ($message) throw new \Exception($message);
-		return $ret;
+		return $this->retriever->retrieve($this->link, 'report', 'datetimeAdd', 'id', $this->id);
 	}
 
 	public function memberUsername()
@@ -69,13 +46,13 @@ class MReport implements Report
 
 	public function isPast()
 	{
-		$projectId = $this->retrieve('projectId');
-		(new MProject($this->link, $projectId))->hasMember($this->memberId());
+		$projectId = $this->retriever->retrieve($this->link, 'report', 'projectId', 'id', $this->id);
+		return (new MProject($this->link, $projectId))->hasMember($this->memberId());
 	}
 
 	private function memberId()
 	{
-		return $this->retrieve('memberId');
+		return $this->retriever->retrieve($this->link, 'report', 'memberId', 'id', $this->id);
 	}
 
 	public function update($content, $datetime)
@@ -91,16 +68,13 @@ class MReport implements Report
 		$statement->bind_param('ssi', $content, $datetime, $this->id);
 
 		$message = null;
-		if ($statement->execute())
-		{
-			if ($this->link->affected_rows == 0)
-			{
-				$message = 'Could not find the report';
-			}
-		}
-		else
+		if (!$statement->execute())
 		{
 			$message = 'Could not update the report';
+		}
+		else if ($this->link->affected_rows == 0)
+		{
+			$message = 'Could not find the report';
 		}
 
 		$statement->close();
@@ -109,6 +83,6 @@ class MReport implements Report
 
 	public function canBeManuplatedByMember($memberId)
 	{
-		// TODO: Implement canBeManuplatedByMember() method.
+		return $this->memberId() == $memberId;
 	}
 }

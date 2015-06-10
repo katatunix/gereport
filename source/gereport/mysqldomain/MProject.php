@@ -11,11 +11,16 @@ class MProject implements Project
 	 */
 	private $link;
 	private $id;
+	/**
+	 * @var FieldRetriever
+	 */
+	private $retriever;
 
 	public function __construct($link, $id)
 	{
 		$this->link = $link;
 		$this->id = $id;
+		$this->retriever = new FieldRetriever();
 	}
 
 	public function id()
@@ -25,26 +30,7 @@ class MProject implements Project
 
 	public function name()
 	{
-		$statement = $this->link->prepare('SELECT `name` FROM `project` WHERE `id` = ?');
-		$statement->bind_param('i', $this->id);
-		$name = null;
-		$message = null;
-
-		if ($statement->execute())
-		{
-			$result = $statement->get_result();
-			$row = $result->fetch_array();
-			$name = $row['name'];
-			$result->free_result();
-		}
-		else
-		{
-			$message = 'Could not retrieve the project name';
-		}
-		$statement->close();
-
-		if ($message) throw new \Exception($message);
-		return $name;
+		return $this->retriever->retrieve($this->link, 'project', 'name', 'id', $this->id);
 	}
 
 	/**

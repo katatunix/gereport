@@ -21,14 +21,16 @@ class MProjectDao implements ProjectDao
 	 * @throws \Exception
 	 * @return Project[]
 	 */
-	public function findByAll()
+	public function findByAllAndSortByName()
 	{
 		$statement = $this->link->prepare('SELECT `id` FROM `project` ORDER BY `name`');
-		$projects = array();
+
+		$projects = null;
 		$message = null;
 
 		if ($statement->execute())
 		{
+			$projects = array();
 			$result = $statement->get_result();
 			while ($row = $result->fetch_array())
 			{

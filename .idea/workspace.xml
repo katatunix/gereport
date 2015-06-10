@@ -28,11 +28,11 @@
       <file leaf-file-name="MMember.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMember.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-45.73077" vertical-offset="222" max-vertical-offset="1513">
-              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1513">
+              <caret line="16" column="23" selection-start-line="13" selection-start-column="4" selection-end-line="16" selection-end-column="23" />
               <folding>
-                <marker date="1433913089890" expanded="true" signature="368:414" placeholder="SELECT `user..." />
-                <marker date="1433913089890" expanded="true" signature="1357:1416" placeholder="SELECT `id` ..." />
+                <marker date="1433931166892" expanded="true" signature="1285:1303" placeholder="SELECT `id` ..." />
+                <marker date="1433931166892" expanded="true" signature="1285:1364" placeholder="SELECT `id` ..." />
               </folding>
             </state>
           </provider>
@@ -58,28 +58,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/DaoFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-54.26923" vertical-offset="0" max-vertical-offset="1513">
-              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding>
-                <element signature="e#28#58#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="544">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MMemberDao.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMemberDao.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,23 +75,10 @@
       <file leaf-file-name="MProject.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-47.076923" vertical-offset="0" max-vertical-offset="1326">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state vertical-scroll-proportion="-32.0" vertical-offset="154" max-vertical-offset="1088">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
-                <marker date="1433924454662" expanded="true" signature="367:410" placeholder="SELECT `name..." />
-                <marker date="1433924454662" expanded="true" signature="944:1023" placeholder="SELECT `memb..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MProjectDao.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.615383" vertical-offset="0" max-vertical-offset="1054">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding>
-                <marker date="1433914207856" expanded="true" signature="378:420" placeholder="SELECT `id` ..." />
+                <marker date="1433931166894" expanded="true" signature="648:727" placeholder="SELECT `memb..." />
               </folding>
             </state>
           </provider>
@@ -122,10 +87,25 @@
       <file leaf-file-name="MReport.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.29122055" vertical-offset="357" max-vertical-offset="2040">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8907923" vertical-offset="664" max-vertical-offset="1598">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MReportDao.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-48.384617" vertical-offset="0" max-vertical-offset="1360">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding>
-                <marker date="1433925282645" expanded="true" signature="525:577" placeholder="SELECT `date..." />
+                <element signature="e#40#67#0#PHP" expanded="true" />
+                <marker date="1433932550521" expanded="true" signature="430:443" placeholder="INSERT INTO ..." />
+                <marker date="1433932550521" expanded="true" signature="430:537" placeholder="INSERT INTO ..." />
+                <marker date="1433932550521" expanded="true" signature="931:944" placeholder="DELETE FROM ..." />
+                <marker date="1433932550521" expanded="true" signature="931:959" placeholder="DELETE FROM ..." />
+                <marker date="1433932550521" expanded="true" signature="931:966" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
@@ -141,13 +121,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/gereport/post/AddPostView.php" />
         <option value="$PROJECT_DIR$/source/gereport/entry/AddEntryViewInfo.php" />
         <option value="$PROJECT_DIR$/source/gereport/entry/AddEntryRequest.php" />
         <option value="$PROJECT_DIR$/source/gereport/entry/AddEntryRouter.php" />
         <option value="$PROJECT_DIR$/source/gereport/entry/AddEntryView.php" />
         <option value="$PROJECT_DIR$/source/gereport/entry/AddEntryController.php" />
-        <option value="$PROJECT_DIR$/source/gereport/domain/ProjectDao.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/EntryDao.php" />
         <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MEntry.php" />
         <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MEntryDao.php" />
@@ -167,14 +145,11 @@
         <option value="$PROJECT_DIR$/source/gereport/banner/BannerHtml.php" />
         <option value="$PROJECT_DIR$/source/gereport/cpass/CpassController.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/Member.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MMember.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/Project.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/ReportDao.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/MemberDao.php" />
         <option value="$PROJECT_DIR$/source/gereport/domain/Report.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/ReportHtml.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/add/AddReportController.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/edit/EditReportRouter.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/delete/DeleteReportRouter.php" />
@@ -184,14 +159,19 @@
         <option value="$PROJECT_DIR$/source/gereport/report/add/AddReportRouter.php" />
         <option value="$PROJECT_DIR$/source/gereport/report/ReportController.php" />
         <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MMemberDao.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php" />
-        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php" />
         <option value="$PROJECT_DIR$/source/meekro/MeekroDB.php" />
         <option value="$PROJECT_DIR$/source/tests/config.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/source/MeekroDB.php" />
         <option value="$PROJECT_DIR$/source/tests/MeekroDBTest.php" />
         <option value="$PROJECT_DIR$/source/gereport/DaoFactory.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/FieldRetriever.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MMember.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php" />
+        <option value="$PROJECT_DIR$/source/gereport/domain/ProjectDao.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php" />
+        <option value="$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php" />
       </list>
     </option>
   </component>
@@ -527,20 +507,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/gereport/login/LoginRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="525">
-          <caret line="17" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/TODO.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="647">
-          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/Message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3611557" vertical-offset="0" max-vertical-offset="623">
@@ -671,18 +637,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30942184" vertical-offset="0" max-vertical-offset="1428">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#67#0#PHP" expanded="true" />
-            <marker date="1433918320024" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433918320024" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -834,28 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMemberDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-58.192307" vertical-offset="0" max-vertical-offset="1615">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#67#0#PHP" expanded="true" />
-            <marker date="1433924287201" expanded="true" signature="412:477" placeholder="SELECT `id` ..." />
-            <marker date="1433924287201" expanded="true" signature="1087:1353" placeholder="SELECT M.`id..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-36.615383" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <marker date="1433914207856" expanded="true" signature="378:420" placeholder="SELECT `id` ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3452055" vertical-offset="6021" max-vertical-offset="17340">
@@ -898,7 +830,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="544">
+        <state vertical-scroll-proportion="0.4732334" vertical-offset="0" max-vertical-offset="934">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
@@ -906,10 +838,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/DaoFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-54.26923" vertical-offset="0" max-vertical-offset="1513">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.29122055" vertical-offset="459" max-vertical-offset="1513">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#28#58#0#PHP" expanded="true" />
+            <element signature="e#28#58#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -930,35 +862,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/FieldRetriever.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8372591" vertical-offset="0" max-vertical-offset="934">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMemberDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-58.192307" vertical-offset="0" max-vertical-offset="1615">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#67#0#PHP" expanded="true" />
+            <marker date="1433924287201" expanded="true" signature="412:477" placeholder="SELECT `id` ..." />
+            <marker date="1433924287201" expanded="true" signature="1087:1353" placeholder="SELECT M.`id..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/domain/ProjectDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34582442" vertical-offset="0" max-vertical-offset="934">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MMember.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.73077" vertical-offset="222" max-vertical-offset="1513">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1513">
+          <caret line="16" column="23" selection-start-line="13" selection-start-column="4" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <marker date="1433913089890" expanded="true" signature="368:414" placeholder="SELECT `user..." />
-            <marker date="1433913089890" expanded="true" signature="1357:1416" placeholder="SELECT `id` ..." />
+            <marker date="1433931166892" expanded="true" signature="1285:1303" placeholder="SELECT `id` ..." />
+            <marker date="1433931166892" expanded="true" signature="1285:1364" placeholder="SELECT `id` ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProject.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.076923" vertical-offset="0" max-vertical-offset="1326">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="-32.0" vertical-offset="154" max-vertical-offset="1088">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
-            <marker date="1433924454662" expanded="true" signature="367:410" placeholder="SELECT `name..." />
-            <marker date="1433924454662" expanded="true" signature="944:1023" placeholder="SELECT `memb..." />
+            <marker date="1433931166894" expanded="true" signature="648:727" placeholder="SELECT `memb..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MProjectDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4550321" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="25" column="88" selection-start-line="25" selection-start-column="88" selection-end-line="25" selection-end-column="88" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+            <marker date="1433932122072" expanded="true" signature="-1:-1" placeholder="SELECT `id` ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReportDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-48.384617" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#67#0#PHP" expanded="true" />
+            <marker date="1433932550521" expanded="true" signature="430:443" placeholder="INSERT INTO ..." />
+            <marker date="1433932550521" expanded="true" signature="430:537" placeholder="INSERT INTO ..." />
+            <marker date="1433932550521" expanded="true" signature="931:944" placeholder="DELETE FROM ..." />
+            <marker date="1433932550521" expanded="true" signature="931:959" placeholder="DELETE FROM ..." />
+            <marker date="1433932550521" expanded="true" signature="931:966" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/gereport/mysqldomain/MReport.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.29122055" vertical-offset="357" max-vertical-offset="2040">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <marker date="1433925282645" expanded="true" signature="525:577" placeholder="SELECT `date..." />
-          </folding>
+        <state vertical-scroll-proportion="0.8907923" vertical-offset="664" max-vertical-offset="1598">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
