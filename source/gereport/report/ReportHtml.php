@@ -40,6 +40,15 @@
 	<input type="submit" value="GO!" />
 </form>
 
+<?php if ($message = $this->info->message()) { ?>
+	<div id="resultMessage">
+		<br />
+		<p class="<?= $this->info->success() ? 'infoMessage' : 'errorMessage' ?>">
+			<?= $message ?>
+		</p>
+	</div>
+<?php } ?>
+
 <?php if ($this->info->isAllowSubmittingReport()) { ?>
 <br />
 <form method="post" action="<?= $this->info->addReportUrl() ?>">
@@ -47,15 +56,9 @@
 	<input type="hidden" name="<?= $this->info->addReportDateForKey() ?>" value="<?= $this->info->date() ?>" />
 	<input type="hidden" name="<?= $this->info->addReportNextUrlKey() ?>" value="<?= $this->info->currentUrl() ?>" />
 	<b>Compose a report for this day</b><br /><br />
+
 	<p><textarea name="<?= $this->info->addReportContentKey() ?>" id="reportContent" class="reportTextArea"></textarea></p>
-	<?php if ($message = $this->info->message()) { ?>
-		<div id="resultMessage">
-			<br />
-			<p class="<?= $this->info->success() ? 'infoMessage' : 'errorMessage' ?>">
-				<?= $message ?>
-			</p>
-		</div>
-	<?php } ?>
+
 	<br />
 	<p><input type="submit" value="Submit report" /></p>
 </form>

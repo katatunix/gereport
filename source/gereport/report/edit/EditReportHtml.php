@@ -17,14 +17,15 @@
 
 <form method="post" action="">
 	<?php if ($this->info->isShowingEditor()) { ?>
-	<b>Compose a new content for the report</b><br /><br />
-	<p><textarea name="<?= $this->info->contentKey() ?>" id="content" class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
+		<b>Compose a new content for the report</b><br /><br />
+		<?php if ($msg = $this->info->message()) { ?>
+			<p class="errorMessage"><?= $msg ?></p>
+			<br />
+		<?php } ?>
+		<p><textarea name="<?= $this->info->contentKey() ?>" id="content"
+					 class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
 	<?php } ?>
 
-	<?php if ($this->info->message()) { ?>
-		<br />
-		<p class="errorMessage"><?= $this->info->message() ?></p>
-	<?php } ?>
 	<br />
 	<p>
 		<?php if ($this->info->isShowingEditor()) { ?>
