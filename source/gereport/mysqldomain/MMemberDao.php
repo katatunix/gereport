@@ -58,6 +58,32 @@ class MMemberDao implements MemberDao
 	 */
 	public function findByNoReportIn($projectId, $date)
 	{
-		// TODO: Implement findByNoReportIn() method.
+		$statement = $this->link->prepare('
+			SELECT M.`id`
+			FROM `member` M, `memberproject` MP
+			WHERE
+				M.`id` = MP.`memberId` AND
+				MP.`projectId` = ? AND
+				M.`id` NOT IN (
+					SELECT A.`memberId` FROM `report` A
+					WHERE A.`projectId` = ?
+						AND A.`dateFor` = ?
+				)
+			ORDER BY M.`username`
+		');
+		$statement->bind_param('iis', $projectId, $projectId, $date);
+
+		$members = array();
+		if ($statement->execute())
+		{
+			$result = $statement->get_result();
+			while ($row = $result->fetch_array())
+			{
+				$members[] = new MMember($this->link, $row['id']);
+			}
+		}
+		$statement->close();
+
+		return $members;
 	}
 }

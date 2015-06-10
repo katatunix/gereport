@@ -8,6 +8,7 @@ use gereport\DaoFactory;
 use gereport\DatetimeUtils;
 use gereport\index\IndexRouter;
 use gereport\Redirector;
+use gereport\report\add\AddReportRouter;
 use gereport\report\delete\DeleteReportRouter;
 use gereport\report\edit\EditReportRouter;
 use gereport\Session;
@@ -42,6 +43,11 @@ class ReportController implements Controller, ReportViewInfo
 
 	private $date;
 
+	/**
+	 * @var AddReportRouter
+	 */
+	private $addReportRouter;
+
 	public function __construct($request, $session, $daoFactory, $config, $reportRouter)
 	{
 		$this->request = $request;
@@ -72,6 +78,8 @@ class ReportController implements Controller, ReportViewInfo
 		{
 			$this->date = DatetimeUtils::getCurDate();
 		}
+
+		$this->addReportRouter = new AddReportRouter($this->config->rootUrl());
 
 		return new ReportView($this->config, $projectName, $this);
 	}
@@ -178,5 +186,30 @@ class ReportController implements Controller, ReportViewInfo
 	public function projectIdKey()
 	{
 		return $this->reportRouter->projectIdKey();
+	}
+
+	public function addReportUrl()
+	{
+		return $this->addReportRouter->url();
+	}
+
+	public function addReportProjectIdKey()
+	{
+		return $this->addReportRouter->projectIdKey();
+	}
+
+	public function addReportDateForKey()
+	{
+		return $this->addReportRouter->dateForKey();
+	}
+
+	public function addReportNextUrlKey()
+	{
+		return $this->addReportRouter->nextUrlKey();
+	}
+
+	public function addReportContentKey()
+	{
+		return $this->addReportRouter->contentKey();
 	}
 }

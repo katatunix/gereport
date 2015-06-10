@@ -27,4 +27,9 @@ class AddReportRouter extends Router
 	{
 		return 'nextUrl';
 	}
+
+	public function url()
+	{
+		return $this->rootUrl . self::ROUTER;
+	}
 }

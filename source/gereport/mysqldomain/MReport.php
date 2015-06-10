@@ -25,19 +25,27 @@ class MReport implements Report
 
 	public function content()
 	{
-		$statement = $this->link->prepare('SELECT `content` FROM `report` WHERE `id` = ?');
+		return $this->retrieve('content');
+	}
+
+	public function datetimeAdd()
+	{
+		return $this->retrieve('datatimeAdd');
+	}
+
+	private function retrieve($field)
+	{
+		$statement = $this->link->prepare('SELECT `' . $field . '` FROM `report` WHERE `id` = ?');
 		$statement->bind_param('i', $this->id);
 
 		$message = null;
-		$content = null;
-
+		$ret = null;
 		if ($statement->execute())
 		{
 			$result = $statement->get_result();
-			$row = $result->fetch_array();
-			if ($row)
+			if ($row = $result->fetch_array())
 			{
-				$content = $row['content'];
+				$ret = $row[$field];
 			}
 			else
 			{
@@ -47,28 +55,27 @@ class MReport implements Report
 		}
 		else
 		{
-			$message = 'Could not retrieve the report content';
+			$message = 'Could not retrieve the report ' . $field;
 		}
-
 		$statement->close();
-
 		if ($message) throw new \Exception($message);
-		return $content;
-	}
-
-	public function datetimeAdd()
-	{
-		// TODO: Implement datetimeAdd() method.
+		return $ret;
 	}
 
 	public function memberUsername()
 	{
-		// TODO: Implement memberUsername() method.
+		return (new MMember($this->link, $this->memberId()))->username();
 	}
 
 	public function isPast()
 	{
-		// TODO: Implement isPast() method.
+		$projectId = $this->retrieve('projectId');
+		(new MProject($this->link, $projectId))->hasMember($this->memberId());
+	}
+
+	private function memberId()
+	{
+		return $this->retrieve('memberId');
 	}
 
 	public function update($content, $datetime)

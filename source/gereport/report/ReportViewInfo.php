@@ -25,4 +25,10 @@ interface ReportViewInfo
 	 * @return array
 	 */
 	public function notReportedMemberUsernames();
+
+	public function addReportUrl();
+	public function addReportProjectIdKey();
+	public function addReportDateForKey();
+	public function addReportNextUrlKey();
+	public function addReportContentKey();
 }

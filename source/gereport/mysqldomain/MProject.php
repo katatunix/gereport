@@ -53,6 +53,20 @@ class MProject implements Project
 	 */
 	public function hasMember($memberId)
 	{
-		// TODO: Implement hasMember() method.
+		$statement = $this->link->prepare('
+			SELECT `memberId` FROM `memberproject` WHERE `memberId` = ? AND `projectId` = ?
+		');
+		$statement->bind_param('ii', $memberId, $this->id);
+
+		$ok = false;
+		if ($statement->execute())
+		{
+			$result = $statement->get_result();
+			$ok = $result->fetch_array() ? true : false;
+			$result->free_result();
+		}
+		$statement->close();
+
+		return $ok;
 	}
 }

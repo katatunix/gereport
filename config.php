@@ -21,7 +21,6 @@ error_reporting(E_ALL);
 define('__SOURCE_DIR_PATH', __ROOT_DIR . 'source/');
 define('__PHP_EXT', '.php');
 
-function __autoload($class)
-{
+spl_autoload_register(function ($class) {
 	require_once __SOURCE_DIR_PATH . $class . __PHP_EXT;
-}
+});
