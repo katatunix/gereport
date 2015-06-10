@@ -19,7 +19,15 @@ class MReportDao implements ReportDao
 
 	public function insert($content, $projectId, $dateFor, $datetimeAdd, $memberId)
 	{
+		if (!$content) throw new \Exception('The report content is empty');
+
 		// TODO: check the member is working for the project
+		$project = new MProject($this->link, $projectId);
+		if (!$project->hasMember($memberId))
+		{
+
+		}
+
 		$statement = $this->link->prepare('
 			INSERT INTO `report`(`memberId`, `projectId`, `dateFor`, `datetimeAdd`, `content`)
 			VALUES(?, ?, ?, ?, ?)
