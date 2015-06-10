@@ -65,10 +65,28 @@ class MReportDao implements ReportDao
 	/**
 	 * @param $projectId
 	 * @param $date
+	 * @throws \Exception
 	 * @return Report[]
 	 */
 	public function findByProjectAndDate($projectId, $date)
 	{
-		// TODO: Implement findByProjectAndDate() method.
+		$statement = $this->link->prepare('
+			SELECT `id` FROM `report` WHERE `projectId` = ? AND `dateFor` = ? ORDER BY `datetimeAdd` DESC
+		');
+		$reports = null;
+		$ok = $statement->execute();
+		if ($ok)
+		{
+			$reports = array();
+			$result = $statement->get_result();
+			while ($row = $result->fetch_array())
+			{
+				$reports[] = new MReport($this->link, $row['id']);
+			}
+		}
+		$statement->close();
+
+		if (!$ok) throw new \Exception('Could not retrieve the report list');
+		return $reports;
 	}
 }

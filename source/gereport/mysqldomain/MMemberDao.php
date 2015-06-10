@@ -54,6 +54,7 @@ class MMemberDao implements MemberDao
 	/**
 	 * @param $projectId
 	 * @param $date
+	 * @throws \Exception
 	 * @return Member[]
 	 */
 	public function findByNoReportIn($projectId, $date)
@@ -69,13 +70,14 @@ class MMemberDao implements MemberDao
 					WHERE A.`projectId` = ?
 						AND A.`dateFor` = ?
 				)
-			ORDER BY M.`username`
-		');
+			ORDER BY M.`username`');
 		$statement->bind_param('iis', $projectId, $projectId, $date);
 
-		$members = array();
-		if ($statement->execute())
+		$ok = $statement->execute();
+		$members = null;
+		if ($ok)
 		{
+			$members = array();
 			$result = $statement->get_result();
 			while ($row = $result->fetch_array())
 			{
@@ -84,6 +86,7 @@ class MMemberDao implements MemberDao
 		}
 		$statement->close();
 
+		if (!$ok) throw new \Exception('Could not retrieve the no report members');
 		return $members;
 	}
 }
