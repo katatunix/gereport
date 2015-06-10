@@ -41,6 +41,11 @@ class MMember implements Member
 	 */
 	public function changePassword($old, $new, $confirm)
 	{
+		if (!$this->hasPassword($old))
+		{
+			throw new \Exception('The current password is wrong');
+		}
+
 		if (!$new)
 		{
 			throw new \Exception('The new password is empty');
@@ -49,11 +54,6 @@ class MMember implements Member
 		if ($new != $confirm)
 		{
 			throw new \Exception('The new and confirm password are not matched');
-		}
-
-		if (!$this->hasPassword($old))
-		{
-			throw new \Exception('The current password is wrong');
 		}
 
 		$statement = $this->link->prepare('UPDATE `member` SET `password` = ? WHERE `id` = ?');
