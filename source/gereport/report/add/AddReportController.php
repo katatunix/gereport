@@ -40,29 +40,23 @@ class AddReportController implements Controller
 		}
 
 		$message = null;
-		$isError = true;
-
-		$content = $this->request->content();
-		if (!$content)
-		{
-			$message = 'The report content is empty';
-			goto my_end;
-		}
-
+		$isError = false;
 		try
 		{
-			$this->reportDao->insert($content, $this->request->projectId(), $this->request->dateFor(),
-				DatetimeUtils::getCurDatetime(), $this->session->loggedMemberId());
+			$this->reportDao->insert(
+				$this->request->content(),
+				$this->request->projectId(),
+				$this->request->dateFor(),
+				DatetimeUtils::getCurDatetime(),
+				$this->session->loggedMemberId()
+			);
+			$message = 'The report has been submitted OK';
 		}
 		catch (\Exception $ex)
 		{
 			$message = $ex->getMessage();
-			goto my_end;
+			$isError = true;
 		}
-
-		$isError = false;
-
-		my_end:
 
 		$this->session->saveMessage($message, $isError);
 		( new Redirector($this->request->nextUrl()) )->redirect();

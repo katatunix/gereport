@@ -23,4 +23,11 @@ interface MemberDao
 	 * @return Member
 	 */
 	public function findById($memberId);
+
+	/**
+	 * @param $projectId
+	 * @param $date
+	 * @return Member[]
+	 */
+	public function findByNoReportIn($projectId, $date);
 }

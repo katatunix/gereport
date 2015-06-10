@@ -62,46 +62,23 @@ class CpassController implements Controller, CpassViewInfo
 
 		if ($this->request->isPostMethod())
 		{
-			$old = $this->request->oldPassword();
-			if (!$old)
-			{
-				$this->message = 'The current password is empty';
-				goto my_end;
-			}
-
-			$member = null;
 			try
 			{
-				$member = $this->memberDao->findById( $this->session->loggedMemberId() );
-				if (!$member->hasPassword($old))
-				{
-					$this->message = 'The current password is wrong';
-					goto my_end;
-				}
-				$new = $this->request->newPassword();
-				if (!$new)
-				{
-					$this->message = 'The new password is empty';
-					goto my_end;
-				}
-				$confirm = $this->request->confirmPassword();
-				if ($new != $confirm)
-				{
-					$this->message = 'The new and confirm passwords are not matched';
-					goto my_end;
-				}
-				$member->changePassword($new);
+				$this->memberDao->findById( $this->session->loggedMemberId() )->changePassword(
+					$this->request->oldPassword(),
+					$this->request->newPassword(),
+					$this->request->confirmPassword()
+				);
 				$this->success = true;
 				$this->message = 'The password has been changed OK';
 			}
 			catch (\Exception $ex)
 			{
+				$this->success = false;
 				$this->message = $ex->getMessage();
-				goto my_end;
 			}
-
-			my_end:
 		}
+
 		return new CpassView($this->config, $this);
 	}
 

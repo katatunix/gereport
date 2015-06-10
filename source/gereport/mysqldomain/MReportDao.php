@@ -19,6 +19,7 @@ class MReportDao implements ReportDao
 
 	public function insert($content, $projectId, $dateFor, $datetimeAdd, $memberId)
 	{
+		// TODO: check the member is working for the project
 		$statement = $this->link->prepare('
 			INSERT INTO `report`(`memberId`, `projectId`, `dateFor`, `datetimeAdd`, `content`)
 			VALUES(?, ?, ?, ?, ?)
@@ -63,5 +64,15 @@ class MReportDao implements ReportDao
 	public function findById($reportId)
 	{
 		return new MReport($this->link, $reportId);
+	}
+
+	/**
+	 * @param $projectId
+	 * @param $date
+	 * @return Report[]
+	 */
+	public function findByProjectAndDate($projectId, $date)
+	{
+		// TODO: Implement findByProjectAndDate() method.
 	}
 }

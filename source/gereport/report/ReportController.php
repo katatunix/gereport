@@ -4,9 +4,12 @@ namespace gereport\report;
 
 use gereport\Config;
 use gereport\Controller;
-use gereport\domain\ProjectDao;
-use gereport\domain\ReportDao;
+use gereport\DaoFactory;
+use gereport\DatetimeUtils;
+use gereport\index\IndexRouter;
 use gereport\Redirector;
+use gereport\report\delete\DeleteReportRouter;
+use gereport\report\edit\EditReportRouter;
 use gereport\Session;
 use gereport\View;
 
@@ -23,9 +26,9 @@ class ReportController implements Controller, ReportViewInfo
 	private $session;
 
 	/**
-	 * @var ReportDao
+	 * @var DaoFactory
 	 */
-	private $reportDao;
+	private $daoFactory;
 
 	/**
 	 * @var Config
@@ -37,25 +40,15 @@ class ReportController implements Controller, ReportViewInfo
 	 */
 	private $reportRouter;
 
-	/**
-	 * @var ProjectDao
-	 */
-	private $projectDao;
+	private $date;
 
-	/**
-	 * @var Redirector
-	 */
-	private $indexRedirector;
-
-	public function __construct($request, $session, $reportDao, $projectDao, $config, $reportRouter, $indexRedirector)
+	public function __construct($request, $session, $daoFactory, $config, $reportRouter)
 	{
 		$this->request = $request;
 		$this->session = $session;
-		$this->reportDao = $reportDao;
-		$this->projectDao = $projectDao;
+		$this->daoFactory = $daoFactory;
 		$this->config = $config;
 		$this->reportRouter = $reportRouter;
-		$this->indexRedirector = $indexRedirector;
 	}
 
 	/**
@@ -66,12 +59,18 @@ class ReportController implements Controller, ReportViewInfo
 		$projectName = null;
 		try
 		{
-			$projectName = $this->projectDao->findById($this->projectId())->name();
+			$projectName = $this->daoFactory->project()->findById($this->projectId())->name();
 		}
 		catch (\Exception $ex)
 		{
-			$this->indexRedirector->redirect();
+			(new Redirector( new IndexRouter($this->config->rootUrl()) ))->redirect();
 			return null;
+		}
+
+		$this->date = $this->request->date();
+		if (!$this->date)
+		{
+			$this->date = DatetimeUtils::getCurDate();
 		}
 
 		return new ReportView($this->config, $projectName, $this);
@@ -84,12 +83,20 @@ class ReportController implements Controller, ReportViewInfo
 
 	public function date()
 	{
-		// TODO: Implement date() method.
+		return $this->date;
 	}
 
-	public function isAllowAddingReport()
+	public function isAllowSubmittingReport()
 	{
-		// TODO: Implement isAllowAddingReport() method.
+		try
+		{
+			$this->daoFactory->project()->findById($this->projectId())->hasMember($this->session->loggedMemberId());
+			return true;
+		}
+		catch (\Exception $ex)
+		{
+			return false;
+		}
 	}
 
 	public function currentUrl()
@@ -114,7 +121,33 @@ class ReportController implements Controller, ReportViewInfo
 	 */
 	public function reports()
 	{
-		// TODO: Implement reports() method.
+		$r = $this->config->rootUrl();
+		$editRouter = new EditReportRouter($r);
+		$deleteRouter = new DeleteReportRouter($r);
+
+		$arr = array();
+		try
+		{
+			foreach ($this->daoFactory->report()->findByProjectAndDate($this->projectId(), $this->date()) as $report)
+			{
+				$rid = $report->id();
+				$cUrl = $this->request->currentUrl();
+				$arr[] = array(
+					'memberUsername' => $report->memberUsername(),
+					'isPast' => $report->isPast(),
+					'datetimeAdd' => $report->datetimeAdd(),
+					'canDelete' => $report->canBeManuplatedByMember($this->session->loggedMemberId()),
+					'content' => $report->content(),
+					'editUrl' => $editRouter->url($rid, $cUrl),
+					'deleteUrl' => $deleteRouter->url($rid, $cUrl)
+				);
+			}
+		}
+		catch (\Exception $ex)
+		{
+			$arr = array();
+		}
+		return $arr;
 	}
 
 	/**
@@ -122,6 +155,28 @@ class ReportController implements Controller, ReportViewInfo
 	 */
 	public function notReportedMemberUsernames()
 	{
-		// TODO: Implement notReportedMemberUsernames() method.
+		$usernames = array();
+		try
+		{
+			foreach ($this->daoFactory->member()->findByNoReportIn($this->projectId(), $this->date()) as $member)
+			{
+				$usernames[] = $member->username();
+			}
+		}
+		catch (\Exception $ex)
+		{
+			$usernames = array();
+		}
+		return $usernames;
+	}
+
+	public function dateKey()
+	{
+		return $this->reportRouter->dateKey();
+	}
+
+	public function projectIdKey()
+	{
+		return $this->reportRouter->projectIdKey();
 	}
 }

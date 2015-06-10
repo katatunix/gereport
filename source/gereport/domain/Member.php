@@ -10,6 +10,5 @@ interface Member
 
 	public function id();
 	public function username();
-	public function hasPassword($password);
-	public function changePassword($newPassword);
+	public function changePassword($old, $new, $confirm);
 }

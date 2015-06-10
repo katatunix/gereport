@@ -93,7 +93,7 @@ class EditReportController implements Controller, EditReportViewInfo
 			if ($success)
 			{
 				$this->session->saveMessage('The report has been saved OK', false);
-				(new Redirector( $this->request->nextUrl() ))->redirect();
+				(new Redirector( $this->nextUrl() ))->redirect();
 				return null;
 			}
 		}

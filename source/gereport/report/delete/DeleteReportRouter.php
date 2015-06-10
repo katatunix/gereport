@@ -17,4 +17,11 @@ class DeleteReportRouter extends Router
 	{
 		return 'next';
 	}
+
+	public function url($reportId, $nextUrl)
+	{
+		return $this->rootUrl . self::ROUTER . '?'
+			. $this->reportIdKey() . '=' . $reportId . '&'
+			. $this->nextUrlKey() . '=' . urlencode($nextUrl);
+	}
 }

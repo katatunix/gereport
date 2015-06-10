@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 6/2/2015
- * Time: 11:07 PM
- */
 
 namespace gereport;
 
 use gereport\domain\MemberDao;
 use gereport\domain\EntryDao;
 use gereport\domain\ProjectDao;
+use gereport\domain\ReportDao;
 use gereport\mysqldomain\MMemberDao;
 use gereport\mysqldomain\MProjectDao;
 use gereport\mysqldomain\MReportDao;
@@ -26,6 +21,16 @@ class DaoFactory
 	 * @var MemberDao
 	 */
 	private $member;
+
+	/**
+	 * @var ProjectDao
+	 */
+	private $project;
+
+	/**
+	 * @var ReportDao
+	 */
+	private $report;
 
 	public function __construct($host, $username, $password, $dbname)
 	{
@@ -56,13 +61,14 @@ class DaoFactory
 	 */
 	public function project()
 	{
-		return new MProjectDao($this->link);
+		if (!$this->project) $this->project = new MProjectDao($this->link);
+		return $this->project;
 	}
 
 	/**
 	 * @return EntryDao
 	 */
-	public function post()
+	public function entry()
 	{
 	}
 
@@ -71,6 +77,7 @@ class DaoFactory
 	 */
 	public function report()
 	{
-		return new MReportDao($this->link);
+		if (!$this->report) $this->report = new MReportDao($this->link);
+		return $this->report;
 	}
 }

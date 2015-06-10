@@ -99,4 +99,9 @@ class MReport implements Report
 		$statement->close();
 		if ($message) throw new \Exception($message);
 	}
+
+	public function canBeManuplatedByMember($memberId)
+	{
+		// TODO: Implement canBeManuplatedByMember() method.
+	}
 }

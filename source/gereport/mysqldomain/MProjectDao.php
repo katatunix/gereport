@@ -32,8 +32,7 @@ class MProjectDao implements ProjectDao
 			$result = $statement->get_result();
 			while ($row = $result->fetch_array())
 			{
-				$pid = $row['id'];
-				$projects[$pid] = new MProject($this->link, $pid);
+				$projects[] = new MProject($this->link, $row['id']);
 			}
 			$result->free_result();
 		}

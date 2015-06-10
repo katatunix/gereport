@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 5:44 PM
- */
 
 namespace gereport\mysqldomain;
 
@@ -32,18 +26,19 @@ class MMemberDao implements MemberDao
 	{
 		$statement = $this->link->prepare('SELECT `id` FROM `member` WHERE `username` = ? AND `password` = ?');
 		$statement->bind_param('ss', $username, $password);
-		$statement->execute();
-		$result = $statement->get_result();
 
 		$memberId = 0;
-		if ($row = $result->fetch_array())
+		if ($statement->execute())
 		{
-			$memberId = $row['id'];
+			$result = $statement->get_result();
+			if ($row = $result->fetch_array())
+			{
+				$memberId = $row['id'];
+			}
+			$result->free_result();
 		}
 
-		$result->free_result();
 		$statement->close();
-
 		return $memberId;
 	}
 
@@ -54,5 +49,15 @@ class MMemberDao implements MemberDao
 	public function findById($memberId)
 	{
 		return new MMember($this->link, $memberId);
+	}
+
+	/**
+	 * @param $projectId
+	 * @param $date
+	 * @return Member[]
+	 */
+	public function findByNoReportIn($projectId, $date)
+	{
+		// TODO: Implement findByNoReportIn() method.
 	}
 }

@@ -10,4 +10,6 @@ interface Report
 	public function memberUsername();
 	public function isPast();
 	public function update($content, $datetime);
+
+	public function canBeManuplatedByMember($memberId);
 }

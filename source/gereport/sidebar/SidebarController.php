@@ -43,13 +43,6 @@ class SidebarController implements Controller, SidebarViewInfo
 		try
 		{
 			$objects = $this->projectDao->findByAll();
-		}
-		catch (\Exception $ex)
-		{
-			$objects = null;
-		}
-		if ($objects)
-		{
 			$reportRouter = new ReportRouter($this->config->rootUrl());
 			foreach ($objects as $obj)
 			{
@@ -58,6 +51,10 @@ class SidebarController implements Controller, SidebarViewInfo
 					'url' => $reportRouter->url($obj->id())
 				);
 			}
+		}
+		catch (\Exception $ex)
+		{
+			$projects = array();
 		}
 		return $projects;
 	}

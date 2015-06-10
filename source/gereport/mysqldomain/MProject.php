@@ -46,4 +46,13 @@ class MProject implements Project
 		if ($message) throw new \Exception($message);
 		return $name;
 	}
+
+	/**
+	 * @param $memberId
+	 * @return bool
+	 */
+	public function hasMember($memberId)
+	{
+		// TODO: Implement hasMember() method.
+	}
 }
