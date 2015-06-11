@@ -12,13 +12,9 @@ namespace gereport\domain;
 interface ProjectDao
 {
 	/**
-	 * @return Project[]
-	 */
-	public function findByAllAndSortByName();
-
-	/**
-	 * @param $projectId
+	 * @param $id
 	 * @return Project
 	 */
-	public function findById($projectId);
+	public function findById($id);
+	public function findByAllAndSortByName();
 }

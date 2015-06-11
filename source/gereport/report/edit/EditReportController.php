@@ -38,7 +38,7 @@ class EditReportController implements Controller, EditReportViewInfo
 	 */
 	private $router;
 
-	private $message, $reportContent, $isShowingEditor;
+	private $message, $reportContent;
 
 	public function __construct($request, $session, $reportDao, $config, $router)
 	{
@@ -49,20 +49,22 @@ class EditReportController implements Controller, EditReportViewInfo
 		$this->router = $router;
 	}
 
+	private function error()
+	{
+		return new Error403View($this->config);
+	}
+
 	/**
 	 * @return View
 	 */
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return new Error403View($this->config);
-		}
-
-		$this->message = null;
-		$this->isShowingEditor = true;
+		if (!$this->session->hasLogged()) return $this->error();
 
 		$report = $this->reportDao->findById($this->request->reportId());
+		if (!$report) return $this->error();
+
+		$this->message = null;
 
 		if (!$this->request->isPostMethod())
 		{
@@ -73,7 +75,6 @@ class EditReportController implements Controller, EditReportViewInfo
 			catch (\Exception $ex)
 			{
 				$this->message = $ex->getMessage();
-				$this->isShowingEditor = false;
 			}
 		}
 		else

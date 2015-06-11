@@ -2,61 +2,36 @@
 
 namespace gereport\mysqldomain;
 
-use gereport\domain\Member;
 use gereport\domain\MemberDao;
 
-class MMemberDao implements MemberDao
+class MMemberDao extends MDao implements MemberDao
 {
-	/**
-	 * @var \mysqli
-	 */
-	private $link;
-
-	public function __construct($link)
+	public function findById($id)
 	{
-		$this->link = $link;
+		if (!$this->exists('member', $id)) return null;
+		return new MMember($this->link, $id);
 	}
 
-	/**
-	 * @param $username
-	 * @param $password
-	 * @return int
-	 */
-	public function findIdByAuthen($username, $password)
+	public function findByAuthen($username, $password)
 	{
 		$statement = $this->link->prepare('SELECT `id` FROM `member` WHERE `username` = ? AND `password` = ?');
 		$statement->bind_param('ss', $username, $password);
 
-		$memberId = 0;
+		$member = null;
 		if ($statement->execute())
 		{
 			$result = $statement->get_result();
 			if ($row = $result->fetch_array())
 			{
-				$memberId = $row['id'];
+				$member = new MMember($this->link, $row['id']);
 			}
 			$result->free_result();
 		}
 
 		$statement->close();
-		return $memberId;
+		return $member;
 	}
 
-	/**
-	 * @param $memberId
-	 * @return Member
-	 */
-	public function findById($memberId)
-	{
-		return new MMember($this->link, $memberId);
-	}
-
-	/**
-	 * @param $projectId
-	 * @param $date
-	 * @throws \Exception
-	 * @return Member[]
-	 */
 	public function findByNoReportIn($projectId, $date)
 	{
 		$statement = $this->link->prepare('

@@ -40,10 +40,7 @@ class OptionsController implements Controller
 	 */
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return new Error403View($this->config);
-		}
+		if (!$this->session->hasLogged()) return new Error403View($this->config);
 		return new OptionsView($this->config, $this->cpassUrl);
 	}
 }

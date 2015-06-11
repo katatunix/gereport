@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/5/2015
- * Time: 3:54 PM
- */
 
 namespace gereport\logout;
 

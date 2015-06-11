@@ -37,17 +37,13 @@ class DeleteReportController implements Controller
 	 */
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return null;
-		}
+		if (!$this->session->hasLogged()) return null;
 
 		$error = false;
-		$message = null;
+		$message = 'The report has been deleted OK';
 		try
 		{
 			$this->reportDao->delete($this->request->reportId());
-			$message = 'The report has been deleted OK';
 		}
 		catch (\Exception $ex)
 		{

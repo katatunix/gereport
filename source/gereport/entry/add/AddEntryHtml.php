@@ -15,7 +15,7 @@
 	});
 </script>
 
-<?php foreach ($this->info->breadcrumbs() as $bread) { ?>
+<?php foreach ($this->info->breadcrumb() as $bread) { ?>
 	<a href="<?= $bread[1] ?>"><?= $bread[0] ?></a> /
 <?php } ?>
 

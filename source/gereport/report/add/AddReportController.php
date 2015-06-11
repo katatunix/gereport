@@ -34,12 +34,9 @@ class AddReportController implements Controller
 
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return null;
-		}
+		if (!$this->session->hasLogged()) return null;
 
-		$message = null;
+		$message = 'The report has been submitted OK';
 		$isError = false;
 		try
 		{
@@ -47,10 +44,8 @@ class AddReportController implements Controller
 				$this->request->content(),
 				$this->request->projectId(),
 				$this->request->dateFor(),
-				DatetimeUtils::getCurDatetime(),
 				$this->session->loggedMemberId()
 			);
-			$message = 'The report has been submitted OK';
 		}
 		catch (\Exception $ex)
 		{

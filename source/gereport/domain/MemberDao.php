@@ -8,26 +8,20 @@
 
 namespace gereport\domain;
 
-
 interface MemberDao
 {
 	/**
-	 * @param $username
-	 * @param $password
-	 * @return int
-	 */
-	public function findIdByAuthen($username, $password);
-
-	/**
-	 * @param $memberId
+	 * @param $id
 	 * @return Member
 	 */
-	public function findById($memberId);
+	public function findById($id);
 
 	/**
-	 * @param $projectId
-	 * @param $date
-	 * @return Member[]
+	 * @param $username
+	 * @param $password
+	 * @return Member
 	 */
+	public function findByAuthen($username, $password);
+
 	public function findByNoReportIn($projectId, $date);
 }

@@ -52,12 +52,9 @@ class CpassController implements Controller, CpassViewInfo
 	 */
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return new Error403View($this->config);
-		}
+		if (!$this->session->hasLogged()) return new Error403View($this->config);
 
-		$this->success = false;
+		$this->success = true;
 		$this->message = null;
 
 		if ($this->request->isPostMethod())

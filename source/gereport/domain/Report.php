@@ -9,7 +9,7 @@ interface Report
 	public function datetimeAdd();
 	public function memberUsername();
 	public function isVisitor();
-	public function update($content, $datetime);
-
 	public function canBeManuplatedByMember($memberId);
+
+	public function update($content, $datetime);
 }

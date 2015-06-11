@@ -4,41 +4,13 @@ namespace gereport\mysqldomain;
 
 use gereport\domain\Member;
 
-class MMember implements Member
+class MMember extends MBO implements Member
 {
-	/**
-	 * @var \mysqli
-	 */
-	private $link;
-	private $id;
-	/**
-	 * @var FieldRetriever
-	 */
-	private $retriever;
-
-	public function __construct($link, $id)
-	{
-		$this->link = $link;
-		$this->id = $id;
-		$this->retriever = new FieldRetriever();
-	}
-
-	public function id()
-	{
-		return $this->id;
-	}
-
 	public function username()
 	{
-		return $this->retriever->retrieve($this->link, 'member', 'username', 'id', $this->id);
+		return $this->retrieve('member', 'username');
 	}
 
-	/**
-	 * @param $old
-	 * @param $new
-	 * @param $confirm
-	 * @throws \Exception
-	 */
 	public function changePassword($old, $new, $confirm)
 	{
 		if (!$this->hasPassword($old))
@@ -58,7 +30,7 @@ class MMember implements Member
 
 		$statement = $this->link->prepare('UPDATE `member` SET `password` = ? WHERE `id` = ?');
 		$statement->bind_param('si', $new, $this->id);
-		$ok = $statement->execute();
+		$ok = $statement->execute() && $this->link->affected_rows > 0;
 		$statement->close();
 
 		if (!$ok)

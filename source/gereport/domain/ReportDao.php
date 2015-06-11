@@ -4,24 +4,20 @@ namespace gereport\domain;
 
 interface ReportDao
 {
-	public function insert($content, $projectId, $dateFor, $datetimeAdd, $memberId);
-
 	/**
-	 * @param $reportId
-	 * @return void
-	 */
-	public function delete($reportId);
-
-	/**
-	 * @param $reportId
+	 * @param $id
 	 * @return Report
 	 */
-	public function findById($reportId);
+	public function findById($id);
+	public function findByProjectAndDate($projectId, $date);
 
 	/**
+	 * @param $content
 	 * @param $projectId
-	 * @param $date
-	 * @return Report[]
+	 * @param $dateFor
+	 * @param $memberId
+	 * @return int
 	 */
-	public function findByProjectAndDate($projectId, $date);
+	public function insert($content, $projectId, $dateFor, $memberId);
+	public function delete($id);
 }

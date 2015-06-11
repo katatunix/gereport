@@ -4,66 +4,43 @@ namespace gereport\mysqldomain;
 
 use gereport\domain\Entry;
 
-class MEntry implements Entry
+class MEntry extends MBO implements Entry
 {
-
-	/**
-	 * @var \mysqli
-	 */
-	private $link;
-	private $id;
-	/**
-	 * @var FieldRetriever
-	 */
-	private $retriever;
-
-	public function __construct($link, $id)
-	{
-		$this->link = $link;
-		$this->id = $id;
-		$this->retriever = new FieldRetriever();
-	}
-
-	public function id()
-	{
-		return $this->id;
-	}
-
 	public function title()
 	{
-		return $this->retriever->retrieve($this->link, 'entry', 'title', 'id', $this->id);
+		return $this->retrieve('entry', 'title');
 	}
 
 	public function content()
 	{
-		return $this->retriever->retrieve($this->link, 'entry', 'content', 'id', $this->id);
+		return $this->retrieve('entry', 'content');
 	}
 
 	public function authorUsername()
 	{
-		$authorId = $this->retriever->retrieve($this->link, 'entry', 'authorId', 'id', $this->id);
+		$authorId = $this->retrieve('entry', 'authorId');
 		return (new MMember($this->link, $authorId))->username();
 	}
 
 	public function createdTime()
 	{
-		$authorId = $this->retriever->retrieve($this->link, 'entry', 'createdTime', 'id', $this->id);
+		return $this->retrieve('entry', 'createdTime');
 	}
 
 	public function lastEditorUsername()
 	{
-		$editorId = $this->retriever->retrieve($this->link, 'entry', 'lastEditorId', 'id', $this->id);
+		$editorId = $this->retrieve('entry', 'lastEditorId');
 		return (new MMember($this->link, $editorId))->username();
 	}
 
 	public function lastEditedTime()
 	{
-		$authorId = $this->retriever->retrieve($this->link, 'entry', 'lastEditedTime', 'id', $this->id);
+		return $this->retrieve('entry', 'lastEditedTime');
 	}
 
 	public function projectId()
 	{
-		return $this->retriever->retrieve($this->link, 'entry', 'projectId', 'id', $this->id);
+		return $this->retrieve('entry', 'projectId');
 	}
 
 	public function projectName()
@@ -73,6 +50,11 @@ class MEntry implements Entry
 		{
 			return (new MProject($this->link, $projectId))->name();
 		}
-		throw new \Exception('The entry does not belong to any particular project');
+		throw new \Exception('This is an overall entry');
+	}
+
+	public function update($title, $content, $editorId)
+	{
+		// TODO: Implement update() method.
 	}
 }

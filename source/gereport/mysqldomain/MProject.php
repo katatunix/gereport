@@ -4,39 +4,13 @@ namespace gereport\mysqldomain;
 
 use gereport\domain\Project;
 
-class MProject implements Project
+class MProject extends MBO implements Project
 {
-	/**
-	 * @var \mysqli
-	 */
-	private $link;
-	private $id;
-	/**
-	 * @var FieldRetriever
-	 */
-	private $retriever;
-
-	public function __construct($link, $id)
-	{
-		$this->link = $link;
-		$this->id = $id;
-		$this->retriever = new FieldRetriever();
-	}
-
-	public function id()
-	{
-		return $this->id;
-	}
-
 	public function name()
 	{
-		return $this->retriever->retrieve($this->link, 'project', 'name', 'id', $this->id);
+		return $this->retrieve('project', 'name');
 	}
 
-	/**
-	 * @param $memberId
-	 * @return bool
-	 */
 	public function hasMember($memberId)
 	{
 		$statement = $this->link->prepare('
@@ -45,14 +19,19 @@ class MProject implements Project
 		$statement->bind_param('ii', $memberId, $this->id);
 
 		$ok = false;
+		$message = null;
 		if ($statement->execute())
 		{
 			$result = $statement->get_result();
 			$ok = $result->fetch_array() ? true : false;
 			$result->free_result();
 		}
+		else
+		{
+			$message = 'Could not check the project and member';
+		}
 		$statement->close();
-
+		if ($message) throw new \Exception($message);
 		return $ok;
 	}
 }

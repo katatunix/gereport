@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/11/2015
- * Time: 2:01 PM
- */
 
 namespace gereport\projecthome;
-
 
 use gereport\Config;
 use gereport\Controller;
@@ -48,19 +41,29 @@ class ProjectHomeController implements Controller
 	public function process()
 	{
 		$projectId = $this->request->projectId();
-		if (!$projectId)
+		$projectName = null;
+		try
 		{
-			$url = (new IndexRouter($this->config->rootUrl()))->url();
-			(new Redirector($url))->redirect();
+			$projectName = $this->projectDao->findById($projectId)->name();
+		}
+		catch (\Exception $ex)
+		{
+			$this->gotoIndex();
 			return null;
 		}
-		$projectName = $this->projectDao->findById($projectId)->name();
-
 
 		$r = $this->config->rootUrl();
-		$reportUrl = (new ReportRouter($r))->url($projectId);
-		$diaryUrl = (new DiaryRouter($r))->url($projectId);
 
-		return new ProjectHomeView($this->config, $projectName, $reportUrl, $diaryUrl);
+		return new ProjectHomeView(
+			$this->config, $projectName,
+			(new ReportRouter($r))->url($projectId),
+			(new DiaryRouter($r))->url($projectId)
+		);
+	}
+
+	private function  gotoIndex()
+	{
+		$url = (new IndexRouter($this->config->rootUrl()))->url();
+		(new Redirector($url))->redirect();
 	}
 }

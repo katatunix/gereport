@@ -2,25 +2,16 @@
 
 namespace gereport\mysqldomain;
 
-use gereport\domain\Project;
 use gereport\domain\ProjectDao;
 
-class MProjectDao implements ProjectDao
+class MProjectDao extends MDao implements ProjectDao
 {
-	/**
-	 * @var \mysqli
-	 */
-	private $link;
-
-	public function __construct($link)
+	public function findById($id)
 	{
-		$this->link = $link;
+		if (!$this->exists('project', $id)) return null;
+		return new MProject($this->link, $id);
 	}
 
-	/**
-	 * @throws \Exception
-	 * @return Project[]
-	 */
 	public function findByAllAndSortByName()
 	{
 		$statement = $this->link->prepare('SELECT `id` FROM `project` ORDER BY `name`');
@@ -46,14 +37,5 @@ class MProjectDao implements ProjectDao
 
 		if ($message) throw new \Exception($message);
 		return $projects;
-	}
-
-	/**
-	 * @param $projectId
-	 * @return Project
-	 */
-	public function findById($projectId)
-	{
-		return new MProject($this->link, $projectId);
 	}
 }

@@ -2,46 +2,39 @@
 
 namespace gereport\mysqldomain;
 
-use gereport\domain\Entry;
+use gereport\DatetimeUtils;
 use gereport\domain\EntryDao;
 
-class MEntryDao implements EntryDao
+class MEntryDao extends MDao implements EntryDao
 {
-	/**
-	 * @var \mysqli
-	 */
-	private $link;
-
-	public function __construct($link)
+	public function findById($id)
 	{
-		$this->link = $link;
+		if (!$this->exists('entry', $id)) return null;
+		return new MEntry($this->link, $id);
 	}
 
-	public function insert($title, $content, $projectId, $authorId, $createdTime, $lastEditorId, $lastEditedTime)
+	public function insert($title, $content, $projectId, $authorId)
 	{
 		if (!$title) throw new \Exception('The entry title is empty');
 		if (!$content) throw new \Exception('The entry content is empty');
-		if (!$createdTime || !$lastEditedTime) throw new \Exception('The entry time is valid');
+		if (!$authorId) throw new \Exception('The entry author id is empty');
 
 		if (!$projectId) $projectId = null;
 
 		$statement = $this->link->prepare('
-			INSERT INTO `entry`(`title`, `content`, `projectId`, `authorId`, `createdTime`, `lastEditorId`, `lastEditedTime`)
+			INSERT INTO `entry`(
+				`title`, `content`, `projectId`, `authorId`, `createdTime`, `lastEditorId`, `lastEditedTime`
+			)
 			VALUES(?, ?, ?, ?, ?, ?, ?)
 		');
-		$statement->bind_param('ssiisis', $title, $content, $projectId, $authorId, $createdTime, $lastEditorId, $lastEditedTime);
+		$current = DatetimeUtils::getCurDatetime();
+		$statement->bind_param('ssiisis', $title, $content, $projectId, $authorId,
+			$current, $authorId, $current);
 
 		$ok = $statement->execute() && $this->link->affected_rows > 0;
 		$statement->close();
 		if (!$ok) throw new \Exception('Could not insert the entry');
-	}
 
-	/**
-	 * @param $id
-	 * @return Entry
-	 */
-	public function findById($id)
-	{
-		return new MEntry($this->link, $id);
+		return $this->link->insert_id;
 	}
 }

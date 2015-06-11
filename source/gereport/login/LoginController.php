@@ -64,7 +64,8 @@ class LoginController implements Controller, LoginViewInfo
 			$id = 0;
 			try
 			{
-				$id = $this->memberDao->findIdByAuthen($this->request->username(), $this->request->password());
+				$member = $this->memberDao->findByAuthen($this->request->username(), $this->request->password());
+				if ($member) $id = $member->id();
 			}
 			catch (\Exception $ex)
 			{

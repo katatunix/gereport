@@ -8,13 +8,12 @@
 
 namespace gereport\entry\edit;
 
-
 use gereport\Config;
 use gereport\Controller;
+use gereport\domain\Entry;
 use gereport\domain\EntryDao;
+use gereport\entry\Breadcrumb;
 use gereport\error\Error403View;
-use gereport\index\IndexRouter;
-use gereport\projecthome\ProjectHomeRouter;
 use gereport\Session;
 use gereport\View;
 
@@ -48,7 +47,6 @@ class EditEntryController implements Controller, EditEntryViewInfo
 
 	private $message;
 	private $success;
-	private $isShowingEditor;
 
 	public function __construct($request, $session, $entryDao, $config, $editEntryRouter)
 	{
@@ -59,57 +57,85 @@ class EditEntryController implements Controller, EditEntryViewInfo
 		$this->editEntryRouter = $editEntryRouter;
 	}
 
+	private function error()
+	{
+		return new Error403View($this->config);
+	}
+
 	/**
 	 * @return View
 	 */
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return new Error403View($this->config);
-		}
+		if (!$this->session->hasLogged()) return $this->error();
+
+		$entry = $this->entryDao->findById($this->request->entryId());
+		if (!$entry) return $this->error();
 
 		$this->message = null;
 		$this->success = true;
-		$this->isShowingEditor = true;
 
-		$entry = $this->entryDao->findById($this->request->entryId());
+		$this->projectId = $entry->projectId();
+		if ($this->projectId)
+		{
+			try { $this->projectName = $entry->projectName(); }
+			catch (\Exception $ex) { return $this->error(); }
+		}
+
+		if (!$this->request->isPostMethod())
+		{
+			$this->handleGET($entry);
+		}
+		else
+		{
+			$this->handlePOST($entry);
+		}
+
+		return new EditEntryView($this->config, $this);
+	}
+
+	/**
+	 * @param $entry Entry
+	 */
+	private function handleGET($entry)
+	{
 		try
 		{
-			$this->projectId = $entry->projectId();
-			if ($this->projectId)
+			$this->entryContent = $entry->content();
+			$this->entryTitle = $entry->title();
+
+			if ($this->session->hasMessage())
 			{
-				$this->projectName = $entry->projectName();
-			}
-			if (!$this->request->isPostMethod())
-			{
-				$this->entryContent = $entry->content();
-				$this->entryTitle = $entry->title();
-			}
-			else
-			{
-				$this->entryContent = $this->request->content();
-				$this->entryTitle = $this->request->title();
-				try
-				{
-					//$entry->update($this->reportContent, DatetimeUtils::getCurDatetime());
-					$this->message = 'The entry has been saved OK';
-				}
-				catch (\Exception $ex)
-				{
-					$this->message = $ex->getMessage();
-					$this->success = false;
-				}
+				$msgObj = $this->session->message();
+				$this->message = $msgObj->content;
+				$this->success = !$msgObj->isError;
+				$this->session->clearMessage();
 			}
 		}
 		catch (\Exception $ex)
 		{
 			$this->message = $ex->getMessage();
 			$this->success = false;
-			$this->isShowingEditor = false;
 		}
+	}
 
-		return new EditEntryView($this->config, $this);
+	/**
+	 * @param $entry Entry
+	 */
+	public function handlePOST($entry)
+	{
+		$this->entryContent = $this->request->content();
+		$this->entryTitle = $this->request->title();
+		try
+		{
+			$entry->update($this->entryTitle, $this->entryContent, $this->session->loggedMemberId());
+			$this->message = 'The entry has been saved OK';
+		}
+		catch (\Exception $ex)
+		{
+			$this->message = $ex->getMessage();
+			$this->success = false;
+		}
 	}
 
 	public function title()
@@ -142,30 +168,10 @@ class EditEntryController implements Controller, EditEntryViewInfo
 		return $this->success;
 	}
 
-	public function breadcrumbs()
+	public function breadcrumb()
 	{
-		$r = $this->config->rootUrl();
-		$breads = array();
-
-		$homeUrl = (new IndexRouter($r))->url();
-
-		if (!$this->projectId)
-		{
-			$breads[] = array('Home', $homeUrl);
-			$breads[] = array('Diary', $homeUrl);
-		}
-		else
-		{
-			$projectUrl = (new ProjectHomeRouter($r))->url($this->projectId);
-			$breads[] = array($this->projectName, $projectUrl);
-			$breads[] = array('Diary', $homeUrl);
-		}
-
-		return $breads;
-	}
-
-	public function isShowingEditor()
-	{
-		return $this->isShowingEditor;
+		return (new Breadcrumb())->make(
+			$this->projectId, $this->projectName, $this->config->rootUrl()
+		);
 	}
 }

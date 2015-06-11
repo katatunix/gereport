@@ -2,28 +2,37 @@
 /**
  * Created by PhpStorm.
  * User: nghia.buivan
- * Date: 6/10/2015
- * Time: 5:00 PM
+ * Date: 6/11/2015
+ * Time: 4:04 PM
  */
 
 namespace gereport\mysqldomain;
 
 
-class FieldRetriever
+abstract class MBO
 {
 	/**
-	 * @param $link \mysqli
-	 * @param $table
-	 * @param $targetField
-	 * @param $idField
-	 * @param $id
-	 * @throws \Exception
-	 * @return mixed
+	 * @var \mysqli
 	 */
-	public function retrieve($link, $table, $targetField, $idField, $id)
+	protected $link;
+
+	protected $id;
+
+	public function __construct($link, $id)
 	{
-		$statement = $link->prepare('SELECT `' . $targetField . '` FROM `' . $table . '` WHERE `' . $idField . '` = ?');
-		$statement->bind_param('i', $id);
+		$this->link = $link;
+		$this->id = $id;
+	}
+
+	public function id()
+	{
+		return $this->id;
+	}
+
+	protected function retrieve($table, $targetField)
+	{
+		$statement = $this->link->prepare('SELECT `' . $targetField . '` FROM `' . $table . '` WHERE `id` = ?');
+		$statement->bind_param('i', $this->id);
 
 		$message = null;
 		$ret = null;

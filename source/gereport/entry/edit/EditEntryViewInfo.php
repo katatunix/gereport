@@ -11,8 +11,6 @@ namespace gereport\entry\edit;
 
 interface EditEntryViewInfo
 {
-	public function isShowingEditor();
-
 	public function title();
 	public function content();
 
@@ -22,5 +20,5 @@ interface EditEntryViewInfo
 	public function message();
 	public function success();
 
-	public function breadcrumbs();
+	public function breadcrumb();
 }

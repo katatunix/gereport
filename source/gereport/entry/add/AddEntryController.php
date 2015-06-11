@@ -4,12 +4,11 @@ namespace gereport\entry\add;
 
 use gereport\Config;
 use gereport\Controller;
-use gereport\DatetimeUtils;
 use gereport\domain\EntryDao;
 use gereport\domain\ProjectDao;
+use gereport\entry\Breadcrumb;
+use gereport\entry\edit\EditEntryRouter;
 use gereport\error\Error403View;
-use gereport\index\IndexRouter;
-use gereport\projecthome\ProjectHomeRouter;
 use gereport\Redirector;
 use gereport\Session;
 use gereport\View;
@@ -55,53 +54,44 @@ class AddEntryController implements Controller, AddEntryViewInfo
 		$this->addEntryRouter = $addEntryRouter;
 	}
 
+	private function error()
+	{
+		return new Error403View($this->config);
+	}
+
 	/**
 	 * @return View
 	 */
 	public function process()
 	{
-		if (!$this->session->hasLogged())
-		{
-			return new Error403View($this->config);
-		}
+		if (!$this->session->hasLogged()) return $this->error();
 
 		$projectId = $this->request->projectId();
 		if ($projectId)
 		{
-			try
-			{
-				$this->projectName = $this->projectDao->findById($projectId)->name();
-			}
-			catch (\Exception $ex)
-			{
-				$url = (new IndexRouter($this->config->rootUrl()))->url();
-				(new Redirector($url))->redirect();
-				return null;
-			}
+			try { $this->projectName = $this->projectDao->findById($projectId)->name(); }
+			catch (\Exception $ex) { return $this->error();	}
 		}
 
 		$this->message = null;
 		if ($this->request->isPostMethod())
 		{
-			$memberId = $this->session->loggedMemberId();
-			$datetime = DatetimeUtils::getCurDatetime();
 			try
 			{
-				$this->entryDao->insert(
-					$this->request->title(),
-					$this->request->content(),
-					$projectId,
-					$memberId,
-					$datetime,
-					$memberId,
-					$datetime
-				);
+				$id = $this->entryDao->insert($this->request->title(), $this->request->content(), $projectId,
+					$this->session->loggedMemberId());
+				$this->session->saveMessage('The entry has been submitted OK, now you can edit it if needed', false);
+				(new Redirector(
+					(new EditEntryRouter($this->config->rootUrl()))->url($id)
+				))->redirect();
+				return null;
 			}
 			catch (\Exception $ex)
 			{
 				$this->message = $ex->getMessage();
 			}
 		}
+
 		return new AddEntryView($this->config, $this);
 	}
 
@@ -130,26 +120,10 @@ class AddEntryController implements Controller, AddEntryViewInfo
 		return $this->message;
 	}
 
-	public function breadcrumbs()
+	public function breadcrumb()
 	{
-		$r = $this->config->rootUrl();
-		$projectId = $this->request->projectId();
-		$breads = array();
-
-		$homeUrl = (new IndexRouter($r))->url();
-
-		if (!$projectId)
-		{
-			$breads[] = array('Home', $homeUrl);
-			$breads[] = array('Diary', $homeUrl);
-		}
-		else
-		{
-			$projectUrl = (new ProjectHomeRouter($r))->url($projectId);
-			$breads[] = array($this->projectName, $projectUrl);
-			$breads[] = array('Diary', $homeUrl);
-		}
-
-		return $breads;
+		return (new Breadcrumb())->make(
+			$this->request->projectId(), $this->projectName, $this->config->rootUrl()
+		);
 	}
 }

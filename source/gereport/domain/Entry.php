@@ -16,4 +16,6 @@ interface Entry
 
 	public function projectId();
 	public function projectName();
+
+	public function update($title, $content, $editorId);
 }
