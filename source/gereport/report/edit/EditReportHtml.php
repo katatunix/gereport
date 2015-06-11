@@ -16,21 +16,17 @@
 </script>
 
 <form method="post" action="">
-	<?php if ($this->info->isShowingEditor()) { ?>
-		<b>Compose a new content for the report</b><br /><br />
-		<?php if ($msg = $this->info->message()) { ?>
-			<p class="errorMessage"><?= $msg ?></p>
-			<br />
-		<?php } ?>
-		<p><textarea name="<?= $this->info->contentKey() ?>" id="content"
-					 class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
+	<b>Compose a new content for the report</b><br /><br />
+	<?php if ($msg = $this->info->message()) { ?>
+		<p class="errorMessage"><?= $msg ?></p>
+		<br />
 	<?php } ?>
+	<p><textarea name="<?= $this->info->contentKey() ?>" id="content"
+				 class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
 
 	<br />
 	<p>
-		<?php if ($this->info->isShowingEditor()) { ?>
 		<input type="submit" value="Save report" />
-		<?php } ?>
 		<input type="button" value="Cancel" onclick="window.open('<?= $this->info->nextUrl() ?>', '_self')" />
 	</p>
 </form>

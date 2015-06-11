@@ -4,7 +4,6 @@ namespace gereport\report\edit;
 
 interface EditReportViewInfo
 {
-	public function isShowingEditor();
 	public function message();
 
 	public function content();

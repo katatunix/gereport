@@ -2,6 +2,7 @@
 
 namespace gereport\mysqldomain;
 
+use gereport\DatetimeUtils;
 use gereport\domain\Entry;
 
 class MEntry extends MBO implements Entry
@@ -55,6 +56,25 @@ class MEntry extends MBO implements Entry
 
 	public function update($title, $content, $editorId)
 	{
-		// TODO: Implement update() method.
+		if (!$title) throw new \Exception('The entry title is empty');
+		if (!$content) throw new \Exception('The entry content is empty');
+
+		$statement = $this->link->prepare('
+			UPDATE `entry` SET `title` = ?, `content` = ?, `lastEditorId` = ?, `lastEditedTime` = ? WHERE `id` = ?
+		');
+		$statement->bind_param('ssisi', $title, $content, $editorId, DatetimeUtils::getCurDatetime(), $this->id);
+
+		$message = null;
+		if (!$statement->execute())
+		{
+			$message = 'Could not update the entry';
+		}
+		else if ($this->link->affected_rows == 0)
+		{
+			$message = 'Could not find the entry';
+		}
+
+		$statement->close();
+		if ($message) throw new \Exception($message);
 	}
 }

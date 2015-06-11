@@ -102,11 +102,6 @@ class EditReportController implements Controller, EditReportViewInfo
 		return new EditReportView($this->config, $this);
 	}
 
-	public function isShowingEditor()
-	{
-		return $this->isShowingEditor;
-	}
-
 	public function message()
 	{
 		return $this->message;
