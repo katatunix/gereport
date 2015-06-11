@@ -6,6 +6,9 @@ use gereport\banner\BannerController;
 use gereport\cpass\CpassController;
 use gereport\cpass\CpassRequest;
 use gereport\cpass\CpassRouter;
+use gereport\entry\AddEntryController;
+use gereport\entry\AddEntryRequest;
+use gereport\entry\AddEntryRouter;
 use gereport\error\Error404View;
 use gereport\footer\FooterView;
 use gereport\index\IndexView;
@@ -91,6 +94,10 @@ class Main
 		{
 			$this->handleDeleteReport($httpRequest);
 		}
+		else if ($rt == AddEntryRouter::ROUTER)
+		{
+			$this->handleAddEntry($httpRequest);
+		}
 		else
 		{
 			$this->handleNotFound();
@@ -168,7 +175,8 @@ class Main
 	{
 		$router = new EditReportRouter($this->config->rootUrl());
 		$request = new EditReportRequest($httpRequest, $router);
-		$controller = new EditReportController($request, $this->session, $this->daoFactory->report(), $this->config, $router);
+		$controller = new EditReportController($request, $this->session,
+			$this->daoFactory->report(), $this->config, $router);
 		$view = $controller->process();
 
 		$this->renderMainView($view);
@@ -180,6 +188,18 @@ class Main
 		$request = new DeleteReportRequest($httpRequest, $router);
 		$controller = new DeleteReportController($request, $this->session, $this->daoFactory->report());
 		$controller->process();
+	}
+
+	private function handleAddEntry($httpRequest)
+	{
+		$router = new AddEntryRouter($this->config->rootUrl());
+		$request = new AddEntryRequest($httpRequest, $router);
+		$controller = new AddEntryController($request, $this->session,
+			$this->daoFactory->entry(), $this->daoFactory->project(),
+			$this->config, $router);
+		$view = $controller->process();
+
+		$this->renderMainView($view);
 	}
 
 	private function renderMainView($contentView)

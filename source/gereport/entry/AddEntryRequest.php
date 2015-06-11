@@ -8,33 +8,28 @@ use gereport\HttpRequest;
 class AddEntryRequest extends BaseRequest
 {
 	/**
-	 * @var HttpRequest
-	 */
-	private $request;
-
-	/**
 	 * @var AddEntryRouter
 	 */
 	private $router;
 
-	public function __construct($request, $router)
+	public function __construct($httpRequest, $router)
 	{
-		$this->request = $request;
+		parent::__construct($httpRequest);
 		$this->router = $router;
 	}
 
 	public function title()
 	{
-		return $this->request->valuePost($this->router->titleKey());
+		return $this->httpRequest->valuePost($this->router->titleKey());
 	}
 
 	public function content()
 	{
-		return $this->request->valuePost($this->router->contentKey());
+		return $this->httpRequest->valuePost($this->router->contentKey());
 	}
 
 	public function projectId()
 	{
-		return $this->request->valueGet($this->router->projectIdKey());
+		return $this->httpRequest->valueGet($this->router->projectIdKey());
 	}
 }

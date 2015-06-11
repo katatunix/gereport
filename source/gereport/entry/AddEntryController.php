@@ -6,11 +6,13 @@ use gereport\Config;
 use gereport\Controller;
 use gereport\DatetimeUtils;
 use gereport\domain\EntryDao;
+use gereport\domain\ProjectDao;
 use gereport\error\Error403View;
+use gereport\index\IndexRouter;
 use gereport\Session;
 use gereport\View;
 
-class AddPostController implements Controller, AddEntryViewInfo
+class AddEntryController implements Controller, AddEntryViewInfo
 {
 	/**
 	 * @var AddEntryRequest
@@ -23,7 +25,12 @@ class AddPostController implements Controller, AddEntryViewInfo
 	/**
 	 * @var EntryDao
 	 */
-	private $postDao;
+	private $entryDao;
+
+	/**
+	 * @var ProjectDao
+	 */
+	private $projectDao;
 	/**
 	 * @var Config
 	 */
@@ -31,17 +38,18 @@ class AddPostController implements Controller, AddEntryViewInfo
 	/**
 	 * @var AddEntryRouter
 	 */
-	private $router;
+	private $addEntryRouter;
 
 	private $message;
 
-	public function __construct($request, $session, $postDao, $config, $router)
+	public function __construct($request, $session, $entryDao, $projectDao, $config, $addEntryRouter)
 	{
 		$this->request = $request;
 		$this->session = $session;
-		$this->postDao = $postDao;
+		$this->entryDao = $entryDao;
+		$this->projectDao = $projectDao;
 		$this->config = $config;
-		$this->router = $router;
+		$this->addEntryRouter = $addEntryRouter;
 	}
 
 	/**
@@ -61,7 +69,7 @@ class AddPostController implements Controller, AddEntryViewInfo
 			$datetime = DatetimeUtils::getCurDatetime();
 			try
 			{
-				$this->postDao->insert(
+				$this->entryDao->insert(
 					$this->request->title(),
 					$this->request->content(),
 					$this->request->projectId(),
@@ -91,16 +99,39 @@ class AddPostController implements Controller, AddEntryViewInfo
 
 	public function titleKey()
 	{
-		return $this->router->titleKey();
+		return $this->addEntryRouter->titleKey();
 	}
 
 	public function contentKey()
 	{
-		return $this->router->contentKey();
+		return $this->addEntryRouter->contentKey();
 	}
 
 	public function message()
 	{
 		return $this->message;
+	}
+
+	public function breadcrumbs()
+	{
+		// TODO not found the project???
+		$r = $this->config->rootUrl();
+		$projectId = $this->request->projectId();
+		$breads = array();
+
+		$homeUrl = (new IndexRouter($r))->url();
+
+		$breads[] = array('Home', $homeUrl);
+		if (!$projectId)
+		{
+			$breads[] = array('Overall entries', $homeUrl);
+		}
+		else
+		{
+			$projectName = $this->projectDao->findById($projectId)->name();
+			$breads[] = array($projectName . ' entries', $homeUrl);
+		}
+
+		return $breads;
 	}
 }

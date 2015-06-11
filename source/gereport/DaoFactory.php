@@ -6,6 +6,7 @@ use gereport\domain\MemberDao;
 use gereport\domain\EntryDao;
 use gereport\domain\ProjectDao;
 use gereport\domain\ReportDao;
+use gereport\mysqldomain\MEntryDao;
 use gereport\mysqldomain\MMemberDao;
 use gereport\mysqldomain\MProjectDao;
 use gereport\mysqldomain\MReportDao;
@@ -31,6 +32,11 @@ class DaoFactory
 	 * @var ReportDao
 	 */
 	private $report;
+
+	/**
+	 * @var EntryDao
+	 */
+	private $entry;
 
 	public function __construct($host, $username, $password, $dbname)
 	{
@@ -70,6 +76,8 @@ class DaoFactory
 	 */
 	public function entry()
 	{
+		if (!$this->entry) $this->entry = new MEntryDao($this->link);
+		return $this->entry;
 	}
 
 	/**

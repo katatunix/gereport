@@ -18,4 +18,5 @@ interface AddEntryViewInfo
 	public function contentKey();
 
 	public function message();
+	public function breadcrumbs();
 }

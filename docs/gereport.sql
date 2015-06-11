@@ -3,16 +3,39 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2015 at 12:09 AM
+-- Generation Time: Jun 11, 2015 at 10:27 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
 -- Database: `gereport`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `entry`
+--
+
+CREATE TABLE IF NOT EXISTS `entry` (
+`id` int(11) NOT NULL,
+  `title` varchar(2048) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `projectId` int(11) NOT NULL,
+  `authorId` int(11) NOT NULL,
+  `createdTime` datetime NOT NULL,
+  `lastEditorId` int(11) NOT NULL,
+  `lastEditedTime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -25,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `username` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'gameloft',
   `group` int(11) NOT NULL DEFAULT '2'
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -37,41 +60,6 @@ CREATE TABLE IF NOT EXISTS `memberproject` (
   `memberId` int(11) NOT NULL,
   `projectId` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- RELATIONS FOR TABLE `memberproject`:
---   `memberId`
---       `member` -> `id`
---   `projectId`
---       `project` -> `id`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `post`
---
-
-CREATE TABLE IF NOT EXISTS `post` (
-`id` int(11) NOT NULL,
-  `title` varchar(1024) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `projectId` int(11) DEFAULT NULL,
-  `authorId` int(11) NOT NULL,
-  `createdTime` datetime NOT NULL,
-  `lastEditorId` int(11) NOT NULL,
-  `lastEditedTime` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- RELATIONS FOR TABLE `post`:
---   `authorId`
---       `member` -> `id`
---   `lastEditorId`
---       `member` -> `id`
---   `projectId`
---       `project` -> `id`
---
 
 -- --------------------------------------------------------
 
@@ -97,19 +85,17 @@ CREATE TABLE IF NOT EXISTS `report` (
   `dateFor` date NOT NULL,
   `datetimeAdd` datetime NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- RELATIONS FOR TABLE `report`:
---   `memberId`
---       `member` -> `id`
---   `projectId`
---       `project` -> `id`
---
+) ENGINE=MyISAM AUTO_INCREMENT=611 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `entry`
+--
+ALTER TABLE `entry`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `member`
@@ -122,12 +108,6 @@ ALTER TABLE `member`
 --
 ALTER TABLE `memberproject`
  ADD PRIMARY KEY (`memberId`,`projectId`);
-
---
--- Indexes for table `post`
---
-ALTER TABLE `post`
- ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project`
@@ -146,15 +126,15 @@ ALTER TABLE `report`
 --
 
 --
+-- AUTO_INCREMENT for table `entry`
+--
+ALTER TABLE `entry`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
---
--- AUTO_INCREMENT for table `post`
---
-ALTER TABLE `post`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `project`
 --
@@ -164,4 +144,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=611;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

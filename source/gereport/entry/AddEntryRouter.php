@@ -6,7 +6,7 @@ use gereport\Router;
 
 class AddEntryRouter extends Router
 {
-	const ROUTER = 'post/add';
+	const ROUTER = 'entry/add';
 
 	public function titleKey()
 	{
@@ -20,6 +20,6 @@ class AddEntryRouter extends Router
 
 	public function projectIdKey()
 	{
-		return 'pid';
+		return 'p';
 	}
 }

@@ -13,7 +13,7 @@ class AddEntryView extends View
 
 	public function __construct($config, $info)
 	{
-		parent::__construct($config, 'Add a new post');
+		parent::__construct($config, 'Add a new entry');
 		$this->info = $info;
 	}
 
@@ -22,6 +22,6 @@ class AddEntryView extends View
 	 */
 	public function render()
 	{
-		require 'AddPostHtml.php';
+		require 'AddEntryHtml.php';
 	}
 }

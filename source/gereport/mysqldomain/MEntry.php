@@ -7,38 +7,57 @@ use gereport\domain\Entry;
 class MEntry implements Entry
 {
 
+	/**
+	 * @var \mysqli
+	 */
+	private $link;
+	private $id;
+	/**
+	 * @var FieldRetriever
+	 */
+	private $retriever;
+
+	public function __construct($link, $id)
+	{
+		$this->link = $link;
+		$this->id = $id;
+		$this->retriever = new FieldRetriever();
+	}
+
 	public function id()
 	{
-		// TODO: Implement id() method.
+		return $this->id;
 	}
 
 	public function title()
 	{
-		// TODO: Implement title() method.
+		return $this->retriever->retrieve($this->link, 'entry', 'title', 'id', $this->id);
 	}
 
 	public function content()
 	{
-		// TODO: Implement content() method.
+		return $this->retriever->retrieve($this->link, 'entry', 'content', 'id', $this->id);
 	}
 
 	public function authorUsername()
 	{
-		// TODO: Implement authorUsername() method.
+		$authorId = $this->retriever->retrieve($this->link, 'entry', 'authorId', 'id', $this->id);
+		return (new MMember($this->link, $authorId))->username();
 	}
 
 	public function createdTime()
 	{
-		// TODO: Implement createdTime() method.
+		$authorId = $this->retriever->retrieve($this->link, 'entry', 'createdTime', 'id', $this->id);
 	}
 
 	public function lastEditorUsername()
 	{
-		// TODO: Implement lastEditorUsername() method.
+		$editorId = $this->retriever->retrieve($this->link, 'entry', 'lastEditorId', 'id', $this->id);
+		return (new MMember($this->link, $editorId))->username();
 	}
 
 	public function lastEditedTime()
 	{
-		// TODO: Implement lastEditedTime() method.
+		$authorId = $this->retriever->retrieve($this->link, 'entry', 'lastEditedTime', 'id', $this->id);
 	}
 }
