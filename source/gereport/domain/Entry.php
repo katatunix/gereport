@@ -17,5 +17,8 @@ interface Entry
 	public function projectId();
 	public function projectName();
 
+	public function canBeManuplatedByMember($memberId);
+
 	public function update($title, $content, $editorId);
+
 }

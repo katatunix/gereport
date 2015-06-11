@@ -13,6 +13,7 @@ use gereport\Controller;
 use gereport\domain\Entry;
 use gereport\domain\EntryDao;
 use gereport\entry\Breadcrumb;
+use gereport\entry\EntryRouter;
 use gereport\error\Error403View;
 use gereport\Session;
 use gereport\View;
@@ -124,8 +125,8 @@ class EditEntryController implements Controller, EditEntryViewInfo
 	 */
 	public function handlePOST($entry)
 	{
-		$this->entryContent = $this->request->content();
 		$this->entryTitle = $this->request->title();
+		$this->entryContent = $this->request->content();
 		try
 		{
 			$entry->update($this->entryTitle, $this->entryContent, $this->session->loggedMemberId());
@@ -173,5 +174,10 @@ class EditEntryController implements Controller, EditEntryViewInfo
 		return (new Breadcrumb())->make(
 			$this->projectId, $this->projectName, $this->config->rootUrl()
 		);
+	}
+
+	public function entryUrl()
+	{
+		return (new EntryRouter($this->config->rootUrl()))->url($this->request->entryId());
 	}
 }

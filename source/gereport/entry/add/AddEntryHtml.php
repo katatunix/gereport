@@ -5,7 +5,7 @@
 	$(document).ready(function() {
 		tinymce.init({
 			selector: "#content",
-			height: 250,
+			height: 400,
 			plugins: [
 				"advlist autolink lists link image charmap print preview anchor",
 				"searchreplace visualblocks code fullscreen",
@@ -25,8 +25,7 @@
 		<p class="errorMessage"><?= $msg ?></p>
 		<br />
 	<?php } ?>
-	<p><input type="text" name="<?= $this->info->titleKey() ?>" size="80" value="<?= htmlspecialchars($this->info->title()) ?>" />
-		( TITLE )</p><br />
+	<p><input type="text" name="<?= $this->info->titleKey() ?>" size="80" value="<?= htmlspecialchars($this->info->title()) ?>" /></p><br />
 	<p><textarea name="<?= $this->info->contentKey() ?>" id="content"
 				 class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
 	<br />

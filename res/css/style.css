@@ -173,6 +173,13 @@ textarea {
 	height: 150px;
 }
 
+.entryHeadline {
+	text-align: right;
+	font-style: italic;
+	margin-right: 30px;
+	font-size: 1.15em;
+}
+
 textarea {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;

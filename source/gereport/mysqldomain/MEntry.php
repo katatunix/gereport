@@ -62,7 +62,8 @@ class MEntry extends MBO implements Entry
 		$statement = $this->link->prepare('
 			UPDATE `entry` SET `title` = ?, `content` = ?, `lastEditorId` = ?, `lastEditedTime` = ? WHERE `id` = ?
 		');
-		$statement->bind_param('ssisi', $title, $content, $editorId, DatetimeUtils::getCurDatetime(), $this->id);
+		$current = DatetimeUtils::getCurDatetime();
+		$statement->bind_param('ssisi', $title, $content, $editorId, $current, $this->id);
 
 		$message = null;
 		if (!$statement->execute())
@@ -76,5 +77,13 @@ class MEntry extends MBO implements Entry
 
 		$statement->close();
 		if ($message) throw new \Exception($message);
+	}
+
+	public function canBeManuplatedByMember($memberId)
+	{
+		$projectId = $this->projectId();
+		if (!$projectId) return true;
+
+		return (new MProject($this->link, $projectId))->hasMember($memberId);
 	}
 }

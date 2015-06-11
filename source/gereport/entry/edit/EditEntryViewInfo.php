@@ -21,4 +21,5 @@ interface EditEntryViewInfo
 	public function success();
 
 	public function breadcrumb();
+	public function entryUrl();
 }

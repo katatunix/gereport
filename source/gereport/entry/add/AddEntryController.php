@@ -80,7 +80,7 @@ class AddEntryController implements Controller, AddEntryViewInfo
 			{
 				$id = $this->entryDao->insert($this->request->title(), $this->request->content(), $projectId,
 					$this->session->loggedMemberId());
-				$this->session->saveMessage('The entry has been submitted OK, now you can edit it if needed', false);
+				$this->session->saveMessage('The entry has been submitted OK', false);
 				(new Redirector(
 					(new EditEntryRouter($this->config->rootUrl()))->url($id)
 				))->redirect();

@@ -12,6 +12,9 @@ use gereport\entry\add\AddEntryRouter;
 use gereport\entry\edit\EditEntryController;
 use gereport\entry\edit\EditEntryRequest;
 use gereport\entry\edit\EditEntryRouter;
+use gereport\entry\EntryController;
+use gereport\entry\EntryRequest;
+use gereport\entry\EntryRouter;
 use gereport\error\Error404View;
 use gereport\footer\FooterView;
 use gereport\index\IndexView;
@@ -103,6 +106,10 @@ class Main
 		else if ($rt == DeleteReportRouter::ROUTER)
 		{
 			$this->handleDeleteReport($httpRequest);
+		}
+		else if ($rt == EntryRouter::ROUTER)
+		{
+			$this->handleEntry($httpRequest);
 		}
 		else if ($rt == AddEntryRouter::ROUTER)
 		{
@@ -212,6 +219,16 @@ class Main
 		$request = new DeleteReportRequest($httpRequest, $router);
 		$controller = new DeleteReportController($request, $this->session, $this->daoFactory->report());
 		$controller->process();
+	}
+
+	private function handleEntry($httpRequest)
+	{
+		$router = new EntryRouter($this->config->rootUrl());
+		$request = new EntryRequest($httpRequest, $router);
+		$controller = new EntryController($request, $this->session, $this->daoFactory->entry(), $this->config);
+		$view = $controller->process();
+
+		$this->renderMainView($view);
 	}
 
 	private function handleAddEntry($httpRequest)
