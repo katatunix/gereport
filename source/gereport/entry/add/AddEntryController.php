@@ -1,6 +1,6 @@
 <?php
 
-namespace gereport\entry;
+namespace gereport\entry\add;
 
 use gereport\Config;
 use gereport\Controller;
@@ -9,6 +9,8 @@ use gereport\domain\EntryDao;
 use gereport\domain\ProjectDao;
 use gereport\error\Error403View;
 use gereport\index\IndexRouter;
+use gereport\projecthome\ProjectHomeRouter;
+use gereport\Redirector;
 use gereport\Session;
 use gereport\View;
 
@@ -41,6 +43,7 @@ class AddEntryController implements Controller, AddEntryViewInfo
 	private $addEntryRouter;
 
 	private $message;
+	private $projectName;
 
 	public function __construct($request, $session, $entryDao, $projectDao, $config, $addEntryRouter)
 	{
@@ -62,6 +65,21 @@ class AddEntryController implements Controller, AddEntryViewInfo
 			return new Error403View($this->config);
 		}
 
+		$projectId = $this->request->projectId();
+		if ($projectId)
+		{
+			try
+			{
+				$this->projectName = $this->projectDao->findById($projectId)->name();
+			}
+			catch (\Exception $ex)
+			{
+				$url = (new IndexRouter($this->config->rootUrl()))->url();
+				(new Redirector($url))->redirect();
+				return null;
+			}
+		}
+
 		$this->message = null;
 		if ($this->request->isPostMethod())
 		{
@@ -72,7 +90,7 @@ class AddEntryController implements Controller, AddEntryViewInfo
 				$this->entryDao->insert(
 					$this->request->title(),
 					$this->request->content(),
-					$this->request->projectId(),
+					$projectId,
 					$memberId,
 					$datetime,
 					$memberId,
@@ -114,22 +132,22 @@ class AddEntryController implements Controller, AddEntryViewInfo
 
 	public function breadcrumbs()
 	{
-		// TODO not found the project???
 		$r = $this->config->rootUrl();
 		$projectId = $this->request->projectId();
 		$breads = array();
 
 		$homeUrl = (new IndexRouter($r))->url();
 
-		$breads[] = array('Home', $homeUrl);
 		if (!$projectId)
 		{
-			$breads[] = array('Overall entries', $homeUrl);
+			$breads[] = array('Home', $homeUrl);
+			$breads[] = array('Diary', $homeUrl);
 		}
 		else
 		{
-			$projectName = $this->projectDao->findById($projectId)->name();
-			$breads[] = array($projectName . ' entries', $homeUrl);
+			$projectUrl = (new ProjectHomeRouter($r))->url($projectId);
+			$breads[] = array($this->projectName, $projectUrl);
+			$breads[] = array('Diary', $homeUrl);
 		}
 
 		return $breads;

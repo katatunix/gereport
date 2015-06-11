@@ -1,14 +1,20 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: nghia.buivan
+ * Date: 6/11/2015
+ * Time: 2:29 PM
+ */
 
-namespace gereport\entry;
+namespace gereport\entry\edit;
+
 
 use gereport\BaseRequest;
-use gereport\HttpRequest;
 
-class AddEntryRequest extends BaseRequest
+class EditEntryRequest extends BaseRequest
 {
 	/**
-	 * @var AddEntryRouter
+	 * @var EditEntryRouter
 	 */
 	private $router;
 
@@ -16,6 +22,11 @@ class AddEntryRequest extends BaseRequest
 	{
 		parent::__construct($httpRequest);
 		$this->router = $router;
+	}
+
+	public function entryId()
+	{
+		return $this->httpRequest->valueGet($this->router->entryIdKey());
 	}
 
 	public function title()
@@ -28,8 +39,4 @@ class AddEntryRequest extends BaseRequest
 		return $this->httpRequest->valuePost($this->router->contentKey());
 	}
 
-	public function projectId()
-	{
-		return $this->httpRequest->valueGet($this->router->projectIdKey());
-	}
 }

@@ -13,4 +13,7 @@ interface Entry
 
 	public function lastEditorUsername();
 	public function lastEditedTime();
+
+	public function projectId();
+	public function projectName();
 }

@@ -11,4 +11,10 @@ namespace gereport\domain;
 interface EntryDao
 {
 	public function insert($title, $content, $projectId, $authorId, $createdTime, $lastEditorId, $lastEditedTime);
+
+	/**
+	 * @param $id
+	 * @return Entry
+	 */
+	public function findById($id);
 }

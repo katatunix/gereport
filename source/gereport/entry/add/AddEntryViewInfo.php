@@ -6,7 +6,7 @@
  * Time: 3:58 PM
  */
 
-namespace gereport\entry;
+namespace gereport\entry\add;
 
 
 interface AddEntryViewInfo

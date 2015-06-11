@@ -60,4 +60,19 @@ class MEntry implements Entry
 	{
 		$authorId = $this->retriever->retrieve($this->link, 'entry', 'lastEditedTime', 'id', $this->id);
 	}
+
+	public function projectId()
+	{
+		return $this->retriever->retrieve($this->link, 'entry', 'projectId', 'id', $this->id);
+	}
+
+	public function projectName()
+	{
+		$projectId = $this->projectId();
+		if ($projectId)
+		{
+			return (new MProject($this->link, $projectId))->name();
+		}
+		throw new \Exception('The entry does not belong to any particular project');
+	}
 }

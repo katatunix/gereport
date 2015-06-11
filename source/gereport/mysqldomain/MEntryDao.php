@@ -2,6 +2,7 @@
 
 namespace gereport\mysqldomain;
 
+use gereport\domain\Entry;
 use gereport\domain\EntryDao;
 
 class MEntryDao implements EntryDao
@@ -33,5 +34,14 @@ class MEntryDao implements EntryDao
 		$ok = $statement->execute() && $this->link->affected_rows > 0;
 		$statement->close();
 		if (!$ok) throw new \Exception('Could not insert the entry');
+	}
+
+	/**
+	 * @param $id
+	 * @return Entry
+	 */
+	public function findById($id)
+	{
+		return new MEntry($this->link, $id);
 	}
 }

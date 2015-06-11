@@ -36,7 +36,7 @@ class FieldRetriever
 			}
 			else
 			{
-				$message = 'The '. $table .'is not found';
+				$message = 'The '. $table . ' is not found';
 			}
 			$result->free_result();
 		}

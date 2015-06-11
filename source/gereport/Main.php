@@ -6,9 +6,12 @@ use gereport\banner\BannerController;
 use gereport\cpass\CpassController;
 use gereport\cpass\CpassRequest;
 use gereport\cpass\CpassRouter;
-use gereport\entry\AddEntryController;
-use gereport\entry\AddEntryRequest;
-use gereport\entry\AddEntryRouter;
+use gereport\entry\add\AddEntryController;
+use gereport\entry\add\AddEntryRequest;
+use gereport\entry\add\AddEntryRouter;
+use gereport\entry\edit\EditEntryController;
+use gereport\entry\edit\EditEntryRequest;
+use gereport\entry\edit\EditEntryRouter;
 use gereport\error\Error404View;
 use gereport\footer\FooterView;
 use gereport\index\IndexView;
@@ -19,6 +22,9 @@ use gereport\logout\LogoutController;
 use gereport\logout\LogoutRouter;
 use gereport\options\OptionsController;
 use gereport\options\OptionsRouter;
+use gereport\projecthome\ProjectHomeController;
+use gereport\projecthome\ProjectHomeRequest;
+use gereport\projecthome\ProjectHomeRouter;
 use gereport\report\add\AddReportRequest;
 use gereport\report\add\AddReportRouter;
 use gereport\report\add\AddReportController;
@@ -78,6 +84,10 @@ class Main
 		{
 			$this->handleCpass($httpRequest);
 		}
+		else if ($rt == ProjectHomeRouter::ROUTER)
+		{
+			$this->handleProjectHome($httpRequest);
+		}
 		else if ($rt == ReportRouter::ROUTER)
 		{
 			$this->handleReport($httpRequest);
@@ -97,6 +107,10 @@ class Main
 		else if ($rt == AddEntryRouter::ROUTER)
 		{
 			$this->handleAddEntry($httpRequest);
+		}
+		else if ($rt == EditEntryRouter::ROUTER)
+		{
+			$this->handleEditEntry($httpRequest);
 		}
 		else
 		{
@@ -153,6 +167,16 @@ class Main
 		$this->renderMainView($view);
 	}
 
+	private function handleProjectHome($httpRequest)
+	{
+		$router = new ProjectHomeRouter($this->config->rootUrl());
+		$request = new ProjectHomeRequest($httpRequest, $router);
+		$controller = new ProjectHomeController($request, $this->config, $this->daoFactory->project());
+		$view = $controller->process();
+
+		$this->renderMainView($view);
+	}
+
 	private function handleReport($httpRequest)
 	{
 		$router = new ReportRouter($this->config->rootUrl());
@@ -197,6 +221,17 @@ class Main
 		$controller = new AddEntryController($request, $this->session,
 			$this->daoFactory->entry(), $this->daoFactory->project(),
 			$this->config, $router);
+		$view = $controller->process();
+
+		$this->renderMainView($view);
+	}
+
+	private function handleEditEntry($httpRequest)
+	{
+		$router = new EditEntryRouter($this->config->rootUrl());
+		$request = new EditEntryRequest($httpRequest, $router);
+		$controller = new EditEntryController($request, $this->session,
+			$this->daoFactory->entry(), $this->config, $router);
 		$view = $controller->process();
 
 		$this->renderMainView($view);

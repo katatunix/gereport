@@ -83,7 +83,8 @@ class ReportController implements Controller, ReportViewInfo
 		}
 		catch (\Exception $ex)
 		{
-			(new Redirector( new IndexRouter($this->config->rootUrl()) ))->redirect();
+			$url = (new IndexRouter($this->config->rootUrl()))->url();
+			(new Redirector( $url ))->redirect();
 			return null;
 		}
 

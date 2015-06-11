@@ -5,7 +5,7 @@ namespace gereport\sidebar;
 use gereport\Config;
 use gereport\domain\ProjectDao;
 use gereport\Controller;
-use gereport\report\ReportRouter;
+use gereport\projecthome\ProjectHomeRouter;
 use gereport\View;
 
 class SidebarController implements Controller, SidebarViewInfo
@@ -39,23 +39,23 @@ class SidebarController implements Controller, SidebarViewInfo
 	 */
 	public function projects()
 	{
-		$projects = array();
+		$projectArr = array();
 		try
 		{
-			$objects = $this->projectDao->findByAllAndSortByName();
-			$reportRouter = new ReportRouter($this->config->rootUrl());
-			foreach ($objects as $obj)
+			$projects = $this->projectDao->findByAllAndSortByName();
+			$router = new ProjectHomeRouter($this->config->rootUrl());
+			foreach ($projects as $proj)
 			{
-				$projects[ $obj->id() ] = array(
-					'name' => $obj->name(),
-					'url' => $reportRouter->url($obj->id())
+				$projectArr[ $proj->id() ] = array(
+					'name' => $proj->name(),
+					'url' => $router->url($proj->id())
 				);
 			}
 		}
 		catch (\Exception $ex)
 		{
-			$projects = array();
+			$projectArr = array();
 		}
-		return $projects;
+		return $projectArr;
 	}
 }
