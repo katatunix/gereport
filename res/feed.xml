@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>jsTree</title>
+	<atom:link href="http://www.jstree.com/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.jstree.com</link>
+	<description>jQuery tree plugin</description>
+	<lastBuildDate>Mon, 04 May 2015 09:15:00 +0300</lastBuildDate>
+
+	<generator>http://jstree.com/</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+
+	<item>
+		<title>jsTree v.3.1.1</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.1.1</link>
+		<pubDate>Mon, 04 May 2015 09:15:00 +0300</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.1.1</guid>
+		<description><![CDATA[Added version 3.1.1]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.1.0</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.1.0</link>
+		<pubDate>Tue, 24 Mar 2015 01:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.1.0</guid>
+		<description><![CDATA[Added version 3.1.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.9</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.9</link>
+		<pubDate>Mon, 05 Jan 2015 19:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.9</guid>
+		<description><![CDATA[Added version 3.0.9]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.8</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.8</link>
+		<pubDate>Thu, 23 Oct 2014 22:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.8</guid>
+		<description><![CDATA[Added version 3.0.8]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.7</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.7</link>
+		<pubDate>Thu, 23 Oct 2014 18:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.7</guid>
+		<description><![CDATA[Added version 3.0.7]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.6</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.6</link>
+		<pubDate>Wed, 15 Oct 2014 16:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.6</guid>
+		<description><![CDATA[Added version 3.0.6]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.5</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.5</link>
+		<pubDate>Wed, 15 Oct 2014 10:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.5</guid>
+		<description><![CDATA[Added version 3.0.5]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.4</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.4</link>
+		<pubDate>Wed, 10 Sep 2014 09:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.4</guid>
+		<description><![CDATA[Added version 3.0.4]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.3</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.3</link>
+		<pubDate>Wed, 06 Aug 2014 18:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.3</guid>
+		<description><![CDATA[Added version 3.0.3]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.2</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.2</link>
+		<pubDate>Thu, 26 Jun 2014 08:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.2</guid>
+		<description><![CDATA[Added version 3.0.2]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.1</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.1</link>
+		<pubDate>Mon, 02 Jun 2014 13:00:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.1</guid>
+		<description><![CDATA[Added version 3.0.1]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0 final</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0</link>
+		<pubDate>Wed, 16 Apr 2014 12:30:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0</guid>
+		<description><![CDATA[Added version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta10</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0-beta10</link>
+		<pubDate>Sat, 15 Mar 2014 18:23:00 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0-beta10</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta9</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0-beta9</link>
+		<pubDate>Thu, 27 Feb 2014 09:16:21 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0-beta9</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta8</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0-beta8</link>
+		<pubDate>Fri, 14 Feb 2014 11:06:41 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0-beta8</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta7</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0-beta7</link>
+		<pubDate>Tue, 11 Feb 2014 09:06:41 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0-beta7</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta6</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0-beta6</link>
+		<pubDate>Mon, 10 Feb 2014 16:08:32 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0-beta6</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta5</title>
+		<link>https://github.com/vakata/jstree/releases/tag/3.0.0-beta5</link>
+		<pubDate>Tue, 28 Jan 2014 11:08:32 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/releases/tag/3.0.0-beta5</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta4</title>
+		<link>https://github.com/vakata/jstree/tree/3.0.0-beta4</link>
+		<pubDate>Fri, 17 Jan 2014 09:48:32 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/tree/3.0.0-beta4</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta3</title>
+		<link>https://github.com/vakata/jstree/tree/3.0.0-beta3</link>
+		<pubDate>Fri, 10 Jan 2014 21:20:14 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/tree/3.0.0-beta3</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta2</title>
+		<link>https://github.com/vakata/jstree/tree/3.0.0-beta2</link>
+		<pubDate>Mon, 30 Dec 2013 23:54:14 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/tree/3.0.0-beta2</guid>
+		<description><![CDATA[Added new beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.3.0.0-beta</title>
+		<link>https://github.com/vakata/jstree/tree/3.0.0-beta</link>
+		<pubDate>Mon, 30 Dec 2013 23:54:14 +0100</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/tree/3.0.0-beta</guid>
+		<description><![CDATA[Added first beta of version 3.0.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.pre1.0 fix 2</title>
+		<link>https://github.com/vakata/jstree/archive/v.pre1.0.zip</link>
+		<pubDate>Mon, 03 Sep 2012 01:37:00 +0300</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/archive/v.pre1.0.zip</guid>
+
+		<description><![CDATA[Fixed pre1.0 to work with jquery 1.8 + IE9 XML data support + other small fixes.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.pre1.0 fixes</title>
+		<link>https://github.com/vakata/jstree/downloads</link>
+		<pubDate>Tue, 12 Jul 2011 01:37:00 +0300</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/downloads</guid>
+
+		<description><![CDATA[Fixed pre1.0 to work with jquery 1.6.2 + other small fixes.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.pre1.0 + GitHub</title>
+		<link>https://github.com/vakata/jstree/downloads</link>
+		<pubDate>Thu, 12 May 2011 11:26:00 +0300</pubDate>
+		<guid isPermaLink="false">https://github.com/vakata/jstree/downloads</guid>
+
+		<description><![CDATA[The latest stable commit from the GoogleCode before moving to github for v.1.0]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.1.0rc2</title>
+		<link>http://code.google.com/p/jstree/downloads/list</link>
+		<pubDate>Thu, 01 Jul 2010 11:26:00 +0300</pubDate>
+		<guid isPermaLink="false">http://code.google.com/p/jstree/downloads/list</guid>
+
+		<description><![CDATA[A lot of bug fixes and enhancements to 1.0rc, also reenabled IE6 and RTL support. See changelog for mor more.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.1.0rc</title>
+		<link>http://code.google.com/p/jstree/downloads/list</link>
+		<pubDate>Tue, 25 May 2010 20:31:53 +0100</pubDate>
+		<guid isPermaLink="false">http://code.google.com/p/jstree/downloads/list</guid>
+
+		<description><![CDATA[Complete rewrite - plugin friendly, new events + a lot of other changes.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.0.9.9a2</title>
+		<link>http://code.google.com/p/jstree/downloads/list</link>
+		<pubDate>Thu, 18 Feb 2010 20:31:53 +0100</pubDate>
+		<guid isPermaLink="false">http://code.google.com/p/jstree/downloads/list</guid>
+
+		<description><![CDATA[Clean 0.9.9a + jQuery 1.4 compatibility, only major bug fixes, NO other changes or enhancements.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.0.9.9b</title>
+		<link>http://www.jstree.com/changelog#v.0.9.9b</link>
+		<pubDate>Sat, 13 Feb 2010 20:07:13 +0100</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.9b</guid>
+
+		<description><![CDATA[jQuery 1.4 compatible, minor bug fixes, enhancements to callbacks.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.0.9.9a</title>
+		<link>http://www.jstree.com/changelog#v.0.9.9a</link>
+		<pubDate>Tue, 06 Oct 2009 20:30:13 +0200</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.9</guid>
+
+		<description><![CDATA[Fixed critical bug - root nodes could not be created.]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.0.9.9</title>
+		<link>http://www.jstree.com/changelog#v.0.9.9</link>
+		<pubDate>Tue, 06 Oct 2009 12:03:13 +0000</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.9</guid>
+
+		<description><![CDATA[A major rewrite: jsTree now supports plugins and datastores - still in an early phase; dropped dragrules in favour of better type definitions - valid children, max_children, max_depth, icon, etc; themes no longer inherit the default theme; sprites are used in all themes; jsTree now follows jquery plugin guidelines - no more $.tree_reference, but $.tree.reference, defaults are separated, only the JS file needs to be included (no more CSS), etc; dropped a few dependencies - now jquery is the only dependency; metadata, themeroller, xml_nested, xml_flat, checkbox, context menu, keyboard navigation are packaged as plugins;]]></description>
+	</item>
+
+	<item>
+		<title>jsTree v.0.9.8</title>
+		<link>http://www.jstree.com/changelog#v.0.9.8</link>
+		<pubDate>Fri, 15 May 2009 12:03:13 +0000</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.8</guid>
+		<description><![CDATA[Most significant changes are: onJSONdata callback, jsTree should now be immune to object and array extending, implemented next/prev/parent/children methods, numerous fixes in create, paste and drag and drop, themes redesign.]]></description>
+	</item>
+	<item>
+		<title>jsTree v.0.9.7</title>
+		<link>http://www.jstree.com/changelog#v.0.9.7</link>
+		<pubDate>Wed, 8 Apr 2009 12:03:13 +0000</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.7</guid>
+		<description><![CDATA[The most interesting new features in this version are: themeroller support; rollback option – after a modification, in the callback you receive a rollback object, so for example you can do an async call to the server, if that fails – just rollback to the previous state; getXML function to get the tree as XML (same as getJSON); root nodes with can be created with the ‘create’ function, you can also create at a specific point among a node’s children.]]></description>
+	</item>
+	<item>
+		<title>jsTree v.0.9.6</title>
+		<link>http://www.jstree.com/changelog#v.0.9.6</link>
+		<pubDate>Tue, 24 Feb 2009 12:03:13 +0000</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.6</guid>
+		<description><![CDATA[The major changes are: use of jQuery’s native “live” method instead of listen plugin; rewritten drag events; onselect/ondeselect callbacks; no more leakage to global namespace ($.tree_create() repaces new tree_component()); minimized usage of float (inline-block is used instead); apple theme included and checkbox theme included (with optional onchange callback, which emulates tri-state checkboxes); no more hardcoded background; smarter drop location calculation.]]></description>
+	</item>
+	<item>
+		<title>jsTree v.0.9.5</title>
+		<link>http://www.jstree.com/changelog#v.0.9.5</link>
+		<pubDate>Mon, 12 Jan 2009 12:03:13 +0000</pubDate>
+		<guid isPermaLink="false">http://www.jstree.com/changelog#v.0.9.5</guid>
+		<description><![CDATA[Besides the bug fixes, event optimization and better browser support, the biggest changes are: native context menu, theme support (along with two themes), search functionality, jQuery plugin mode, jQuery compatibility mode, ability to drag foreign nodes onto the tree.]]></description>
+	</item>
+</channel>
+</rss>

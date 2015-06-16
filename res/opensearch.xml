@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>jstree</ShortName>
+  <Description>Search jstree API documentation</Description>
+  <Tags>jstree</Tags>
+  <Url type="text/html" method="get" template="http://www.jstree.com/api/#/?q={searchTerms}"/>
+  <Image height="16" width="16" type="image/vnd.microsoft.icon">http://www.jstree.com/favicon.ico</Image>
+  <Image height="152" width="152" type="image/x-icon">http://www.jstree.com/apple-touch-icon-precomposed.png</Image>
+  <InputEncoding>UTF-8</InputEncoding>
+  <moz:SearchForm>http://www.jstree.com/api</moz:SearchForm>
+  <Url type="application/opensearchdescription+xml" rel="self" template="http://www.jstree.com/opensearch.xml"/>
+</OpenSearchDescription>

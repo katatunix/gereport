@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>jsTree</title>
+	<meta name="viewport" content="width=device-width" />
+	<!--[if lt IE 9]><script src="html5.js"></script><![endif]-->
+	
+	<meta name="robots" content="index,follow" />
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="jstree/themes/default/style.min.css" />
+	<link rel="stylesheet" href="docs.css" />
+	<!--[if lt IE 9]><script src="respond.js"></script><![endif]-->
+	
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+	
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="feed.xml" /><script>WR = "/";</script><meta property="og:title" content="jstree" /><meta property="og:type" content="website" /><meta property="og:description" content="jsTree is jquery plugin, that provides interactive trees. It is absolutely free, open source and distributed under the MIT license. jsTree is easily extendable, themable and configurable, it supports HTML & JSON data sources and AJAX loading." /><meta property="og:url" content="http://www.jstree.com/" /><meta property="og:image" content="jstree.png" /><link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search jstree API">
+	
+	<script src="jquery-1.10.2.min.js"></script>
+	<script src="jstree/jstree.min.js"></script>
+</head>
+<body>
+	<header id="head">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-12">
+					<h1 id="logo"><a href="http://jstree.com">jsTree - jQuery tree plugin<span>3.1.1</span></a></h1>
+				</div>
+				<div class="col-md-6 col-sm-8">
+					<nav>
+						<ul class="nav nav-pills" id="menu"><li class="active"><a href="/"><i class="glyphicon glyphicon-home"></i> Home</a></li><li><a href="/demo"><i class="glyphicon glyphicon-flash"></i> Demo</a></li><li><a href="/api"><i class="glyphicon glyphicon-cog"></i> API</a></li><li><a href="/plugins"><i class="glyphicon glyphicon-link"></i> Plugins</a></li></ul>
+					</nav>
+				</div>
+				<div class="col-md-3 col-sm-4">
+					<form role="search">
+						<input type="text" id="srch" class="form-control" placeholder="API search" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container" id="content">
+		<div class="row page" id="docs" style="display:block;">
+			<div class="col-md-12" style="">
+				<h3><i class="glyphicon glyphicon-leaf"></i> What is jsTree?</h3>
+				<div class="row">
+					<div class="col-md-8">
+						<p>jsTree is <strong>jquery plugin</strong>, that provides <strong>interactive trees</strong>. It is absolutely <strong>free</strong>, <a href="https://github.com/vakata/jstree/">open source</a> and distributed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>. jsTree is easily extendable, themable and configurable, it supports <strong>HTML &amp; JSON data sources and AJAX loading</strong>.</p>
+						<p>jsTree functions properly in either box-model (content-box or border-box), can be loaded as an AMD module, and has a built in mobile theme for responsive design, that can easily be customized. It uses jQuery's event system, so binding callbacks on various events in the tree is familiar and easy.</p>
+						<p>Just a few of the features worth noting:</p>
+						<ul class="features list-unstyled list-inline">
+							<li><i class="glyphicon glyphicon-ok"></i> drag &amp; drop support</li>
+							<li><i class="glyphicon glyphicon-ok"></i> keyboard navigation</li>
+							<li><i class="glyphicon glyphicon-ok"></i> inline edit, create and delete</li>
+							<li><i class="glyphicon glyphicon-ok"></i> tri-state checkboxes</li>
+							<li><i class="glyphicon glyphicon-ok"></i> fuzzy searching</li>
+							<li><i class="glyphicon glyphicon-ok"></i> customizable node types</li>
+						</ul>
+						<p id="main-buttons">
+							<img src="http://static.jstree.com/3.1.1/assets/images/browsers.png" style="max-width:100%; max-height:36px;" alt="" /><br /><small>Chrome 14+, Firefox 3.5+, Opera 12+, Safari 4+, IE8+<br /><em style="color:silver;">older versions may work, but are not tested</em></small><br /><br />
+							<a href="https://github.com/vakata/jstree/zipball/3.1.1" class="btn btn-success"><i class="glyphicon glyphicon-download"></i>&nbsp;&nbsp;Download</a>
+							<a href="https://groups.google.com/forum/#!forum/jstree" class="btn btn-warning"><i class="glyphicon glyphicon-comment"></i>&nbsp;&nbsp;Discuss</a>
+							<a href="https://github.com/vakata/jstree/issues?state=open" class="btn btn-danger"><i class="glyphicon glyphicon-exclamation-sign"></i>&nbsp;&nbsp;Report bugs</a>
+							<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=paypal@vakata.com&amp;currency_code=USD&amp;amount=&amp;return=http://jstree.com/donation&amp;item_name=Buy+me+a+coffee+for+jsTree" class="btn btn-primary"><i class="glyphicon glyphicon-thumbs-up"></i>&nbsp;&nbsp;&nbsp;Donate</a>
+						</p>
+					</div>
+					<div class="col-md-4">
+						<div id="jstree1" class="demo">
+							<ul>
+								<li>Root node 1
+									<ul>
+										<li data-jstree='{ "icon" : "tree-icon.png" }'><a href="#">Suede</a></li>
+										<li data-jstree='{ "icon" : "tree-icon.png" }'>custom icon URL</li>
+										<li data-jstree='{ "opened" : true }'>initially open
+											<ul>
+												<li>Test folder
+													<ul>
+														<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'>Nghia Bui</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>Kata learns to code
+											<ul>
+												<li data-jstree='{ "icon" : "glyphicon glyphicon-file", "selected" : true }'>Meat! is a new Git collaboration platform for web developers</li>
+												<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'>Apple</li>
+												<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'>Banana</li>
+											</ul>
+										</li>
+										<li data-jstree='{ "icon" : "glyphicon glyphicon-leaf" }'>Custom icon class (bootstrap)</li>
+									</ul>
+								</li>
+								<li><a href="http://www.jstree.com">Root node 2</a></li>
+							</ul>
+						</div>
+						<div id="jstree2" class="demo" style="margin-top:2em;"></div>
+						<script>
+						$(function () {
+							//$('#jstree1').jstree();
+							$('#jstree1').jstree({'plugins':["wholerow"]});
+							$('#jstree2').jstree({'plugins':["wholerow","checkbox"], 'core' : {
+								'data' : [
+									{
+										"text" : "Same but with checkboxes",
+										"children" : [
+											{ "text" : "initially selected", "state" : { "selected" : true } },
+											{ "text" : "custom icon URL", "icon" : "http://jstree.com/tree-icon.png" },
+											{ "text" : "initially open", "state" : { "opened" : true }, "children" : [ "Another node" ] },
+											{ "text" : "custom icon class", "icon" : "glyphicon glyphicon-leaf" }
+										]
+									},
+									"And wholerow selection"
+								]
+							}});
+						});
+						</script>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h4 class="panel-title">Panel title</h3>
+							</div>
+							<div class="panel-body">
+								Panel content
+							</div>
+						</div>
+						
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+								<h4 class="panel-title">Panel title</h3>
+							</div>
+							<div class="panel-body">
+								Panel content
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<ul class="nav nav-tabs">
+					<li  class="active" id="selected_menu"><a href="/" class="nava">Overview</a></li>
+					<li><a href="/docs/config" class="nava">Configuration</a></li>
+					<li><a href="/docs/html" class="nava">HTML data</a></li>
+					<li><a href="/docs/json" class="nava">JSON data</a></li>
+					<li><a href="/docs/events" class="nava">Events</a></li>
+					<li><a href="/docs/interaction" class="nava">Interaction</a></li>
+				</ul>
+				<div class="tab-content">
+					
+					<div id="overview" class="tab-content-item">
+				<div class="row">
+					<div class="col-md-12">
+						<h3><i class="glyphicon glyphicon-leaf"></i> Getting Started - everything at a glance</h3>
+					</div>
+				</div>
+				<div class="row" style="margin-top:1em;">
+					<div class="col-md-12">
+						<ol class="spaced">
+							<li>
+								<h4 class="list-group-item-heading"><a href="https://github.com/vakata/jstree/zipball/3.1.1">Download jsTree</a></h4>
+								<p class="list-group-item-text">All the files you need are in the <code>dist/</code> folder of the download.</p>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Include a jsTree theme</h4>
+								<p class="list-group-item-text">Themes can be autloaded too, but it is best for performance to include the CSS file.</p>
+								<pre style="margin-top:1em;"><code>&lt;link rel="stylesheet" href="<strong>dist/themes/default/style.min.css</strong>" /&gt;</code></pre>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Setup a container</h4>
+								<p class="list-group-item-text">This is the element where you want the tree to appear, a <code>&lt;div&gt;</code> is enough. This example has a nested <code>&lt;ul&gt;</code> as there is no other data source configured (such as JSON).</p>
+								<pre style="margin-top:1em;"><code>  &lt;div <strong>id="jstree_demo_div"</strong>&gt;&lt;/div&gt;</code></pre>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Include jQuery</h4>
+								<p class="list-group-item-text">jsTree requires <strong>1.9.0 or greater</strong> in your webpage.</p>
+								<pre style="margin-top:1em;"><code>&lt;script src="<strong>dist/libs/jquery.js</strong>"&gt;&lt;/script&gt;</code></pre>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Include jsTree</h4>
+								<p class="list-group-item-text">For production include the minified version: <code>dist/jstree.min.js</code>, there is a development version too: <code>dist/jstree.js</code></p>
+								<pre style="margin-top:1em;"><code>&lt;script src="<strong>dist/jstree.min.js</strong>"&gt;&lt;/script&gt;</code></pre>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Create an instance</h4>
+								<p class="list-group-item-text">Once the DOM is ready you can start creating jstree instances.</p>
+								<pre style="margin-top:1em;"><code>$(function () { <strong>$('#jstree_demo_div').jstree();</strong> });</code></pre>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Listen for events</h4>
+								<p class="list-group-item-text">jsTree uses events to notify you when something changes while users (or you) interact with the tree. So binding to jstree events is as easy binding to a click. There is a <a href="/api/#/?q=.jstree%20Event">list of events</a> and what information they provide in the API documentation.</p>
+								<pre style="margin-top:1em;"><code>$('#jstree_demo_div').on("changed.jstree", function (e, data) {
+  console.log(data.selected);
+});</code></pre>
+							</li>
+							<li>
+								<h4 class="list-group-item-heading">Interact with your instances</h4>
+								<p class="list-group-item-text">Once an instance is ready you can invoke methods on it. There is a <a href="/api/#/?q=(">list of available methods</a> in the API documentation. The three examples below do exactly the same thing</p>
+								<pre style="margin-top: 1em;"><code>$('button').on('click', function () {
+  <strong>$('#jstree').jstree(true).select_node('child_node_1');</strong>
+  <strong>$('#jstree').jstree('select_node', 'child_node_1');</strong>
+  <strong>$.jstree.reference('#jstree').select_node('child_node_1');</strong>
+});</code></pre>
+							</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p style="text-align:center;"><button class="btn btn-info" onclick="$(this).blur().parent().next().slideToggle(); return false;">show the complete code</button></p>
+<pre style="padding:0px 20px; display:none;"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jsTree test&lt;/title&gt;
+  <span class="comment">&lt;!-- <strong>2</strong> load the theme CSS file --&gt;</span>
+  &lt;link rel="stylesheet" href="<strong>dist/themes/default/style.min.css</strong>" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  <span class="comment">&lt;!-- <strong>3</strong> setup a container element --&gt;</span>
+  &lt;div id="jstree"&gt;
+    <span class="comment">&lt;!-- in this example the tree is populated from inline HTML --&gt;</span>
+    &lt;ul&gt;
+      &lt;li&gt;Root node 1
+        &lt;ul&gt;
+          &lt;li id="child_node_1"&gt;Child node 1&lt;/li&gt;
+          &lt;li&gt;Child node 2&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Root node 2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;button&gt;demo button&lt;/button&gt;
+
+  <span class="comment">&lt;!-- <strong>4</strong> include the <a href="http://jquery.org">jQuery</a> library --&gt;</span>
+  &lt;script src="<strong>dist/libs/jquery.js</strong>"&gt;&lt;/script&gt;
+  <span class="comment">&lt;!-- <strong>5</strong> include the minified <a href="http://jstree.com">jstree</a> source --&gt;</span>
+  &lt;script src="<strong>dist/jstree.min.js</strong>"&gt;&lt;/script&gt;
+  &lt;script&gt;
+  $(function () {
+    <span class="comment">// <strong>6</strong> create an instance when the DOM is ready</span>
+    <strong>$('#jstree').jstree();</strong>
+    <span class="comment">// <strong>7</strong> bind to events triggered on the tree</span>
+    <strong>$('#jstree').on("changed.jstree", function (e, data) {
+      console.log(data.selected);
+    });</strong>
+    <span class="comment">// <strong>8</strong> interact with the tree - either way is OK</span>
+    $('button').on('click', function () {
+      <strong>$('#jstree').jstree(true).select_node('child_node_1');</strong>
+      <strong>$('#jstree').jstree('select_node', 'child_node_1');</strong>
+      <strong>$.jstree.reference('#jstree').select_node('child_node_1');</strong>
+    });
+  });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ </code></pre>
+					</div>
+				</div>
+
+				</div></div>
+
+			</div>
+			<p style="text-align:center; margin-top:2em;"><a href="mailto:nghia.buivan@gameloft.com">nghia.buivan@gameloft.com</a></p>
+		</div>
+	</div>
+	<a class="hidden-xs hidden-sm" href="https://github.com/vakata/jstree"><img style="position: absolute; top: 0; left: 0; border: 0;" src="forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+</body>
+</html>
