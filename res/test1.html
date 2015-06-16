@@ -74,7 +74,7 @@
 							<ul>
 								<li>Root node 1
 									<ul>
-										<li data-jstree='{ "icon" : "tree-icon.png" }'><a href="#">Suede</a></li>
+										<li data-jstree='{ "icon" : "tree-icon.png" }'><a href="http://google.com">Suede</a></li>
 										<li data-jstree='{ "icon" : "tree-icon.png" }'>custom icon URL</li>
 										<li data-jstree='{ "opened" : true }'>initially open
 											<ul>
@@ -95,7 +95,7 @@
 										<li data-jstree='{ "icon" : "glyphicon glyphicon-leaf" }'>Custom icon class (bootstrap)</li>
 									</ul>
 								</li>
-								<li><a href="http://www.jstree.com">Root node 2</a></li>
+								<li>Root node 2</li>
 							</ul>
 						</div>
 						<div id="jstree2" class="demo" style="margin-top:2em;"></div>
@@ -117,6 +117,12 @@
 									"And wholerow selection"
 								]
 							}});
+							
+							$('#jstree1').on("changed.jstree", function (e, data) {
+								if (data.node && data.node.a_attr && data.node.a_attr.href.length > 1) {
+									window.location = data.node.a_attr.href;
+								}
+							});
 						});
 						</script>
 					</div>
