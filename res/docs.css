@@ -74,7 +74,8 @@ pre code strong { color:#000; }
 .list-group-item-text { color:#666; }
 pre .point { display:inline-block; border-radius:5px; width:100%; padding:5px 0; }
 
-.demo { height: 600px; max-width:100%; overflow:auto; box-shadow:0 0 5px #ccc; padding:10px; border-radius:5px; font:11px Consolas, sans-serif; }
+.demo { height: 500px; max-width:100%; overflow:auto; box-shadow:0 0 5px #ccc; padding:10px; border-radius:5px;
+ font-size: 0.8em; /*font:11px Consolas, sans-serif;*/ }
 
 #plugins .demo, #plugins pre { min-height:200px; }
 

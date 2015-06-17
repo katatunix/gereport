@@ -65,7 +65,7 @@ class Main
 
 		if (!$rt)
 		{
-			$this->handleIndex();
+			$this->handleIndex($httpRequest);
 		}
 		else if ($rt == LoginRouter::ROUTER)
 		{
@@ -77,7 +77,7 @@ class Main
 		}
 		else if ($rt == OptionsRouter::ROUTER)
 		{
-			$this->handleOptions();
+			$this->handleOptions($httpRequest);
 		}
 		else if ($rt == CpassRouter::ROUTER)
 		{
@@ -113,18 +113,18 @@ class Main
 		}
 		else
 		{
-			$this->handleNotFound();
+			$this->handleNotFound($httpRequest);
 		}
 	}
 
-	private function handleIndex()
+	private function handleIndex($httpRequest)
 	{
-		$this->renderMainView(new IndexView($this->config));
+		$this->renderMainView(new IndexView($this->config), $httpRequest->url());
 	}
 
-	private function handleNotFound()
+	private function handleNotFound($httpRequest)
 	{
-		$this->renderMainView(new Error404View($this->config));
+		$this->renderMainView(new Error404View($this->config), $httpRequest->url());
 	}
 
 	private function handleLogin($httpRequest)
@@ -135,7 +135,7 @@ class Main
 			$this->daoFactory->member(), $this->config, $router);
 
 		$view = $controller->process();
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
 	private function handleLogout()
@@ -143,7 +143,7 @@ class Main
 		(new LogoutController($this->session, $this->config))->process();
 	}
 
-	private function handleOptions()
+	private function handleOptions($httpRequest)
 	{
 		$r = $this->config->rootUrl();
 		$this->renderMainView(
@@ -151,7 +151,8 @@ class Main
 				$this->session,
 				$this->config,
 				(new CpassRouter($r))->url()
-			))->process()
+			))->process(),
+			$httpRequest->url()
 		);
 	}
 
@@ -163,7 +164,7 @@ class Main
 		$controller = new CpassController($request, $this->session, $memberDao, $this->config, $router);
 		$view = $controller->process();
 
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
 	private function handleReport($httpRequest)
@@ -173,7 +174,7 @@ class Main
 		$controller = new ReportController($request, $this->session, $this->daoFactory, $this->config, $router);
 		$view = $controller->process();
 
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
 	private function handleAddReport($httpRequest)
@@ -192,7 +193,7 @@ class Main
 			$this->daoFactory->report(), $this->config, $router);
 		$view = $controller->process();
 
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
 	private function handleDeleteReport($httpRequest)
@@ -210,7 +211,7 @@ class Main
 		$controller = new EntryController($request, $this->session, $this->daoFactory->entry(), $this->config);
 		$view = $controller->process();
 
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
 	private function handleAddEntry($httpRequest)
@@ -222,7 +223,7 @@ class Main
 			$this->config, $router);
 		$view = $controller->process();
 
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
 	private function handleEditEntry($httpRequest)
@@ -233,20 +234,21 @@ class Main
 			$this->daoFactory->entry(), $this->config, $router);
 		$view = $controller->process();
 
-		$this->renderMainView($view);
+		$this->renderMainView($view, $httpRequest->url());
 	}
 
-	private function renderMainView($contentView)
+	private function renderMainView($contentView, $currentUrl)
 	{
 		// Banner
-		$bannerController = new BannerController($this->session, $this->daoFactory->member(), $this->config);
+		$bannerController = new BannerController($this->session,
+			$this->daoFactory->member(), $this->config, $currentUrl);
 
 		$bannerView = $bannerController->process();
 
 		// Sidebar
 		$r = $this->config->rootUrl();
-		$sidebarController = new SidebarController($this->daoFactory->project(), $this->config,
-			new EntryRouter($r), new ReportRouter($r));
+		$sidebarController = new SidebarController($this->session, $this->daoFactory->project(), $this->config,
+			new EntryRouter($r), new ReportRouter($r), $currentUrl);
 		$sidebarView = $sidebarController->process();
 
 		// Main

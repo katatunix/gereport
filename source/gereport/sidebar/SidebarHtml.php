@@ -1,31 +1,35 @@
-<?php function renderEntry($entry) { ?>
-	<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'><a href="<?= $entry['url'] ?>"><?= $entry['title'] ?></a></li>
+<?php function renderEntry($entry, $currentUrl) {
+	$entryUrl = $entry['url'];
+	$isActive = $entryUrl == $currentUrl;
+?>
+	<li data-jstree='{ "icon" : "glyphicon glyphicon-file" <?= $isActive ? ', "selected" : true' : '' ?> }'>
+		<a href="<?= $entry['url'] ?>"><?= $entry['title'] ?></a>
+	</li>
 <?php } ?>
 
-<?php function renderFolder($folder) { ?>
+<?php function renderFolder($folder, $currentUrl) { ?>
 	<li><?= $folder['name'] ?>
 		<ul>
 			<?php foreach ($folder['children'] as $item) {
-				renderItem($item);
+				renderItem($item, $currentUrl);
 			} ?>
 		</ul>
 <?php } ?>
 
-<?php function renderItem($item) {
+<?php function renderItem($item, $currentUrl) {
 	if ($item['isFolder']) {
-		renderFolder($item);
+		renderFolder($item, $currentUrl);
 	} else {
-		renderEntry($item);
+		renderEntry($item, $currentUrl);
 	}
 } ?>
 
 <div id="jstree1" class="demo">
 	<ul>
-		<?php $tree = $this->info->tree();
-		foreach ($tree as $item) {
-			renderItem($item);
+		<?php $currentUrl = $this->info->currentUrl();
+		foreach ($this->info->tree() as $item) {
+			renderItem($item, $currentUrl);
 		} ?>
-
 	</ul>
 </div>
 

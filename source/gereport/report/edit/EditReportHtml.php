@@ -5,7 +5,7 @@
 	$(document).ready(function() {
 		tinymce.init({
 			selector: "#content",
-			height: 400,
+			height: 300,
 			plugins: [
 				"advlist autolink lists link image charmap print preview anchor",
 				"searchreplace visualblocks code fullscreen",

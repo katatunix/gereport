@@ -5,13 +5,30 @@
 	<div class="col-md-6 col-sm-8">
 		<nav>
 			<ul class="nav nav-pills" id="menu">
-				<li><a href="<?= $this->info->indexUrl() ?>"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+				<?php $currentUrl = $this->info->currentUrl();
+					$indexUrl = $this->info->indexUrl();
+				?>
+				<li class="<?= $currentUrl == $indexUrl ? 'active' : '' ?>">
+					<a href="<?= $indexUrl ?>"><i class="glyphicon glyphicon-home"></i> Home</a>
+				</li>
 
-				<?php if ($username = $this->info->loggedMemberUsername()) { ?>
-					<li><a href="<?= $this->info->optionsUrl() ?>"><i class="glyphicon glyphicon-user"></i> <?= $username ?></a></li>
-					<li><a href="<?= $this->info->logoutUrl() ?>"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
-				<?php } else { ?>
-					<li><a href="<?= $this->info->loginUrl() ?>"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
+				<?php if ($username = $this->info->loggedMemberUsername()) {
+					$optionsUrl = $this->info->optionsUrl();
+					$logoutUrl = $this->info->logoutUrl();
+				?>
+					<li class="<?= $currentUrl == $optionsUrl ? 'active' : '' ?>">
+						<a href="<?= $optionsUrl ?>"><i class="glyphicon glyphicon-user"></i> <?= $username ?></a>
+					</li>
+
+					<li class="<?= $currentUrl == $logoutUrl ? 'active' : '' ?>">
+						<a href="<?= $logoutUrl ?>"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+					</li>
+				<?php } else {
+					$loginUrl = $this->info->loginUrl();
+				?>
+					<li class="<?= $currentUrl == $loginUrl ? 'active' : '' ?>">
+						<a href="<?= $loginUrl ?>"><i class="glyphicon glyphicon-log-in"></i> Login</a>
+					</li>
 				<?php } ?>
 			</ul>
 		</nav>

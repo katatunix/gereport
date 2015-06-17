@@ -9,10 +9,15 @@ use gereport\domain\ProjectDao;
 use gereport\Controller;
 use gereport\entry\EntryRouter;
 use gereport\report\ReportRouter;
+use gereport\Session;
 use gereport\View;
 
 class SidebarController implements Controller, SidebarViewInfo
 {
+	/**
+	 * @var Session
+	 */
+	private $session;
 	/**
 	 * @var ProjectDao
 	 */
@@ -33,12 +38,16 @@ class SidebarController implements Controller, SidebarViewInfo
 	 */
 	private $reportRouter;
 
-	public function __construct($projectDao, $config, $entryRouter, $reportRouter)
+	private $currentUrl;
+
+	public function __construct($session, $projectDao, $config, $entryRouter, $reportRouter, $currentUrl)
 	{
+		$this->session = $session;
 		$this->projectDao = $projectDao;
 		$this->config = $config;
 		$this->entryRouter = $entryRouter;
 		$this->reportRouter = $reportRouter;
+		$this->currentUrl = $currentUrl;
 	}
 
 	/**
@@ -69,29 +78,34 @@ class SidebarController implements Controller, SidebarViewInfo
 		return $rootStructures;
 	}
 
+	public function currentUrl()
+	{
+		return $this->currentUrl;
+	}
+
 	/**
 	 * @param $project Project
 	 * @return array
 	 */
 	private function makeFolderForProject($project)
 	{
-		$folder = $this->makeCoreFolder($project->name());
+		$folder = $this->makeFolder($project->name());
 
 		$children = array();
 		$children[] = $this->makeEntry( 'Report', $this->reportRouter->url($project->id()) );
-		$children[] = $this->makeFolder( $project->folder() );
+		$children[] = $this->makeFolderFull( $project->folder() );
 
 		$this->append($children, $folder);
 
 		return $folder;
 	}
 
-	private function append(&$children, &$dad)
+	private function append(& $children, & $dad)
 	{
 		$dad['children'] = $children;
 	}
 
-	private function makeCoreFolder($name)
+	private function makeFolder($name)
 	{
 		return array('isFolder' => true, 'name' => $name);
 	}
@@ -105,14 +119,19 @@ class SidebarController implements Controller, SidebarViewInfo
 	 * @param $folder Folder
 	 * @return array
 	 */
-	private function makeFolder($folder)
+	private function makeFolderFull($folder)
 	{
-		$folderStruct = $this->makeCoreFolder($folder->name());
+		$folderStruct = $this->makeFolder($folder->name());
 		$children = array();
 
 		foreach ($folder->subFolders() as $subFolder)
 		{
-			$children[] = $this->makeFolder($subFolder);
+			$children[] = $this->makeFolderFull($subFolder);
+		}
+
+		if ($this->session->hasLogged())
+		{
+			$children[] = $this->makeEntry('Folder options', '#');
 		}
 
 		foreach ($folder->entries() as $entry)

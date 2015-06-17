@@ -8,4 +8,6 @@ interface SidebarViewInfo
 	 * @return array
 	 */
 	public function tree();
+
+	public function currentUrl();
 }

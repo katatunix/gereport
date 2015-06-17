@@ -27,11 +27,14 @@ class BannerController implements Controller, BannerViewInfo
 	 */
 	private $config;
 
-	public function __construct($session, $memberDao, $config)
+	private $currentUrl;
+
+	public function __construct($session, $memberDao, $config, $currentUrl)
 	{
 		$this->session = $session;
 		$this->memberDao = $memberDao;
 		$this->config = $config;
+		$this->currentUrl = $currentUrl;
 	}
 
 	/**
@@ -57,6 +60,11 @@ class BannerController implements Controller, BannerViewInfo
 			}
 		}
 		return $loggedMemberUsername;
+	}
+
+	public function currentUrl()
+	{
+		return $this->currentUrl;
 	}
 
 	public function indexUrl()
