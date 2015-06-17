@@ -14,9 +14,6 @@ interface Entry
 	public function lastEditorUsername();
 	public function lastEditedTime();
 
-	public function projectId();
-	public function projectName();
-
 	public function canBeManuplatedByMember($memberId);
 
 	public function update($title, $content, $editorId);

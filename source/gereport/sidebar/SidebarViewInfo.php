@@ -7,5 +7,5 @@ interface SidebarViewInfo
 	/**
 	 * @return array
 	 */
-	public function projects(); // 'name', 'url'
+	public function tree();
 }

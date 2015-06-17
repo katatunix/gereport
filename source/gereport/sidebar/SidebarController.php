@@ -3,9 +3,12 @@
 namespace gereport\sidebar;
 
 use gereport\Config;
+use gereport\domain\Folder;
+use gereport\domain\Project;
 use gereport\domain\ProjectDao;
 use gereport\Controller;
-use gereport\projecthome\ProjectHomeRouter;
+use gereport\entry\EntryRouter;
+use gereport\report\ReportRouter;
 use gereport\View;
 
 class SidebarController implements Controller, SidebarViewInfo
@@ -20,10 +23,22 @@ class SidebarController implements Controller, SidebarViewInfo
 	 */
 	private $config;
 
-	public function __construct($projectDao, $config)
+	/**
+	 * @var EntryRouter
+	 */
+	private $entryRouter;
+
+	/**
+	 * @var ReportRouter
+	 */
+	private $reportRouter;
+
+	public function __construct($projectDao, $config, $entryRouter, $reportRouter)
 	{
 		$this->projectDao = $projectDao;
 		$this->config = $config;
+		$this->entryRouter = $entryRouter;
+		$this->reportRouter = $reportRouter;
 	}
 
 	/**
@@ -37,25 +52,76 @@ class SidebarController implements Controller, SidebarViewInfo
 	/**
 	 * @return array
 	 */
-	public function projects()
+	public function tree()
 	{
-		$projectArr = array();
+		$rootStructures = array();
 		try
 		{
-			$projects = $this->projectDao->findByAllAndSortByName();
-			$router = new ProjectHomeRouter($this->config->rootUrl());
-			foreach ($projects as $proj)
+			foreach ($this->projectDao->findByAllAndSortByName() as $project)
 			{
-				$projectArr[ $proj->id() ] = array(
-					'name' => $proj->name(),
-					'url' => $router->url($proj->id())
-				);
+				$rootStructures[] = $this->makeFolderForProject($project);
 			}
 		}
 		catch (\Exception $ex)
 		{
-			$projectArr = array();
+			$rootStructures = array();
 		}
-		return $projectArr;
+		return $rootStructures;
+	}
+
+	/**
+	 * @param $project Project
+	 * @return array
+	 */
+	private function makeFolderForProject($project)
+	{
+		$folder = $this->makeCoreFolder($project->name());
+
+		$children = array();
+		$children[] = $this->makeEntry( 'Report', $this->reportRouter->url($project->id()) );
+		$children[] = $this->makeFolder( $project->folder() );
+
+		$this->append($children, $folder);
+
+		return $folder;
+	}
+
+	private function append($children, $dad)
+	{
+		$dad['children'] = $children;
+	}
+
+	private function makeCoreFolder($name)
+	{
+		return array('isFolder' => true, 'name' => $name);
+	}
+
+	private function makeEntry($title, $url)
+	{
+		return array('isFolder' => false, 'title' => $title, 'url' => $url);
+	}
+
+	/**
+	 * @param $folder Folder
+	 * @return array
+	 */
+	private function makeFolder($folder)
+	{
+		$folderStruct = $this->makeCoreFolder($folder->name());
+		$children = array();
+
+		foreach ($folder->subFolders() as $subFolder)
+		{
+			$children[] = $this->makeFolder($subFolder);
+		}
+
+		foreach ($folder->entries() as $entry)
+		{
+			$children[] = $this->makeEntry( $entry->title(), $this->entryRouter->url($entry->id()) );
+		}
+
+		$this->append($children, $folderStruct);
+
+		return $folderStruct;
 	}
 }

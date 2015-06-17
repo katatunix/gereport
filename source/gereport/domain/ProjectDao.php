@@ -16,5 +16,9 @@ interface ProjectDao
 	 * @return Project
 	 */
 	public function findById($id);
+
+	/**
+	 * @return Project[]
+	 */
 	public function findByAllAndSortByName();
 }

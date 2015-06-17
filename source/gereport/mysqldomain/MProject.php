@@ -2,6 +2,7 @@
 
 namespace gereport\mysqldomain;
 
+use gereport\domain\Folder;
 use gereport\domain\Project;
 
 class MProject extends MBO implements Project
@@ -33,5 +34,14 @@ class MProject extends MBO implements Project
 		$statement->close();
 		if ($message) throw new \Exception($message);
 		return $ok;
+	}
+
+	/**
+	 * @return Folder
+	 */
+	public function folder()
+	{
+		$folderId = $this->retrieve('project', 'folderId');
+		return new MFolder($this->link, $folderId);
 	}
 }

@@ -32,3 +32,8 @@
 		$('#jstree1').jstree({'plugins':["wholerow"]});
 	});
 </script>
+
+<?php
+$tree = $this->info->tree();
+var_dump($tree);
+?>

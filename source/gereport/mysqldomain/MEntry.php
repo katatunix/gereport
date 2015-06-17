@@ -39,21 +39,6 @@ class MEntry extends MBO implements Entry
 		return $this->retrieve('entry', 'lastEditedTime');
 	}
 
-	public function projectId()
-	{
-		return $this->retrieve('entry', 'projectId');
-	}
-
-	public function projectName()
-	{
-		$projectId = $this->projectId();
-		if ($projectId)
-		{
-			return (new MProject($this->link, $projectId))->name();
-		}
-		throw new \Exception('This is an overall entry');
-	}
-
 	public function update($title, $content, $editorId)
 	{
 		if (!$title) throw new \Exception('The entry title is empty');

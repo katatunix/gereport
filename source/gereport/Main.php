@@ -244,7 +244,9 @@ class Main
 		$bannerView = $bannerController->process();
 
 		// Sidebar
-		$sidebarController = new SidebarController($this->daoFactory->project(), $this->config);
+		$r = $this->config->rootUrl();
+		$sidebarController = new SidebarController($this->daoFactory->project(), $this->config,
+			new EntryRouter($r), new ReportRouter($r));
 		$sidebarView = $sidebarController->process();
 
 		// Main
