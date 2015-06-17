@@ -16,26 +16,20 @@ class MainView extends View
 	 * @var View
 	 */
 	private $sidebar;
-	/**
-	 * @var View
-	 */
-	private $footer;
 
 	/**
 	 * @param Config $config
 	 * @param View $content
 	 * @param View $banner
 	 * @param View $sidebar
-	 * @param View $footer
 	 */
-	public function __construct($config, $content, $banner, $sidebar, $footer)
+	public function __construct($config, $content, $banner, $sidebar)
 	{
 		parent::__construct($config, $content->title());
 
 		$this->content = $content;
 		$this->banner = $banner;
 		$this->sidebar = $sidebar;
-		$this->footer = $footer;
 	}
 
 	public function render()

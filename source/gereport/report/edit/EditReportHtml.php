@@ -1,6 +1,6 @@
-<h2><?= $this->title ?></h2>
+<h3><i class="glyphicon glyphicon-edit"></i> <?= htmlspecialchars($this->title) ?></h3>
 
-<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		tinymce.init({
@@ -15,18 +15,17 @@
 	});
 </script>
 
-<form method="post" action="">
-	<b>Compose a new content for the report</b><br /><br />
-	<?php if ($msg = $this->info->message()) { ?>
-		<p class="errorMessage"><?= $msg ?></p>
-		<br />
-	<?php } ?>
-	<p><textarea name="<?= $this->info->contentKey() ?>" id="content"
-				 class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
+<form role="form" method="post" action="">
+	<h4>Compose report content</h4>
 
-	<br />
-	<p>
-		<input type="submit" value="Save report" />
-		<input type="button" value="Cancel" onclick="window.open('<?= $this->info->nextUrl() ?>', '_self')" />
-	</p>
+	<?php if ($msg = $this->info->message()) { ?>
+		<div class="alert alert-danger"><?= htmlspecialchars($msg) ?></div>
+	<?php } ?>
+
+	<div class="form-group">
+		<textarea class="form-control" name="<?= $this->info->contentKey() ?>" id="content"><?= htmlspecialchars($this->info->content()) ?></textarea>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Save report</button>
+	<button type="button" class="btn btn-default" onclick="window.open('<?= htmlspecialchars($this->info->nextUrl()) ?>', '_self')">Cancel</button>
 </form>

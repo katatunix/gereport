@@ -1,3 +1,5 @@
-<h2><?= $this->title ?></h2>
+<h3><i class="glyphicon glyphicon-cog"></i> <?= htmlspecialchars($this->title) ?></h3>
 
-<a href="<?= $this->cpassUrl ?>">Change password</a>
+<div class="list-group">
+	<a href="<?= $this->cpassUrl ?>" class="list-group-item">Change password</a>
+</div>

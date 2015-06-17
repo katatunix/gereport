@@ -77,7 +77,7 @@ class LoginController implements Controller, LoginViewInfo
 				$this->gotoIndex();
 				return null;
 			}
-			$this->message = 'Login failed';
+			$this->message = 'Incorrect username or password';
 		}
 
 		return new LoginView($this->config, $this);

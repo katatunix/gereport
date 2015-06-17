@@ -30,7 +30,7 @@ class MMember extends MBO implements Member
 
 		$statement = $this->link->prepare('UPDATE `member` SET `password` = ? WHERE `id` = ?');
 		$statement->bind_param('si', $new, $this->id);
-		$ok = $statement->execute() && $this->link->affected_rows > 0;
+		$ok = $statement->execute();
 		$statement->close();
 
 		if (!$ok)

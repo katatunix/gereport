@@ -1,7 +1,7 @@
 html { overflow-y:scroll; background:#D9E3CB url('tree.png') left bottom fixed no-repeat; }
 body { background:transparent; line-height:1.6em; }
 .list-group-item-text { line-height:1.6em; }
-.container { min-width:320px; max-width:960px; }
+.container { min-width:320px; width:80%; }
 #head { background:#333; border-bottom:4px solid #73796B; min-height:75px; }
 #logo { margin:0; padding:0; height:60px; }
 #logo span { position:absolute; right:0; top:1px; font-size:10px; background:#D9E3CB; box-shadow:0 0 4px black; padding:1px 6px 3px 6px; border-radius:4px; text-indent:0; color:black; font-weight:bold; }
@@ -15,7 +15,7 @@ body { background:transparent; line-height:1.6em; }
 #menu > .active > a:hover { background:white; color:black; text-shadow:1px 1px 0 rgba(255,255,255,0.5); }
 #head form { margin:14px auto; max-width:240px; }
 #head input { border-radius:10px; background:white url('find.png') 10px center no-repeat; padding-left:32px; }
-.page { margin-top:-10px; background:white; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.7); padding-top:20px; padding-bottom:15px; display:none; }
+.page { margin-top:-10px; background:white; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.7); padding-top:20px; padding-bottom:15px; }
 h2 { margin:0 0 1em 0; padding:0 0 0.75em 0; text-align:center; color:#333; border-bottom:1px dotted #666; }
 h3 { text-align:left; color:#73796B; font-family:Georgia, serif; font-style:italic; padding:0.5em; border-bottom:1px dotted; margin:0 0 1em 0; }
 h3 > i { font-size:0.6em; }
@@ -74,7 +74,7 @@ pre code strong { color:#000; }
 .list-group-item-text { color:#666; }
 pre .point { display:inline-block; border-radius:5px; width:100%; padding:5px 0; }
 
-#jstree1, #jstree2, .demo { max-width:100%; overflow:auto; font:10px Verdana, sans-serif; box-shadow:0 0 5px #ccc; padding:10px; border-radius:5px; }
+.demo { height: 600px; max-width:100%; overflow:auto; box-shadow:0 0 5px #ccc; padding:10px; border-radius:5px; font:11px Consolas, sans-serif; }
 
 #plugins .demo, #plugins pre { min-height:200px; }
 

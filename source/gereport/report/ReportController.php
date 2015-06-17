@@ -100,7 +100,7 @@ class ReportController implements Controller, ReportViewInfo
 			$this->session->clearMessage();
 		}
 
-		return new ReportView($this->config, $projectName, $this);
+		return new ReportView($this->config, 'Report for ' . $projectName, $this);
 	}
 
 	public function projectId()

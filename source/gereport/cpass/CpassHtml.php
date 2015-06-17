@@ -1,34 +1,35 @@
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#<?= $this->info->oldKey() ?>').focus();
+<script>
+	$(function() {
+		$('#old').focus();
 	});
 </script>
 
-<h2><?= $this->title ?></h2>
+<h3><i class="glyphicon glyphicon-edit"></i> <?= htmlspecialchars($this->title) ?></h3>
 
-<?php if ($this->info->message()) { ?>
-	<p class="<?= $this->info->success() ? 'infoMessage' : 'errorMessage' ?>">
-		<?= $this->info->message() ?>
-	</p>
+<?php if ($msg = $this->info->message()) { ?>
+	<div class="alert <?= $this->info->success() ? 'alert-success' : 'alert-danger' ?>">
+		<?= htmlspecialchars($msg) ?>
+	</div>
 <?php } ?>
 
-<form method="post" action="">
-	<table cellspacing="10">
-		<tr>
-			<td align="right">Current password</td>
-			<td><input type="password" name="<?= $this->info->oldKey() ?>" id="oldPassword" class="memberInfoTextBox" value="" /></td>
-		</tr>
-		<tr>
-			<td align="right">New password</td>
-			<td><input type="password" name="<?= $this->info->newKey() ?>" class="memberInfoTextBox" value="" /></td>
-		</tr>
-		<tr>
-			<td align="right">Confirm password</td>
-			<td><input type="password" name="<?= $this->info->confirmKey() ?>" class="memberInfoTextBox" value="" /></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><input type="submit" value="Save" /></td>
-		</tr>
-	</table>
-</form>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<form role="form" method="post" action="">
+			<div class="form-group">
+				<label for="old">Current password</label>
+				<input type="password" class="form-control" id="old" name="<?= $this->info->oldKey() ?>">
+			</div>
+			<div class="form-group">
+				<label for="new">New password</label>
+				<input type="password" class="form-control" id="new" name="<?= $this->info->newKey() ?>">
+			</div>
+			<div class="form-group">
+				<label for="confirm">Confirm password</label>
+				<input type="password" class="form-control" id="confirm" name="<?= $this->info->confirmKey() ?>">
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+	<div class="col-md-3"></div>
+</div>

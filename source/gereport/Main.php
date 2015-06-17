@@ -16,7 +16,6 @@ use gereport\entry\EntryController;
 use gereport\entry\EntryRequest;
 use gereport\entry\EntryRouter;
 use gereport\error\Error404View;
-use gereport\footer\FooterView;
 use gereport\index\IndexView;
 use gereport\login\LoginController;
 use gereport\login\LoginRequest;
@@ -25,9 +24,6 @@ use gereport\logout\LogoutController;
 use gereport\logout\LogoutRouter;
 use gereport\options\OptionsController;
 use gereport\options\OptionsRouter;
-use gereport\projecthome\ProjectHomeController;
-use gereport\projecthome\ProjectHomeRequest;
-use gereport\projecthome\ProjectHomeRouter;
 use gereport\report\add\AddReportRequest;
 use gereport\report\add\AddReportRouter;
 use gereport\report\add\AddReportController;
@@ -86,10 +82,6 @@ class Main
 		else if ($rt == CpassRouter::ROUTER)
 		{
 			$this->handleCpass($httpRequest);
-		}
-		else if ($rt == ProjectHomeRouter::ROUTER)
-		{
-			$this->handleProjectHome($httpRequest);
 		}
 		else if ($rt == ReportRouter::ROUTER)
 		{
@@ -169,16 +161,6 @@ class Main
 		$request = new CpassRequest($httpRequest, $router);
 		$memberDao = $this->daoFactory->member();
 		$controller = new CpassController($request, $this->session, $memberDao, $this->config, $router);
-		$view = $controller->process();
-
-		$this->renderMainView($view);
-	}
-
-	private function handleProjectHome($httpRequest)
-	{
-		$router = new ProjectHomeRouter($this->config->rootUrl());
-		$request = new ProjectHomeRequest($httpRequest, $router);
-		$controller = new ProjectHomeController($request, $this->config, $this->daoFactory->project());
 		$view = $controller->process();
 
 		$this->renderMainView($view);
@@ -265,11 +247,8 @@ class Main
 		$sidebarController = new SidebarController($this->daoFactory->project(), $this->config);
 		$sidebarView = $sidebarController->process();
 
-		// Footer
-		$footerView = new FooterView($this->config);
-
 		// Main
-		$mainView = new MainView($this->config, $contentView, $bannerView, $sidebarView, $footerView);
+		$mainView = new MainView($this->config, $contentView, $bannerView, $sidebarView);
 		$mainView->render();
 	}
 }
