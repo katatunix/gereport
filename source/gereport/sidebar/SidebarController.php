@@ -86,7 +86,7 @@ class SidebarController implements Controller, SidebarViewInfo
 		return $folder;
 	}
 
-	private function append($children, $dad)
+	private function append(&$children, &$dad)
 	{
 		$dad['children'] = $children;
 	}

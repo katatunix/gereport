@@ -1,39 +1,42 @@
+<?php function renderEntry($entry) { ?>
+	<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'><a href="<?= $entry['url'] ?>"><?= $entry['title'] ?></a></li>
+<?php } ?>
+
+<?php function renderFolder($folder) { ?>
+	<li><?= $folder['name'] ?>
+		<ul>
+			<?php foreach ($folder['children'] as $item) {
+				renderItem($item);
+			} ?>
+		</ul>
+<?php } ?>
+
+<?php function renderItem($item) {
+	if ($item['isFolder']) {
+		renderFolder($item);
+	} else {
+		renderEntry($item);
+	}
+} ?>
+
 <div id="jstree1" class="demo">
 	<ul>
-		<li>Root node 1
-			<ul>
-				<li data-jstree='{ "icon" : "tree-icon.png" }'><a href="http://google.com">Suede</a></li>
-				<li data-jstree='{ "icon" : "tree-icon.png" }'>custom icon URL</li>
-				<li data-jstree='{ "opened" : true }'>initially open
-					<ul>
-						<li>Test folder
-							<ul>
-								<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'>Nghia Bui</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>Kata learns to code
-					<ul>
-						<li data-jstree='{ "icon" : "glyphicon glyphicon-file", "selected" : true }'>Meat! is a new Git collaboration platform for web developers</li>
-						<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'>Apple</li>
-						<li data-jstree='{ "icon" : "glyphicon glyphicon-file" }'>Banana</li>
-					</ul>
-				</li>
-				<li data-jstree='{ "icon" : "glyphicon glyphicon-leaf" }'>Custom icon class (bootstrap)</li>
-			</ul>
-		</li>
-		<li>Root node 2</li>
+		<?php $tree = $this->info->tree();
+		foreach ($tree as $item) {
+			renderItem($item);
+		} ?>
+
 	</ul>
 </div>
 
 <script>
 	$(function () {
 		$('#jstree1').jstree({'plugins':["wholerow"]});
+
+		$('#jstree1').on("changed.jstree", function (e, data) {
+			if (data.node && data.node.a_attr && data.node.a_attr.href.length > 1) {
+				window.location = data.node.a_attr.href;
+			}
+		});
 	});
 </script>
-
-<?php
-$tree = $this->info->tree();
-var_dump($tree);
-?>
