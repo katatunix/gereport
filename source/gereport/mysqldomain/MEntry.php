@@ -66,9 +66,7 @@ class MEntry extends MBO implements Entry
 
 	public function canBeManuplatedByMember($memberId)
 	{
-		$projectId = $this->projectId();
-		if (!$projectId) return true;
-
-		return (new MProject($this->link, $projectId))->hasMember($memberId);
+		// TODO
+		return $memberId ? true : false;
 	}
 }

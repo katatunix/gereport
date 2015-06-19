@@ -119,4 +119,9 @@ class MFolder extends MBO implements Folder {
 		if (!$ok) throw new \Exception('Could not retrieve the folder entries');
 		return $entries;
 	}
+
+	public function rename($newName)
+	{
+
+	}
 }

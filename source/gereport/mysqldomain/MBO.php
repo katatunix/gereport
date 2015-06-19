@@ -8,7 +8,6 @@
 
 namespace gereport\mysqldomain;
 
-
 abstract class MBO
 {
 	/**

@@ -2,11 +2,13 @@
 
 namespace gereport;
 
+use gereport\domain\FolderDao;
 use gereport\domain\MemberDao;
 use gereport\domain\EntryDao;
 use gereport\domain\ProjectDao;
 use gereport\domain\ReportDao;
 use gereport\mysqldomain\MEntryDao;
+use gereport\mysqldomain\MFolderDao;
 use gereport\mysqldomain\MMemberDao;
 use gereport\mysqldomain\MProjectDao;
 use gereport\mysqldomain\MReportDao;
@@ -37,6 +39,11 @@ class DaoFactory
 	 * @var EntryDao
 	 */
 	private $entry;
+
+	/**
+	 * @var FolderDao
+	 */
+	private $folder;
 
 	public function __construct($host, $username, $password, $dbname)
 	{
@@ -81,11 +88,20 @@ class DaoFactory
 	}
 
 	/**
-	 * @return MReportDao
+	 * @return ReportDao
 	 */
 	public function report()
 	{
 		if (!$this->report) $this->report = new MReportDao($this->link);
 		return $this->report;
+	}
+
+	/**
+	 * @return FolderDao
+	 */
+	public function folder()
+	{
+		if (!$this->folder) $this->folder = new MFolderDao($this->link);
+		return $this->folder;
 	}
 }

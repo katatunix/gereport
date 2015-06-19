@@ -1,1 +1,1 @@
-<p align="center"><img src="<?= $this->config->resDirUrl() ?>images/error403.jpg" /></p>
+<p align="center"><img src="<?= $this->config->resDirUrl() ?>error403.jpg" /></p>

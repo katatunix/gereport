@@ -16,6 +16,9 @@ use gereport\entry\EntryController;
 use gereport\entry\EntryRequest;
 use gereport\entry\EntryRouter;
 use gereport\error\Error404View;
+use gereport\foptions\FoptionsController;
+use gereport\foptions\FoptionsRequest;
+use gereport\foptions\FoptionsRouter;
 use gereport\index\IndexView;
 use gereport\login\LoginController;
 use gereport\login\LoginRequest;
@@ -111,22 +114,35 @@ class Main
 		{
 			$this->handleEditEntry($httpRequest);
 		}
+		else if ($rt == FoptionsRouter::ROUTER)
+		{
+			$this->handleFoptions($httpRequest);
+		}
 		else
 		{
 			$this->handleNotFound($httpRequest);
 		}
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleIndex($httpRequest)
 	{
 		$this->renderMainView(new IndexView($this->config), $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleNotFound($httpRequest)
 	{
 		$this->renderMainView(new Error404View($this->config), $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleLogin($httpRequest)
 	{
 		$router = new LoginRouter($this->config->rootUrl());
@@ -143,6 +159,9 @@ class Main
 		(new LogoutController($this->session, $this->config))->process();
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleOptions($httpRequest)
 	{
 		$r = $this->config->rootUrl();
@@ -156,6 +175,9 @@ class Main
 		);
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleCpass($httpRequest)
 	{
 		$router = new CpassRouter($this->config->rootUrl());
@@ -167,6 +189,9 @@ class Main
 		$this->renderMainView($view, $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleReport($httpRequest)
 	{
 		$router = new ReportRouter($this->config->rootUrl());
@@ -177,6 +202,9 @@ class Main
 		$this->renderMainView($view, $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleAddReport($httpRequest)
 	{
 		$router = new AddReportRouter($this->config->rootUrl());
@@ -185,6 +213,9 @@ class Main
 		$controller->process();
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleEditReport($httpRequest)
 	{
 		$router = new EditReportRouter($this->config->rootUrl());
@@ -196,6 +227,9 @@ class Main
 		$this->renderMainView($view, $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleDeleteReport($httpRequest)
 	{
 		$router = new DeleteReportRouter($this->config->rootUrl());
@@ -204,6 +238,9 @@ class Main
 		$controller->process();
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleEntry($httpRequest)
 	{
 		$router = new EntryRouter($this->config->rootUrl());
@@ -214,6 +251,9 @@ class Main
 		$this->renderMainView($view, $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleAddEntry($httpRequest)
 	{
 		$router = new AddEntryRouter($this->config->rootUrl());
@@ -226,12 +266,26 @@ class Main
 		$this->renderMainView($view, $httpRequest->url());
 	}
 
+	/**
+	 * @param $httpRequest HttpRequest
+	 */
 	private function handleEditEntry($httpRequest)
 	{
 		$router = new EditEntryRouter($this->config->rootUrl());
 		$request = new EditEntryRequest($httpRequest, $router);
 		$controller = new EditEntryController($request, $this->session,
 			$this->daoFactory->entry(), $this->config, $router);
+		$view = $controller->process();
+
+		$this->renderMainView($view, $httpRequest->url());
+	}
+
+	private function handleFoptions($httpRequest)
+	{
+		$router = new FoptionsRouter($this->config->rootUrl());
+		$request = new FoptionsRequest($httpRequest, $router);
+		$controller = new FoptionsController($request, $this->session,
+			$this->daoFactory->folder(), $this->config, $router);
 		$view = $controller->process();
 
 		$this->renderMainView($view, $httpRequest->url());
@@ -248,7 +302,8 @@ class Main
 		// Sidebar
 		$r = $this->config->rootUrl();
 		$sidebarController = new SidebarController($this->session, $this->daoFactory->project(), $this->config,
-			new EntryRouter($r), new ReportRouter($r), $currentUrl);
+			new EntryRouter($r), new ReportRouter($r), $currentUrl
+		);
 		$sidebarView = $sidebarController->process();
 
 		// Main

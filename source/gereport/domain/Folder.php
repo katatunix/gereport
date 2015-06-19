@@ -13,6 +13,7 @@ interface Folder
 {
 	public function id();
 	public function name();
+	public function rename($newName);
 
 	/**
 	 * @return Folder[]

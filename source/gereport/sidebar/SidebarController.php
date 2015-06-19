@@ -8,6 +8,7 @@ use gereport\domain\Project;
 use gereport\domain\ProjectDao;
 use gereport\Controller;
 use gereport\entry\EntryRouter;
+use gereport\foptions\FoptionsRouter;
 use gereport\report\ReportRouter;
 use gereport\Session;
 use gereport\View;
@@ -38,15 +39,23 @@ class SidebarController implements Controller, SidebarViewInfo
 	 */
 	private $reportRouter;
 
+	/**
+	 * @var FoptionsRouter
+	 */
+	private $foptionsRouter;
+
 	private $currentUrl;
 
-	public function __construct($session, $projectDao, $config, $entryRouter, $reportRouter, $currentUrl)
+	public function __construct($session, $projectDao, $config,
+								$entryRouter, $reportRouter, $foptionsRouter,
+								$currentUrl)
 	{
 		$this->session = $session;
 		$this->projectDao = $projectDao;
 		$this->config = $config;
 		$this->entryRouter = $entryRouter;
 		$this->reportRouter = $reportRouter;
+		$this->foptionsRouter = $foptionsRouter;
 		$this->currentUrl = $currentUrl;
 	}
 
