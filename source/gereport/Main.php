@@ -302,7 +302,8 @@ class Main
 		// Sidebar
 		$r = $this->config->rootUrl();
 		$sidebarController = new SidebarController($this->session, $this->daoFactory->project(), $this->config,
-			new EntryRouter($r), new ReportRouter($r), $currentUrl
+			new EntryRouter($r), new ReportRouter($r), new FoptionsRouter($r),
+			$currentUrl
 		);
 		$sidebarView = $sidebarController->process();
 
