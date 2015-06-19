@@ -9,6 +9,8 @@
 namespace tests;
 
 
+use gereport\StringUtils;
+
 class MEntryDaoTest extends \PHPUnit_Framework_TestCase
 {
 	/**
@@ -27,7 +29,9 @@ class MEntryDaoTest extends \PHPUnit_Framework_TestCase
 		//$entryDao = $daoFactory->entry();
 
 		//$entryDao->insert('Hello world', 'This is the first entry ever', 100, 1, '2015-07-15 15:00', 1, '2015-07-15 15:00');
-		$this->assertNotNull(null);
+		//$this->assertNotNull(null);
+		$this->assertEquals('0017', StringUtils::addZero(17, 4));
+		$this->assertEquals('017', StringUtils::addZero(17, 3));
 	}
 
 }

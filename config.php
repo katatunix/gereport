@@ -4,23 +4,21 @@ error_reporting(E_ALL);
 
 {
 	// Get root dir, e.g. d:/xampp/htdocs/mysite/
-	$rootDir = realpath(dirname(__FILE__)) . '/';
-	define('__ROOT_DIR', $rootDir);
+	$__rootDir = realpath(dirname(__FILE__)) . '/';
+	define('__ROOT_DIR', $__rootDir);
 
 	// Get root url, e.g. /mysite/
-	$rootUrl = '/';
-	$phpSelf = $_SERVER['PHP_SELF'];
-	$index = strrpos($phpSelf, '/');
-	if ($index)
+	$__rootUrl = '/';
+	$__phpSelf = $_SERVER['PHP_SELF'];
+	$__index = strrpos($__phpSelf, '/');
+	if ($__index)
 	{
-		$rootUrl = substr($phpSelf, 0, $index + 1);
+		$__rootUrl = substr($__phpSelf, 0, $__index + 1);
 	}
-	define('__ROOT_URL', $rootUrl);
+	define('__ROOT_URL', $__rootUrl);
 }
 
-define('__SOURCE_DIR_PATH', __ROOT_DIR . 'source/');
-define('__PHP_EXT', '.php');
+set_include_path(__ROOT_DIR . 'source/' . PATH_SEPARATOR . get_include_path());
 
-spl_autoload_register(function ($class) {
-	require_once __SOURCE_DIR_PATH . $class . __PHP_EXT;
-});
+spl_autoload_extensions('.php');
+spl_autoload_register('spl_autoload');

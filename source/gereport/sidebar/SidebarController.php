@@ -140,7 +140,7 @@ class SidebarController implements Controller, SidebarViewInfo
 
 		if ($this->session->hasLogged())
 		{
-			$children[] = $this->makeEntry('Folder options', '#');
+			$children[] = $this->makeEntry('Folder options', $this->foptionsRouter->url($folder->id()));
 		}
 
 		foreach ($folder->entries() as $entry)
