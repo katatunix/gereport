@@ -2,48 +2,35 @@
 
 namespace gereport\report;
 
-use gereport\Config;
-use gereport\Controller;
-use gereport\DaoFactory;
+use gereport\Component;
 use gereport\DatetimeUtils;
-use gereport\index\IndexRouter;
 use gereport\Message;
 use gereport\Redirector;
-use gereport\report\add\AddReportRouter;
-use gereport\report\delete\DeleteReportRouter;
-use gereport\report\edit\EditReportRouter;
-use gereport\Session;
+use gereport\router\AddReportRouter;
+use gereport\router\DeleteReportRouter;
+use gereport\router\EditReportRouter;
+use gereport\router\IndexRouter;
+use gereport\router\ReportRouter;
 use gereport\View;
 
-class ReportController implements Controller, ReportViewInfo
+class ReportComponent extends Component implements ReportViewInfo
 {
+	private $date;
+
+	/**
+	 * @var Message
+	 */
+	private $messageObj;
+
 	/**
 	 * @var ReportRequest
 	 */
 	private $request;
 
 	/**
-	 * @var Session
-	 */
-	private $session;
-
-	/**
-	 * @var DaoFactory
-	 */
-	private $daoFactory;
-
-	/**
-	 * @var Config
-	 */
-	private $config;
-
-	/**
 	 * @var ReportRouter
 	 */
 	private $reportRouter;
-
-	private $date;
-
 	/**
 	 * @var AddReportRouter
 	 */
@@ -55,27 +42,14 @@ class ReportController implements Controller, ReportViewInfo
 	private $deleteReportRouter;
 
 	/**
-	 * @var Message
-	 */
-	private $messageObj;
-
-	public function __construct($request, $session, $daoFactory, $config, $reportRouter)
-	{
-		$this->request = $request;
-		$this->session = $session;
-		$this->daoFactory = $daoFactory;
-		$this->config = $config;
-		$this->reportRouter = $reportRouter;
-
-		$this->addReportRouter = new AddReportRouter($this->config->rootUrl());
-		$this->deleteReportRouter = new DeleteReportRouter($this->config->rootUrl());
-	}
-
-	/**
 	 * @return View
 	 */
-	public function process()
+	public function view()
 	{
+		$rootUrl = $this->config->rootUrl();
+		$this->reportRouter = new ReportRouter($rootUrl);
+		$this->request = new ReportRequest($this->httpRequest, $this->reportRouter);
+
 		$projectName = null;
 		try
 		{
@@ -83,7 +57,7 @@ class ReportController implements Controller, ReportViewInfo
 		}
 		catch (\Exception $ex)
 		{
-			$url = (new IndexRouter($this->config->rootUrl()))->url();
+			$url = (new IndexRouter($rootUrl))->url();
 			(new Redirector( $url ))->redirect();
 			return null;
 		}
@@ -99,6 +73,9 @@ class ReportController implements Controller, ReportViewInfo
 			$this->messageObj = $this->session->message();
 			$this->session->clearMessage();
 		}
+
+		$this->addReportRouter = new AddReportRouter($rootUrl);
+		$this->deleteReportRouter = new DeleteReportRouter($rootUrl);
 
 		return new ReportView($this->config, 'Report for ' . $projectName, $this);
 	}
@@ -143,14 +120,11 @@ class ReportController implements Controller, ReportViewInfo
 
 	/**
 	 * @return array
-	 *        Keys: 'id', 'memberUsername', 'isVisitor', 'datetimeAdd', 'canBeManuplated',
-	 *                'content', 'editUrl', 'deleteUrl'
 	 */
 	public function reports()
 	{
 		$r = $this->config->rootUrl();
 		$editRouter = new EditReportRouter($r);
-		$deleteRouter = new DeleteReportRouter($r);
 
 		$arr = array();
 		try
@@ -167,7 +141,7 @@ class ReportController implements Controller, ReportViewInfo
 					'canBeManuplated' => $report->canBeManuplatedByMember($this->session->loggedMemberId()),
 					'content' => $report->content(),
 					'editUrl' => $editRouter->url($rid, $cUrl),
-					'deleteUrl' => $deleteRouter->url($rid, $cUrl)
+					'deleteUrl' => $this->deleteReportRouter->url($rid, $cUrl)
 				);
 			}
 		}

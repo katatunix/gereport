@@ -1,6 +1,6 @@
 <?php
 
-namespace gereport\entry\add;
+namespace gereport\router;
 
 use gereport\Router;
 

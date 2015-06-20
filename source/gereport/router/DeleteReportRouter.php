@@ -1,6 +1,6 @@
 <?php
 
-namespace gereport\report\delete;
+namespace gereport\router;
 
 use gereport\Router;
 

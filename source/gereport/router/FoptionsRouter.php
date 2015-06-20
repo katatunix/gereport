@@ -6,7 +6,7 @@
  * Time: 10:24 AM
  */
 
-namespace gereport\foptions;
+namespace gereport\router;
 
 
 use gereport\Router;

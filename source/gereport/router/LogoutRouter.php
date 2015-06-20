@@ -1,6 +1,6 @@
 <?php
 
-namespace gereport\logout;
+namespace gereport\router;
 
 use gereport\Router;
 

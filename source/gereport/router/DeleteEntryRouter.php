@@ -6,7 +6,7 @@
  * Time: 7:23 PM
  */
 
-namespace gereport\entry\delete;
+namespace gereport\router;
 
 
 class DeleteEntryRouter {

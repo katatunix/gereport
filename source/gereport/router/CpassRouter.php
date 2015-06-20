@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/2/2015
- * Time: 6:06 PM
- */
 
-namespace gereport\cpass;
-
+namespace gereport\router;
 
 use gereport\Router;
 

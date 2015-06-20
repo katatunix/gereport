@@ -23,5 +23,10 @@ interface MemberDao
 	 */
 	public function findByAuthen($username, $password);
 
+	/**
+	 * @param $projectId
+	 * @param $date
+	 * @return Member[]
+	 */
 	public function findByNoReportIn($projectId, $date);
 }

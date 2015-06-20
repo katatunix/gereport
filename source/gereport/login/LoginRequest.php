@@ -3,6 +3,7 @@
 namespace gereport\login;
 
 use gereport\BaseRequest;
+use gereport\router\LoginRouter;
 
 class LoginRequest extends BaseRequest
 {

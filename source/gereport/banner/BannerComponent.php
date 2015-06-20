@@ -2,45 +2,19 @@
 
 namespace gereport\banner;
 
-use gereport\Config;
-use gereport\domain\MemberDao;
-use gereport\Controller;
-use gereport\index\IndexRouter;
-use gereport\login\LoginRouter;
-use gereport\logout\LogoutRouter;
-use gereport\options\OptionsRouter;
-use gereport\Session;
+use gereport\Component;
+use gereport\router\IndexRouter;
+use gereport\router\LoginRouter;
+use gereport\router\LogoutRouter;
+use gereport\router\OptionsRouter;
 use gereport\View;
 
-class BannerController implements Controller, BannerViewInfo
+class BannerComponent extends Component implements BannerViewInfo
 {
-	/**
-	 * @var Session
-	 */
-	private $session;
-	/**
-	 * @var MemberDao
-	 */
-	private $memberDao;
-	/**
-	 * @var Config
-	 */
-	private $config;
-
-	private $currentUrl;
-
-	public function __construct($session, $memberDao, $config, $currentUrl)
-	{
-		$this->session = $session;
-		$this->memberDao = $memberDao;
-		$this->config = $config;
-		$this->currentUrl = $currentUrl;
-	}
-
 	/**
 	 * @return View
 	 */
-	public function process()
+	public function view()
 	{
 		return new BannerView($this->config, $this);
 	}
@@ -53,7 +27,7 @@ class BannerController implements Controller, BannerViewInfo
 		{
 			try
 			{
-				$loggedMemberUsername = $this->memberDao->findById($memberId)->username();
+				$loggedMemberUsername = $this->daoFactory->member()->findById($memberId)->username();
 			}
 			catch (\Exception $ex)
 			{
@@ -64,7 +38,7 @@ class BannerController implements Controller, BannerViewInfo
 
 	public function currentUrl()
 	{
-		return $this->currentUrl;
+		return $this->httpRequest->url();
 	}
 
 	public function indexUrl()

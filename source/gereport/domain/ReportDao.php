@@ -9,6 +9,12 @@ interface ReportDao
 	 * @return Report
 	 */
 	public function findById($id);
+
+	/**
+	 * @param $projectId
+	 * @param $date
+	 * @return Report[]
+	 */
 	public function findByProjectAndDate($projectId, $date);
 
 	/**

@@ -2,67 +2,33 @@
 
 namespace gereport\sidebar;
 
-use gereport\Config;
+use gereport\Component;
 use gereport\domain\Folder;
 use gereport\domain\Project;
-use gereport\domain\ProjectDao;
-use gereport\Controller;
-use gereport\entry\EntryRouter;
-use gereport\foptions\FoptionsRouter;
-use gereport\report\ReportRouter;
-use gereport\Session;
+use gereport\router\EntryRouter;
+use gereport\router\FoptionsRouter;
+use gereport\router\ReportRouter;
 use gereport\View;
 
-class SidebarController implements Controller, SidebarViewInfo
+class SidebarComponent extends Component implements SidebarViewInfo
 {
 	/**
-	 * @var Session
+	 * @var ReportRouter
 	 */
-	private $session;
+	private $reportRouter;
 	/**
-	 * @var ProjectDao
+	 * @var FoptionsRouter
 	 */
-	private $projectDao;
-
-	/**
-	 * @var Config
-	 */
-	private $config;
-
+	private $foptionsRouter;
 	/**
 	 * @var EntryRouter
 	 */
 	private $entryRouter;
 
 	/**
-	 * @var ReportRouter
-	 */
-	private $reportRouter;
-
-	/**
-	 * @var FoptionsRouter
-	 */
-	private $foptionsRouter;
-
-	private $currentUrl;
-
-	public function __construct($session, $projectDao, $config,
-								$entryRouter, $reportRouter, $foptionsRouter,
-								$currentUrl)
-	{
-		$this->session = $session;
-		$this->projectDao = $projectDao;
-		$this->config = $config;
-		$this->entryRouter = $entryRouter;
-		$this->reportRouter = $reportRouter;
-		$this->foptionsRouter = $foptionsRouter;
-		$this->currentUrl = $currentUrl;
-	}
-
-	/**
 	 * @return View
 	 */
-	public function process()
+	public function view()
 	{
 		return new SidebarView($this->config, $this);
 	}
@@ -73,9 +39,14 @@ class SidebarController implements Controller, SidebarViewInfo
 	public function tree()
 	{
 		$rootStructures = array();
+		$rootUrl = $this->config->rootUrl();
+		$this->reportRouter = new ReportRouter($rootUrl);
+		$this->foptionsRouter = new FoptionsRouter($rootUrl);
+		$this->entryRouter = new EntryRouter($rootUrl);
+
 		try
 		{
-			foreach ($this->projectDao->findByAllAndSortByName() as $project)
+			foreach ($this->daoFactory->project()->findByAllAndSortByName() as $project)
 			{
 				$rootStructures[] = $this->makeFolderForProject($project);
 			}
@@ -89,7 +60,7 @@ class SidebarController implements Controller, SidebarViewInfo
 
 	public function currentUrl()
 	{
-		return $this->currentUrl;
+		return $this->httpRequest->url();
 	}
 
 	/**

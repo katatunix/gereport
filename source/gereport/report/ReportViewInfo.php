@@ -16,8 +16,6 @@ interface ReportViewInfo
 
 	/**
 	 * @return array
-	 * 		Keys: 'id', 'memberUsername', 'isVisitor', 'datetimeAdd', 'canBeManuplated',
-	 *				'content', 'editUrl', 'deleteUrl'
 	 */
 	public function reports();
 

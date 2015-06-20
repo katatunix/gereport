@@ -6,7 +6,7 @@
  * Time: 6:19 PM
  */
 
-namespace gereport\entry;
+namespace gereport\router;
 
 
 use gereport\Router;
