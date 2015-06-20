@@ -2,52 +2,16 @@
 
 namespace gereport\report\edit;
 
-use gereport\Config;
-use gereport\DatetimeUtils;
-use gereport\domain\ReportDao;
+use gereport\Component;
 use gereport\error\Error403View;
 use gereport\Redirector;
-use gereport\Session;
-use gereport\Controller;
+use gereport\router\EditReportRouter;
 use gereport\View;
 
-class EditReportController implements Controller, EditReportViewInfo
+class EditReportComponent extends Component implements EditReportViewInfo
 {
-	/**
-	 * @var EditReportRequest
-	 */
-	private $request;
-
-	/**
-	 * @var Session
-	 */
-	private $session;
-
-	/**
-	 * @var ReportDao
-	 */
-	private $reportDao;
-
-	/**
-	 * @var Config
-	 */
-	private $config;
-
-	/**
-	 * @var EditReportRouter
-	 */
-	private $router;
-
 	private $message, $reportContent;
-
-	public function __construct($request, $session, $reportDao, $config, $router)
-	{
-		$this->request = $request;
-		$this->session = $session;
-		$this->reportDao = $reportDao;
-		$this->config = $config;
-		$this->router = $router;
-	}
+	private $nextUrl, $contentKey;
 
 	private function error()
 	{
@@ -57,16 +21,22 @@ class EditReportController implements Controller, EditReportViewInfo
 	/**
 	 * @return View
 	 */
-	public function process()
+	public function view()
 	{
 		if (!$this->session->hasLogged()) return $this->error();
 
-		$report = $this->reportDao->findById($this->request->reportId());
+		$editReportRouter = new EditReportRouter($this->config->rootUrl());
+		$request = new EditReportRequest($this->httpRequest, $editReportRouter);
+
+		$this->contentKey = $editReportRouter->contentKey();
+		$this->nextUrl = $request->nextUrl();
+
+		$report = $this->daoFactory->report()->findById($request->reportId());
 		if (!$report) return $this->error();
 
 		$this->message = null;
 
-		if (!$this->request->isPostMethod())
+		if (!$request->isPostMethod())
 		{
 			try
 			{
@@ -79,11 +49,11 @@ class EditReportController implements Controller, EditReportViewInfo
 		}
 		else
 		{
-			$this->reportContent = $this->request->content();
+			$this->reportContent = $request->content();
 			$success = true;
 			try
 			{
-				$report->update($this->reportContent, DatetimeUtils::getCurDatetime());
+				$report->update($this->reportContent);
 			}
 			catch (\Exception $ex)
 			{
@@ -114,11 +84,11 @@ class EditReportController implements Controller, EditReportViewInfo
 
 	public function contentKey()
 	{
-		return $this->router->contentKey();
+		return $this->contentKey;
 	}
 
 	public function nextUrl()
 	{
-		return $this->request->nextUrl();
+		return $this->nextUrl;
 	}
 }

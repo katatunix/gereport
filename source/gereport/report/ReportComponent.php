@@ -47,6 +47,7 @@ class ReportComponent extends Component implements ReportViewInfo
 	public function view()
 	{
 		$rootUrl = $this->config->rootUrl();
+
 		$this->reportRouter = new ReportRouter($rootUrl);
 		$this->request = new ReportRequest($this->httpRequest, $this->reportRouter);
 

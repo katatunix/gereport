@@ -10,7 +10,10 @@ class Main
 		router\LogoutRouter::ROUTER		=> 'logout\\Logout',
 		router\OptionsRouter::ROUTER	=> 'options\\Options',
 		router\CpassRouter::ROUTER		=> 'cpass\\Cpass',
-		router\ReportRouter::ROUTER		=> 'report\\Report'
+		router\ReportRouter::ROUTER		=> 'report\\Report',
+		router\AddReportRouter::ROUTER	=> 'report\\add\\AddReport',
+		router\EditReportRouter::ROUTER	=> 'report\\edit\\EditReport',
+		router\DeleteReportRouter::ROUTER	=> 'report\\delete\\DeleteReport'
 	);
 
 	public function main()

@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 6/5/2015
- * Time: 10:11 PM
- */
 
 namespace gereport\report\add;
 
 use gereport\BaseRequest;
+use gereport\router\AddReportRouter;
 
 class AddReportRequest extends BaseRequest
 {

@@ -3,6 +3,7 @@
 namespace gereport\report\delete;
 
 use gereport\BaseRequest;
+use gereport\router\DeleteReportRouter;
 
 class DeleteReportRequest extends BaseRequest
 {

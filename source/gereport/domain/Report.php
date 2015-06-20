@@ -11,5 +11,5 @@ interface Report
 	public function isVisitor();
 	public function canBeManuplatedByMember($memberId);
 
-	public function update($content, $datetime);
+	public function update($content);
 }

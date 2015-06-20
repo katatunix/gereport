@@ -2,6 +2,7 @@
 
 namespace gereport\mysqldomain;
 
+use gereport\DatetimeUtils;
 use gereport\domain\Report;
 
 class MReport extends MBO implements Report
@@ -37,14 +38,14 @@ class MReport extends MBO implements Report
 		return $this->memberId() == $memberId;
 	}
 
-	public function update($content, $datetime)
+	public function update($content)
 	{
 		if (!$content) throw new \Exception('The report content is empty');
-		if (!$datetime) throw new \Exception('The report datetime is empty');
 
 		$statement = $this->link->prepare('
 			UPDATE `report` SET `content` = ?, `datetimeAdd` = ? WHERE `id` = ?
 		');
+		$datetime = DatetimeUtils::getCurDatetime();
 		$statement->bind_param('ssi', $content, $datetime, $this->id);
 
 		$message = null;
