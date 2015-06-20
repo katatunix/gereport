@@ -10,14 +10,14 @@ abstract class MainServlet extends Servlet
 	public function process()
 	{
 		// Content
-		$contentView = $this->createContentView();
+		$contentView = $this->createContentComponent()->view();
 
 		// Banner
-		$bannerComponent = new BannerComponent($this->httpRequest, $this->config, $this->session, $this->daoFactory);
+		$bannerComponent = new BannerComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 		$bannerView = $bannerComponent->view();
 
 		// Sidebar
-		$sidebarComponent = new SidebarComponent($this->httpRequest, $this->config, $this->session, $this->daoFactory);
+		$sidebarComponent = new SidebarComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 		$sidebarView = $sidebarComponent->view();
 
 		// Main
@@ -26,7 +26,7 @@ abstract class MainServlet extends Servlet
 	}
 
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected abstract function createContentView();
+	protected abstract function createContentComponent();
 }

@@ -2,16 +2,16 @@
 
 namespace gereport\cpass;
 
+use gereport\Component;
 use gereport\MainServlet;
-use gereport\View;
 
 class CpassServlet extends MainServlet
 {
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected function createContentView()
+	protected function createContentComponent()
 	{
-		return (new CpassComponent($this->httpRequest, $this->config, $this->session, $this->daoFactory))->view();
+		return new CpassComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 	}
 }

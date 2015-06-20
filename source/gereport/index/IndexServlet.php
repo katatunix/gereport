@@ -8,16 +8,16 @@
 
 namespace gereport\index;
 
+use gereport\Component;
 use gereport\MainServlet;
-use gereport\View;
 
 class IndexServlet extends MainServlet
 {
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected function createContentView()
+	protected function createContentComponent()
 	{
-		return new IndexView($this->config);
+		return new IndexComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 	}
 }

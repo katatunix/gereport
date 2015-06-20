@@ -2,16 +2,16 @@
 
 namespace gereport\login;
 
+use gereport\Component;
 use gereport\MainServlet;
-use gereport\View;
 
 class LoginServlet extends MainServlet
 {
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected function createContentView()
+	protected function createContentComponent()
 	{
-		return (new LoginComponent($this->httpRequest, $this->config, $this->session, $this->daoFactory))->view();
+		return new LoginComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 	}
 }

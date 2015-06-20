@@ -1,24 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 6/20/2015
- * Time: 6:07 PM
- */
 
 namespace gereport\error;
 
-
+use gereport\Component;
 use gereport\MainServlet;
-use gereport\View;
 
 class Error404Servlet extends MainServlet
 {
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected function createContentView()
+	protected function createContentComponent()
 	{
-		return new Error404View($this->config);
+		return new Error404Component($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 	}
 }

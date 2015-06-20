@@ -2,7 +2,6 @@
 
 namespace gereport;
 
-
 class Main
 {
 	private $servletMap = array(
@@ -32,7 +31,12 @@ class Main
 
 		if (!$servletName) $servletName = 'error\\Error404';
 		$servletName = '\\gereport\\' . $servletName . 'Servlet';
-		$servlet = new $servletName($httpRequest);
+		$servlet = new $servletName(
+			$httpRequest,
+			new Session(),
+			new Config(),
+			new DaoFactory('localhost', 'root', '', 'gereport')
+		);
 		$servlet->process();
 	}
 }

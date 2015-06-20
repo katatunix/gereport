@@ -2,16 +2,16 @@
 
 namespace gereport\options;
 
+use gereport\Component;
 use gereport\MainServlet;
-use gereport\View;
 
 class OptionsServlet extends MainServlet
 {
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected function createContentView()
+	protected function createContentComponent()
 	{
-		return (new OptionsComponent($this->httpRequest, $this->config, $this->session, $this->daoFactory))->view();
+		return new OptionsComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 	}
 }

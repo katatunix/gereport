@@ -1,24 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 6/20/2015
- * Time: 6:29 PM
- */
 
 namespace gereport\report;
 
-
+use gereport\Component;
 use gereport\MainServlet;
-use gereport\View;
 
 class ReportServlet extends MainServlet
 {
 	/**
-	 * @return View
+	 * @return Component
 	 */
-	protected function createContentView()
+	protected function createContentComponent()
 	{
-		return (new ReportComponent($this->httpRequest, $this->config, $this->session, $this->daoFactory))->view();
+		return new ReportComponent($this->httpRequest, $this->session, $this->config, $this->daoFactory);
 	}
 }
