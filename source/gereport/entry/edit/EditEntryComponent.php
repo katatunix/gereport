@@ -1,61 +1,37 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/11/2015
- * Time: 2:38 PM
- */
 
 namespace gereport\entry\edit;
 
-use gereport\Config;
-use gereport\Controller;
+use gereport\Component;
 use gereport\domain\Entry;
-use gereport\domain\EntryDao;
-use gereport\entry\Breadcrumb;
-use gereport\entry\EntryRouter;
 use gereport\error\Error403View;
-use gereport\Session;
+use gereport\router\EditEntryRouter;
+use gereport\router\EntryRouter;
 use gereport\View;
 
-class EditEntryController implements Controller, EditEntryViewInfo
+class EditEntryComponent extends Component implements EditEntryViewInfo
 {
-	/**
-	 * @var EditEntryRequest
-	 */
-	private $request;
-	/**
-	 * @var Session
-	 */
-	private $session;
-	/**
-	 * @var EntryDao
-	 */
-	private $entryDao;
-	/**
-	 * @var Config
-	 */
-	private $config;
-	/**
-	 * @var EditEntryRouter
-	 */
-	private $editEntryRouter;
-
-	private $entryContent;
 	private $entryTitle;
-
-	private $projectId, $projectName;
+	private $entryContent;
 
 	private $message;
 	private $success;
 
-	public function __construct($request, $session, $entryDao, $config, $editEntryRouter)
+	/**
+	 * @var EditEntryRouter
+	 */
+	private $editEntryRouter;
+	/**
+	 * @var EditEntryRequest
+	 */
+	private $request;
+
+	public function __construct($httpRequest, $session, $config, $daoFactory)
 	{
-		$this->request = $request;
-		$this->session = $session;
-		$this->entryDao = $entryDao;
-		$this->config = $config;
-		$this->editEntryRouter = $editEntryRouter;
+		parent::__construct($httpRequest, $session, $config, $daoFactory);
+
+		$this->editEntryRouter = new EditEntryRouter($this->config->rootUrl());
+		$this->request = new EditEntryRequest($this->httpRequest, $this->editEntryRouter);
 	}
 
 	private function error()
@@ -66,22 +42,15 @@ class EditEntryController implements Controller, EditEntryViewInfo
 	/**
 	 * @return View
 	 */
-	public function process()
+	public function view()
 	{
 		if (!$this->session->hasLogged()) return $this->error();
 
-		$entry = $this->entryDao->findById($this->request->entryId());
+		$entry = $this->daoFactory->entry()->findById($this->request->entryId());
 		if (!$entry) return $this->error();
 
 		$this->message = null;
 		$this->success = true;
-
-		$this->projectId = $entry->projectId();
-		if ($this->projectId)
-		{
-			try { $this->projectName = $entry->projectName(); }
-			catch (\Exception $ex) { return $this->error(); }
-		}
 
 		if (!$this->request->isPostMethod())
 		{
@@ -105,6 +74,7 @@ class EditEntryController implements Controller, EditEntryViewInfo
 			$this->entryContent = $entry->content();
 			$this->entryTitle = $entry->title();
 
+			// Because a message may come from the AddEntry page
 			if ($this->session->hasMessage())
 			{
 				$msgObj = $this->session->message();
@@ -169,15 +139,13 @@ class EditEntryController implements Controller, EditEntryViewInfo
 		return $this->success;
 	}
 
-	public function breadcrumb()
-	{
-		return (new Breadcrumb())->make(
-			$this->projectId, $this->projectName, $this->config->rootUrl()
-		);
-	}
-
 	public function entryUrl()
 	{
 		return (new EntryRouter($this->config->rootUrl()))->url($this->request->entryId());
+	}
+
+	public function categoryUrl()
+	{
+		return $this->entryUrl();
 	}
 }

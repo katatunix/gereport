@@ -3,7 +3,6 @@
 namespace gereport\banner;
 
 use gereport\Component;
-use gereport\router\IndexRouter;
 use gereport\router\LoginRouter;
 use gereport\router\LogoutRouter;
 use gereport\router\OptionsRouter;
@@ -39,11 +38,6 @@ class BannerComponent extends Component implements BannerViewInfo
 	public function currentUrl()
 	{
 		return $this->httpRequest->url();
-	}
-
-	public function indexUrl()
-	{
-		return (new IndexRouter($this->config->rootUrl()))->url();
 	}
 
 	public function optionsUrl()

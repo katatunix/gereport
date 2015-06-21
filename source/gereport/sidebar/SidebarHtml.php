@@ -3,12 +3,12 @@
 	$isActive = $entryUrl == $currentUrl;
 ?>
 	<li data-jstree='{ "icon" : "glyphicon glyphicon-file" <?= $isActive ? ', "selected" : true' : '' ?> }'>
-		<a href="<?= $entry['url'] ?>"><?= $entry['title'] ?></a>
+		<a href="<?= $entry['url'] ?>"><?= htmlspecialchars($entry['title']) ?></a>
 	</li>
 <?php } ?>
 
 <?php function renderFolder($folder, $currentUrl) { ?>
-	<li><?= $folder['name'] ?>
+	<li><?= htmlspecialchars($folder['name']) ?>
 		<ul>
 			<?php foreach ($folder['children'] as $item) {
 				renderItem($item, $currentUrl);

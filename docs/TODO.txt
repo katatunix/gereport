@@ -3,3 +3,5 @@
 * process HTML code entered by users
 
 * null exception problem
+
+* htmlspecialchars

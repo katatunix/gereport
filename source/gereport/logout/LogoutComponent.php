@@ -4,7 +4,6 @@ namespace gereport\logout;
 
 use gereport\Component;
 use gereport\Redirector;
-use gereport\router\IndexRouter;
 use gereport\View;
 
 class LogoutComponent extends Component
@@ -15,7 +14,7 @@ class LogoutComponent extends Component
 	public function view()
 	{
 		$this->session->clearLogin();
-		$indexUrl = (new IndexRouter($this->config->rootUrl()))->url();
-		(new Redirector($indexUrl))->redirect();
+		(new Redirector($this->config->rootUrl()))->redirect();
+		return null;
 	}
 }

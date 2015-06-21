@@ -44,11 +44,11 @@
 		<div class="well">
 			<form role="form" method="post" action="">
 				<div class="form-group">
-					<label for="subFolderName">Rename this folder to</label>
-					<input type="text" class="form-control" id="subFolderName" name="<?= $this->info->folderNameKey() ?>"
+					<label for="folderName">Rename this folder to</label>
+					<input type="text" class="form-control" id="folderName" name="<?= $this->info->folderNameKey() ?>"
 						value="<?= htmlspecialchars($this->info->folderName()) ?>"/>
 				</div>
-				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Rename</button>
+				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Save</button>
 				<input type="hidden" name="<?= $this->info->actionKey() ?>" value="<?= $this->info->actionRenameValue() ?>" />
 			</form>
 		</div>

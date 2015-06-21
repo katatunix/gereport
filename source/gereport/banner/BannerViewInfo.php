@@ -13,7 +13,6 @@ interface BannerViewInfo
 {
 	public function loggedMemberUsername();
 	public function currentUrl();
-	public function indexUrl();
 	public function optionsUrl();
 	public function loginUrl();
 	public function logoutUrl();

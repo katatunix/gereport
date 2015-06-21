@@ -1,11 +1,11 @@
-<h2><?= $this->title ?></h2>
+<h3><i class="glyphicon glyphicon-edit"></i> <?= htmlspecialchars($this->title) ?></h3>
 
-<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>js/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
+<script src="<?= $this->config->resDirUrl() ?>tinymce/tinymce.min.js"></script>
+<script>
 	$(document).ready(function() {
 		tinymce.init({
 			selector: "#content",
-			height: 400,
+			height: 200,
 			plugins: [
 				"advlist autolink lists link image charmap print preview anchor",
 				"searchreplace visualblocks code fullscreen",
@@ -15,27 +15,27 @@
 	});
 </script>
 
-<?php foreach ($this->info->breadcrumb() as $bread) { ?>
-	<a href="<?= $bread[1] ?>"><?= $bread[0] ?></a> /
+<?php if ($msg = $this->info->message()) { ?>
+	<div class="alert <?= $this->info->success() ? 'alert-success' : 'alert-danger' ?>">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<?= htmlspecialchars($msg) ?>
+	</div>
 <?php } ?>
 
-<form method="post" action="">
-	<br />
-	<?php if ($msg = $this->info->message()) { ?>
-		<p class="<?= $this->info->success() ? 'infoMessage' : 'errorMessage' ?>">
-			<?= $msg ?>
-		</p>
-		<br />
-	<?php } ?>
+<form role="form" method="post" action="">
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input type="text" class="form-control" name="<?= $this->info->titleKey() ?>" id="title"
+			   value="<?= htmlspecialchars($this->info->title()) ?>" />
+	</div>
 
-	<p><input type="text" name="<?= $this->info->titleKey() ?>" size="70" value="<?= htmlspecialchars($this->info->title()) ?>" />
-		&nbsp; <a href="<?= $this->info->entryUrl() ?>">View entry</a>
-	</p><br />
+	<div class="form-group">
+		<label for="content">Content</label>
+		<textarea class="form-control" name="<?= $this->info->contentKey() ?>" id="content">
+			<?= htmlspecialchars($this->info->content()) ?>
+		</textarea>
+	</div>
 
-	<p><textarea name="<?= $this->info->contentKey() ?>" id="content"
-				 class="reportTextArea"><?= htmlspecialchars($this->info->content()) ?></textarea></p>
-	<br />
-	<p>
-		<input type="submit" value="Save entry" />
-	</p>
+	<button type="submit" class="btn btn-primary">Save entry</button>
+	<a href="<?= $this->info->entryUrl() ?>" class="btn btn-default">View entry</a>
 </form>

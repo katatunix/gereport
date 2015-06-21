@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/11/2015
- * Time: 2:29 PM
- */
 
 namespace gereport\entry\edit;
 
-
 use gereport\BaseRequest;
+use gereport\router\EditEntryRouter;
 
 class EditEntryRequest extends BaseRequest
 {
@@ -38,5 +32,4 @@ class EditEntryRequest extends BaseRequest
 	{
 		return $this->httpRequest->valuePost($this->router->contentKey());
 	}
-
 }

@@ -1,15 +1,15 @@
 <div class="row">
 	<div class="col-md-3 col-sm-12">
-		<h1 id="logo"><a href="<?= $this->info->indexUrl() ?>">GE Report<span>2.0</span></a></h1>
+		<h1 id="logo"><a href="<?= $this->config->rootUrl() ?>">GE Report<span>2.0</span></a></h1>
 	</div>
 	<div class="col-md-6 col-sm-8">
 		<nav>
 			<ul class="nav nav-pills" id="menu">
 				<?php $currentUrl = $this->info->currentUrl();
-					$indexUrl = $this->info->indexUrl();
+					$rootUrl = $this->config->rootUrl();
 				?>
-				<li class="<?= $currentUrl == $indexUrl ? 'active' : '' ?>">
-					<a href="<?= $indexUrl ?>"><i class="glyphicon glyphicon-home"></i> Home</a>
+				<li class="<?= $currentUrl == $rootUrl ? 'active' : '' ?>">
+					<a href="<?= $rootUrl ?>"><i class="glyphicon glyphicon-home"></i> Home</a>
 				</li>
 
 				<?php if ($username = $this->info->loggedMemberUsername()) {

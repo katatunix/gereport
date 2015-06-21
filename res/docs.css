@@ -15,7 +15,7 @@ body { background:transparent; line-height:1.6em; }
 #menu > .active > a:hover { background:white; color:black; text-shadow:1px 1px 0 rgba(255,255,255,0.5); }
 #head form { margin:14px auto; max-width:240px; }
 #head input { border-radius:10px; background:white url('find.png') 10px center no-repeat; padding-left:32px; }
-.page { margin-top:-10px; background:white; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.7); padding-top:20px; padding-bottom:15px; }
+.page { margin-bottom: 20px;  margin-top:-10px; background:white; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.7); padding-top:20px; padding-bottom:15px; }
 h2 { margin:0 0 1em 0; padding:0 0 0.75em 0; text-align:center; color:#333; border-bottom:1px dotted #666; }
 h3 { text-align:left; color:#73796B; font-family:Georgia, serif; font-style:italic; padding:0.5em; border-bottom:1px dotted; margin:0 0 1em 0; }
 h3 > i { font-size:0.6em; }
