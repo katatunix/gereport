@@ -54,7 +54,7 @@
 		<div class="col-md-9">
 			<?php $this->content->render(); ?>
 			<p class="text-center">
-				<a href="mailto:nghia.buivan@gameloft.com" class="label label-default">nghia.buivan@gameloft.com</a>
+				<a href="mailto:nghia.buivan@gameloft.com" class="btn btn-default btn-sm">nghia.buivan@gameloft.com</a>
 			</p>
 		</div>
 	</div>

@@ -16,7 +16,8 @@ class Main
 		router\DeleteReportRouter::ROUTER	=> 'report\\delete\\DeleteReport',
 		router\FoptionsRouter::ROUTER	=> 'foptions\\Foptions',
 		router\AddEntryRouter::ROUTER	=> 'entry\\add\\AddEntry',
-		router\EditEntryRouter::ROUTER	=> 'entry\\edit\\EditEntry'
+		router\EditEntryRouter::ROUTER	=> 'entry\\edit\\EditEntry',
+		router\EntryRouter::ROUTER		=> 'entry\\Entry'
 	);
 
 	public function main()

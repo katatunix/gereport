@@ -30,7 +30,7 @@
 	}
 </script>
 
-<h3><i class="glyphicon glyphicon-leaf"></i> <?= htmlspecialchars($this->title) ?></h3>
+<h3><i class="glyphicon glyphicon-th-large"></i> <?= htmlspecialchars($this->title) ?></h3>
 
 <div class="well">
 <form role="form" class="form-inline" method="get" action="">
@@ -70,9 +70,9 @@
 		<?php foreach ($this->info->reports() as $report) { ?>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h4 class="panel-title"><?= htmlspecialchars($report['memberUsername']) ?>
+					<h4 class="panel-title"><span class="glyphicon glyphicon-user"></span> <?= htmlspecialchars($report['memberUsername']) ?>
 						<small><?= $report['isVisitor'] ? '[visitor]' : '' ?>
-							at <?= $report['datetimeAdd'] ?></small></h4>
+							<span class="glyphicon glyphicon-time"></span> <?= $report['datetimeAdd'] ?></small></h4>
 				</div>
 				<div class="panel-body">
 					<?= $report['content'] ?>
@@ -90,7 +90,7 @@
 		<?php foreach ($this->info->notReportedMemberUsernames() as $username) { ?>
 			<div class="panel panel-danger">
 				<div class="panel-heading">
-					<h4 class="panel-title"><?= htmlspecialchars($username) ?></h4>
+					<h4 class="panel-title"><span class="glyphicon glyphicon-user"></span> <?= htmlspecialchars($username) ?></h4>
 				</div>
 				<div class="panel-body">
 					No report

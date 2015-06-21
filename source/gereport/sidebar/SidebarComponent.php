@@ -114,7 +114,7 @@ class SidebarComponent extends Component implements SidebarViewInfo
 
 		if ($this->session->hasLogged())
 		{
-			$children[] = $this->makeEntry('{Folder options}', $this->foptionsRouter->url($folder->id()));
+			$children[] = $this->makeEntry('Folder options', $this->foptionsRouter->url($folder->id()));
 		}
 
 		foreach ($folder->subFolders() as $subFolder)
