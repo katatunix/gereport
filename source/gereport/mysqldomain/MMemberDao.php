@@ -4,7 +4,7 @@ namespace gereport\mysqldomain;
 
 use gereport\domain\MemberDao;
 
-class MMemberDao extends MDao implements MemberDao
+class MMemberDao extends MSql implements MemberDao
 {
 	public function findById($id)
 	{

@@ -5,7 +5,7 @@ namespace gereport\mysqldomain;
 use gereport\domain\Folder;
 use gereport\domain\FolderDao;
 
-class MFolderDao extends MDao implements FolderDao
+class MFolderDao extends MSql implements FolderDao
 {
 	/**
 	 * @param $id
@@ -35,7 +35,7 @@ class MFolderDao extends MDao implements FolderDao
 
 	public function delete($id)
 	{
-		// TODO: delete all sub-folders and entries too
+		$this->findById($id)->clear();
 		$this->deleteTableRow('folder', $id);
 	}
 }

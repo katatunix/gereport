@@ -4,7 +4,7 @@ namespace gereport\mysqldomain;
 
 use gereport\domain\ProjectDao;
 
-class MProjectDao extends MDao implements ProjectDao
+class MProjectDao extends MSql implements ProjectDao
 {
 	public function findById($id)
 	{

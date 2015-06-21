@@ -2,6 +2,7 @@
 
 namespace gereport\mysqldomain;
 
+use gereport\domain\Entry;
 use gereport\domain\Folder;
 
 class MFolder extends MBO implements Folder
@@ -68,6 +69,10 @@ class MFolder extends MBO implements Folder
 		return $structure;
 	}
 
+	/**
+	 * @return Folder[]
+	 * @throws \Exception
+	 */
 	public function subFolders()
 	{
 		$statement = $this->link->prepare('SELECT `id` from `folder` WHERE `parentId` = ?');
@@ -91,6 +96,10 @@ class MFolder extends MBO implements Folder
 		return $folders;
 	}
 
+	/**
+	 * @return Entry[]
+	 * @throws \Exception
+	 */
 	public function entries()
 	{
 		$statement = $this->link->prepare('SELECT `id` from `entry` WHERE `folderId` = ?');
@@ -135,6 +144,13 @@ class MFolder extends MBO implements Folder
 
 	public function clear()
 	{
-		// TODO: Implement clear() method.
+		foreach ($this->subFolders() as $subFolder)
+		{
+			$subFolder->clear();
+		}
+		foreach ($this->entries() as $entry)
+		{
+			$this->deleteTableRow('entry', $entry->id());
+		}
 	}
 }

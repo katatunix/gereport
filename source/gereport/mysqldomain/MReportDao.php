@@ -5,7 +5,7 @@ namespace gereport\mysqldomain;
 use gereport\DatetimeUtils;
 use gereport\domain\ReportDao;
 
-class MReportDao extends MDao implements ReportDao
+class MReportDao extends MSql implements ReportDao
 {
 	public function findById($id)
 	{

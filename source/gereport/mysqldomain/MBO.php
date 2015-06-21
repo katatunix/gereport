@@ -2,18 +2,13 @@
 
 namespace gereport\mysqldomain;
 
-abstract class MBO
+abstract class MBO extends MSql
 {
-	/**
-	 * @var \mysqli
-	 */
-	protected $link;
-
 	protected $id;
 
 	public function __construct($link, $id)
 	{
-		$this->link = $link;
+		parent::__construct($link);
 		$this->id = $id;
 	}
 

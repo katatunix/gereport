@@ -2,7 +2,7 @@
 
 namespace gereport\mysqldomain;
 
-abstract class MDao
+abstract class MSql
 {
 	/**
 	 * @var \mysqli

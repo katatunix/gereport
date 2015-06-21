@@ -5,7 +5,7 @@ namespace gereport\mysqldomain;
 use gereport\DatetimeUtils;
 use gereport\domain\EntryDao;
 
-class MEntryDao extends MDao implements EntryDao
+class MEntryDao extends MSql implements EntryDao
 {
 	public function findById($id)
 	{

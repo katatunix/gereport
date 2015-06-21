@@ -1,52 +1,5 @@
-checking an HTML source is blank (no text)
+* checking an HTML source is blank (no text)
 
-array(
-	array('isFolder' = > false, 'title' => 'Hello world', 'url' => '...'),
-	array('isFolder' = > true, 'name' => 'Yes', 'children' => array(...))
-)
-// get list of projects
-foreach project {
-	PROJECT_NAME folder
-		REPORT doc (special icon)
-		INFORMATION folder (special icon)
-			ADD_NEW_DOC item
-			EDIT_FOLDER_NAME item
-			DELETE_FOLDER item
-			
-			SUB_FOLDER_NAME item
-			SUB_FOLDER_NAME item
-			
-			DOC_NAME item
-			DOC_NAME item
-			DOC_NAME item
-			DOC_NAME item
-}
+* process HTML code entered by users
 
-
-Database:
-
-folder {
-	id,
-	name,
-	parentId
-}
-
-document {
-	id,
-	title,
-	content,
-	
-	folderId,
-	
-	authorId,
-	createdTime,
-	lastEditorId,
-	lastEditedTime
-}
-
-project {
-	id,
-	name,
-	infoFolderId
-}
-
+* null exception problem
