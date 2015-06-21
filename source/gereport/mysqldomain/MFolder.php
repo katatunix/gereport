@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/17/2015
- * Time: 3:15 PM
- */
 
 namespace gereport\mysqldomain;
 
-
 use gereport\domain\Folder;
 
-class MFolder extends MBO implements Folder {
+class MFolder extends MBO implements Folder
+{
 
 	public function name()
 	{
@@ -122,6 +116,25 @@ class MFolder extends MBO implements Folder {
 
 	public function rename($newName)
 	{
+		if (!$newName) throw new \Exception('The new folder name is empty');
 
+		$statement = $this->link->prepare('
+			UPDATE `folder` SET `name` = ? WHERE `id` = ?
+		');
+		$statement->bind_param('si', $newName, $this->id);
+
+		$message = null;
+		if (!$statement->execute())
+		{
+			$message = 'Could not rename the folder';
+		}
+
+		$statement->close();
+		if ($message) throw new \Exception($message);
+	}
+
+	public function clear()
+	{
+		// TODO: Implement clear() method.
 	}
 }

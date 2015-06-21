@@ -25,5 +25,6 @@ interface ReportDao
 	 * @return int
 	 */
 	public function insert($content, $projectId, $dateFor, $memberId);
+
 	public function delete($id);
 }

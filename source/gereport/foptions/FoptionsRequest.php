@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katat_000
- * Date: 6/19/2015
- * Time: 10:27 AM
- */
 
 namespace gereport\foptions;
 
-
 use gereport\BaseRequest;
+use gereport\router\FoptionsRouter;
 
 class FoptionsRequest extends BaseRequest
 {

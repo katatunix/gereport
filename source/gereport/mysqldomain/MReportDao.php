@@ -61,21 +61,8 @@ class MReportDao extends MDao implements ReportDao
 		return $this->link->insert_id;
 	}
 
-	public function delete($reportId)
+	public function delete($id)
 	{
-		$statement = $this->link->prepare('DELETE FROM `report` WHERE `id` = ?');
-		$statement->bind_param('i', $reportId);
-
-		$message = null;
-		if (!$statement->execute())
-		{
-			$message = 'Could not delete the report';
-		}
-		else if ($this->link->affected_rows == 0)
-		{
-			$message = 'Could not find the report';
-		}
-		$statement->close();
-		if ($message) throw new \Exception($message);
+		$this->deleteTableRow('report', $id);
 	}
 }

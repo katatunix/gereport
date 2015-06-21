@@ -17,6 +17,11 @@ interface FolderDao
 	 */
 	public function findById($id);
 
+	/**
+	 * @param $newSubFolderName
+	 * @param $parentFolderId
+	 * @return int
+	 */
 	public function insert($newSubFolderName, $parentFolderId);
 
 	public function delete($id);

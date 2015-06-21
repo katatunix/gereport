@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/11/2015
- * Time: 4:04 PM
- */
 
 namespace gereport\mysqldomain;
 

@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nghia.buivan
- * Date: 6/11/2015
- * Time: 4:16 PM
- */
 
 namespace gereport\mysqldomain;
-
 
 abstract class MDao
 {
@@ -41,5 +34,23 @@ abstract class MDao
 		$statement->close();
 		if ($message) throw new \Exception($message);
 		return $ret;
+	}
+
+	protected function deleteTableRow($table, $id)
+	{
+		$statement = $this->link->prepare('DELETE FROM `' . $table . '` WHERE `id` = ?');
+		$statement->bind_param('i', $id);
+
+		$message = null;
+		if (!$statement->execute())
+		{
+			$message = 'Could not delete the ' . $table;
+		}
+		else if ($this->link->affected_rows == 0)
+		{
+			$message = 'Could not find the ' . $table;
+		}
+		$statement->close();
+		if ($message) throw new \Exception($message);
 	}
 }

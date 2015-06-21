@@ -14,6 +14,7 @@ interface Folder
 	public function id();
 	public function name();
 	public function rename($newName);
+	public function clear();
 
 	/**
 	 * @return Folder[]

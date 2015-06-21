@@ -53,10 +53,6 @@ class MReport extends MBO implements Report
 		{
 			$message = 'Could not update the report';
 		}
-		else if ($this->link->affected_rows == 0)
-		{
-			$message = 'Could not find the report';
-		}
 
 		$statement->close();
 		if ($message) throw new \Exception($message);

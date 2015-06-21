@@ -2,64 +2,45 @@
 
 namespace gereport\foptions;
 
-use gereport\Config;
-use gereport\Controller;
+use gereport\Component;
 use gereport\domain\Folder;
-use gereport\domain\FolderDao;
 use gereport\error\Error403View;
 use gereport\Redirector;
-use gereport\Session;
+use gereport\router\FoptionsRouter;
 use gereport\View;
 
-class FoptionsController implements Controller, FoptionsViewInfo
+class FoptionsComponent extends Component implements FoptionsViewInfo
 {
+	private $folderName;
+
+	private $message, $success;
+
+	/**
+	 * @var FoptionsRouter
+	 */
+	private $foptionsRouter;
 	/**
 	 * @var FoptionsRequest
 	 */
 	private $request;
 
-	/**
-	 * @var Session
-	 */
-	private $session;
-
-	/**
-	 * @var FolderDao
-	 */
-	private $folderDao;
-
-	/**
-	 * @var Config
-	 */
-	private $config;
-
-	/**
-	 * @var FoptionsRouter
-	 */
-	private $router;
-
-	private $folderName;
-
-	private $message, $success;
-
-	public function __construct($request, $session, $folderDao, $config, $router)
+	public function __construct($httpRequest, $session, $config, $daoFactory)
 	{
-		$this->request = $request;
-		$this->session = $session;
-		$this->folderDao = $folderDao;
-		$this->config = $config;
-		$this->router  =$router;
+		parent::__construct($httpRequest, $session, $config, $daoFactory);
+
+		$this->foptionsRouter = new FoptionsRouter($this->config->rootUrl());
+		$this->request = new FoptionsRequest($this->httpRequest, $this->foptionsRouter);
 	}
 
 	/**
 	 * @return View
 	 */
-	public function process()
+	public function view()
 	{
 		if (!$this->session->hasLogged()) return new Error403View($this->config);
 
 		$folderId = $this->request->folderId();
-		$folder = $this->folderDao->findById($folderId);
+		$folder = $this->daoFactory->folder()->findById($folderId);
 		if (!$folder) return new Error403View($this->config);
 
 		if (!$this->request->isPostMethod())
@@ -89,7 +70,7 @@ class FoptionsController implements Controller, FoptionsViewInfo
 		}
 
 		$this->session->saveMessage($this->message, !$this->success);
-		$nextUrl = $this->router->url( $folderId );
+		$nextUrl = $this->foptionsRouter->url( $folderId );
 		(new Redirector($nextUrl))->redirect();
 		return null;
 	}
@@ -106,7 +87,7 @@ class FoptionsController implements Controller, FoptionsViewInfo
 
 		try
 		{
-			$this->folderDao->insert($newSubFolderName, $parentFolderId);
+			$this->daoFactory->folder()->insert($newSubFolderName, $parentFolderId);
 		}
 		catch (\Exception $ex)
 		{
@@ -149,7 +130,7 @@ class FoptionsController implements Controller, FoptionsViewInfo
 		$this->success = false;
 		try
 		{
-			$this->folderDao->delete($folderId); // TODO: delete all sub-folders and entries too
+			$this->daoFactory->folder()->delete($folderId);
 		}
 		catch (\Exception $ex)
 		{
@@ -163,5 +144,30 @@ class FoptionsController implements Controller, FoptionsViewInfo
 	public function folderName()
 	{
 		return $this->folderName;
+	}
+
+	public function folderNameKey()
+	{
+		return $this->foptionsRouter->folderNameKey();
+	}
+
+	public function actionKey()
+	{
+		return $this->foptionsRouter->actionKey();
+	}
+
+	public function actionAddValue()
+	{
+		return $this->foptionsRouter->actionAddValue();
+	}
+
+	public function actionRenameValue()
+	{
+		return $this->foptionsRouter->actionRenameValue();
+	}
+
+	public function actionDeleteValue()
+	{
+		return $this->foptionsRouter->actionDeleteValue();
 	}
 }
