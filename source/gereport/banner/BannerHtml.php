@@ -35,8 +35,8 @@
 	</div>
 
 	<div class="col-md-3 col-sm-4">
-		<form role="search">
-			<input type="text" id="srch" class="form-control" placeholder="Search" />
+		<form role="search" action="search">
+			<input type="text" class="form-control" placeholder="Search" />
 		</form>
 	</div>
 </div>

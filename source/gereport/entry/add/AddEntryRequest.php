@@ -3,6 +3,7 @@
 namespace gereport\entry\add;
 
 use gereport\BaseRequest;
+use gereport\router\AddEntryRouter;
 
 class AddEntryRequest extends BaseRequest
 {
@@ -27,8 +28,8 @@ class AddEntryRequest extends BaseRequest
 		return $this->httpRequest->valuePost($this->router->contentKey());
 	}
 
-	public function projectId()
+	public function folderId()
 	{
-		return $this->httpRequest->valueGet($this->router->projectIdKey());
+		return $this->httpRequest->valueGet($this->router->folderIdKey());
 	}
 }

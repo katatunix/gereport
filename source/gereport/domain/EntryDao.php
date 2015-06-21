@@ -19,9 +19,9 @@ interface EntryDao
 	/**
 	 * @param $title
 	 * @param $content
-	 * @param $projectId
+	 * @param $folderId
 	 * @param $authorId
 	 * @return int
 	 */
-	public function insert($title, $content, $projectId, $authorId);
+	public function insert($title, $content, $folderId, $authorId);
 }

@@ -11,4 +11,11 @@ interface FoptionsViewInfo
 	public function actionAddValue();
 	public function actionRenameValue();
 	public function actionDeleteValue();
+
+	public function message();
+	public function success();
+
+	public function isAllowDelete();
+
+	public function addEntryUrl();
 }

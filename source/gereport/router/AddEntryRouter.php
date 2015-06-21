@@ -18,8 +18,13 @@ class AddEntryRouter extends Router
 		return 'content';
 	}
 
-	public function projectIdKey()
+	public function folderIdKey()
 	{
-		return 'p';
+		return 'f';
+	}
+
+	public function url($folderId)
+	{
+		return $this->rootUrl . self::ROUTER . '?' . $this->folderIdKey() . '=' . $folderId;
 	}
 }

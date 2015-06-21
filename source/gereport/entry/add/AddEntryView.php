@@ -11,9 +11,9 @@ class AddEntryView extends View
 	 */
 	private $info;
 
-	public function __construct($config, $info)
+	public function __construct($config, $title, $info)
 	{
-		parent::__construct($config, 'Add a new entry');
+		parent::__construct($config, $title);
 		$this->info = $info;
 	}
 

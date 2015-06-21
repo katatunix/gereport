@@ -5,15 +5,18 @@ namespace gereport\foptions;
 use gereport\Component;
 use gereport\domain\Folder;
 use gereport\error\Error403View;
+use gereport\Message;
 use gereport\Redirector;
+use gereport\router\AddEntryRouter;
 use gereport\router\FoptionsRouter;
 use gereport\View;
 
 class FoptionsComponent extends Component implements FoptionsViewInfo
 {
 	private $folderName;
-
 	private $message, $success;
+	private $isAllowDelete;
+	private $addEntryUrl;
 
 	/**
 	 * @var FoptionsRouter
@@ -23,6 +26,11 @@ class FoptionsComponent extends Component implements FoptionsViewInfo
 	 * @var FoptionsRequest
 	 */
 	private $request;
+
+	/**
+	 * @var Message
+	 */
+	private $messageObj;
 
 	public function __construct($httpRequest, $session, $config, $daoFactory)
 	{
@@ -43,6 +51,12 @@ class FoptionsComponent extends Component implements FoptionsViewInfo
 		$folder = $this->daoFactory->folder()->findById($folderId);
 		if (!$folder) return new Error403View($this->config);
 
+		$parentId = null;
+		try { $parentId = $folder->parentId(); }
+		catch (\Exception $ex) { return new Error403View($this->config); }
+
+		$this->isAllowDelete = $parentId ? true : false;
+
 		if (!$this->request->isPostMethod())
 		{
 			try
@@ -53,8 +67,19 @@ class FoptionsComponent extends Component implements FoptionsViewInfo
 			{
 				return new Error403View($this->config);
 			}
+
+			if ($this->session->hasMessage())
+			{
+				$this->messageObj = $this->session->message();
+				$this->session->clearMessage();
+			}
+
+			$this->addEntryUrl = (new AddEntryRouter($this->config->rootUrl()))->url($folderId);
+
 			return new FoptionsView($this->config, 'Folder options for ' . $this->folderName, $this);
 		}
+
+		$nextFolderId = $folderId;
 
 		if ($this->request->isAdd())
 		{
@@ -67,10 +92,15 @@ class FoptionsComponent extends Component implements FoptionsViewInfo
 		else if ($this->request->isDelete())
 		{
 			$this->handleDelete($folderId);
+			if ($this->success)
+			{
+				$nextFolderId = $parentId;
+			}
 		}
 
 		$this->session->saveMessage($this->message, !$this->success);
-		$nextUrl = $this->foptionsRouter->url( $folderId );
+
+		$nextUrl = $this->foptionsRouter->url( $nextFolderId );
 		(new Redirector($nextUrl))->redirect();
 		return null;
 	}
@@ -169,5 +199,25 @@ class FoptionsComponent extends Component implements FoptionsViewInfo
 	public function actionDeleteValue()
 	{
 		return $this->foptionsRouter->actionDeleteValue();
+	}
+
+	public function message()
+	{
+		return $this->messageObj ? $this->messageObj->content : null;
+	}
+
+	public function success()
+	{
+		return $this->messageObj ? !$this->messageObj->isError : null;
+	}
+
+	public function isAllowDelete()
+	{
+		return $this->isAllowDelete;
+	}
+
+	public function addEntryUrl()
+	{
+		return $this->addEntryUrl;
 	}
 }

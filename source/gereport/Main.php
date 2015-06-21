@@ -14,7 +14,8 @@ class Main
 		router\AddReportRouter::ROUTER	=> 'report\\add\\AddReport',
 		router\EditReportRouter::ROUTER	=> 'report\\edit\\EditReport',
 		router\DeleteReportRouter::ROUTER	=> 'report\\delete\\DeleteReport',
-		router\FoptionsRouter::ROUTER	=> 'foptions\\Foptions'
+		router\FoptionsRouter::ROUTER	=> 'foptions\\Foptions',
+		router\AddEntryRouter::ROUTER	=> 'entry\\add\\AddEntry'
 	);
 
 	public function main()

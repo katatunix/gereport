@@ -42,7 +42,7 @@
 </div>
 
 <?php if ($msg = $this->info->message()) { ?>
-	<div id="resultMessage" class="alert <?= $this->info->success() ? 'alert-success' : 'alert-danger' ?>">
+	<div class="alert <?= $this->info->success() ? 'alert-success' : 'alert-danger' ?>">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<?= htmlspecialchars($msg) ?>
 	</div>

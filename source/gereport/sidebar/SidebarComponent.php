@@ -104,14 +104,14 @@ class SidebarComponent extends Component implements SidebarViewInfo
 		$folderStruct = $this->makeFolder($folder->name());
 		$children = array();
 
-		foreach ($folder->subFolders() as $subFolder)
-		{
-			$children[] = $this->makeFolderFull($subFolder);
-		}
-
 		if ($this->session->hasLogged())
 		{
 			$children[] = $this->makeEntry('Folder options', $this->foptionsRouter->url($folder->id()));
+		}
+
+		foreach ($folder->subFolders() as $subFolder)
+		{
+			$children[] = $this->makeFolderFull($subFolder);
 		}
 
 		foreach ($folder->entries() as $entry)

@@ -21,10 +21,10 @@
 
 	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?= $this->config->resDirUrl() ?>feed.xml" />
 
-	<meta property="og:title" content="jstree" />
+	<meta property="og:title" content="gereport" />
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="jsTree is jquery plugin, that provides interactive trees." />
-	<meta property="og:url" content="http://www.jstree.com/" />
+	<meta property="og:description" content="gereport is the report system for GE team" />
+	<meta property="og:url" content="<?= $this->config->rootUrl() ?>" />
 	<meta property="og:image" content="jstree.png" />
 
 	<link rel="search" type="application/opensearchdescription+xml" href="<?= $this->config->resDirUrl() ?>opensearch.xml" title="Search jstree API" />
@@ -57,7 +57,7 @@
 
 </div>
 
-<a class="hidden-xs hidden-sm" href="https://github.com/vakata/jstree">
+<a class="hidden-xs hidden-sm" href="https://github.com">
 	<img style="position: absolute; top: 0; left: 0; border: 0;" src="<?= $this->config->resDirUrl() ?>forkme_left_green_007200.png" alt="Fork me on GitHub">
 </a>
 

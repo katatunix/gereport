@@ -6,6 +6,8 @@ interface Folder
 {
 	public function id();
 	public function name();
+	public function parentId();
+
 	public function rename($newName);
 	public function clear();
 

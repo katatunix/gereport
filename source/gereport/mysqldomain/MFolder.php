@@ -7,66 +7,14 @@ use gereport\domain\Folder;
 
 class MFolder extends MBO implements Folder
 {
-
 	public function name()
 	{
 		return $this->retrieve('folder', 'name');
 	}
 
-	public function structureArray()
+	public function parentId()
 	{
-		$structure = array('isFolder' => true, 'name' => $this->name(), 'children' => array());
-
-		// Folders
-		$statement = $this->link->prepare('SELECT `id` from `folder` WHERE `parentId` = ?');
-		$statement->bind_param('i', $this->id);
-		$ok = $statement->execute();
-
-		$childIds = array();
-		if ($ok)
-		{
-			$result = $statement->get_result();
-			while ($row = $result->fetch_array())
-			{
-				$childIds[] = $row['id'];
-			}
-			$result->free_result();
-		}
-
-		$statement->close();
-		if (!$ok) throw new \Exception('Could not retrieve the folder structure');
-
-		foreach ($childIds as $folderId)
-		{
-			$folder = new MFolder($this->link, $folderId);
-			$structure['children'][] = $folder->structureArray();
-		}
-
-		// Entries
-		$statement = $this->link->prepare('SELECT `id` from `entry` WHERE `folderId` = ?');
-		$statement->bind_param('i', $this->id);
-		$ok = $statement->execute();
-
-		if ($ok)
-		{
-			$result = $statement->get_result();
-			while ($row = $result->fetch_array())
-			{
-				$childIds[] = $row['id'];
-			}
-			$result->free_result();
-		}
-
-		$statement->close();
-		if (!$ok) throw new \Exception('Could not retrieve the folder structure');
-
-		foreach ($childIds as $entryId)
-		{
-			$entry = new MEntry($this->link, $entryId);
-			$structure['children'][] = array('isFolder' => false, 'title' => $entry->title(), 'id' => $entryId);
-		}
-
-		return $structure;
+		return $this->retrieve('folder', 'parentId');
 	}
 
 	/**
@@ -75,7 +23,7 @@ class MFolder extends MBO implements Folder
 	 */
 	public function subFolders()
 	{
-		$statement = $this->link->prepare('SELECT `id` from `folder` WHERE `parentId` = ?');
+		$statement = $this->link->prepare('SELECT `id` from `folder` WHERE `parentId` = ? ORDER BY `name`');
 		$statement->bind_param('i', $this->id);
 		$ok = $statement->execute();
 
@@ -147,6 +95,7 @@ class MFolder extends MBO implements Folder
 		foreach ($this->subFolders() as $subFolder)
 		{
 			$subFolder->clear();
+			$this->deleteTableRow('folder', $subFolder->id());
 		}
 		foreach ($this->entries() as $entry)
 		{
