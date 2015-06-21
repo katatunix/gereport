@@ -2,6 +2,6 @@
 
 * process HTML code entered by users
 
-* null exception problem
+* null exception problem of findById()
 
 * htmlspecialchars

@@ -53,7 +53,7 @@
 		</div>
 		<div class="col-md-9">
 			<?php $this->content->render(); ?>
-			<p class="text-center">
+			<p class="text-center" style="margin-top: 20px">
 				<a href="mailto:nghia.buivan@gameloft.com" class="btn btn-default btn-sm">nghia.buivan@gameloft.com</a>
 			</p>
 		</div>

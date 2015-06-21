@@ -14,6 +14,7 @@ interface EntryViewInfo
 	public function lastEditedTime();
 
 	public function editEntryUrl();
+	public function deleteEntryUrl();
 
 	public function canBeManuplated();
 }

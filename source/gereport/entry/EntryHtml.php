@@ -30,9 +30,12 @@
 <?php if ($this->info->canBeManuplated()) { ?>
 <div class="row">
 	<div class="col-md-12 text-right">
-		<a href="<?= $this->info->editEntryUrl() ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span>
+		<a href="<?= $this->info->editEntryUrl() ?>" class="btn btn-primary btn-sm">
+			<span class="glyphicon glyphicon-edit"></span>
 			Edit</a>
-		<a href="<?= '#' ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+		<a href="<?= $this->info->deleteEntryUrl() ?>" class="btn btn-danger btn-sm">
+			<span class="glyphicon glyphicon-remove"></span>
+			Delete</a>
 	</div>
 </div>
 <?php } ?>

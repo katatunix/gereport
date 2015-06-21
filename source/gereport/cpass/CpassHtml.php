@@ -28,7 +28,7 @@
 				<label for="confirm">Confirm password</label>
 				<input type="password" class="form-control" id="confirm" name="<?= $this->info->confirmKey() ?>">
 			</div>
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-primary btn-block">Save</button>
 		</form>
 	</div>
 	<div class="col-md-3"></div>

@@ -5,6 +5,7 @@ namespace gereport\entry;
 use gereport\Component;
 use gereport\domain\Entry;
 use gereport\error\Error403View;
+use gereport\router\DeleteEntryRouter;
 use gereport\router\EditEntryRouter;
 use gereport\router\EntryRouter;
 use gereport\View;
@@ -63,6 +64,11 @@ class EntryComponent extends Component implements EntryViewInfo
 	public function editEntryUrl()
 	{
 		return (new EditEntryRouter($this->config->rootUrl()))->url($this->entry->id());
+	}
+
+	public function deleteEntryUrl()
+	{
+		return (new DeleteEntryRouter($this->config->rootUrl()))->url($this->entry->id());
 	}
 
 	public function canBeManuplated()
