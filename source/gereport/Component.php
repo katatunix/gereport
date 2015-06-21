@@ -36,4 +36,9 @@ abstract class Component
 	 * @return View
 	 */
 	public abstract function view();
+
+	public function categoryUrl()
+	{
+		return $this->httpRequest->url();
+	}
 }

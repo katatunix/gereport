@@ -7,6 +7,7 @@ use gereport\error\Error403View;
 use gereport\Redirector;
 use gereport\router\AddEntryRouter;
 use gereport\router\EditEntryRouter;
+use gereport\router\FoptionsRouter;
 use gereport\View;
 
 class AddEntryComponent extends Component implements AddEntryViewInfo
@@ -100,5 +101,10 @@ class AddEntryComponent extends Component implements AddEntryViewInfo
 	public function message()
 	{
 		return $this->message;
+	}
+
+	public function categoryUrl()
+	{
+		return (new FoptionsRouter($this->config->rootUrl()))->url( $this->request->folderId() );
 	}
 }

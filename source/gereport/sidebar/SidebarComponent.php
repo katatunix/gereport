@@ -25,6 +25,14 @@ class SidebarComponent extends Component implements SidebarViewInfo
 	 */
 	private $entryRouter;
 
+	private $currentUrl;
+
+	public function __construct($httpRequest, $session, $config, $daoFactory, $currentUrl)
+	{
+		parent::__construct($httpRequest, $session, $config, $daoFactory);
+		$this->currentUrl = $currentUrl;
+	}
+
 	/**
 	 * @return View
 	 */
@@ -60,7 +68,7 @@ class SidebarComponent extends Component implements SidebarViewInfo
 
 	public function currentUrl()
 	{
-		return $this->httpRequest->url();
+		return $this->currentUrl;
 	}
 
 	/**

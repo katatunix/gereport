@@ -222,4 +222,9 @@ class ReportComponent extends Component implements ReportViewInfo
 	{
 		return $this->deleteReportRouter->nextUrlKey();
 	}
+
+	public function categoryUrl()
+	{
+		return $this->reportRouter->url($this->projectId());
+	}
 }
