@@ -24,4 +24,6 @@ interface EntryDao
 	 * @return int
 	 */
 	public function insert($title, $content, $folderId, $authorId);
+
+	public function delete($id);
 }

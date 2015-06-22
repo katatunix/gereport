@@ -5,6 +5,7 @@ namespace gereport\foptions;
 use gereport\Component;
 use gereport\domain\Folder;
 use gereport\error\Error403View;
+use gereport\error\Error404View;
 use gereport\Message;
 use gereport\Redirector;
 use gereport\router\AddEntryRouter;
@@ -40,20 +41,36 @@ class FoptionsComponent extends Component implements FoptionsViewInfo
 		$this->request = new FoptionsRequest($this->httpRequest, $this->foptionsRouter);
 	}
 
+	private function error403()
+	{
+		return new Error403View($this->config);
+	}
+
+	private function error404()
+	{
+		return new Error404View($this->config);
+	}
+
 	/**
 	 * @return View
 	 */
 	public function view()
 	{
-		if (!$this->session->hasLogged()) return new Error403View($this->config);
+		if (!$this->session->hasLogged()) return $this->error403();
 
 		$folderId = $this->request->folderId();
-		$folder = $this->daoFactory->folder()->findById($folderId);
-		if (!$folder) return new Error403View($this->config);
+		try
+		{
+			$folder = $this->daoFactory->folder()->findById($folderId);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->error404();
+		}
 
 		$parentId = null;
 		try { $parentId = $folder->parentId(); }
-		catch (\Exception $ex) { return new Error403View($this->config); }
+		catch (\Exception $ex) { return $this->error404(); }
 
 		$this->isAllowDelete = $parentId ? true : false;
 

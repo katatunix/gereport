@@ -4,7 +4,7 @@ namespace gereport\entry\edit;
 
 use gereport\Component;
 use gereport\domain\Entry;
-use gereport\error\Error403View;
+use gereport\error\Error404View;
 use gereport\router\EditEntryRouter;
 use gereport\router\EntryRouter;
 use gereport\View;
@@ -36,7 +36,7 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 
 	private function error()
 	{
-		return new Error403View($this->config);
+		return new Error404View($this->config);
 	}
 
 	/**
@@ -46,8 +46,14 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 	{
 		if (!$this->session->hasLogged()) return $this->error();
 
-		$entry = $this->daoFactory->entry()->findById($this->request->entryId());
-		if (!$entry) return $this->error();
+		try
+		{
+			$entry = $this->daoFactory->entry()->findById($this->request->entryId());
+		}
+		catch (\Exception $ex)
+		{
+			return $this->error();
+		}
 
 		$this->message = null;
 		$this->success = true;

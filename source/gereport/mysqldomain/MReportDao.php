@@ -9,7 +9,7 @@ class MReportDao extends MSql implements ReportDao
 {
 	public function findById($id)
 	{
-		if (!$this->exists('report', $id)) return null;
+		if (!$this->exists('report', $id)) throw new \Exception('The report is not found');
 		return new MReport($this->link, $id);
 	}
 

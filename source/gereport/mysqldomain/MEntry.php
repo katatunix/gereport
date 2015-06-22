@@ -69,4 +69,9 @@ class MEntry extends MBO implements Entry
 		// TODO
 		return $memberId ? true : false;
 	}
+
+	public function folderId()
+	{
+		return $this->retrieve('entry', 'folderId');
+	}
 }

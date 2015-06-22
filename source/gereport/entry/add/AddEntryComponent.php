@@ -4,6 +4,7 @@ namespace gereport\entry\add;
 
 use gereport\Component;
 use gereport\error\Error403View;
+use gereport\error\Error404View;
 use gereport\Redirector;
 use gereport\router\AddEntryRouter;
 use gereport\router\EditEntryRouter;
@@ -31,9 +32,14 @@ class AddEntryComponent extends Component implements AddEntryViewInfo
 		$this->request = new AddEntryRequest($httpRequest, $this->router);
 	}
 
-	private function error()
+	private function error403()
 	{
 		return new Error403View($this->config);
+	}
+
+	private function error404()
+	{
+		return new Error404View($this->config);
 	}
 
 	/**
@@ -41,13 +47,13 @@ class AddEntryComponent extends Component implements AddEntryViewInfo
 	 */
 	public function view()
 	{
-		if (!$this->session->hasLogged()) return $this->error();
+		if (!$this->session->hasLogged()) return $this->error403();
 
 		$folderId = $this->request->folderId();
 
 		$folderName = null;
 		try { $folderName = $this->daoFactory->folder()->findById($folderId)->name(); }
-		catch (\Exception $ex) { return $this->error(); }
+		catch (\Exception $ex) { return $this->error404(); }
 
 		$this->message = null;
 		if ($this->request->isPostMethod())

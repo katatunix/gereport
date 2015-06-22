@@ -8,7 +8,7 @@ class MProjectDao extends MSql implements ProjectDao
 {
 	public function findById($id)
 	{
-		if (!$this->exists('project', $id)) return null;
+		if (!$this->exists('project', $id)) throw new \Exception('The project is not found');
 		return new MProject($this->link, $id);
 	}
 

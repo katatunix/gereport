@@ -5,19 +5,20 @@ namespace gereport;
 class Main
 {
 	private $servletMap = array(
-		router\IndexRouter::ROUTER		=> 'index\\Index',
-		router\LoginRouter::ROUTER		=> 'login\\Login',
-		router\LogoutRouter::ROUTER		=> 'logout\\Logout',
-		router\OptionsRouter::ROUTER	=> 'options\\Options',
-		router\CpassRouter::ROUTER		=> 'cpass\\Cpass',
-		router\ReportRouter::ROUTER		=> 'report\\Report',
-		router\AddReportRouter::ROUTER	=> 'report\\add\\AddReport',
-		router\EditReportRouter::ROUTER	=> 'report\\edit\\EditReport',
+		router\IndexRouter::ROUTER			=> 'index\\Index',
+		router\LoginRouter::ROUTER			=> 'login\\Login',
+		router\LogoutRouter::ROUTER			=> 'logout\\Logout',
+		router\OptionsRouter::ROUTER		=> 'options\\Options',
+		router\CpassRouter::ROUTER			=> 'cpass\\Cpass',
+		router\ReportRouter::ROUTER			=> 'report\\Report',
+		router\AddReportRouter::ROUTER		=> 'report\\add\\AddReport',
+		router\EditReportRouter::ROUTER		=> 'report\\edit\\EditReport',
 		router\DeleteReportRouter::ROUTER	=> 'report\\delete\\DeleteReport',
-		router\FoptionsRouter::ROUTER	=> 'foptions\\Foptions',
-		router\AddEntryRouter::ROUTER	=> 'entry\\add\\AddEntry',
-		router\EditEntryRouter::ROUTER	=> 'entry\\edit\\EditEntry',
-		router\EntryRouter::ROUTER		=> 'entry\\Entry'
+		router\FoptionsRouter::ROUTER		=> 'foptions\\Foptions',
+		router\EntryRouter::ROUTER			=> 'entry\\Entry',
+		router\AddEntryRouter::ROUTER		=> 'entry\\add\\AddEntry',
+		router\EditEntryRouter::ROUTER		=> 'entry\\edit\\EditEntry',
+		router\DeleteEntryRouter::ROUTER	=> 'entry\\delete\\DeleteEntry'
 	);
 
 	public function main()

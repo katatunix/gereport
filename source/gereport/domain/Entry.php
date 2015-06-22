@@ -18,4 +18,5 @@ interface Entry
 
 	public function update($title, $content, $editorId);
 
+	public function folderId();
 }

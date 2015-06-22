@@ -8,7 +8,7 @@ class MMemberDao extends MSql implements MemberDao
 {
 	public function findById($id)
 	{
-		if (!$this->exists('member', $id)) return null;
+		if (!$this->exists('member', $id)) throw new \Exception('The member is not found');
 		return new MMember($this->link, $id);
 	}
 

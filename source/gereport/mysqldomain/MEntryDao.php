@@ -3,13 +3,19 @@
 namespace gereport\mysqldomain;
 
 use gereport\DatetimeUtils;
+use gereport\domain\Entry;
 use gereport\domain\EntryDao;
 
 class MEntryDao extends MSql implements EntryDao
 {
+	/**
+	 * @param $id
+	 * @return Entry
+	 * @throws \Exception
+	 */
 	public function findById($id)
 	{
-		if (!$this->exists('entry', $id)) return null;
+		if (!$this->exists('entry', $id)) throw new \Exception('The entry is not found');
 		return new MEntry($this->link, $id);
 	}
 
@@ -34,5 +40,10 @@ class MEntryDao extends MSql implements EntryDao
 		if (!$ok) throw new \Exception('Could not insert the entry');
 
 		return $this->link->insert_id;
+	}
+
+	public function delete($id)
+	{
+		$this->deleteTableRow('entry', $id);
 	}
 }

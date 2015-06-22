@@ -9,11 +9,12 @@ class MFolderDao extends MSql implements FolderDao
 {
 	/**
 	 * @param $id
+	 * @throws \Exception
 	 * @return Folder
 	 */
 	public function findById($id)
 	{
-		if (!$this->exists('folder', $id)) return null;
+		if (!$this->exists('folder', $id)) throw new \Exception('The folder is not found');
 		return new MFolder($this->link, $id);
 	}
 

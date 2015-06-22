@@ -4,7 +4,7 @@ namespace gereport\entry;
 
 use gereport\Component;
 use gereport\domain\Entry;
-use gereport\error\Error403View;
+use gereport\error\Error404View;
 use gereport\router\DeleteEntryRouter;
 use gereport\router\EditEntryRouter;
 use gereport\router\EntryRouter;
@@ -16,6 +16,7 @@ class EntryComponent extends Component implements EntryViewInfo
 	 * @var Entry
 	 */
 	private $entry;
+
 	/**
 	 * @return View
 	 */
@@ -23,10 +24,13 @@ class EntryComponent extends Component implements EntryViewInfo
 	{
 		$router = new EntryRouter($this->config->rootUrl());
 		$request = new EntryRequest($this->httpRequest, $router);
-		$this->entry = $this->daoFactory->entry()->findById($request->entryId());
-		if (!$this->entry)
+		try
 		{
-			return new Error403View($this->config);
+			$this->entry = $this->daoFactory->entry()->findById($request->entryId());
+		}
+		catch (\Exception $ex)
+		{
+			return new Error404View($this->config);
 		}
 		return new EntryView($this->config, $this->entry->title(), $this);
 	}

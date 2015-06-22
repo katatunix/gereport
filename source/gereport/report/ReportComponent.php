@@ -4,12 +4,11 @@ namespace gereport\report;
 
 use gereport\Component;
 use gereport\DatetimeUtils;
+use gereport\error\Error404View;
 use gereport\Message;
-use gereport\Redirector;
 use gereport\router\AddReportRouter;
 use gereport\router\DeleteReportRouter;
 use gereport\router\EditReportRouter;
-use gereport\router\IndexRouter;
 use gereport\router\ReportRouter;
 use gereport\View;
 
@@ -58,9 +57,7 @@ class ReportComponent extends Component implements ReportViewInfo
 		}
 		catch (\Exception $ex)
 		{
-			$url = (new IndexRouter($rootUrl))->url();
-			(new Redirector( $url ))->redirect();
-			return null;
+			return new Error404View($this->config);
 		}
 
 		$this->date = $this->request->date();
