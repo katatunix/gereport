@@ -12,9 +12,9 @@ class MProjectDao extends MSql implements ProjectDao
 		return new MProject($this->link, $id);
 	}
 
-	public function findByAllAndSortByName()
+	public function findByAll()
 	{
-		$statement = $this->link->prepare('SELECT `id` FROM `project` ORDER BY `name`');
+		$statement = $this->link->prepare('SELECT `id` FROM `project` ORDER BY `order`');
 
 		$projects = null;
 		$message = null;

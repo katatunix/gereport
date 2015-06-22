@@ -30,7 +30,7 @@
 <?php if ($this->info->canBeManuplated()) { ?>
 <script>
 	function gotoDeleteEntry(url) {
-		if (confirm('ARE YOU SURE?')) {
+		if (confirm('ARE YOU SURE TO DELETE THIS ENTRY?')) {
 			window.location = url;
 		}
 	}

@@ -54,7 +54,7 @@ class SidebarComponent extends Component implements SidebarViewInfo
 
 		try
 		{
-			foreach ($this->daoFactory->project()->findByAllAndSortByName() as $project)
+			foreach ($this->daoFactory->project()->findByAll() as $project)
 			{
 				$rootStructures[] = $this->makeFolderForProject($project);
 			}

@@ -20,5 +20,5 @@ interface ProjectDao
 	/**
 	 * @return Project[]
 	 */
-	public function findByAllAndSortByName();
+	public function findByAll();
 }
