@@ -1,5 +1,3 @@
-<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>ckeditor/ckeditor.js"></script>
-
 <script type="text/javascript">
 	$(function() {
 		$('#d').datepicker({
@@ -8,12 +6,6 @@
 			showOtherMonths: true,
 			showButtonPanel: true,
 			closeText: 'Close'
-		});
-
-		CKEDITOR.replace('content', {
-			'extraPlugins' : 'autogrow',
-			'autoGrow_bottomSpace' : 50,
-			'autoGrow_onStartup' : true
 		});
 	});
 
@@ -53,6 +45,7 @@
 	<h4>Compose a report</h4>
 	<div class="form-group">
 		<textarea class="form-control" name="<?= $this->info->addReportContentKey() ?>" id="reportContent"></textarea>
+		<?php $this->editorView->render(); ?>
 	</div>
 
 	<button type="submit" class="btn btn-primary">Submit report</button>

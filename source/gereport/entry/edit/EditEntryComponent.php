@@ -5,6 +5,7 @@ namespace gereport\entry\edit;
 use gereport\Component;
 use gereport\domain\Entry;
 use gereport\error\Error404View;
+use gereport\Redirector;
 use gereport\router\EditEntryRouter;
 use gereport\router\EntryRouter;
 use gereport\View;
@@ -65,6 +66,11 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 		else
 		{
 			$this->handlePOST($entry);
+			if ($this->success && $this->request->isSaveAndView())
+			{
+				(new Redirector($this->entryUrl()))->redirect();
+				return null;
+			}
 		}
 
 		return new EditEntryView($this->config, $this);
@@ -148,6 +154,11 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 	public function entryUrl()
 	{
 		return (new EntryRouter($this->config->rootUrl()))->url($this->request->entryId());
+	}
+
+	public function isSaveAndViewKey()
+	{
+		return $this->editEntryRouter->isSaveAndViewKey();
 	}
 
 	public function categoryUrl()

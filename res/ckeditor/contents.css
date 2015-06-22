@@ -51,6 +51,7 @@ blockquote
 a
 {
 	color: #0782C1;
+	text-decoration: none;
 }
 
 ol,ul,dl

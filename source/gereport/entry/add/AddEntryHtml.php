@@ -1,16 +1,5 @@
 <h3><i class="glyphicon glyphicon-plus"></i> <?= htmlspecialchars($this->title) ?></h3>
 
-<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>ckeditor/ckeditor.js"></script>
-<script type="text/javascript">
-	$(function() {
-		CKEDITOR.replace('content', {
-			'extraPlugins' : 'autogrow',
-			'autoGrow_bottomSpace' : 50,
-			'autoGrow_onStartup' : true
-		});
-	});
-</script>
-
 <?php if ($msg = $this->info->message()) { ?>
 	<div class="alert alert-danger"><?= htmlspecialchars($msg) ?></div>
 <?php } ?>
@@ -27,6 +16,7 @@
 		<textarea class="form-control" name="<?= $this->info->contentKey() ?>" id="content">
 			<?= htmlspecialchars($this->info->content()) ?>
 		</textarea>
+		<?php $this->editorView->render(); ?>
 	</div>
 
 	<button type="submit" class="btn btn-primary">Submit entry</button>

@@ -32,4 +32,9 @@ class EditEntryRequest extends BaseRequest
 	{
 		return $this->httpRequest->valuePost($this->router->contentKey());
 	}
+
+	public function isSaveAndView()
+	{
+		return $this->httpRequest->valuePost($this->router->isSaveAndViewKey());
+	}
 }

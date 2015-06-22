@@ -30,6 +30,11 @@ class EditEntryRouter extends Router
 		return 'content';
 	}
 
+	public function isSaveAndViewKey()
+	{
+		return 'isSaveAndView';
+	}
+
 	public function url($entryId)
 	{
 		return $this->rootUrl . self::ROUTER . '?' . $this->entryIdKey() . '=' . $entryId;

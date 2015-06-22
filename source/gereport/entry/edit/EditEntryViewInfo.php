@@ -14,4 +14,6 @@ interface EditEntryViewInfo
 	public function success();
 
 	public function entryUrl();
+
+	public function isSaveAndViewKey();
 }
