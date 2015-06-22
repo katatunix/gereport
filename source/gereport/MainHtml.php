@@ -19,15 +19,11 @@
 	<link rel="icon" href="<?= $this->config->resDirUrl() ?>favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon-precomposed" href="<?= $this->config->resDirUrl() ?>apple-touch-icon-precomposed.png" />
 
-	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?= $this->config->resDirUrl() ?>feed.xml" />
-
 	<meta property="og:title" content="gereport" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="gereport is the report system for GE team" />
 	<meta property="og:url" content="<?= $this->config->rootUrl() ?>" />
 	<meta property="og:image" content="jstree.png" />
-
-	<link rel="search" type="application/opensearchdescription+xml" href="<?= $this->config->resDirUrl() ?>opensearch.xml" title="Search jstree API" />
 
 	<link href="<?= $this->config->resDirUrl() ?>jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" />
 

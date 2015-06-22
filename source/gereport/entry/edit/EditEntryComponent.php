@@ -121,6 +121,11 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 		}
 	}
 
+	private function entryUrl()
+	{
+		return (new EntryRouter($this->config->rootUrl()))->url($this->request->entryId());
+	}
+
 	public function title()
 	{
 		return $this->entryTitle;
@@ -149,11 +154,6 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 	public function success()
 	{
 		return $this->success;
-	}
-
-	public function entryUrl()
-	{
-		return (new EntryRouter($this->config->rootUrl()))->url($this->request->entryId());
 	}
 
 	public function isSaveAndViewKey()

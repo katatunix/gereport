@@ -10,10 +10,8 @@ interface EditEntryViewInfo
 	public function titleKey();
 	public function contentKey();
 
+	public function isSaveAndViewKey();
+
 	public function message();
 	public function success();
-
-	public function entryUrl();
-
-	public function isSaveAndViewKey();
 }
