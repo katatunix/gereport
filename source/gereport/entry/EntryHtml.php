@@ -4,17 +4,17 @@
 	<div class="col-md-6">
 		<div class="text-right">Created by
 			<span class="glyphicon glyphicon-user"></span>
-			<span class="label label-primary"><?= $this->info->authorUsername() ?></span>
+			<?= $this->info->authorUsername() ?>
 			<span class="glyphicon glyphicon-time"></span>
-			<span class="label label-primary"><?= $this->info->createdTime() ?></span>
+			<?= $this->info->createdTime() ?>
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="text-right">Last edited by
 			<span class="glyphicon glyphicon-user"></span>
-			<span class="label label-primary"><?= $this->info->lastEditorUsername() ?></span>
+			<?= $this->info->lastEditorUsername() ?>
 			<span class="glyphicon glyphicon-time"></span>
-			<span class="label label-primary"><?= $this->info->lastEditedTime() ?></span>
+			<?= $this->info->lastEditedTime() ?>
 		</div>
 	</div>
 </div>
@@ -23,7 +23,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="well"><?= $this->info->content() ?></div>
+		<div class="well report"><?= $this->info->content() ?></div>
 	</div>
 </div>
 

@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>ckeditor/ckeditor.js"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -9,15 +9,11 @@
 			showButtonPanel: true,
 			closeText: 'Close'
 		});
-		
-		tinymce.init({
-			selector: "#reportContent",
-			height: 250,
-			plugins: [
-				"advlist autolink lists link image charmap print preview anchor",
-				"searchreplace visualblocks code fullscreen",
-				"insertdatetime media table contextmenu paste"
-			]
+
+		CKEDITOR.replace('content', {
+			'extraPlugins' : 'autogrow',
+			'autoGrow_bottomSpace' : 50,
+			'autoGrow_onStartup' : true
 		});
 	});
 
@@ -74,7 +70,7 @@
 						<small><?= $report['isVisitor'] ? '[visitor]' : '' ?>
 							<span class="glyphicon glyphicon-time"></span> <?= $report['datetimeAdd'] ?></small></h4>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body report">
 					<?= $report['content'] ?>
 					<?php if ($report['canBeManuplated']) { ?>
 						<div style="float: right">

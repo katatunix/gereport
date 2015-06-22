@@ -1,16 +1,12 @@
 <h3><i class="glyphicon glyphicon-edit"></i> <?= htmlspecialchars($this->title) ?></h3>
 
-<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?= $this->config->resDirUrl() ?>ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		tinymce.init({
-			selector: "#content",
-			height: 300,
-			plugins: [
-				"advlist autolink lists link image charmap print preview anchor",
-				"searchreplace visualblocks code fullscreen",
-				"insertdatetime media table contextmenu paste"
-			]
+	$(function() {
+		CKEDITOR.replace('content', {
+			'extraPlugins' : 'autogrow',
+			'autoGrow_bottomSpace' : 50,
+			'autoGrow_onStartup' : true
 		});
 	});
 </script>
