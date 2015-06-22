@@ -93,7 +93,10 @@ pre .point { display:inline-block; border-radius:5px; width:100%; padding:5px 0;
 .report table { margin-bottom: 20px; }
 
 .report h1, .report h2, .report h3, .report h4, .report h5, .report h6 {
-	font-weight: normal; line-height: 1.2; border-bottom: 0; color: #000; font-family: Arial,serif; font-style: normal; margin-bottom: 10px; padding: 0; text-align: left; margin-top:10px;
+	border: 0; color: #000;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-style: normal; padding: 0; text-align: left;
+	margin-top: 10px; margin-bottom: 10px;
 }
 
 .report h1 { font-size: 22px; }
@@ -112,5 +115,6 @@ pre .point { display:inline-block; border-radius:5px; width:100%; padding:5px 0;
 
 .report blockquote {
 	font-style: italic;
-	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 14px;
+	margin-left: 20px;
 }
