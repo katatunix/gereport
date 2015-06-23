@@ -50,7 +50,8 @@ class MFolder extends MBO implements Folder
 	 */
 	public function entries()
 	{
-		$statement = $this->link->prepare('SELECT `id` from `entry` WHERE `folderId` = ? ORDER BY `lastEditedTime` DESC');
+		//$statement = $this->link->prepare('SELECT `id` from `entry` WHERE `folderId` = ? ORDER BY `lastEditedTime` DESC');
+		$statement = $this->link->prepare('SELECT `id` from `entry` WHERE `folderId` = ? ORDER BY `title`');
 		$statement->bind_param('i', $this->id);
 		$ok = $statement->execute();
 
