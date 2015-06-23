@@ -2,7 +2,7 @@
 <script>
 	$(function() {
 		CKEDITOR.replace('<?= $this->id ?>', {
-			'extraPlugins' : 'autogrow',
+			'extraPlugins' : 'autogrow,colorbutton,colordialog',
 			'autoGrow_bottomSpace' : 20,
 			'autoGrow_onStartup' : true
 		});
