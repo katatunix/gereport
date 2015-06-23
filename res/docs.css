@@ -94,6 +94,8 @@ pre .point { display:inline-block; border-radius:5px; width:100%; padding:5px 0;
 
 .report th, .report td { padding: 5px; }
 
+.report th { text-align: center; }
+
 .report table { margin-bottom: 20px; }
 
 .report h1, .report h2, .report h3, .report h4, .report h5, .report h6 {
