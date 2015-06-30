@@ -35,9 +35,14 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 		$this->request = new EditEntryRequest($this->httpRequest, $this->editEntryRouter);
 	}
 
-	private function error()
+	private function error404()
 	{
 		return new Error404View($this->config);
+	}
+	
+	private function error403()
+	{
+		return new Error403View($this->config);
 	}
 
 	/**
@@ -45,7 +50,7 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 	 */
 	public function view()
 	{
-		if (!$this->session->hasLogged()) return $this->error();
+		if (!$this->session->hasLogged()) return $this->error403();
 
 		try
 		{
@@ -53,7 +58,7 @@ class EditEntryComponent extends Component implements EditEntryViewInfo
 		}
 		catch (\Exception $ex)
 		{
-			return $this->error();
+			return $this->error404();
 		}
 
 		$this->message = null;
